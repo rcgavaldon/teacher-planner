@@ -784,6 +784,15 @@ function applyLinkIdentity(){ try{
   Object.keys(map).forEach(k=>{ if(q.has(k)){ const v=String(q.get(k)||"").slice(0,80); if(S.settings[map[k]]!==v){ S.settings[map[k]]=v; changed=true; } } });
   if(changed) save();
 }catch(e){} }
+// A shared link like ?seed=sebastian loads a pre-baked bundle (their courses + weeks) ONCE, replacing the default starter courses.
+async function maybeApplySeed(){ try{
+  const name=new URLSearchParams(location.search).get("seed"); if(!name||!/^[a-z0-9_-]{1,40}$/i.test(name)) return false;
+  if(S._seedApplied===name) return false;                 // already loaded — never re-import over their own edits
+  const r=await fetch("seeds/"+name+".json",{cache:"no-store"}); if(!r.ok) return false;
+  const seed=await r.json(); if(!seed||!Array.isArray(seed.courses)||!seed.courses.length) return false;
+  S=_hydrate(seed); S._seedApplied=name; try{save();}catch(_){}
+  return true;
+}catch(e){ return false; } }
 const $=(s,r=document)=>r.querySelector(s);
 const el=(h)=>{const t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstChild;};
 const esc=(s="")=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
@@ -3810,7 +3819,7 @@ function tourShow(i){
 function startTour(){ tourEnd(false); tourShow(0); }
 window.addEventListener("resize",()=>{ if(_tourI>=0) tourShow(_tourI); });
 
-window.addEventListener("DOMContentLoaded",()=>{ diagInstall(); applyLinkIdentity(); normalizeAllDays(); const added=seedCourses(); seedWeek1(); const al=autoLockPastDays(); tab = S.courses.length ? "home" : (!S.settings.apiKey ? "setup" : "home"); render(); if(al) setTimeout(()=>toast("🔒 Auto-locked "+al+" past day"+(al>1?"s":"")+" — history is safe from regeneration"),600); setTimeout(maybeAutoBackup,2500);
+window.addEventListener("DOMContentLoaded",async ()=>{ diagInstall(); applyLinkIdentity(); await maybeApplySeed(); normalizeAllDays(); const added=S._seedApplied?"":seedCourses(); if(!S._seedApplied)seedWeek1(); const al=autoLockPastDays(); tab = S.courses.length ? "home" : (!S.settings.apiKey ? "setup" : "home"); render(); if(al) setTimeout(()=>toast("🔒 Auto-locked "+al+" past day"+(al>1?"s":"")+" — history is safe from regeneration"),600); setTimeout(maybeAutoBackup,2500);
   {const hb=document.getElementById("helpBtn"); if(hb)hb.onclick=()=>startTour();}
   if(!S._tourDone && S.courses.length) setTimeout(startTour,900); });
 </script>

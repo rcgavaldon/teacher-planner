@@ -3,17 +3,35 @@
    planner mirrors how HE actually teaches. Keyed by the TEKS-course name where one applies. */
 window.COURSE_TEMPLATES = {
   "Principles of Applied Engineering": {
-    periodsDefault: 2, fullYear: true, platform: "FreeCodeCamp (web dev) + Autodesk Fusion 360 (CAD)",
+    periodsDefault: 2, fullYear: true,
+    platform: "Autodesk Fusion (CAD) — project-based; the year targets the Autodesk Certified User (ACU) in Fusion certification. Front-load the non-project TEKS in weeks 1-3, then it's project-past-project in Fusion.",
+    // Verified cert facts (Autodesk/Certiport, 2026) — kept so foundation + cert-prep weeks are accurate.
+    cert: {
+      name: "Autodesk Certified User (ACU) — Fusion",
+      vendor: "Autodesk; delivered by Certiport (Pearson VUE)",
+      format: "35-40 selected-response questions, 50 minutes, pass = 700/1000 (~70%)",
+      cost: "~$83-94/exam (Certiport voucher or school site license); practice via GMetrix CertPREP",
+      domains: ["Sketching","Drawing","Sculpt (Form)","Direct Modeling","Assembly Modeling","Advanced Modeling (Sweep/Loft/Boundary Fill/Split/Combine)","Part Modeling (Extrude/Fillet/Chamfer/Hole/Revolve/Pattern/Shell/Planes/Inspect)"],
+      note: "User level has NO CAM/CNC domain (that is the ACP Design-for-Manufacturing exam). Each Fusion project block below builds toward one or more of these 7 domains."
+    },
+    // TEKS 19 TAC §127.781(d) — which strands are front-loaded vs. carried by the projects.
+    teksFrontLoad: {
+      foundational_weeks1to3: ["(d)(1) professional standards/employability","(d)(3) present findings & designs","(d)(4) safe tool use","(d)(5) technology progression & consequences","(d)(6) systems thinking + design process","(d)(9) teamwork","(d)(10) drafting/CAD on-ramp","(d)(11) engineering design process → real-world solutions"],
+      programSpecific_coveredByProjects: ["(d)(2) components of engineering & technology systems","(d)(7) robotics/automation careers","(d)(8) electrical & mechanical systems careers"]
+    },
     startWeeks: [
-      "Week 1: Teacher Introduction, History of Engineering, Engineering Core Values; Bellwork 1. Light, relationship + procedures.",
-      "Week 2: The Engineering Process; begin the Airplane Challenge (hands-on design). Bellwork 2.",
-      "Week 3: Car Project + Engineering research presentation; intro to the design notebook. Bellwork 3."
+      "Week 1 — FOUNDATIONS BOOTCAMP (front-load the non-project TEKS so the rest of the year is pure project work): engineering as a discipline + History of Engineering; Engineering Core Values; shop/lab SAFETY and safe tool use [TEKS 127.781(d)(4)]; professional standards & employability skills [(d)(1)]; start the Engineering Design Notebook. Frame the whole year: every week is a project and you are all working toward the Autodesk Fusion ACU certification.",
+      "Week 2 — ENGINEERING DESIGN PROCESS, applied [(d)(6),(d)(11)]: run the full EDP on a fast hands-on team build (Airplane/Tower challenge) [(d)(9)]; how technology progresses and its intended/unintended consequences [(d)(5)]. Introduce Autodesk Fusion (interface, navigation, first sketch) so CAD starts THIS week.",
+      "Week 3 — TECHNICAL COMMUNICATION + CAD ON-RAMP [(d)(3),(d)(10)]: present the week-2 design (research findings + drawings + short deck); Fusion sketching -> first constrained part (Bottle / Paper Clip). Foundations done — from here it is project-past-project in Fusion."
     ],
     arc: [
-      {unit:"Engineering Foundations", weeks:5, items:["Teacher Intro","History of Engineering","Engineering Core Values","The Engineering Process","Airplane Challenge","Car Project","Engineering Research Presentation","Bellwork 1-7"]},
-      {unit:"Web Development — FreeCodeCamp (HTML/CSS)", weeks:9, items:["Survey Form","Colored Markers","Create a Form","Rothko/Transformations","Build a Gallery","Nutrition Label","Accessibility Quiz","Tribute Page","Balance Sheet","Cat Website","Make a Piano","Ferris Wheel CSS Animation"]},
-      {unit:"3D CAD — Fusion 360 (Day 1–30)", weeks:12, items:["Bottle","Paper Clip","Complex Bottle","Ice Cube Tray","Hex Nut","Bike Handle","Door Stop","Light Bulb","Phone Case","Dog Bowl","Auger/Spiral","Screwdriver","Pyramid","Washer","Constraints","Box"]},
-      {unit:"Capstone — Final Fusion Project + Create a Train", weeks:6, items:["Custom Fusion project (Google Doc spec)","Create a Train"]}
+      {unit:"Foundations Bootcamp (front-loaded TEKS)", weeks:3, teks:["(d)(1)","(d)(3)","(d)(4)","(d)(5)","(d)(6)","(d)(9)","(d)(11)"], items:["History of Engineering","Engineering Core Values","Shop/Lab Safety + safe tool use","Professional standards & employability","Engineering Design Process","Airplane/Tower team challenge","Design notebook","Intro to Autodesk Fusion"]},
+      {unit:"Fusion Sketch & Part Modeling (ACU: Sketching, Part Modeling)", weeks:8, teks:["(d)(2)","(d)(10)","(d)(11)"], items:["Bottle","Paper Clip","Complex Bottle","Ice Cube Tray","Hex Nut","Door Stop","Light Bulb","Phone Case","Washer","Constraints & Construction Planes","Inspect/Measure"]},
+      {unit:"Fusion Advanced Modeling & Sculpt (ACU: Sweep/Loft, Sculpt, Direct)", weeks:6, teks:["(d)(2)","(d)(8)","(d)(10)"], items:["Bike Handle","Auger/Spiral","Screwdriver","Dog Bowl","Sculpt/Form body","Press-Pull direct edits","Split & Combine"]},
+      {unit:"Fusion Assemblies & Drawings (ACU: Assembly, Drawing)", weeks:5, teks:["(d)(2)","(d)(7)","(d)(8)","(d)(10)"], items:["Multi-part assembly + joints","Motion study","Interference check","Engineering drawing (base/section/detail views)","Title block & annotations"]},
+      {unit:"ACU Certification Prep + Exam", weeks:3, teks:["(d)(1)","(d)(10)"], items:["GMetrix practice exam 1","Domain review (all 7)","GMetrix practice exam 2","Autodesk Fusion ACU exam"]},
+      {unit:"Capstone — Open Design Challenge / InSPIRESS competition project", weeks:8, teks:["(d)(3)","(d)(6)","(d)(9)","(d)(11)"], items:["Open-ended design brief","EDP: research -> ideate -> CAD -> prototype -> iterate","Team project management","Final drawings + presentation","Competition submission (e.g., InSPIRESS)"]},
+      {unit:"(Optional) Web Development — FreeCodeCamp (HTML/CSS)", weeks:6, teks:["(d)(2)"], items:["Kept from your prior sequence — now an optional/alternate track so Fusion starts early; slot in if time allows","Survey Form","Build a Gallery","Tribute Page","Cat Website","Ferris Wheel CSS Animation"]}
     ]
   },
   "Precalculus": {

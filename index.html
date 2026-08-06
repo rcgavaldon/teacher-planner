@@ -576,7 +576,7 @@ const CONTENT_SPEC = "For EACH instructional day, make the work INTERACTIVE and 
 "(i) LAUNCH vs BUILD (how a topic unfolds across a week — match THIS teacher's flow): the FIRST day of a new topic is a LAUNCH day (type 'intro') — give a projectable 'presentation' that OPENS it: hook -> the big picture (what we're learning) -> TODAY's vocabulary (introduce terms as they come up across the week, NOT the whole week's vocab at once) -> one fully-worked model -> a VIDEO cue slide -> 2-3 GROUP 'we-do' examples the class solves together -> a short week roadmap. A launch day is mostly TOGETHER work (video + group examples) with lighter independent practice. Every CONTINUING day that week is a BUILD day (type 'worksheet') that STILL gets a SHORT 'presentation' of ONLY 2-3 slides: 'What's new today' (added on top of yesterday) -> today's new vocab term(s) if any -> ONE new worked example to do together — then the worksheet is their practice. Only a pure REVIEW or standalone-practice day may leave 'presentation' null. Always give 2-4 'procedureExamples' on launch days and 1-2 on build days so the teacher can MODEL the procedure ('I do'). "+
 "(j) DAILY MODEL (how THIS teacher plans — match it): OVERSTOCK every normal day to about 60-70 minutes of content for a 45-min class, so the teacher can PICK and choose — never under-plan. Daily rhythm: bell ringer -> go over bellwork -> intro the new topic (or CONTINUE yesterday's) -> guided notes + worked examples -> worksheet practice -> exit ticket. A short video may stand in for the bell ringer. Include guided NOTES on most content days (a pure practice/review day may skip them). COHERENCE (critical): the guided notes' worked example and You-Try, the presentation's worked example, and the worksheet must all drill the SAME problem types in the same order — the notes are the on-ramp to the worksheet, so the worksheet must never introduce a skill the notes didn't teach. "+
 "(k) WORKSHEET FORMAT (his signature — match it exactly): group problems BY TYPE. For each section give: 'type' (a clear label), a fully worked 'workedExample' (step-by-step with the answer) OR a one-line 'why' explanation, an optional one-line 'directions', and the 'problems'. The worked example is INSTRUCTION (a model), the problems are the STUDENT WORK — keep them visibly distinct. Number problems continuously. Keep the whole worksheet to AT MOST ~2 sheets (one double-sided page, or two), legible, sized to fill the class. A worksheet MAY SPAN MULTIPLE DAYS — when it does, mark which problems are 'for today' vs 'next day'. "+
-"(l) SLIDE QUALITY — decks GREAT, not generic, and NEVER a full new deck every day: each slide = a crisp heading + 3-5 tight concrete bullets (no walls of text). A LAUNCH deck runs hook -> big picture -> today's vocab -> worked example (with a drawn graph) -> common mistake -> group we-do -> roadmap; a BUILD deck is ONLY 2-3 slides (what's new -> one worked example -> one you-try). At least one slide on any deck is a fully WORKED EXAMPLE specific to the exact topic (never boilerplate), and the deck's worked example + you-try use the SAME problem types the worksheet drills. Set the presentation's 'kind' to 'launch' or 'build'. Do NOT add meme/joke/commentary slides or 'watch this video' placeholders — only reference a video when a REAL watch URL is provided. "+
+"(l) SLIDE QUALITY — decks must feel CRAFTED and expert, never basic or generic, and NEVER a full new deck every day. Each slide = a crisp SPECIFIC heading + 3-5 bullets, and THE BULLETS ARE THE LESSON: every bullet is a COMPLETE, concrete idea of about 8-16 words that states the actual fact, definition, step, or cause->effect relationship — NEVER a bare topic label ('Overview','Key points','Important','The cell','Definition') and NEVER a wall of text. Lead each bullet with its key term or number in **bold**, and put a real value, concrete example, or a because/so-that relationship in MOST bullets (not vague generalities). Litmus test: a colleague with zero prep could teach the class straight from these bullets. A LAUNCH deck runs hook -> big picture -> today's vocab -> worked example (with a drawn graph) -> common mistake -> group we-do -> roadmap; a BUILD deck is 3-4 slides (what's new -> one worked example -> one common mistake or you-try). At least one slide on any deck is a fully WORKED EXAMPLE specific to the exact topic (real named steps, never boilerplate), and the deck's worked example + you-try use the SAME problem types the worksheet drills. Set the presentation's 'kind' to 'launch' or 'build'. Do NOT add meme/joke/commentary slides or 'watch this video' placeholders — only reference a video when a REAL watch URL is provided. "+
 "(m) TONE — all student- and observer-facing wording stays positive and professional; label early-finisher work simply 'Challenge'; never use phrases like 'go deeper' or 'go deep'. "+
 "(n) TEACHING SCRIPT (think like a real teacher, not a generator): include a 'script' array — the period as a sequence of steps. Each step: 'min' (minutes), 'title' (short), 'do' (the concrete primary teacher move), 'options' (1-2 REAL alternatives reflecting judgment — e.g. 'show the video instead of presenting', 'if it spilled over yesterday, recap then continue', 'skip the slides and work examples on the board', 'short on time? assign the video+questions as the practice'), and 'say' (a specific question to ask or one line to say). Reflect how the video, presentation, notes, and worksheet actually fit together and offer present-vs-video choices and spillover handling. "+
 "(o) PROBLEM CURATION (hard rules — these are how his sheets read): within a section SPAN the subtype taxonomy — no two problems share a subtype unless the section has more than 5 items; give each named skill at least 3 practice problems with at least 2 non-challenge reps; the worked example must be a DISTINCT representative (ideally the hardest subtype) that models THIS section's exact task and must NOT duplicate any practice problem; mix difficulty (not strictly ramped); and the LAST problem of EVERY section must be a clean, low-difficulty CONFIDENCE-ENDER — NEVER put a 🌶 challenge in the FIRST or LAST slot (challenges sit in the INTERIOR), and a challenge must be a HARDER CASE OF THE SAME section subtype, not a different skill. Begin each section's 'directions' with the literal word \"Directions:\". "+
@@ -3188,7 +3188,8 @@ function renderMaterials(out,co,dd,day,m){
       const pcol=el(`<div class="pn-pres"><div class="btnbar no-print" style="align-items:center;margin-bottom:6px"><b style="flex:1">${kindLbl}${m.presentation.title?": "+esc(m.presentation.title):""}</b><button class="btn sm" id="presentBtn">Present</button><button class="btn ghost sm" id="slidesPdf">⬇ PDF</button></div><div id="slidesDoc" class="deck"></div></div>`);
       cols.appendChild(pcol);
       const sd=pcol.querySelector('#slidesDoc'); slides.forEach((s,i)=>sd.appendChild(el(window.slideEl(s,i,slides.length))));
-      const pb=pcol.querySelector("#presentBtn");if(pb)pb.onclick=()=>showSlideshow(m.presentation,co);
+      if(m.guidedNotes) pcol.appendChild(el('<div class="sub no-print" style="margin:6px 2px 0;color:var(--muted)">▶ Press <b>Present</b> — the filled-in notes appear at the end; each <b>Space</b> reveals the next word so students copy along.</div>'));
+      const pb=pcol.querySelector("#presentBtn");if(pb)pb.onclick=()=>showSlideshow(m.presentation,co,m.guidedNotes);
       const sp=pcol.querySelector("#slidesPdf");if(sp)sp.onclick=()=>printNodes([{node:pcol.querySelector("#slidesDoc").cloneNode(true),twoUp:false,label:co.name+' · '+day+' · Slides'}],co.name+' — '+day+' slides');
     }
     if(m.notes||m.guidedNotes){
@@ -3293,20 +3294,85 @@ Return JSON: {"notes":"## ...","worksheet":{"title":"...","instructions":"...","
     m[esp?'spanish':'modified']=data;save();render();toast((esp?'Spanish':'Modified')+' version ready');
   }catch(e){if(st)st.textContent="✗ "+e.message;}
 }
-function showSlideshow(pres,co){
-  const slides=(pres&&pres.slides)||[]; if(!slides.length)return; let i=0;
+/* ---- copy-along notes: turn the day's guided notes into click-to-reveal slides ---- */
+/* one cloze line -> reveal spans (blank now, the real word pops in on click). ctr.n = running data-i */
+function gnRevealLine(str,ctr){
+  str=String(str==null?"":str);const blanks=[],math=[];
+  str=str.replace(/\{\{((?:[^{}]|\{[^{}]*\})*?)(?:\|([^{}|]*))?\}\}/g,function(m,ans,w){var j=blanks.length;var di=ctr.n++;
+    blanks.push('<span class="rvw" data-i="'+di+'"><span class="rvw-b" style="min-width:'+esc(((w||"2cm").trim()))+'"></span><span class="rvw-w">'+esc(ans||"")+'</span></span>');
+    return String.fromCharCode(1)+j+String.fromCharCode(1);});
+  str=str.replace(/\$[^$]*\$/g,function(x){math.push(x);return String.fromCharCode(2)+(math.length-1)+String.fromCharCode(2);});
+  str=esc(str).replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  str=str.replace(new RegExp(String.fromCharCode(2)+"(\\d+)"+String.fromCharCode(2),"g"),function(_,i){return esc(math[+i]);});
+  str=str.replace(new RegExp(String.fromCharCode(1)+"(\\d+)"+String.fromCharCode(1),"g"),function(_,i){return blanks[+i];});
+  return str;
+}
+function notesRevealSlides(co,gn){
+  gn=gn||{};const out=[];
+  const bank=(gn.formulas||[]).length?'<div class="rv-bank"><span class="rv-banklab">'+esc(gn.boxLabel||"Word bank")+'</span>'+gn.formulas.map(f=>'<span class="rv-bankf"><b>'+esc(f.name||"")+':</b> '+gnLine(f.formula||"",true)+'</span>').join("")+'</div>':'';
+  const figFor=w=>(w&&w.figure&&/^\s*<svg/i.test(w.figure))?w.figure:(w&&w.graph?plotSvg(w.graph):'');
+  const vocab=gn.vocab||[];
+  for(let i=0;i<vocab.length;i+=4){
+    const ctr={n:0};const chunk=vocab.slice(i,i+4);
+    const html='<div class="rv-list">'+chunk.map(v=>'<div class="rv-item"><b>'+esc(v.term||"")+'</b> — '+gnRevealLine(v.def||v.definition||"",ctr)+'</div>').join("")+'</div>';
+    out.push({title:(vocab.length>4?'Vocabulary ('+(Math.floor(i/4)+1)+')':'Vocabulary'),bank:i===0?bank:'',html:html,blanks:ctr.n});
+  }
+  const exs=(gn.examples&&gn.examples.length)?gn.examples:(gn.worked&&gn.worked.prompt?[gn.worked]:[]);
+  exs.forEach((w,i)=>{
+    const ctr={n:0};
+    const steps=(w.steps||[]).length?'<ol class="rv-steps">'+(w.steps||[]).map(s=>'<li>'+gnRevealLine(s,ctr)+'</li>').join("")+'</ol>':'';
+    const html='<div class="rv-prompt">'+md(w.prompt||"")+'</div>'+steps;
+    out.push({title:w.label?w.label:('Example '+(i+1)),fig:figFor(w),bank:(i===0&&!vocab.length)?bank:'',html:html,blanks:ctr.n});
+  });
+  if(gn.summary){const ctr={n:0};out.push({title:'Summary',html:'<div class="rv-item">'+gnRevealLine(gn.summary,ctr)+'</div>',blanks:ctr.n});}
+  return out;
+}
+function notesSlideHtml(ns,pos,total){
+  return '<div class="dslide rvslide" data-t="notes"><div class="dbody">'
+    +'<div class="dtop"><span class="deyebrow">Copy the notes</span><span class="dnum">'+pos+' / '+total+'</span></div>'
+    +'<h2 class="dh">'+esc(ns.title||"Notes")+'</h2>'
+    +(ns.fig?'<div class="rv-figwrap">'+ns.fig+'</div>':'')
+    +(ns.bank||'')
+    +'<div class="rv-notes">'+(ns.html||'')+'</div>'
+    +'<div style="clear:both"></div></div></div>';
+}
+(function(){try{if(document.getElementById("revealcss"))return;var s=document.createElement("style");s.id="revealcss";s.textContent=
+".rvw{display:inline}.rvw .rvw-b{display:inline-block;border-bottom:2.4px solid #C48A1A;min-width:1.8cm;height:1.05em;vertical-align:-.16em;margin:0 4px}.rvw .rvw-w{display:none;color:#AF1235;font-weight:700}.rvw.on .rvw-b{display:none}.rvw.on .rvw-w{display:inline;animation:rvpop .16s ease-out}"+
+"@keyframes rvpop{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}"+
+".rvslide .rv-bank{display:flex;flex-wrap:wrap;gap:6px 18px;background:var(--dk-indigo-soft);border:1px solid var(--dk-indigo-line);border-radius:12px;padding:12px 16px;margin:0 0 14px}.rvslide .rv-banklab{font-family:var(--dk-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--dk-indigo);width:100%;margin-bottom:2px}.rvslide .rv-bankf b{color:var(--dk-indigo)}"+
+".rvslide .rv-notes{color:var(--dk-ink2)}.rvslide .rv-item{margin:10px 0}.rvslide .rv-item b{color:var(--dk-indigo);font-family:var(--dk-serif)}.rvslide .rv-prompt{font-weight:650;margin:0 0 8px;color:var(--dk-ink)}.rvslide .rv-steps{margin:0;padding-left:26px}.rvslide .rv-steps li{margin:8px 0}"+
+".rvslide .rv-figwrap{float:right;width:300px;margin:0 0 10px 18px}.rvslide .rv-figwrap svg{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--dk-line);border-radius:12px;padding:8px}"+
+".deckshow .rvslide .rv-notes,.deckshow .rvslide .rv-steps li,.deckshow .rvslide .rv-item{font-size:23px;line-height:1.7}.deckshow .rvslide .rv-prompt{font-size:24px}.deckshow .rvslide .rv-bankf{font-size:19px}.deckshow .rvslide .rv-figwrap{width:380px}.deckshow .rvslide .rvw .rvw-b{min-width:2.2cm}"+
+".deck .rvslide .rv-notes,.deck .rvslide .rv-item,.deck .rvslide .rv-steps li{font-size:15.5px;line-height:1.6}.dhint{color:#AEB6E0;font-family:var(--dk-mono);font-size:12px;text-align:center;flex:1}";
+document.head.appendChild(s);}catch(e){}})();
+function showSlideshow(pres,co,gn){
+  const base=(pres&&pres.slides)||[];
+  const notes=gn?notesRevealSlides(co,gn):[];
+  const deck=base.map(s=>({kind:'slide',s:s})).concat(notes.map(ns=>({kind:'notes',ns:ns})));
+  if(!deck.length)return; let i=0, rp=0; const total=deck.length;
   const ov=el(`<div class="deckshow" id="slideshow">
     <div class="deckbar"><div class="f"></div></div>
     <div class="deckstage" id="dstage"></div>
     <div class="deckfoot"><span class="dtitle">${esc((co&&co.name)||"")}${pres.title?" · "+esc(pres.title):""}</span>
+      <span id="shint" class="dhint"></span>
       <span class="decknav"><button class="deckbtn" id="sprev">← Back</button><span id="snum" style="min-width:56px;text-align:center"></span><button class="deckbtn primary" id="snext">Next →</button><button class="deckbtn" id="sclose">Close ✕</button></span></div></div>`);
   document.body.appendChild(ov);
-  const draw=()=>{const s=slides[i]||{};$("#dstage",ov).innerHTML=window.slideEl(s,i,slides.length);$("#snum",ov).textContent=(i+1)+" / "+slides.length;const sf=ov.querySelector(".deckbar .f");if(sf)sf.style.width=Math.round((i+1)/slides.length*100)+"%";mathRender($("#dstage",ov));};
-  const go=d=>{i=Math.max(0,Math.min(slides.length-1,i+d));draw();};
+  const stage=$("#dstage",ov);
+  const applyReveal=()=>{stage.querySelectorAll('.rvw').forEach(sp=>{sp.classList.toggle('on',(+sp.dataset.i)<rp);});};
+  const updHint=()=>{const h=$("#shint",ov);if(!h)return;const it=deck[i]||{};h.textContent=(it.kind==='notes'&&it.ns.blanks)?'Space reveals the next word · ↵ reveals the whole slide':'Space / → next';};
+  const fullDraw=()=>{const it=deck[i]||{};
+    if(it.kind==='notes'){ if(rp<0)rp=it.ns.blanks; if(rp>it.ns.blanks)rp=it.ns.blanks; stage.innerHTML=notesSlideHtml(it.ns,i+1,total); mathRender(stage); applyReveal(); }
+    else { stage.innerHTML=window.slideEl(it.s,i,total); mathRender(stage); }
+    $("#snum",ov).textContent=(i+1)+" / "+total;
+    const sf=ov.querySelector(".deckbar .f");if(sf)sf.style.width=Math.round((i+1)/total*100)+"%";
+    updHint();};
+  const next=()=>{const it=deck[i]||{}; if(it.kind==='notes'&&rp<it.ns.blanks){rp++;applyReveal();updHint();return;} if(i<total-1){i++;rp=0;fullDraw();}};
+  const prev=()=>{const it=deck[i]||{}; if(it.kind==='notes'&&rp>0){rp--;applyReveal();updHint();return;} if(i>0){i--;rp=-1;fullDraw();}};
+  const revealAll=()=>{const it=deck[i]||{}; if(it.kind==='notes'){rp=it.ns.blanks;applyReveal();updHint();}};
   function close(){document.removeEventListener("keydown",key);ov.remove();}
-  const key=e=>{if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();go(1);}else if(e.key==="ArrowLeft")go(-1);else if(e.key==="Escape")close();};
-  $("#sprev",ov).onclick=()=>go(-1);$("#snext",ov).onclick=()=>go(1);$("#sclose",ov).onclick=close;
-  document.addEventListener("keydown",key);draw();
+  const key=e=>{if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();next();}else if(e.key==="ArrowLeft"){e.preventDefault();prev();}else if(e.key==="Enter"){e.preventDefault();revealAll();}else if(e.key==="Escape")close();};
+  $("#sprev",ov).onclick=prev;$("#snext",ov).onclick=next;$("#sclose",ov).onclick=close;
+  document.addEventListener("keydown",key);fullDraw();
 }
 function customWsModal(co,dd,day){
   const cw=dd.customWorksheet||{};

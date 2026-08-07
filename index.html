@@ -1373,6 +1373,8 @@ const SYL_DEFAULTS={
   welcome:"The work you show on paper is how it sticks. Here’s how our room runs and what I expect.",
   dailyTitle:"How every class runs",
   dailyFlow:["Go to your **assigned seat**","**Phone goes up** (caddy)","Start the **bellwork**","We **go over it** together","**Intro** the new topic","**You Try**","**Day work**","**Exit ticket**"],
+  engDailyTitle:"How the studio runs",
+  engDailyFlow:["Grab your **assigned laptop**","**Sign in** to the program we’re using","**Start work** — pick up where you left off","**Wait for instruction** when I call the class"],
   phonesTitle:"Phones", phones:"Up at the **start, every day.** Like the movies: phone away so everyone can focus. **I’ll ask once** — then an email home, then a parent + admin meeting. Goal: **never** need it.",
   tutoringTitle:"Tutoring & not failing", tutoring:"Fail a test → **one week of mandatory tutoring** (the department or me, on tutoring days). It’s how we keep you from failing. Seats are assigned.",
   qualityTitle:"Quality of Work", quality:["Finish your work **on your own**.","Classwork done **in class**, the day it’s assigned.","On THIS class? No other classes or activities.","**No AI in class or on tests** — you have to know it."],
@@ -1385,8 +1387,8 @@ const SYL_DEFAULTS={
     stations:[
       {level:"1",grade:"Grade 9",role:"Introductory",course:"Principles of Applied Engineering",teks:"§127.781",focus:"Engineering design process, safety, and **Autodesk Fusion CAD from week 2** — project past project.",project:"Fusion part-modeling portfolio",cert:"Starts ACU: Sketching · Part Modeling"},
       {level:"2",grade:"Grade 10",role:"Intermediate",course:"Manufacturing Engineering",teks:"§127.813",focus:"**Design → make:** 3D printing/CNC, quality, and mechanical/electrical & automation systems.",project:"Prototype-to-production build",cert:"Adds Assembly · Drawings · OSHA-10 (opt.)"},
-      {level:"3",grade:"Grade 11",role:"Advanced",course:"Engineering Design & Problem Solving I · InSPIRESS 1",teks:"§127.785",focus:"Full design process on a real problem; **design a payload and compete** (InSPIRESS / UAH).",project:"InSPIRESS competition entry",cert:"Sit the ACU — Fusion exam"},
-      {level:"4",grade:"Grade 12",role:"Capstone",course:"Engineering Design & Problem Solving II · InSPIRESS 2",teks:"§127.785",focus:"**Capstone:** lead a competition-grade design cycle; industry-ready senior portfolio.",project:"InSPIRESS capstone + portfolio",cert:"ACU earned · stretch ACP / dual credit"}
+      {level:"3",grade:"Grade 11",role:"Advanced",course:"Engineering Design & Problem Solving · InSPIRESS 1",teks:"§127.785",focus:"Full design process on a real problem; **design a payload and compete** (InSPIRESS / UAH).",project:"InSPIRESS competition entry",cert:"Sit the ACU — Fusion exam"},
+      {level:"4",grade:"Grade 12",role:"Capstone",course:"Engineering Design & Presentation II · InSPIRESS 2",teks:"§127.784",focus:"**Capstone:** advanced system design + presentation; lead a competition-grade design cycle; industry-ready senior portfolio.",project:"InSPIRESS capstone + portfolio",cert:"ACU earned · stretch ACP / dual credit"}
     ],
     certName:"Autodesk Certified User — Fusion",
     certFacts:"Certiport · 35–40 Q · 50 min · pass 700/1000",
@@ -1417,13 +1419,16 @@ const SYL_CSS=":root{--paper:#EBEEF6;--card:#fff;--ink:#0E1330;--ink2:#1B2350;--
 function sylPlot(){return '<svg class="pl" viewBox="0 0 116 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><line x1="0" y1="112" x2="116" y2="112" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/><line x1="58" y1="6" x2="58" y2="196" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/><path d="M30,44 Q58,200 86,44" fill="none" stroke="#A9B0FF" stroke-width="3" stroke-linecap="round"/><path d="M64,36 C78,82 88,104 112,108" fill="none" stroke="#E7B449" stroke-width="2.6" stroke-linecap="round"/><circle cx="58" cy="112" r="3.2" fill="#fff"/></svg>';}
 function sylChk(c){return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';}
 function sylX(){return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.8" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg>';}
-function sylSideA(name,welcome){
+function sylSideA(name,welcome,co){
   const g=sylCfg();
+  const _eng=co&&(typeof courseIsEng==="function")&&courseIsEng(co);
+  const _flow=(_eng&&(g.engDailyFlow||[]).length)?g.engDailyFlow:g.dailyFlow;
+  const _ftitle=(_eng&&g.engDailyTitle)?g.engDailyTitle:(g.dailyTitle||"How every class runs");
   return '<div class="mhero">'+sylPlot()+'<span class="eyebrow">Class Syllabus \u00b7 '+esc(g.yearLabel||"")+'</span><h1>'+esc(name)+'</h1>'
     +'<p class="sub">'+sylFmt(welcome||g.welcome)+'</p>'
     +'<div class="id"><b>'+esc(((S.settings.titlePrefix||"")+" "+(S.settings.teacher||"")).trim()||"Your Teacher")+'</b> '+(S.settings.school?" \u00b7 "+esc(S.settings.school):"")+'<br><span class="g">'+esc(S.settings.teacherEmail||"")+'</span></div></div>'
-    +'<div class="head"><span class="n">DAILY</span><h2>'+esc(g.dailyTitle||"How every class runs")+'</h2><span class="rule"></span></div>'
-    +'<div class="flow">'+(g.dailyFlow||[]).map((s,i)=>'<div class="st"><span class="d">'+(i+1)+'</span><span>'+sylFmt(s)+'</span></div>').join("")+'</div>'
+    +'<div class="head"><span class="n">DAILY</span><h2>'+esc(_ftitle)+'</h2><span class="rule"></span></div>'
+    +'<div class="flow">'+(_flow||[]).map((s,i)=>'<div class="st"><span class="d">'+(i+1)+'</span><span>'+sylFmt(s)+'</span></div>').join("")+'</div>'
     +'<div class="pair"><div class="c amber"><div class="ch"><h3>'+esc(g.phonesTitle||"Phones")+'</h3></div><p>'+sylFmt(g.phones)+'</p></div>'
     +'<div class="c pine"><div class="ch"><h3>'+esc(g.tutoringTitle||"Tutoring & not failing")+'</h3></div><p>'+sylFmt(g.tutoring)+'</p></div></div>'
     +'<div class="pair"><div class="c pine"><div class="ch"><h3>'+esc(g.qualityTitle||"Quality of Work")+'</h3></div><ul class="k">'
@@ -1453,7 +1458,7 @@ function syllabusDoc(co){
     });
     rmHtml+='</div>';
   });
-  const A=sylSideA(name, co&&co.welcome), B=sylSideB(name,rmHtml,syllabusMaterials(co));
+  const A=sylSideA(name, co&&co.welcome, co), B=sylSideB(name,rmHtml,syllabusMaterials(co));
   const showPath=(typeof courseIsEng==="function")&&courseIsEng(co)&&((sylCfg().pathway&&sylCfg().pathway.stations)||[]).length;
   const C=showPath?sylSideC(co):null;
   const land=x=>'<div class="land"><div class="half">'+x+'</div><div class="cut"></div><div class="half">'+x+'</div></div>';

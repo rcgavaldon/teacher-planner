@@ -62,6 +62,17 @@ nav.tabs .tabmore-item{border:none;background:none;text-align:left;color:var(--m
 nav.tabs .tabmore-item:hover{background:var(--clay-soft);color:var(--ink)}
 nav.tabs .tabmore-item.on{color:var(--clay-d);font-weight:700;background:var(--clay-soft)}
 .ctx{margin-left:auto;font-size:13px;color:var(--muted);text-align:right}
+@media(max-width:640px){
+  .app-in{flex-wrap:wrap;padding:9px 13px;gap:6px 10px}
+  .brand{font-size:16px}
+  .ctx{font-size:12px}
+  .ctx #ctxname{max-width:44vw!important}
+  nav.tabs{order:3;width:100%;margin-left:0;gap:2px}
+  nav.tabs button,nav.tabs .tabmore>summary{font-size:13px;padding:7px 11px}
+  main{padding:16px 12px 72px}
+  .card{padding:15px 14px;margin-bottom:14px}
+  .card h2{font-size:18px}
+}
 
 main{max-width:1180px;margin:0 auto;padding:26px 22px 80px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;margin-bottom:18px}
@@ -485,7 +496,7 @@ let PACING = {
   // El Paso-area calibrated YAG pacing fills in courses he DOESN'T have his own sequence for
   const PL=window.PACING_LOCAL||{};
   Object.keys(PL).forEach(name=>{ const p=PL[name]; if(!p||!(p.pacing||[]).length)return;
-    if(CT[name]&&(CT[name].arc||[]).length)return;   // never override his own sequence
+    if(PACING[name])return;   // a generated strand-complete year plan (sequence) or his own Google-Classroom arc already won — district YAG is fallback only
     PACING[name]={weeksGuide:"Calibrated to El Paso-area district YAGs"+(p.notes?": "+p.notes:"."),units:p.pacing.map(u=>[u.unit,u.weeks||1]),local:true};
   });
   // FALLBACK: any course still without a year map gets one auto-derived from its TEKS strands, so ANY week can be generated
@@ -1349,6 +1360,22 @@ function courseIsMath(co){return /algebra|geometry|calcul|precalc|trigon|math mo
 function courseIsEng(co){return /engineer|robotic|\bcad\b|drafting/i.test(((co&&co.teks)||"")+" "+((co&&co.name)||""));}
 function courseIsSci(co){return /biolog|anatom|physiolog|chemistr|physics|aquatic|environmental|integrated physics|\bipc\b|\bscience\b/i.test(((co&&co.teks)||"")+" "+((co&&co.name)||""));}
 function courseIsHum(co){return /english|reading|\bela\b|literat|\bwriting\b|history|geograph|govern|econom|psycholog|sociolog|speech|communicat/i.test(((co&&co.teks)||"")+" "+((co&&co.name)||""));}
+/* Editable syllabus config — teacher's standard policies (shared across classes); **bold** renders bold. */
+const SYL_DEFAULTS={
+  yearLabel:"2026–2027",
+  welcome:"The work you show on paper is how it sticks. Here’s how our room runs and what I expect.",
+  dailyTitle:"How every class runs",
+  dailyFlow:["Go to your **assigned seat**","**Phone goes up** (caddy)","Start the **bellwork**","We **go over it** together","**Intro** the new topic","**You Try**","**Day work**","**Exit ticket**"],
+  phonesTitle:"Phones", phones:"Up at the **start, every day.** Like the movies: phone away so everyone can focus. **I’ll ask once** — then an email home, then a parent + admin meeting. Goal: **never** need it.",
+  tutoringTitle:"Tutoring & not failing", tutoring:"Fail a test → **one week of mandatory tutoring** (the department or me, on tutoring days). It’s how we keep you from failing. Seats are assigned.",
+  qualityTitle:"Quality of Work", quality:["Finish your work **on your own**.","Classwork done **in class**, the day it’s assigned.","On THIS class? No other classes or activities.","**No AI in class or on tests** — you have to know it."],
+  notAcceptedTitle:"Not accepted", notAccepted:["Yelling, fighting, hitting/touching others","Eating, cussing, out of uniform","Not turning in / not working in class","No‑showing tutoring; table‑hopping; daily restroom"],
+  core4:["Respect","Responsibility","Quality of Work","Quality of Self"], core4Tag:"Effort you can see.",
+  classBring:["hand sanitizer","a box of Kleenex","disinfecting wipes"],
+  ipad:"**iPads** are allowed for class work. The first time I see texting, it goes away — and it does not come back out."
+};
+function sylCfg(){ return Object.assign({}, SYL_DEFAULTS, (S.settings&&S.settings.syllabus)||{}); }
+function sylFmt(x){ return esc(String(x==null?"":x)).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>"); }
 function syllabusMaterials(co){
   if(co&&(co.sylMaterials||[]).length) return co.sylMaterials.slice();
   const m=["A pencil or pen","A composition notebook","A pencil sharpener","Colored pencils or markers","A glue stick","Scissors","A folder just for this class"];
@@ -1356,7 +1383,7 @@ function syllabusMaterials(co){
   if(courseIsEng(co)) m.push("A mouse");
   return m;
 }
-function syllabusClassList(){ return ["hand sanitizer","a box of Kleenex","disinfecting wipes"]; }
+function syllabusClassList(){ const b=sylCfg().classBring; return (b&&b.length)?b:["hand sanitizer","a box of Kleenex","disinfecting wipes"]; }
 function syllabusRoadmap(co){
   const teks=(co&&co.teks)||""; const months={1:"Aug – Sep",2:"Oct – Nov",3:"Nov – Dec",4:"Jan – Feb",5:"Mar – Apr",6:"Apr – May"};
   const mk=byP=>Object.keys(byP).map(Number).sort((a,b)=>a-b).map(p=>({p,when:months[p]||"",sem:p<=3?1:2,units:byP[p],mile:p===3?"★ Semester 1 Final":(p===6?"★ Final Exam":"")}));
@@ -1371,18 +1398,19 @@ function sylPlot(){return '<svg class="pl" viewBox="0 0 116 200" preserveAspectR
 function sylChk(c){return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';}
 function sylX(){return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.8" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg>';}
 function sylSideA(name,welcome){
-  return '<div class="mhero">'+sylPlot()+'<span class="eyebrow">Class Syllabus · 2025–26</span><h1>'+esc(name)+'</h1>'
-    +'<p class="sub">'+esc(welcome||"The work you show on paper is how it sticks. Here’s how our room runs and what I expect.")+'</p>'
-    +'<div class="id"><b>'+esc(((S.settings.titlePrefix||"")+" "+(S.settings.teacher||"")).trim()||"Your Teacher")+'</b> '+(S.settings.school?" · "+esc(S.settings.school):"")+'<br><span class="g">'+esc(S.settings.teacherEmail||"")+'</span></div></div>'
-    +'<div class="head"><span class="n">DAILY</span><h2>How every class runs</h2><span class="rule"></span></div>'
-    +'<div class="flow">'+[["1","Go to your <b>assigned seat</b>"],["2","<b>Phone goes up</b> (caddy)"],["3","Start the <b>bellwork</b>"],["4","We <b>go over it</b> together"],["5","<b>Intro</b> the new topic"],["6","<b>You Try</b>"],["7","<b>Day work</b>"],["8","<b>Exit ticket</b>"]].map(s=>'<div class="st"><span class="d">'+s[0]+'</span><span>'+s[1]+'</span></div>').join("")+'</div>'
-    +'<div class="pair"><div class="c amber"><div class="ch"><h3>Phones</h3></div><p>Up at the <b>start, every day.</b> Like the movies: phone away so everyone can focus. <b>I’ll ask once</b> — then an email home, then a parent + admin meeting. Goal: <b>never</b> need it.</p></div>'
-    +'<div class="c pine"><div class="ch"><h3>Tutoring &amp; not failing</h3></div><p>Fail a test → <b>one week of mandatory tutoring</b> (the department or me, on tutoring days). It’s how we keep you from failing. Seats are assigned.</p></div></div>'
-    +'<div class="pair"><div class="c pine"><div class="ch"><h3>Quality of Work</h3></div><ul class="k">'
-      +['Finish your work <b>on your own</b>.','Classwork done <b>in class</b>, the day it’s assigned.','On THIS class? No other classes or activities.','<b>No AI in class or on tests</b> — you have to know it.'].map(t=>'<li>'+sylChk("#0B6E4F")+'<span>'+t+'</span></li>').join("")+'</ul></div>'
-    +'<div class="c rose"><div class="ch"><h3>Not accepted</h3></div><ul class="k">'
-      +['Yelling, fighting, hitting/touching others','Eating, cussing, out of uniform','Not turning in / not working in class','No‑showing tutoring; table‑hopping; daily restroom'].map(t=>'<li>'+sylX()+'<span>'+t+'</span></li>').join("")+'</ul></div></div>'
-    +'<div class="foot"><span class="lab">Core 4</span><span class="chip">Respect</span><span class="chip">Responsibility</span><span class="chip">Quality of Work</span><span class="chip">Quality of Self</span><span class="tag">Effort you can see.</span></div>';
+  const g=sylCfg();
+  return '<div class="mhero">'+sylPlot()+'<span class="eyebrow">Class Syllabus \u00b7 '+esc(g.yearLabel||"")+'</span><h1>'+esc(name)+'</h1>'
+    +'<p class="sub">'+sylFmt(welcome||g.welcome)+'</p>'
+    +'<div class="id"><b>'+esc(((S.settings.titlePrefix||"")+" "+(S.settings.teacher||"")).trim()||"Your Teacher")+'</b> '+(S.settings.school?" \u00b7 "+esc(S.settings.school):"")+'<br><span class="g">'+esc(S.settings.teacherEmail||"")+'</span></div></div>'
+    +'<div class="head"><span class="n">DAILY</span><h2>'+esc(g.dailyTitle||"How every class runs")+'</h2><span class="rule"></span></div>'
+    +'<div class="flow">'+(g.dailyFlow||[]).map((s,i)=>'<div class="st"><span class="d">'+(i+1)+'</span><span>'+sylFmt(s)+'</span></div>').join("")+'</div>'
+    +'<div class="pair"><div class="c amber"><div class="ch"><h3>'+esc(g.phonesTitle||"Phones")+'</h3></div><p>'+sylFmt(g.phones)+'</p></div>'
+    +'<div class="c pine"><div class="ch"><h3>'+esc(g.tutoringTitle||"Tutoring & not failing")+'</h3></div><p>'+sylFmt(g.tutoring)+'</p></div></div>'
+    +'<div class="pair"><div class="c pine"><div class="ch"><h3>'+esc(g.qualityTitle||"Quality of Work")+'</h3></div><ul class="k">'
+      +(g.quality||[]).map(x=>'<li>'+sylChk("#0B6E4F")+'<span>'+sylFmt(x)+'</span></li>').join("")+'</ul></div>'
+    +'<div class="c rose"><div class="ch"><h3>'+esc(g.notAcceptedTitle||"Not accepted")+'</h3></div><ul class="k">'
+      +(g.notAccepted||[]).map(x=>'<li>'+sylX()+'<span>'+sylFmt(x)+'</span></li>').join("")+'</ul></div></div>'
+    +'<div class="foot"><span class="lab">Core 4</span>'+(g.core4||[]).map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+'<span class="tag">'+esc(g.core4Tag||"")+'</span></div>';
 }
 function sylSideB(name,rmHtml,mats){
   const matItems=mats.map(m=>'<li>'+sylChk("#383CC1")+'<span>'+esc(m)+'</span></li>').join("");
@@ -1390,7 +1418,7 @@ function sylSideB(name,rmHtml,mats){
     +(rmHtml||'<p style="font-size:9px;color:var(--muted);margin-top:8px">Roadmap pacing loads once this course has a pacing sequence.</p>')
     +'<div class="mat"><h3>Bring every day</h3><ul class="matgrid">'+matItems+'</ul>'
     +(function(){const cl=syllabusClassList();const line=cl.slice(0,-1).join(', ')+', or '+cl[cl.length-1];return '<div class="give"><b>For the class — bring one:</b> '+esc(line)+'.</div>';})()
-    +'<div class="ipad"><b>iPads</b> are allowed for class work. The first time I see texting, it goes away — and it does not come back out.</div></div>';
+    +'<div class="ipad">'+sylFmt(sylCfg().ipad)+'</div></div>';
 }
 function syllabusDoc(co){
   const name=(co&&co.name)||"Class"; const rm=syllabusRoadmap(co);
@@ -1413,6 +1441,46 @@ function syllabusDoc(co){
     +'</div></body></html>';
 }
 function openSyllabus(co){ const w=window.open("","_blank"); if(!w){toast("Allow pop-ups to open the syllabus");return;} w.document.write(syllabusDoc(co)); w.document.close(); }
+function syllabusEditModal(co){
+  const g=sylCfg(); const lines=a=>(a||[]).join("\n");
+  const ov=el('<div class="overlay"><div class="modal" style="max-width:820px;max-height:88vh;overflow:auto">'
+    +'<h3>✏️ Edit syllabus'+(co?' — '+esc(co.name):'')+'</h3>'
+    +'<p class="sub">Your <b>standard policies</b> below are shared across every class (edit once). The <b>course roadmap</b> fills in automatically from each class year plan. Use <b>**stars**</b> around a phrase to make it bold.</p>'
+    +'<div class="btnbar" style="gap:14px;flex-wrap:wrap"><label style="flex:1;min-width:150px">School year<input id="syYear" value="'+esc(g.yearLabel)+'"></label>'
+      +(co?'<label style="flex:2;min-width:240px">Welcome line (this class)<input id="syWelcome" value="'+esc(co.welcome||"")+'" placeholder="'+esc(g.welcome)+'"></label>':'')+'</div>'
+    +'<label>Daily flow — heading</label><input id="syDT" value="'+esc(g.dailyTitle)+'">'
+    +'<label>Daily flow steps (one per line)</label><textarea id="syFlow" rows="8">'+esc(lines(g.dailyFlow))+'</textarea>'
+    +'<label>Phones — heading</label><input id="syPhT" value="'+esc(g.phonesTitle)+'"><textarea id="syPh" rows="3">'+esc(g.phones)+'</textarea>'
+    +'<label>Tutoring — heading</label><input id="syTuT" value="'+esc(g.tutoringTitle)+'"><textarea id="syTu" rows="3">'+esc(g.tutoring)+'</textarea>'
+    +'<label>Quality of Work — heading</label><input id="syQT" value="'+esc(g.qualityTitle)+'"><textarea id="syQ" rows="4">'+esc(lines(g.quality))+'</textarea>'
+    +'<label>Not accepted — heading</label><input id="syNT" value="'+esc(g.notAcceptedTitle)+'"><textarea id="syN" rows="4">'+esc(lines(g.notAccepted))+'</textarea>'
+    +'<label>Core 4 values (one per line)</label><textarea id="syC4" rows="4">'+esc(lines(g.core4))+'</textarea>'
+    +'<label>Core 4 tagline</label><input id="syTag" value="'+esc(g.core4Tag)+'">'
+    +'<label>For the class — bring one (one per line)</label><textarea id="syBring" rows="3">'+esc(lines(g.classBring))+'</textarea>'
+    +'<label>iPad policy</label><textarea id="syIpad" rows="2">'+esc(g.ipad)+'</textarea>'
+    +(co?'<label>Bring every day — '+esc(co.name)+' (one per line)</label><textarea id="syMat" rows="6">'+esc(lines(syllabusMaterials(co)))+'</textarea>':'')
+    +'<div class="btnbar" style="margin-top:12px"><button class="btn" id="sySave">Save</button><button class="btn ghost" id="syView">Save & view</button><button class="btn ghost" id="syReset">Reset to defaults</button><button class="btn ghost" id="syCancel">Cancel</button></div>'
+    +'</div></div>');
+  document.body.appendChild(ov);
+  const val=id=>{const e=ov.querySelector("#"+id);return e?e.value:"";};
+  const arr=id=>val(id).split("\n").map(s=>s.trim()).filter(Boolean);
+  const grab=()=>{
+    const s=S.settings.syllabus=S.settings.syllabus||{};
+    s.yearLabel=val("syYear").trim(); s.dailyTitle=val("syDT").trim(); s.dailyFlow=arr("syFlow");
+    s.phonesTitle=val("syPhT").trim(); s.phones=val("syPh").trim();
+    s.tutoringTitle=val("syTuT").trim(); s.tutoring=val("syTu").trim();
+    s.qualityTitle=val("syQT").trim(); s.quality=arr("syQ");
+    s.notAcceptedTitle=val("syNT").trim(); s.notAccepted=arr("syN");
+    s.core4=arr("syC4"); s.core4Tag=val("syTag").trim();
+    s.classBring=arr("syBring"); s.ipad=val("syIpad").trim();
+    if(co){ const w=val("syWelcome").trim(); if(w)co.welcome=w; co.sylMaterials=arr("syMat"); }
+    save();
+  };
+  ov.querySelector("#sySave").onclick=()=>{grab();ov.remove();toast("Syllabus saved");render();};
+  ov.querySelector("#syView").onclick=()=>{grab();ov.remove();openSyllabus(co||S.courses[0]);};
+  ov.querySelector("#syReset").onclick=()=>{if(confirm("Reset your standard policies to the built-in defaults? (This class welcome + materials are kept.)")){delete S.settings.syllabus;save();ov.remove();syllabusEditModal(co);}};
+  ov.querySelector("#syCancel").onclick=()=>ov.remove();
+}
 /* ---- HOME: which class? + this-week status + print counts (the landing) ---- */
 function homeWeek(){
   let wks=[]; try{wks=schoolWeeks();}catch(e){return null;}
@@ -1469,6 +1537,13 @@ function vHome(v){
   $("#seeex",c).onclick=()=>loadExampleDays();
   {const rb=$("#rmex",c); if(rb)rb.onclick=()=>removeExamples();}
   $("#gosetup",c).onclick=()=>{tab="setup";render();};
+  const sylCard=v.appendChild(el('<div class="card"><div class="btnbar" style="align-items:center"><h2 style="margin:0;flex:1">📄 Class Syllabus</h2><button class="btn ghost sm" id="sylEditStd">✏️ Edit standard policies</button></div>'
+    +'<p class="sub" style="margin:2px 0 8px">One printable page per class: your policies (edit once, shared across classes) + that class roadmap (fills in from its year plan). Print landscape, double-sided.</p><div id="sylList"></div></div>'));
+  {const sl=$("#sylList",sylCard);
+   if(!S.courses.length) sl.appendChild(el('<div class="empty">Add a class to build its syllabus.</div>'));
+   S.courses.forEach(co=>{ const row=el('<div class="item"><div class="grow"><div class="t">'+esc(co.name)+'</div></div><button class="btn ghost sm" data-v>👁 View</button><button class="btn sm" data-e>✏️ Edit</button></div>');
+     row.querySelector("[data-v]").onclick=()=>openSyllabus(co); row.querySelector("[data-e]").onclick=()=>syllabusEditModal(co); sl.appendChild(row); });
+   $("#sylEditStd",sylCard).onclick=()=>syllabusEditModal(S.courses.find(x=>x.id===cur.courseId)||S.courses[0]||null);}
 }
 function vCourses(v){
   const c=v.appendChild(el(`<div class="card"><h2>Courses</h2><p class="sub">Add the classes you teach. Pick the TEKS set so days can be tagged automatically.</p><div id="clist"></div>
@@ -1480,10 +1555,12 @@ function vCourses(v){
       <div class="m">${esc(co.grade||"")} · ${co.classMinutes||45} min · TEKS: ${esc(co.teks)} ${TEKS[co.teks]?.staar?'<span class="pill gold">STAAR EOC</span>':''}</div></div>
       <button class="btn ghost sm" data-open>Open week</button>
       <button class="btn ghost sm" data-syl>🖨 Syllabus</button>
+      <button class="btn ghost sm" data-syledit>✏️ Edit syllabus</button>
       <button class="btn ghost sm" data-edit>Edit</button>
       <button class="btn ghost sm" data-del>✕</button></div>`);
     it.querySelector("[data-open]").onclick=()=>{cur.courseId=co.id;tab="week";render();};
     it.querySelector("[data-syl]").onclick=()=>openSyllabus(co);
+    it.querySelector("[data-syledit]").onclick=()=>syllabusEditModal(co);
     it.querySelector("[data-edit]").onclick=()=>courseForm(co);
     it.querySelector("[data-del]").onclick=()=>{if(confirm("Delete "+co.name+"?")){S.courses=S.courses.filter(x=>x.id!==co.id);delete S.plans[co.id];delete S.pacing[co.id];save();render();}};
     list.appendChild(it);

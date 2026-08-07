@@ -702,8 +702,9 @@ function exportData(auto){
 }
 function daysSinceBackup(){ return S._lastBackup?((Date.now()-S._lastBackup)/86400000):Infinity; }
 let _autoBackupTried=false;
-function maybeAutoBackup(){                       // once per session: if it's been >2 days (or never), silently drop a dated backup in Downloads
+function maybeAutoBackup(){                       // OPT-IN only: never auto-download unless the teacher turned it on (no surprise "Save file?" dialogs)
   if(_autoBackupTried) return; _autoBackupTried=true;
+  if(!S.settings || S.settings.autoBackup!==true) return;   // default OFF — work already auto-saves to this browser
   if(!(S.courses&&S.courses.length)) return;      // nothing worth backing up yet
   if(daysSinceBackup()<2) return;                 // backed up recently
   try{ exportData(true); }catch(e){}
@@ -1315,7 +1316,11 @@ function vSetup(v){
       ${window.SAMPLE_WEEKS?'<button class="btn ghost sm" id="loadsample">🧪 Load sample weeks (Pre-Cal + Algebra I)</button>':''}
       <span id="tres" class="sub" style="margin:0"></span></div>
     ${window.SAMPLE_WEEKS?'<div class="note" style="margin-top:8px">🧪 <b>Try it now:</b> loads a hand-built Pre-Cal week + Algebra I week so you can open a day and hit <b>“📄 Exactly like mine (.tex)”</b> to compile in Overleaf and check the format.</div>':''}
-    <div class="note" style="margin-top:10px">Your plans live only in this browser. It now <b>auto-saves a backup to your Downloads</b> every couple of days — keep those files. A cache-clear or new computer would otherwise erase everything.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:10px">
+      <label style="display:flex;align-items:center;gap:7px;font-size:14px"><input type="checkbox" id="setAutoBak" ${S.settings.autoBackup?'checked':''}> Auto-download a backup file every couple of days</label>
+      <label style="display:flex;align-items:center;gap:7px;font-size:14px"><input type="checkbox" id="setBakRemind" ${S.settings.backupReminders!==false?'checked':''}> Remind me now and then to back up</label>
+    </div>
+    <div class="note" style="margin-top:8px">Your work <b>auto-saves in this browser</b> on every change — you don't have to do anything, and it won't ask you to save. The options above only control the <b>optional extra copy</b> to your Downloads. A cache-clear or new computer would erase the browser copy, so an occasional downloaded backup is smart insurance.</div>
     <div class="note" style="margin-top:8px">🔒 <b>Never type student names or grades in here.</b> Keep it to lesson content only — no student information.</div>
     <p class="sub" style="margin-top:8px">Version ${APP_VERSION} · <a href="#" id="tourAgain">show me around again</a> · <a href="#" id="reportProblem">report a problem</a></p>
     <div class="card" style="margin-top:16px;background:${S.settings.apiKey?'#f1fbf4':'#fff'};border-color:${S.settings.apiKey?'var(--green)':'var(--line)'}">
@@ -1346,6 +1351,8 @@ function vSetup(v){
   { const ta=$("#tourAgain"); if(ta)ta.onclick=e=>{e.preventDefault();startTour();}; }
   { const rp=$("#reportProblem"); if(rp)rp.onclick=e=>{e.preventDefault();diagReport();}; }
   $("#imp").onchange=e=>{if(e.target.files[0])importData(e.target.files[0]);};
+  {const ab=$("#setAutoBak"); if(ab)ab.onchange=e=>{S.settings.autoBackup=e.target.checked;save();toast(e.target.checked?"Auto-backup on — a copy will download every couple of days":"Auto-backup off — no more download prompts");};}
+  {const br=$("#setBakRemind"); if(br)br.onchange=e=>{S.settings.backupReminders=e.target.checked;if(e.target.checked)delete S._backupSnooze;save();toast(e.target.checked?"Backup reminders on":"Backup reminders off");};}
   $("#test").onclick=async()=>{
     S.settings.apiKey=$("#key").value.trim();S.settings.model=$("#model").value;
     $("#tres").innerHTML='<span class="spinner"></span> testing…';
@@ -1491,12 +1498,15 @@ function homeWeek(){
 function vHome(v){
   const wk=homeWeek(); const wkKey=wk&&wk.key;
   // BACKUP NAG — your plans live only in this browser; a stale backup is the #1 way to lose work
-  if(S.courses.length && daysSinceBackup()>5){
-    const d=daysSinceBackup(); const lbl=d===Infinity?"never backed up":("last backup "+Math.floor(d)+" days ago");
+  const _snoozed=S._backupSnooze&&Date.now()<S._backupSnooze;
+  if(S.courses.length && S.settings.backupReminders!==false && !_snoozed && daysSinceBackup()>14){
+    const d=daysSinceBackup(); const lbl=d===Infinity?"no backup file yet":("last one "+Math.floor(d)+" days ago");
     const nb=v.appendChild(el(`<div class="card no-print" style="background:#fff6f2;border-color:var(--clay)"><div class="btnbar" style="align-items:center">
-      <div style="flex:1;min-width:220px"><b>🗄 Protect your work — ${lbl}.</b><div class="sub" style="margin:2px 0 0">Everything lives in this browser only. One click saves a backup file to your Downloads (restore it any time from Setup).</div></div>
-      <button class="btn" id="nagbak">Back up now</button></div></div>`));
+      <div style="flex:1;min-width:220px"><b>🗄 Optional — download a backup copy <span class="sub" style="font-weight:400">(${lbl})</span>.</b><div class="sub" style="margin:2px 0 0">Your work already saves automatically in this browser. This just drops an extra copy in your Downloads for peace of mind — totally optional.</div></div>
+      <button class="btn" id="nagbak">Download a copy</button><button class="btn ghost sm" id="nagsnooze">Not now</button><button class="btn ghost sm" id="nagoff">Don't remind me</button></div></div>`));
     nb.querySelector('#nagbak').onclick=()=>{exportData();render();};
+    nb.querySelector('#nagsnooze').onclick=()=>{S._backupSnooze=Date.now()+30*86400000;save();render();toast("Okay — holding off for a month");};
+    nb.querySelector('#nagoff').onclick=()=>{S.settings.backupReminders=false;save();render();toast("Backup reminders off — you can turn them back on in Setup");};
   }
   // START HERE — surface the ready-to-print first day (no setup, no key) before anything scary
   if(!S._printedFirst && S.courses.length){

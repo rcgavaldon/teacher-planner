@@ -2237,7 +2237,7 @@ function vDay(v){
       <button class="btn ghost sm" id="attach">📎 My material</button>
       <span id="mst" class="sub" style="margin:0 0 0 4px"></span>
       <span style="flex:1"></span>
-      ${mats?'<details class="toolmore"><summary class="toolmore-sum">More ▾</summary><div class="toolmore-body"><button class="btn ghost sm" id="pnotes">⬇ Notes PDF</button><button class="btn ghost sm" id="texnotes">📄 Notes (.tex)</button><button class="btn ghost sm" id="pwork">⬇ Worksheet PDF</button><button class="btn ghost sm" id="genmod">Easier version</button><button class="btn ghost sm" id="genesp">Español</button><button class="btn ghost sm" id="enrich">+ Challenge set</button>'+(mats.enrichment?'<button class="btn ghost sm" id="penrich">⬇ Challenge PDF</button>':'')+(mats.modified?'<button class="btn ghost sm" id="pmod">⬇ Modified PDF</button>':'')+(mats.spanish?'<button class="btn ghost sm" id="pesp">⬇ Español PDF</button>':'')+'<button class="btn ghost sm" id="verify">Double-check the answers</button><button class="btn ghost sm" id="revday">📋 Make review day</button><button class="btn ghost sm" id="lost">⚡ Lost time / drill</button></div></details>':'<button class="btn ghost sm" id="lost">⚡ Lost time / drill</button>'}
+      ${mats?'<details class="toolmore"><summary class="toolmore-sum">More ▾</summary><div class="toolmore-body"><button class="btn ghost sm" id="pnotes">⬇ Notes PDF</button><button class="btn ghost sm" id="texnotes">📄 Notes (.tex)</button><button class="btn ghost sm" id="pwork">⬇ Worksheet PDF</button><button class="btn ghost sm" id="genmod">Easier version</button><button class="btn ghost sm" id="genesp">Español</button><button class="btn ghost sm" id="enrich">+ Challenge set</button>'+(mats.enrichment?'<button class="btn ghost sm" id="penrich">⬇ Challenge PDF</button>':'')+(mats.modified?'<button class="btn ghost sm" id="pmod">⬇ Modified PDF</button>':'')+(mats.spanish?'<button class="btn ghost sm" id="pesp">⬇ Español PDF</button>':'')+'<button class="btn ghost sm" id="verify">Double-check the answers</button><button class="btn ghost sm" id="gradeScans">📥 Grade scans</button><button class="btn ghost sm" id="revday">📋 Make review day</button><button class="btn ghost sm" id="lost">⚡ Lost time / drill</button></div></details>':'<button class="btn ghost sm" id="lost">⚡ Lost time / drill</button>'}
       </div><div id="distHost"></div><div id="pickerHost"></div><div id="matout"></div></div>`));
   if(mats){ renderMaterials($("#matout",matCard),co,dd,cur.day,mats); renderPicker($("#pickerHost",matCard),co,dd,cur.day,matCard); }
   $("#genmat",matCard).onclick=()=>genMaterials(co,wk,plan,cur.day,dd,$("#mst",matCard));
@@ -2248,6 +2248,7 @@ function vDay(v){
       "Convert this day into a REVIEW DAY: NO new content. The worksheet becomes spiral STATIONS over this grading period's TEKS so far — one section per major skill, station-style directions ('Station 1: …'), 2-3 problems each, 8-12 total. Notes become a one-page cheat-sheet style recap (formula bank + one quick example per skill). Exit ticket = 2 quiz-style items. Set type to 'review'."); };}
   if(mats){
     $("#genpres",matCard).onclick=()=>genPresentation(co,cur.day);
+    {const gs=$("#gradeScans",matCard); if(gs)gs.onclick=()=>gradeScansModal(co,dd,cur.day);}
     $("#editday",matCard).onclick=()=>editDay(co,plan,cur.day);
     $("#pnotes",matCard).onclick=()=>downloadPDF($("#notesDoc",matCard),fname(co.name+"-"+cur.day+"-notes")+".pdf",2);
     $("#texnotes",matCard).onclick=()=>showNotesLatex(co,dd,cur.day);
@@ -3436,6 +3437,80 @@ Return JSON:
     save(); render();
     toast(vr.warn&&vr.warn.length?("Rebuilt around your worksheet — ⚠ "+vr.warn[0]):"Day rebuilt around YOUR worksheet — notes, slides, examples, and key all realigned");
   }catch(e){ st.textContent="✗ "+e.message; }
+}
+/* ---- Grade scanned student work against a day's answer key (vision) ---- */
+(function(){try{if(document.getElementById("gradercss"))return;var s=document.createElement("style");s.id="gradercss";s.textContent=
+".gr-row{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;background:#fff}.gr-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.gr-score{font-weight:700;white-space:nowrap}.gr-items{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}.gr-item{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 4px;border-radius:6px;font-size:12px;font-weight:700;border:1px solid var(--line);cursor:default}.gr-correct{background:#E6F4EE;color:#0B6E4F;border-color:#BCE2D2}.gr-partial{background:#FBF1DF;color:#8A5300;border-color:#EAD4A6}.gr-wrong{background:#FBE8ED;color:#AF1235;border-color:#F0C1CD}.gr-list{max-height:46vh;overflow:auto}";
+document.head.appendChild(s);}catch(e){}})();
+function dayGradingKey(m){
+  const ws=m.worksheet||{}; const probs=[];
+  (ws.sections||[]).forEach(s=>(s.problems||[]).forEach(p=>probs.push(String(p).replace(/^\s*🌶\s*/,""))));
+  (ws.optionalExtra||[]).forEach(p=>probs.push(String(p).replace(/^\s*🌶\s*/,"")));
+  const ans=[]; (m.answerKey||[]).forEach(k=>(k.answers||[]).forEach(a=>ans.push(a)));
+  return probs.map((p,i)=>({n:i+1,problem:p,answer:ans[i]!=null?String(ans[i]):""}));
+}
+function gradebookCSV(g,day){
+  const key=(g.students&&g.students[0]&&g.students[0].items||[]);
+  const head=["Student","Score","Correct","Total"].concat(key.map(it=>"Q"+it.n)).concat(["Missed skills"]);
+  const rows=[head];
+  (g.students||[]).forEach(s=>{
+    const marks=(s.items||[]).map(it=>it.result==="correct"?"1":it.result==="partial"?"0.5":"0");
+    rows.push([s.name||"",s.score||"",String(s.correct==null?"":s.correct),String(s.total==null?"":s.total)].concat(marks).concat([(s.missedSkills||[]).join("; ")]));
+  });
+  return rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(",")).join("\r\n");
+}
+function renderGradebook(host,co,m,day,g){
+  if(!g||!(g.students||[]).length){host.innerHTML='<p class="sub">No grades yet.</p>';return;}
+  const rows=(g.students||[]).map(s=>{
+    const items=(s.items||[]).map(it=>`<span class="gr-item gr-${esc(it.result||"")}" title="${esc("Q"+it.n+": "+(it.studentAnswer||"")+(it.note?" — "+it.note:""))}">${it.n}</span>`).join("");
+    return `<div class="gr-row"><div class="gr-top"><b>${esc(s.name||"(unnamed)")}</b><span class="gr-score">${esc(s.score||"")} <span class="sub">(${s.correct}/${s.total})</span></span></div>
+      <div class="gr-items">${items}</div>
+      ${s.missedSkills&&s.missedSkills.length?`<div class="sub">Missed: ${esc(s.missedSkills.join(", "))}</div>`:""}
+      ${s.feedback?`<div class="sub">💬 ${esc(s.feedback)}</div>`:""}</div>`;
+  }).join("");
+  const cs=g.classSummary||{};
+  host.innerHTML=`<div class="btnbar" style="align-items:center;margin:0 0 8px"><b style="flex:1">Gradebook — ${esc(day)} <span class="sub">(${(g.students||[]).length} student${(g.students||[]).length===1?"":"s"}${g.gradedAt?" · "+esc(String(g.gradedAt).slice(0,10)):""})</span></b><button class="btn ghost sm" id="grCsv">⬇ CSV</button><button class="btn ghost sm" id="grClear">Clear</button></div>
+    ${cs.average?`<div class="doc" style="margin:0 0 8px"><b>Class:</b> avg ${esc(cs.average)}${cs.commonMistakes&&cs.commonMistakes.length?" · common misses: "+esc(cs.commonMistakes.join("; ")):""}</div>`:""}
+    <div class="gr-list">${rows}</div>
+    ${(g.unreadable||[]).length?`<div class="doc" style="margin-top:8px;border-left:3px solid var(--gold)"><b>⚠ Needs your eyes:</b> ${esc(g.unreadable.join(" · "))}</div>`:""}`;
+  const csv=host.querySelector("#grCsv"); if(csv)csv.onclick=()=>{const blob=new Blob([gradebookCSV(g,day)],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=fname(co.name+"-"+day+"-grades")+".csv";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000);};
+  const clr=host.querySelector("#grClear"); if(clr)clr.onclick=()=>{if(confirm("Clear these grades?")){delete m.grades;save();host.innerHTML='<p class="sub">Cleared.</p>';}};
+}
+function gradeScansModal(co,m,day){
+  const key=dayGradingKey(m);
+  if(!key.length){toast("Generate this day's materials first — grading needs the answer key.");return;}
+  const ov=el('<div class="overlay"><div class="modal" style="max-width:740px"><h3>📥 Grade scanned work — '+esc(day)+'</h3>'
+    +'<p class="sub">Grades against <b>'+esc(day)+'’s</b> answer key (<b>'+key.length+'</b> questions). Scan the whole class’s completed sheets into <b>one PDF</b> (or a single photo for one student). It reads each student’s name + answers and grades them, then exports a CSV for your gradebook. <b>Uses AI credits.</b></p>'
+    +'<label class="btn ghost sm" style="display:inline-block;width:auto;margin:2px 0">📎 Choose scan (PDF or image)<input id="grFile" type="file" accept="application/pdf,image/png,image/jpeg" style="display:none"></label>'
+    +'<span id="grName" class="sub" style="margin-left:8px">no file yet</span>'
+    +'<div class="btnbar" style="margin-top:12px"><button class="btn" id="grGo" disabled>Grade it</button><button class="btn ghost" id="grCancel">Close</button><span id="grSt" class="sub" style="margin-left:4px"></span></div>'
+    +'<div id="grOut" style="margin-top:12px"></div></div></div>');
+  document.body.appendChild(ov);
+  const out=ov.querySelector("#grOut"); if(m.grades) renderGradebook(out,co,m,day,m.grades);
+  let pending=null;
+  ov.querySelector("#grFile").onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;
+    if(f.size>28*1024*1024){toast("File too big — keep it under 28 MB");return;}
+    const rd=new FileReader();rd.onload=()=>{pending={name:f.name,mediaType:f.type||"application/pdf",data:String(rd.result).split(",")[1]};ov.querySelector("#grName").textContent=f.name+" ✓";ov.querySelector("#grGo").disabled=false;};rd.readAsDataURL(f);};
+  ov.querySelector("#grCancel").onclick=()=>ov.remove();
+  ov.querySelector("#grGo").onclick=()=>{if(!pending){toast("Choose a scan first");return;}gradeScans(co,m,day,pending,out,ov.querySelector("#grSt"));};
+}
+async function gradeScans(co,m,day,file,out,st){
+  const key=dayGradingKey(m);
+  if(st){st.innerHTML='<span class="spinner"></span> reading the scans and grading…';}
+  const isPdf=/pdf/i.test(file.mediaType||"");
+  const keyText=key.map(k=>k.n+". Q: "+k.problem+"\n   KEY: "+k.answer).join("\n");
+  const sys=`You are an experienced, fair Texas HS teacher for ${co.name} grading SCANNED student work for the lesson "${m.objective||day}". You are given the numbered ANSWER KEY. The attached ${isPdf?"PDF may contain MULTIPLE students' completed worksheets (one or more pages per student)":"image is one student's completed worksheet"}. For EACH distinct student paper you can read: (1) read the student's NAME on the paper (if none, use "(unnamed, page N)"); (2) read their handwritten answer to each numbered question; (3) compare to the key — accept any mathematically/scientifically EQUIVALENT answer and ignore formatting/spelling; (4) mark each item correct, partial, or wrong; (5) score = correct/total with partial counting as half, as a rounded percent. Be accurate but fair; if handwriting is ambiguous, give the benefit of the doubt and note it. Put blank/unreadable pages under "unreadable". Return ONLY JSON, no other text.`;
+  const user=`ANSWER KEY (${key.length} questions):\n${keyText}\n\nReturn ONLY this JSON:\n{"students":[{"name":"...","correct":0,"total":${key.length},"score":"NN%","items":[{"n":1,"studentAnswer":"what the student wrote (brief)","result":"correct|partial|wrong","note":"short reason if wrong/partial"}],"missedSkills":["topic names they missed"],"feedback":"one encouraging, specific line for this student"}],"classSummary":{"count":0,"average":"NN%","commonMistakes":["question N — the shared error"]},"unreadable":["page N — why"]}`;
+  try{
+    const txt=await callClaude({max_tokens:11000, pdf:isPdf?file.data:null, image:isPdf?null:file, system:sys, messages:[{role:"user",content:user}]});
+    const data=parseJSON(txt);
+    if(!data||!Array.isArray(data.students)||!data.students.length) throw new Error("Couldn't read a gradebook from that scan — try a clearer/flatter scan.");
+    data.gradedAt=iso(new Date());
+    m.grades=data; save();
+    renderGradebook(out,co,m,day,data);
+    if(st)st.textContent="✓ graded "+data.students.length+" student"+(data.students.length===1?"":"s");
+    toast("Graded "+data.students.length+" student"+(data.students.length===1?"":"s")+" — CSV export ready");
+  }catch(e){ if(st)st.textContent="✗ "+e.message; }
 }
 async function verifyVideoUrl(url){
   if(!/youtube\.com\/watch|youtu\.be\//i.test(String(url||""))) return {ok:false,search:true};

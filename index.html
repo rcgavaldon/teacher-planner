@@ -609,7 +609,10 @@ const CORE4_DEFAULT = "Respect — for self, classmates, and the learning space.
 /* ============================================================ STATE ==== */
 const APP_VERSION="1.0.0";   // bump on each release so a teacher can tell you what they're running
 function vurl(p){ try{return new URL(p,location.href).href;}catch(e){return p;} }   // absolute URL for print windows/iframes (works on GitHub Pages subpaths, localhost, file://)
-const LS="teacherPlanner.v1";
+/* Storage is NAMESPACED per ?seed= tenant so a shared link (e.g. ?seed=sebastian) can never read or clobber
+   the admin instance in the same browser — each gets its own isolated localStorage. Admin (no seed) keeps the base key. */
+const _seedNS=(new URLSearchParams(location.search).get("seed")||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
+const LS="teacherPlanner.v1"+(_seedNS?"::"+_seedNS:"");
 let _lastWrote="";                       // last string THIS tab wrote — lets us tell our own writes from another tab's
 function _hydrate(x){ if(x.settings&&!x.settings.core4)x.settings.core4=CORE4_DEFAULT; if(!x.tests)x.tests={}; return x; }
 function _blankState(){
@@ -1572,6 +1575,8 @@ function vHome(v){
   $("#seeex",c).onclick=()=>loadExampleDays();
   {const rb=$("#rmex",c); if(rb)rb.onclick=()=>removeExamples();}
   $("#gosetup",c).onclick=()=>{tab="setup";render();};
+  v.appendChild(el('<div class="card" style="border-color:var(--clay-soft)"><div class="btnbar" style="align-items:center"><h2 style="margin:0;flex:1">🛠 Engineering Command Center</h2><a class="btn sm" href="engineering-hub.html" target="_blank" rel="noopener">Open →</a></div>'
+    +'<p class="sub" style="margin:2px 0 0">Principles &amp; Manufacturing hub — full-year plans, built Weeks 1–2, present-ready decks, print-by-day, and real video links. Opens in a new tab.</p></div>'));
   const sylCard=v.appendChild(el('<div class="card"><div class="btnbar" style="align-items:center"><h2 style="margin:0;flex:1">📄 Class Syllabus</h2><button class="btn ghost sm" id="sylEditStd">✏️ Edit standard policies</button></div>'
     +'<p class="sub" style="margin:2px 0 8px">One printable page per class: your policies (edit once, shared across classes) + that class roadmap (fills in from its year plan). Print landscape, double-sided.</p><div id="sylList"></div></div>'));
   {const sl=$("#sylList",sylCard);

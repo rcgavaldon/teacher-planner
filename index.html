@@ -613,6 +613,7 @@ function vurl(p){ try{return new URL(p,location.href).href;}catch(e){return p;} 
    the admin instance in the same browser — each gets its own isolated localStorage. Admin (no seed) keeps the base key. */
 const _seedNS=(new URLSearchParams(location.search).get("seed")||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
 const LS="teacherPlanner.v1"+(_seedNS?"::"+_seedNS:"");
+const IS_TENANT=!!_seedNS;   // a shared ?seed= link = someone other than the owner -> generic content + a different theme
 let _lastWrote="";                       // last string THIS tab wrote — lets us tell our own writes from another tab's
 function _hydrate(x){ if(x.settings&&!x.settings.core4)x.settings.core4=CORE4_DEFAULT; if(!x.tests)x.tests={}; return x; }
 function _blankState(){
@@ -1376,7 +1377,7 @@ const SYL_DEFAULTS={
   welcome:"The work you show on paper is how it sticks. Here’s how our room runs and what I expect.",
   dailyTitle:"How every class runs",
   dailyFlow:["Go to your **assigned seat**","**Phone goes up** (caddy)","Start the **bellwork**","We **go over it** together","**Intro** the new topic","**You Try**","**Day work**","**Exit ticket**"],
-  engDailyTitle:"How the studio runs",
+  engDailyTitle:"How this class runs",
   engDailyFlow:["Grab your **assigned laptop**","**Sign in** to the program we’re using","**Start work** — pick up where you left off","**Wait for instruction** when I call the class"],
   phonesTitle:"Phones", phones:"Up at the **start, every day.** Like the movies: phone away so everyone can focus. **I’ll ask once** — then an email home, then a parent + admin meeting. Goal: **never** need it.",
   tutoringTitle:"Tutoring & not failing", tutoring:"Fail a test → **one week of mandatory tutoring** (the department or me, on tutoring days). It’s how we keep you from failing. Seats are assigned.",
@@ -1399,7 +1400,25 @@ const SYL_DEFAULTS={
   },
   ipad:"**iPads** are allowed for class work. The first time I see texting, it goes away — and it does not come back out."
 };
-function sylCfg(){ return Object.assign({}, SYL_DEFAULTS, (S.settings&&S.settings.syllabus)||{}); }
+/* De-personalized defaults for shared users (not the owner) - no personal quirks/voice. */
+const SYL_GENERIC=Object.assign({},SYL_DEFAULTS,{
+  welcome:"Here is how our class runs and what I expect. Let us have a great year together.",
+  dailyTitle:"How every class runs",
+  dailyFlow:["Take your **assigned seat**","**Phones away** for class","Start the **warm-up**","We **go over it** together","**Learn** the new material","**Try it** yourself","**Work time**","**Exit ticket**"],
+  phonesTitle:"Phones",
+  phones:"Phones are put away at the **start of class** so everyone can focus. You get **one reminder**; repeated use is handled per school policy.",
+  tutoringTitle:"Tutoring & support",
+  tutoring:"If you are struggling or miss the mark on an assessment, come to **tutoring** - it is the fastest way to get back on track. Ask me for the schedule.",
+  qualityTitle:"Quality of Work",
+  quality:["Do your **own work**.","Finish classwork **in class**, the day it is assigned.","Stay focused on **this class** during class time.","**No AI on graded work** - you need to know it yourself."],
+  notAcceptedTitle:"Not accepted",
+  notAccepted:["Disrespect, fighting, or unsafe behavior","Eating or being out of dress code","Not turning work in / not working in class","Leaving your seat or the room without permission"],
+  core4:["Respect","Responsibility","Effort","Growth"],core4Tag:"Do your best work.",
+  ipad:"**Devices** are for class work only. Off-task use means the device is put away."
+});
+/* A distinct color scheme for shared users (teal + coral vs the owner's indigo + gold). */
+const TENANT_SYL_CSS='<style>:root{--paper:#EEF3F1;--ink:#0C2420;--ink2:#123A33;--muted:#5B7772;--line:#DCE8E4;--indigo:#0E7C66;--indigo-soft:#E2F1EC;--indigo-line:#C4E3DB;--peri:#5FBFA9;--gold:#E4823A;--amber:#9A4A16;--amber-bg:#FBEEE2;--amber-line:#EAD0B8}.mhero{background:radial-gradient(130% 150% at 90% -20%,#12564A 0%,#0C2420 58%)}.pw::before{background:linear-gradient(180deg,#0E7C66,#5FBFA9 55%,#E4823A)}.pw-lv{border-color:#0E7C66;color:#0E7C66}.pw-course{color:#123A33}.pw-cert b{color:#123A33}</style>';
+function sylCfg(){ const _base=(typeof IS_TENANT!=="undefined"&&IS_TENANT)?SYL_GENERIC:SYL_DEFAULTS; return Object.assign({}, _base, (S.settings&&S.settings.syllabus)||{}); }
 function sylFmt(x){ return esc(String(x==null?"":x)).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>"); }
 function syllabusMaterials(co){
   if(co&&(co.sylMaterials||[]).length) return co.sylMaterials.slice();
@@ -1465,7 +1484,7 @@ function syllabusDoc(co){
   const showPath=(typeof courseIsEng==="function")&&courseIsEng(co)&&((sylCfg().pathway&&sylCfg().pathway.stations)||[]).length;
   const C=showPath?sylSideC(co):null;
   const land=x=>'<div class="land"><div class="half">'+x+'</div><div class="cut"></div><div class="half">'+x+'</div></div>';
-  return '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(name)+' — Syllabus</title><style>'+SYL_CSS+'</style></head><body><div class="screen">'
+  return '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(name)+' — Syllabus</title><style>'+SYL_CSS+'</style>'+(IS_TENANT?TENANT_SYL_CSS:'')+'</head><body><div class="screen">'
     +'<div class="hint"><b>Print landscape, then cut on the dashed line.</b> '+(C?'This class prints <b>3 half-sheet sides</b> \u2014 policies + this year\u2019s roadmap (double-sided), plus the <b>4-Year Pathway</b> on its own.':'Print double-sided (flip on short edge): each student gets a 2-sided half-sheet \u2014 syllabus front, roadmap back.')+'</div>'
     +land(A)+land(B)+(C?land(C):'')
     +'</div></body></html>';

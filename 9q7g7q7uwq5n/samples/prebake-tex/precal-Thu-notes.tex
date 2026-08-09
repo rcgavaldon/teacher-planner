@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}\usepackage{amssymb}\usepackage{enumitem}\usepackage{xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newif\ifkey\keytrue      % TEACHER KEY toggle
+\newif\iftwoup\twoupfalse  % 2-UP toggle
+\iftwoup\usepackage{pgfpages}\pgfpagesuselayout{2 on 1}[letterpaper,landscape]\fi
+\newcommand{\bl}[2][2cm]{\ifkey\textcolor{blue!65!black}{\underline{#2}}\else\underline{\hspace{#1}}\fi}
+\newcommand{\N}{%
+\begin{center}{\large\textbf{Symmetry: Even, Odd, or Neither}}\hfill\ifkey\textcolor{blue!65!black}{\textbf{TEACHER KEY}}\else Name: \rule{3.5cm}{0.4pt}\fi\end{center}
+{\small Pre-Calculus \textbar\ Guided notes --- we fill these in together}\vspace{2pt}\hrule\vspace{7pt}
+\textbf{Vocabulary}\\[5pt]
+\textbf{Even function:} a function symmetric about the \bl[2cm]{$y$-axis}; algebraically, $f(-x)=$ \bl[1.8cm]{$f(x)$} for every $x$.\\[10pt]
+\textbf{Odd function:} a function symmetric about the \bl[2.2cm]{origin}; algebraically, $f(-x)=$ \bl[2cm]{$-f(x)$} for every $x$.\\[12pt]
+\textbf{We do together.}\quad Determine whether $f(x)=x^{2}-3$ is even, odd, or neither.\\[6pt]
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.1em,itemsep=9pt]
+  \item Substitute $-x$ for $x$: $f(-x)=(-x)^{2}-3=$ \{\{$x^{2}-3$|2.4cm\}\}.
+  \item Compare this result to the original $f(x)=x^2-3$: they are \bl[1.8cm]{equal}.
+  \item Since $f(-x)=f(x)$, the function is \bl[1.4cm]{even}.
+\end{enumerate}\vspace{8pt}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$y$,xmin=-3.5,xmax=3.5,ymin=-4,ymax=7,width=8cm,height=5.5cm,grid=both,samples=80]
+\addplot[very thick,blue,domain=-3:3]{x^2-3};
+\end{axis}\end{tikzpicture}\end{center}
+{\small\centering $y=x^{2}-3$ --- the $y$-axis is a mirror line, confirming it's even.\par}
+\vspace{6pt}
+\textbf{You Try.}\ Solve each. Show every step, then name the answer.\\[6pt]
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=2.4em,itemsep=1.4cm]
+  \item Determine whether $f(x)=x^{3}$ is even, odd, or neither. \hfill \ifkey\textcolor{blue!65!black}{odd: $f(-x)=(-x)^3=-x^3=-f(x)$}\fi
+  \item Determine whether $f(x)=x^{2}+x$ is even, odd, or neither. \hfill \ifkey\textcolor{blue!65!black}{neither: $f(-x)=x^2-x$, which is not equal to $f(x)$ or $-f(x)$}\fi
+\end{enumerate}
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Summary (fill in):} Substitute \bl[1.4cm]{$-x$} into the function: if you get back the ORIGINAL function, it's \bl[1.2cm]{even}; if you get back the \bl[2cm]{negative} of the original, it's odd; otherwise, neither.
+}
+\begin{document}
+\N
+\iftwoup\clearpage\N\fi
+\end{document}

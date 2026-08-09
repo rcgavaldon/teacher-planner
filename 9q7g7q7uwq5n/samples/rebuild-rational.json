@@ -1,0 +1,97 @@
+{
+"worksheet":{
+ "title":"Multiplying and Dividing Rational Expressions",
+ "instructions":"Factor first, cancel common factors, simplify, and state the restrictions from every ORIGINAL denominator (and the divisor when dividing).",
+ "sections":[
+  {"type":"Multiply, simplify, and state restrictions",
+   "directions":"Multiply, simplify, and state restrictions.",
+   "workedExample":"**Example (trinomial, $a=1$):** $\\dfrac{x^2+5x+6}{x}\\cdot\\dfrac{x}{x+2}$.  Factor: $x^2+5x+6=(x+2)(x+3)$, so $\\dfrac{(x+2)(x+3)}{x}\\cdot\\dfrac{x}{x+2}=x+3$, with $x\\neq 0,-2$.",
+   "problems":[
+    "$\\dfrac{4x}{x^{2}-16}\\cdot\\dfrac{x-4}{3}$",
+    "$\\dfrac{8m}{m^{2}+5m}\\cdot\\dfrac{m}{4}$",
+    "$\\dfrac{x^{2}+7x+10}{x}\\cdot\\dfrac{3x}{x+5}$",
+    "$\\dfrac{2x^{2}+7x+3}{x}\\cdot\\dfrac{x}{2x+1}$",
+    "$\\dfrac{6y}{9}\\cdot\\dfrac{3y^{2}}{y}$",
+    "$\\dfrac{2x^{2}}{10x}\\cdot\\dfrac{5}{x+1}$"]},
+  {"type":"Divide, simplify, and state restrictions",
+   "directions":"Divide, simplify, and state restrictions.",
+   "workedExample":"**Example (trinomial, $a\\neq 1$):** $\\dfrac{2x^2+9x+4}{3x}\\div\\dfrac{2x+1}{x}$.  Factor $2x^2+9x+4=(2x+1)(x+4)$, flip and multiply: $\\dfrac{(2x+1)(x+4)}{3x}\\cdot\\dfrac{x}{2x+1}=\\dfrac{x+4}{3}$, with $x\\neq 0,-\\tfrac12$.",
+   "problems":[
+    "$\\dfrac{x^{2}-25}{5x}\\div\\dfrac{x-5}{x}$",
+    "$\\dfrac{x^{2}+6x+8}{x}\\div\\dfrac{x+2}{2x}$",
+    "$\\dfrac{3x^{2}+11x+6}{x}\\div\\dfrac{3x+2}{x}$",
+    "$\\dfrac{3a}{a^{2}+a}\\div\\dfrac{3}{a}$",
+    "$\\dfrac{2y}{y^{2}-4}\\div\\dfrac{y+2}{4}$",
+    "$\\dfrac{4p}{p^{2}}\\div\\dfrac{2}{p}$"]}
+ ],
+ "optionalExtra":[]},
+"answerKey":[
+ {"section":"Multiply, simplify, and state restrictions","answers":[
+  "$\\dfrac{4x}{3(x+4)}$; restrictions $x\\neq 4,\\,-4$",
+  "$\\dfrac{2m}{m+5}$; restrictions $m\\neq 0,\\,-5$  — ⚠ the sheet's key shows $\\tfrac{2}{m+5}$, which drops an $m$: $\\tfrac{8m}{m(m+5)}\\cdot\\tfrac{m}{4}=\\tfrac{8m^2}{4m(m+5)}=\\tfrac{2m}{m+5}$",
+  "$3(x+2)$; restrictions $x\\neq 0,\\,-5$",
+  "$x+3$; restrictions $x\\neq 0,\\,-\\tfrac12$",
+  "$2y^{2}$; restriction $y\\neq 0$",
+  "$\\dfrac{x}{x+1}$; restrictions $x\\neq 0,\\,-1$"]},
+ {"section":"Divide, simplify, and state restrictions","answers":[
+  "$\\dfrac{x+5}{5}$; restrictions $x\\neq 0,\\,5$",
+  "$2(x+4)$; restrictions $x\\neq 0,\\,-2$",
+  "$x+3$; restrictions $x\\neq 0,\\,-\\tfrac23$",
+  "$\\dfrac{a}{a+1}$; restrictions $a\\neq 0,\\,-1$  — ⚠ the sheet's key shows $\\tfrac{1}{a+1}$, which drops an $a$: $\\tfrac{3a}{a(a+1)}\\cdot\\tfrac{a}{3}=\\tfrac{3a\\cdot a}{3a(a+1)}=\\tfrac{a}{a+1}$",
+  "$\\dfrac{8y}{(y-2)(y+2)^{2}}$; restrictions $y\\neq 2,\\,-2$  — ⚠ the sheet's key shows $\\tfrac{2}{y-2}$; flipping gives $\\tfrac{2y}{(y-2)(y+2)}\\cdot\\tfrac{4}{y+2}=\\tfrac{8y}{(y-2)(y+2)^2}$ and nothing else cancels",
+  "$2$; restriction $p\\neq 0$"]}
+],
+"guidedNotes":{
+ "title":"Multiplying & Dividing Rational Expressions",
+ "formulas":[
+  {"name":"Factor toolbox","formula":"GCF · difference of squares $a^2-b^2=(a-b)(a+b)$ · trinomials"},
+  {"name":"Divide rule","formula":"$\\dfrac{A}{B}\\div\\dfrac{C}{D}=\\dfrac{A}{B}\\cdot\\dfrac{D}{C}$ (flip, then multiply)"},
+  {"name":"Restrictions","formula":"every ORIGINAL denominator $\\neq 0$ — and when dividing, the divisor's top too"}],
+ "vocab":[
+  {"term":"Rational expression","def":"a fraction whose top and bottom are {{polynomials|3cm}}"},
+  {"term":"Restriction","def":"an $x$-value that makes an ORIGINAL {{denominator|3cm}} equal zero"},
+  {"term":"Reciprocal","def":"the flipped fraction — dividing means multiplying by the {{reciprocal|3cm}}"}],
+ "examples":[
+  {"label":"Type 1 — multiply","prompt":"Simplify $\\dfrac{x^2+5x+6}{x}\\cdot\\dfrac{x}{x+2}$ and state restrictions.",
+   "steps":[
+    "Factor every top and bottom: $x^2+5x+6=$ {{$(x+2)(x+3)$|3.4cm}}",
+    "Cancel common factors: the $(x+2)$ pair and the {{$x$|1.4cm}} pair cancel",
+    "Simplified result: {{$x+3$|2cm}}",
+    "Restrictions from ORIGINAL denominators: $x\\neq$ {{$0,\\,-2$|2cm}}"],
+   "answer":"$x+3$, $x\\neq 0,-2$"},
+  {"label":"Type 2 — divide (flip first)","prompt":"Simplify $\\dfrac{2x^2+9x+4}{3x}\\div\\dfrac{2x+1}{x}$ and state restrictions.",
+   "steps":[
+    "Flip the divisor and multiply: $\\div\\dfrac{2x+1}{x}$ becomes $\\cdot$ {{$\\dfrac{x}{2x+1}$|2.6cm}}",
+    "Factor: $2x^2+9x+4=$ {{$(2x+1)(x+4)$|3.6cm}}",
+    "Cancel $(2x+1)$ and $x$: result {{$\\dfrac{x+4}{3}$|2.2cm}}",
+    "Restrictions (original denominators AND the divisor's top): $x\\neq$ {{$0,\\,-\\tfrac12$|2.4cm}}"],
+   "answer":"$\\dfrac{x+4}{3}$, $x\\neq 0,-\\tfrac12$"}],
+ "youTry":[
+  {"prompt":"Simplify $\\dfrac{8m}{m^{2}+5m}\\cdot\\dfrac{m}{4}$ and state restrictions.","answer":"$\\dfrac{2m}{m+5}$, $m\\neq 0,-5$"},
+  {"prompt":"Simplify $\\dfrac{3a}{a^{2}+a}\\div\\dfrac{3}{a}$ and state restrictions.","answer":"$\\dfrac{a}{a+1}$, $a\\neq 0,-1$"}],
+ "summary":"Factor → {{cancel|2cm}} → simplify → restrictions from every {{original denominator|3.6cm}} (flip FIRST when dividing)."},
+"presentation":{
+ "kind":"build","title":"Multiply & Divide Rational Expressions",
+ "slides":[
+  {"type":"define","heading":"Same four moves, every problem",
+   "bullets":["**Factor** every top and bottom completely (GCF, difference of squares, trinomials).","**Dividing?** Flip the second fraction FIRST — then it's a multiply problem.","**Cancel** matching factors, then simplify.","**Restrictions** come from the ORIGINAL denominators — before anything cancels."]},
+  {"type":"example","heading":"We do:  divide with a trinomial",
+   "example":"$\\dfrac{2x^2+9x+4}{3x}\\div\\dfrac{2x+1}{x}$\n**1.** Flip: $\\cdot\\,\\dfrac{x}{2x+1}$.\n**2.** Factor: $2x^2+9x+4=(2x+1)(x+4)$.\n**3.** Cancel $(2x+1)$ and $x$: $\\dfrac{x+4}{3}$.\n**4.** Restrictions: $x\\neq 0,\\,-\\tfrac12$."},
+  {"type":"mistake","heading":"The restriction trap",
+   "mistake":"Restrictions come from the ORIGINAL denominators — including factors that later cancel, and the divisor's TOP when you divide.\nIf you read them off the simplified answer, you miss values like $x=-2$ in Example 1.",
+   "note":"Write the restrictions down at the FACTOR step, before you cancel anything."},
+  {"type":"youtry","heading":"Your turn",
+   "youTry":"Simplify and state restrictions:\n(a) $\\dfrac{8m}{m^{2}+5m}\\cdot\\dfrac{m}{4}$\n(b) $\\dfrac{4p}{p^{2}}\\div\\dfrac{2}{p}$"}]},
+"procedureExamples":[
+ {"prompt":"Simplify $\\dfrac{x^2+5x+6}{x}\\cdot\\dfrac{x}{x+2}$ and state restrictions.",
+  "steps":["Factor: $x^2+5x+6=(x+2)(x+3)$.","Write as one fraction: $\\dfrac{(x+2)(x+3)\\cdot x}{x\\cdot(x+2)}$.","Cancel $(x+2)$ and $x$.","State restrictions from the original denominators: $x\\neq 0,-2$."],
+  "answer":"$x+3$, $x\\neq 0,-2$"},
+ {"prompt":"Simplify $\\dfrac{2x^2+9x+4}{3x}\\div\\dfrac{2x+1}{x}$ and state restrictions.",
+  "steps":["Multiply by the reciprocal: $\\dfrac{2x^2+9x+4}{3x}\\cdot\\dfrac{x}{2x+1}$.","Factor: $2x^2+9x+4=(2x+1)(x+4)$.","Cancel $(2x+1)$ and $x$: $\\dfrac{x+4}{3}$.","Restrictions: $3x\\neq 0$, divisor top $2x+1\\neq 0$, divisor bottom $x\\neq 0$ → $x\\neq 0,-\\tfrac12$."],
+  "answer":"$\\dfrac{x+4}{3}$, $x\\neq 0,-\\tfrac12$"}],
+"vocab":[
+ {"term":"Rational expression","definition":"a fraction of polynomials"},
+ {"term":"Restriction","definition":"a value making an original denominator zero"},
+ {"term":"Reciprocal","definition":"the flipped fraction used when dividing"}],
+"exitTicket":["Simplify $\\dfrac{x^{2}-9}{2x}\\cdot\\dfrac{x}{x+3}$ and state the restrictions."]
+}

@@ -1,0 +1,43 @@
+{
+ "type": "worksheet",
+ "objective": "Students will solve multi-step linear equations in one variable — including equations with variables on both sides and equations requiring the distributive property — and verify each solution by substitution, with at least 80% accuracy on the exit ticket.",
+ "hook": "If a mystery number is tripled and then bumped up by 5 to land exactly on 20, can you rewind the moves to catch it?",
+ "agenda": "Bell ringer (5) · Go over (5) · Mini-lesson (12) · Guided (8) · Worksheet (12) · Exit (3)",
+ "assessment": "The exit ticket checks whether each student can solve a multi-step equation with variables on both sides and confirm the answer by substituting it back in.",
+ "script": [
+   {"min":5,"title":"Bell ringer","do":"Post $2x + 7 = 19$ on the board. Students solve silently in notebooks and box their answer.","options":["Have students write the very first inverse move they used, not just the final answer"],"say":"You already know how to undo one or two steps — hold that thought, because today we stack more of them."},
+   {"min":5,"title":"Go over bell ringer","do":"Call a volunteer to narrate their steps; record subtract-7 then divide-by-2 on the board and substitute $x=6$ back in to check.","options":["Show a wrong version that divides before subtracting and ask the class to spot the slip"],"say":"Notice we undo in reverse order of operations — addition first, then the multiply."},
+   {"min":12,"title":"Mini-lesson","do":"Present the step list (distribute, combine like terms, collect variables on one side, undo add/subtract, undo multiply/divide, check). Work $3(x-2)=2x+4$ aloud, then a variables-on-both-sides model.","options":["Use two-color marker: one color for 'clean up each side,' another for 'move across the equals sign'"],"say":"Whatever we do to one side, we do to the other — the equals sign is a balance, not a wall."},
+   {"min":8,"title":"Guided practice","do":"Class solves $5(x-1)=20$ and $6x+1=2x+13$ together on whiteboards; teacher circulates and checks before revealing answers.","options":["Pair-share: partner A distributes, partner B collects variables, then they swap"],"say":"Show me your first move before you race to the answer — the setup is where the points live."},
+   {"min":12,"title":"Worksheet","do":"Students work the three-section worksheet independently, then check with a neighbor. Teacher pulls a small group that struggled on the bell ringer.","options":["Let students choose to start with the section they feel strongest in"],"say":"Every answer can be tested — plug it back in and let the equation tell you if you're right."},
+   {"min":3,"title":"Exit ticket","do":"Students solve one variables-on-both-sides equation on a half-sheet and hand it in as they leave.","options":["Ask them to also write one sentence: what step tripped them up today"],"say":"Solve it, check it, hand it to me on your way out."}
+ ],
+ "presentation": {
+   "kind": "launch",
+   "title": "Solving Multi-Step Linear Equations",
+   "slides": [
+     {"type":"hook","heading":"Catch the mystery number","bullets":["Tripled, then plus 5, it lands on 20 — what was it?","To catch it, we undo the moves in reverse."]},
+     {"type":"define","heading":"The game plan","bullets":["1. Distribute to clear parentheses","2. Combine like terms on each side","3. Collect variables on one side, numbers on the other","4. Undo add/subtract, then undo multiply/divide","5. Check by substituting your answer back in"]},
+     {"type":"example","heading":"Worked example","bullets":["Variables on both sides, with distributing"],"example":"Solve $3(x-2)=2x+4$. Distribute: $3x-6=2x+4$. Subtract $2x$: $x-6=4$. Add $6$: $x=10$. Check: $3(10-2)=24$ and $2(10)+4=24$, so both sides equal $24$."},
+     {"type":"mistake","heading":"Watch out","bullets":["Classic error: $3(x+4)=3x+4$ — the 3 never reached the 4.","Fix: distribute to BOTH terms, so $3(x+4)=3x+12$."]},
+     {"type":"youtry","heading":"You try","bullets":["Solve and check: $2(3x-4)=4x+2$"]}
+   ]
+ },
+ "notes": "## Solving Multi-Step Equations\n**Key idea:** Peel the equation apart in reverse order of operations, keeping it balanced — whatever you do to one side you do to the other.\n- Distribute to clear parentheses\n- Combine like terms on each side\n- Move variables to one side, numbers to the other\n- Undo addition/subtraction, then undo multiplication/division\n- Always check by substituting back in\n\n**Example:** $3(x-2)=2x+4 \\rightarrow 3x-6=2x+4 \\rightarrow x-6=4 \\rightarrow x=10$ (both sides check to $24$)",
+ "worksheet": {
+   "title": "Solving Multi-Step Linear Equations",
+   "instructions": "Solve each equation for the variable. Show every step and check at least one answer by substitution. Keep exact values — leave any non-integer answer as a fraction.",
+   "scannable": true,
+   "sections": [
+     {"type":"Variables on one side (combine like terms)","workedExample":"**Example:** $4x + 2x - 5 = 13 \\rightarrow 6x - 5 = 13 \\rightarrow 6x = 18 \\rightarrow x = 3$","directions":"Combine like terms first, then undo the operations to isolate the variable.","space":"m","problems":["$3x + 5 = 20$","$6x - 4x + 9 = 17$","$\\frac{x}{2} - 3 = 4$"]},
+     {"type":"Variables on both sides","workedExample":"**Example:** $6x + 1 = 2x + 13 \\rightarrow 4x + 1 = 13 \\rightarrow 4x = 12 \\rightarrow x = 3$","directions":"Move the variable terms to one side and the constants to the other, then solve.","space":"m","problems":["$5x + 2 = 3x + 10$","$8x - 1 = 5x + 14$","🌶 $5x + 4 = 2x + 9$","$2x + 15 = 7x$"]},
+     {"type":"Distributive property","workedExample":"**Example:** $5(x - 1) = 20 \\rightarrow 5x - 5 = 20 \\rightarrow 5x = 25 \\rightarrow x = 5$","directions":"Distribute first to clear the parentheses, then solve as usual.","space":"m","problems":["$2(x + 3) = 14$","$3(2x - 1) = 21$","$4(x - 2) = 2(x + 1)$"]}
+   ]
+ },
+ "answerKey": [
+   {"section":"Variables on one side (combine like terms)","answers":["$x = 5$","$x = 4$","$x = 14$"]},
+   {"section":"Variables on both sides","answers":["$x = 4$","$x = 5$","$x = \\frac{5}{3}$","$x = 3$"]},
+   {"section":"Distributive property","answers":["$x = 4$","$x = 4$","$x = 5$"]}
+ ],
+ "exitTicket": ["Solve and check: $4x - 3 = 2x + 7$"]
+}

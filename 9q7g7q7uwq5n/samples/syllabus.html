@@ -1,0 +1,216 @@
+<style>
+  :root{
+    --paper:#F4F6FC; --card:#FFFFFF; --ink:#0E1330; --ink2:#1B2350; --muted:#5A6382;
+    --line:#E4E9F5; --indigo:#383CC1; --indigo-soft:#EAEBFB; --peri:#A9B0FF; --gold:#E7B449;
+    --amber:#8A5300; --amber-bg:#FBF1DF; --amber-line:#EAD4A6;
+    --pine:#0B6E4F; --pine-bg:#E6F4EE; --pine-line:#BCE2D2;
+    --rose:#AF1235; --rose-bg:#FBE8ED; --rose-line:#F0C1CD;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);}
+  .wrap{padding:30px 18px 56px;}
+  .sheet{max-width:960px; margin:0 auto;}
+  .page + .page{margin-top:38px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:600;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; overflow:hidden; border-radius:18px; background:
+      radial-gradient(120% 140% at 88% -10%, #232a63 0%, var(--ink) 55%);
+    color:#EDEFFA; padding:34px 34px 30px; box-shadow:0 26px 50px -30px rgba(14,19,48,.6);}
+  .hero .plotbg{position:absolute; right:-8px; top:-6px; width:360px; height:100%; opacity:.9; pointer-events:none;}
+  .hero .eyebrow{color:var(--peri);}
+  .hero h1{font-family:var(--serif); font-weight:700; font-size:clamp(42px,7vw,68px); line-height:.98; letter-spacing:-.02em; margin:.16em 0 .1em; text-wrap:balance;}
+  .hero .sub{max-width:60ch; font-size:16px; line-height:1.55; color:#C6CCEA;}
+  .idline{margin-top:18px; display:flex; flex-wrap:wrap; gap:8px 22px; font-family:var(--mono); font-size:13px; color:#AEB6E0;}
+  .idline b{color:#fff; font-weight:600;} .idline .g{color:var(--gold);}
+
+  /* ---------- SECTION HEADS ---------- */
+  .sec-h{display:flex; align-items:center; gap:14px; margin:32px 4px 15px;}
+  .sec-h .n{font-family:var(--mono); font-size:12px; font-weight:700; color:var(--indigo); background:var(--indigo-soft); border-radius:6px; padding:3px 8px; letter-spacing:.05em;}
+  .sec-h h2{font-family:var(--serif); font-size:25px; font-weight:700; margin:0; letter-spacing:-.01em;}
+  .sec-h .rule{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+
+  /* ---------- DAILY FLOW ---------- */
+  .flow{display:grid; grid-template-columns:repeat(4,1fr); gap:16px 14px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:0 12px 26px -24px rgba(14,19,48,.4);}
+  .step{display:flex; gap:12px; align-items:flex-start;}
+  .dot{flex:none; width:32px; height:32px; border-radius:9px; background:var(--ink); color:#fff; font-family:var(--mono); font-weight:700; font-size:13px; display:grid; place-items:center;}
+  .step .t{font-size:15.5px; line-height:1.3; padding-top:4px;} .step .t b{font-weight:650;}
+
+  /* ---------- CARDS ---------- */
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px; box-shadow:0 12px 26px -24px rgba(14,19,48,.4);}
+  .card.amber{background:var(--amber-bg); border-color:var(--amber-line);}
+  .card.pine{background:var(--pine-bg); border-color:var(--pine-line);}
+  .card.rose{background:var(--rose-bg); border-color:var(--rose-line);}
+  .card-h{display:flex; align-items:center; gap:12px; margin-bottom:11px;}
+  .badge{width:38px; height:38px; border-radius:11px; display:grid; place-items:center; flex:none; background:#fff;}
+  .amber .badge{color:var(--amber); border:1px solid var(--amber-line);}
+  .pine .badge{color:var(--pine); border:1px solid var(--pine-line);}
+  .rose .badge{color:var(--rose); border:1px solid var(--rose-line);}
+  .card-h h3{font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; margin:0; font-weight:800;}
+  .amber .card-h h3{color:var(--amber);} .pine .card-h h3{color:var(--pine);} .rose .card-h h3{color:var(--rose);}
+  .card p{margin:0; font-size:15.5px; line-height:1.52;} .card p b{font-weight:650;}
+  ul.clean{list-style:none; margin:4px 0 0; padding:0; display:grid; gap:9px;}
+  ul.clean li{display:flex; gap:11px; align-items:flex-start; font-size:15px; line-height:1.42;}
+  ul.clean li svg{flex:none; margin-top:2px;} ul.clean li b{font-weight:650;}
+
+  .creditbar{margin-top:24px; display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; justify-content:space-between; background:var(--ink); color:#E7EAF7; border-radius:14px; padding:15px 22px;}
+  .core{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+  .core .lab{font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8E96C4; margin-right:2px;}
+  .chip{font-size:13px; font-weight:600; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.17); padding:5px 12px; border-radius:999px;}
+  .creditbar .tag{font-family:var(--serif); font-style:italic; font-size:15px; color:var(--gold);}
+
+  /* ---------- PAGE 2: ROADMAP ---------- */
+  .rm-hero{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 26px; display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; box-shadow:0 12px 26px -24px rgba(14,19,48,.4);}
+  .rm-hero h2{font-family:var(--serif); font-size:30px; margin:.1em 0 0; letter-spacing:-.015em;}
+  .rm-hero .legend{display:flex; gap:16px; font-family:var(--mono); font-size:11.5px; color:var(--muted);}
+  .rm-hero .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .sw{display:inline-block; width:11px; height:11px; border-radius:3px;}
+
+  .semtag{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:22px 6px 8px; display:flex; align-items:center; gap:10px;}
+  .semtag::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .tl{position:relative; margin-left:6px; padding-left:30px;}
+  .tl::before{content:""; position:absolute; left:11px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,var(--indigo),var(--gold));}
+  .row{position:relative; display:grid; grid-template-columns:118px 1fr; gap:18px; align-items:start; padding:11px 0;}
+  .row::before{content:""; position:absolute; left:-24px; top:17px; width:14px; height:14px; border-radius:50%; background:#fff; border:3px solid var(--indigo);}
+  .row.gold::before{border-color:var(--gold);}
+  .when{font-family:var(--mono); font-size:12.5px; color:var(--muted); padding-top:4px;}
+  .when .p{display:block; font-weight:700; color:var(--indigo); font-size:12px; letter-spacing:.03em;}
+  .when .mo{display:block; margin-top:2px;}
+  .unit{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:14px 17px; box-shadow:0 10px 22px -22px rgba(14,19,48,.4);}
+  .unit h4{font-family:var(--serif); font-size:18px; margin:0 0 3px; letter-spacing:-.01em;}
+  .unit p{margin:0; font-size:14px; color:var(--ink2); line-height:1.45;}
+  .wks{float:right; font-family:var(--mono); font-size:11px; color:var(--muted); background:var(--indigo-soft); color:var(--indigo); border-radius:6px; padding:2px 8px; margin-left:10px;}
+  .milestone{display:inline-flex; align-items:center; gap:7px; margin-top:8px; font-family:var(--mono); font-size:11.5px; font-weight:700; letter-spacing:.04em; color:#8A5300; background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:999px; padding:4px 11px;}
+
+  @media (max-width:720px){
+    .hero .plotbg{opacity:.28; width:230px;}
+    .flow{grid-template-columns:1fr 1fr;} .cards{grid-template-columns:1fr;}
+    .row{grid-template-columns:1fr; gap:6px;} .when{padding-top:0;}
+  }
+  @media print{
+    body,.wrap{background:#fff;} .wrap{padding:0;}
+    .hero,.card,.flow,.unit,.rm-hero,.creditbar{box-shadow:none;}
+    .page{break-inside:avoid;} .page + .page{break-before:page; margin-top:0;}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+
+<div class="wrap"><div class="sheet">
+
+  <!-- ============ PAGE 1 — SYLLABUS ============ -->
+  <section class="page">
+    <header class="hero">
+      <svg class="plotbg" viewBox="0 0 300 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs><pattern id="hg" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+        <rect width="300" height="240" fill="url(#hg)"/>
+        <line x1="0" y1="132" x2="300" y2="132" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+        <line x1="150" y1="8" x2="150" y2="232" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+        <path d="M92,50 Q150,236 208,50" fill="none" stroke="#A9B0FF" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M160,40 C180,96 196,122 276,128" fill="none" stroke="#E7B449" stroke-width="3" stroke-linecap="round"/>
+        <path d="M140,232 C120,176 104,150 24,144" fill="none" stroke="#E7B449" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="150" cy="132" r="4" fill="#fff"/><circle cx="208" cy="50" r="3.4" fill="#A9B0FF"/><circle cx="92" cy="50" r="3.4" fill="#A9B0FF"/>
+      </svg>
+      <span class="eyebrow">Class Syllabus &middot; 2025&ndash;26</span>
+      <h1>Pre&#8209;Calculus</h1>
+      <p class="sub">The language of change &mdash; functions, graphs, triangles, and waves. Everything this year grows from a small family of curves, and the work you show on paper is how it sticks.</p>
+      <div class="idline"><span><b>Mr. Robert Gavaldon</b></span><span>Da&nbsp;Vinci School for Science <span class="g">&amp;</span> Arts</span><span class="g">robertgavaldon@burnhamwood.org</span></div>
+    </header>
+
+    <div class="sec-h"><span class="n">DAILY</span><h2>How every class runs</h2><span class="rule"></span></div>
+    <div class="flow">
+      <div class="step"><span class="dot">1</span><span class="t">Go to your <b>assigned seat</b></span></div>
+      <div class="step"><span class="dot">2</span><span class="t"><b>Phone goes up</b> (caddy)</span></div>
+      <div class="step"><span class="dot">3</span><span class="t">Start the <b>bellwork</b></span></div>
+      <div class="step"><span class="dot">4</span><span class="t">We <b>go over it</b> together</span></div>
+      <div class="step"><span class="dot">5</span><span class="t"><b>Intro</b> the new topic</span></div>
+      <div class="step"><span class="dot">6</span><span class="t"><b>You Try</b></span></div>
+      <div class="step"><span class="dot">7</span><span class="t"><b>Day work</b></span></div>
+      <div class="step"><span class="dot">8</span><span class="t"><b>Exit ticket</b></span></div>
+    </div>
+
+    <div class="cards">
+      <div class="card amber">
+        <div class="card-h"><span class="badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.6"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg></span><h3>Phones</h3></div>
+        <p>Phones go up at the <b>start &mdash; every day.</b> Think of the movies: they ask you to put your phone away so everyone can focus. Same here. <b>I&rsquo;ll ask once.</b> After that it&rsquo;s an email home, then a meeting with you, your parent, and admin &mdash; my goal is to <b>never</b> need that.</p>
+      </div>
+      <div class="card pine">
+        <div class="card-h"><span class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span><h3>Tutoring &amp; not failing</h3></div>
+        <p>Fail a test &rarr; <b>one week of mandatory tutoring</b> (the tutoring department or me, on tutoring days). Tutoring is how we keep you from failing &mdash; that&rsquo;s the whole point. Seats are assigned; I set the chart.</p>
+      </div>
+    </div>
+
+    <div class="sec-h"><span class="n">EXPECT</span><h2>What I expect</h2><span class="rule"></span></div>
+    <div class="cards" style="margin-top:0">
+      <div class="card pine">
+        <div class="card-h"><span class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Quality of Work means</h3></div>
+        <ul class="clean">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>You finish your work <b>on your own</b>.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Classwork gets done <b>in class</b>, the day it&rsquo;s assigned.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Still on THIS class? Don&rsquo;t work on other classes or activities.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>No AI in class, and no AI on tests.</b> Learn with it outside class if you want &mdash; tests are AI&#8209;free, so you have to actually know it.</span></li>
+        </ul>
+      </div>
+      <div class="card rose">
+        <div class="card-h"><span class="badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M8.5 8.5 15.5 15.5M15.5 8.5 8.5 15.5"/></svg></span><h3>Not accepted</h3></div>
+        <ul class="clean">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.6" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg><span>Yelling, fighting, hitting or touching others</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.6" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg><span>Eating in class, cussing, out of uniform</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.6" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg><span>Not turning in work, or not working during class</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.6" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg><span>No&#8209;showing your tutoring</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF1235" stroke-width="2.6" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg><span>Popping up to move tables, or asking for the restroom every single day</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="creditbar">
+      <div class="core"><span class="lab">Core&nbsp;4</span><span class="chip">Respect</span><span class="chip">Responsibility</span><span class="chip">Quality of Work</span><span class="chip">Quality of Self</span></div>
+      <span class="tag">Effort you can see on paper.</span>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 — YEAR ROADMAP ============ -->
+  <section class="page">
+    <div class="rm-hero">
+      <div><span class="eyebrow" style="color:var(--indigo)">The Year at a Glance</span><h2>Course Roadmap</h2></div>
+      <div class="legend"><span><span class="sw" style="background:var(--indigo)"></span>Unit</span><span><span class="sw" style="background:var(--gold)"></span>Exam</span><span>tentative &mdash; pacing may shift</span></div>
+    </div>
+
+    <div class="semtag">Semester 1 &nbsp;&middot;&nbsp; Fall</div>
+    <div class="tl">
+      <div class="row">
+        <div class="when"><span class="p">1st Six Weeks</span><span class="mo">Aug &ndash; Sep</span></div>
+        <div class="unit"><span class="wks">4.5 wks</span><h4>Advanced Functions</h4><p>Polynomial, power, rational &amp; piecewise functions &mdash; the parent families and how they behave.</p></div>
+      </div>
+      <div class="row">
+        <div class="when"><span class="p">2nd Six Weeks</span><span class="mo">Oct &ndash; Nov</span></div>
+        <div class="unit"><span class="wks">3 + 4 wks</span><h4>Modeling &middot; Exponentials &amp; Logs</h4><p>Transformations, composition &amp; inverses, then exponential and logarithmic functions, equations &amp; inequalities.</p></div>
+      </div>
+      <div class="row gold">
+        <div class="when"><span class="p">3rd Six Weeks</span><span class="mo">Nov &ndash; Dec</span></div>
+        <div class="unit"><span class="wks">5.5 wks</span><h4>Trigonometry I</h4><p>The unit circle, angles &amp; radians, and graphing the trig functions.<span class="milestone">&#9733; Semester 1 Final</span></p></div>
+      </div>
+    </div>
+
+    <div class="semtag">Semester 2 &nbsp;&middot;&nbsp; Spring</div>
+    <div class="tl">
+      <div class="row">
+        <div class="when"><span class="p">4th Six Weeks</span><span class="mo">Jan &ndash; Feb</span></div>
+        <div class="unit"><span class="wks">4 + 3.5 wks</span><h4>Trigonometry II</h4><p>Identities &amp; trig equations, then triangle trigonometry (Law of Sines/Cosines) and vectors.</p></div>
+      </div>
+      <div class="row">
+        <div class="when"><span class="p">5th Six Weeks</span><span class="mo">Mar &ndash; Apr</span></div>
+        <div class="unit"><span class="wks">3 + 4 wks</span><h4>Complex Numbers &amp; Analytic Geometry</h4><p>Complex numbers &amp; polar coordinates, then conics and parametric equations.</p></div>
+      </div>
+      <div class="row gold">
+        <div class="when"><span class="p">6th Six Weeks</span><span class="mo">Apr &ndash; May</span></div>
+        <div class="unit"><span class="wks">3.5 wks</span><h4>Sequences &amp; Series &middot; Review</h4><p>Arithmetic &amp; geometric sequences and series, then end-of-year review.<span class="milestone">&#9733; Final Exam</span></p></div>
+      </div>
+    </div>
+  </section>
+
+</div></div>

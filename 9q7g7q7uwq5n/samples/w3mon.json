@@ -1,0 +1,488 @@
+{
+ "type": "intro",
+ "hook": "Every graph you met last week is about to MOVE — same shape, new address.",
+ "objective": "Students will describe and apply vertical and horizontal shifts of the parent functions, and state the domain and range of the shifted graph.",
+ "bellRinger": "Sketch $y=x^{2}$ and $y=|x|$ from memory. Label each vertex/corner. (60 seconds — no calculator.)",
+ "agenda": "Bell ringer (5) · Go over (5) · Launch: shifts (12) · Video (6) · Guided notes (8) · Worksheet start (9) · Exit ticket (3)",
+ "assessment": "Exit ticket: describe every shift of a translated reciprocal function and give its domain and range.",
+ "video": {
+  "short": {
+   "title": "Shifting functions — Khan Academy",
+   "url": "https://www.youtube.com/results?search_query=Khan+Academy+shifting+functions+graphs",
+   "note": "~5 min"
+  },
+  "long": {
+   "title": "Graphing translations of parent functions — Mathispower4u",
+   "url": "https://www.youtube.com/results?search_query=Mathispower4u+translations+parent+functions",
+   "note": "~11 min, optional"
+  },
+  "questions": [
+   "Which part of the equation moved the graph sideways — inside or outside the function?",
+   "Why does $f(x-3)$ move RIGHT even though it says minus?",
+   "What happens to the domain and range when a graph slides?"
+  ]
+ },
+ "videoPlacement": "After the launch deck, before guided notes — it re-explains the inside/outside rule in a second voice.",
+ "script": [
+  {
+   "min": 5,
+   "title": "Bell ringer",
+   "do": "Post the two parent sketches task; circulate and spot who still confuses x² and |x|.",
+   "options": [
+    "Have two students sketch on the board while others work"
+   ],
+   "say": "Where does the vertex of each one live?"
+  },
+  {
+   "min": 5,
+   "title": "Go over bellwork",
+   "do": "Fix the two sketches on the board; mark (0,0) on both.",
+   "options": [
+    "Cold-call for domain and range of each parent"
+   ],
+   "say": "Both live at the origin — keep that picture; today we make them MOVE."
+  },
+  {
+   "min": 12,
+   "title": "Launch deck — shifts",
+   "do": "Run the launch presentation: hook, the two shift rules, vocab, worked example, the inside-sign trap, you-try.",
+   "options": [
+    "Have students chorally answer the you-try before revealing"
+   ],
+   "say": "Inside the function lies to you — outside tells the truth."
+  },
+  {
+   "min": 6,
+   "title": "Video",
+   "do": "Play the short video; students answer the 3 video questions on their bell-ringer sheet.",
+   "options": [
+    "Skip if the deck ran long; assign the long video as reinforcement"
+   ],
+   "say": "Watch for WHY the minus sign moves it right."
+  },
+  {
+   "min": 8,
+   "title": "Guided notes",
+   "do": "Fill the notes together: formula bank, both examples, students try the You-Trys solo.",
+   "options": [
+    "Pair the You-Trys: partner A describes, partner B writes the equation"
+   ],
+   "say": "Say the move out loud before you write it."
+  },
+  {
+   "min": 9,
+   "title": "Worksheet",
+   "do": "Start the worksheet; Types 1-2 solo, Type 3 with a partner if needed.",
+   "options": [
+    "Early finishers take the Challenge point-tracking problem"
+   ],
+   "say": "Restrictions and ranges move WITH the graph."
+  },
+  {
+   "min": 3,
+   "title": "Exit ticket",
+   "do": "Collect the reciprocal-shift exit ticket at the door.",
+   "options": [],
+   "say": "Name the moves, then the domain and range."
+  }
+ ],
+ "doubleOption": false,
+ "notes": "## Shifting Parent Functions\nA **translation** slides a graph without changing its shape.\n- **Outside** the function: $f(x)+k$ moves UP $k$; $f(x)-k$ moves DOWN $k$ (as written).\n- **Inside** the function: $f(x-h)$ moves RIGHT $h$; $f(x+h)$ moves LEFT $h$ (opposite!).\n\n**Worked:** $y=\\sqrt{x-2}+3$ → right 2, up 3; the start point $(0,0)$ lands at $(2,3)$; domain $x\\ge 2$, range $y\\ge 3$.\n\n**You try:** describe $y=x^{3}+5$, then write the equation for $|x|$ shifted right 3.",
+ "guidedNotes": {
+  "title": "Shifting the Parent Functions",
+  "formulas": [
+   {
+    "name": "Outside (up/down)",
+    "formula": "$f(x)+k$ up $k$ · $f(x)-k$ down $k$ — as written"
+   },
+   {
+    "name": "Inside (left/right)",
+    "formula": "$f(x-h)$ RIGHT $h$ · $f(x+h)$ LEFT $h$ — opposite"
+   },
+   {
+    "name": "Domain & range",
+    "formula": "slide WITH the graph"
+   }
+  ],
+  "vocab": [
+   {
+    "term": "Transformation",
+    "def": "any change made to a {{parent function|3.2cm}}'s graph"
+   },
+   {
+    "term": "Translation",
+    "def": "a {{slide|2cm}} — the shape and size stay exactly the same"
+   }
+  ],
+  "examples": [
+   {
+    "label": "Type 1 — describe the shift",
+    "prompt": "Describe every shift of $y=\\sqrt{x-2}+3$ and name the new start point.",
+    "steps": [
+     "Inside: $x-2$ moves the graph {{right 2|2.4cm}} (inside is opposite).",
+     "Outside: $+3$ moves it {{up 3|2cm}} (outside is as written).",
+     "The start point $(0,0)$ lands at {{$(2,3)$|2.2cm}}."
+    ],
+    "graph": {
+     "kind": "sqrt",
+     "a": 1,
+     "h": 2,
+     "k": 3,
+     "domain": [
+      -1,
+      11
+     ],
+     "marks": [
+      {
+       "x": 2,
+       "y": 3,
+       "label": "start (2, 3)"
+      }
+     ]
+    },
+    "answer": "Right 2, up 3; start point $(2,3)$."
+   },
+   {
+    "label": "Type 2 — write the equation",
+    "prompt": "Write the equation: $y=|x|$ shifted left 4 and down 1.",
+    "steps": [
+     "Left 4 goes INSIDE with the opposite sign: $|x$ {{$+4$|1.6cm}}$|$.",
+     "Down 1 goes OUTSIDE as written: {{$-1$|1.6cm}}.",
+     "Equation: {{$y=|x+4|-1$|3.2cm}}"
+    ],
+    "answer": "$y=|x+4|-1$"
+   },
+   {
+    "label": "Type 3 — domain & range after the shift",
+    "prompt": "State the domain and range of $y=\\sqrt{x-2}+3$.",
+    "steps": [
+     "The graph starts at $(2,3)$ and runs right and up, so the domain is $x\\ge$ {{$2$|1.4cm}}.",
+     "The lowest output is the start height: range $y\\ge$ {{$3$|1.4cm}}."
+    ],
+    "answer": "Domain $x\\ge 2$; range $y\\ge 3$."
+   }
+  ],
+  "youTry": [
+   {
+    "prompt": "Describe every shift of $y=x^{3}+5$.",
+    "answer": "Up 5 only; the center point moves to $(0,5)$."
+   },
+   {
+    "prompt": "Write the equation: $y=\\sqrt{x}$ shifted right 6 and down 2, then give its domain and range.",
+    "answer": "$y=\\sqrt{x-6}-2$; domain $x\\ge 6$, range $y\\ge -2$."
+   }
+  ],
+  "summary": "Inside the function moves {{opposite|2.6cm}}; outside moves {{as written|2.8cm}}. The domain and range {{slide with the graph|3.6cm}}."
+ },
+ "notesExit": "Describe every shift of $y=\\dfrac{1}{x+5}-2$ and give its domain and range.",
+ "vocab": [
+  {
+   "term": "Transformation",
+   "definition": "any change to a parent function's graph"
+  },
+  {
+   "term": "Translation",
+   "definition": "a slide — same shape, new location"
+  }
+ ],
+ "presentation": {
+  "kind": "launch",
+  "title": "Shifting the Parent Functions",
+  "slides": [
+   {
+    "type": "hook",
+    "heading": "Same U, new address",
+    "bullets": [
+     "Both of these are $y=x^{2}$ — **identical shape**.",
+     "One of them just... moved. Where did it go, and what in the equation moved it?",
+     "By the end of class you'll slide ANY parent anywhere on the grid."
+    ],
+    "graph": {
+     "kind": "parabola",
+     "a": 1,
+     "b": 0,
+     "c": 0,
+     "domain": [
+      -4,
+      6
+     ],
+     "expr2": "(x-3)^2+2",
+     "yrange": [
+      -1,
+      12
+     ]
+    },
+    "graphCaption": "y = x² (indigo) and its twin (gold) — same shape, new address"
+   },
+   {
+    "type": "define",
+    "heading": "The two shift rules",
+    "bullets": [
+     "**Outside** the function → vertical, **as written**: $f(x)+k$ up, $f(x)-k$ down.",
+     "**Inside** the function → horizontal, **opposite**: $f(x-h)$ RIGHT, $f(x+h)$ LEFT.",
+     "The shape never changes — only the address."
+    ],
+    "graph": {
+     "kind": "curve",
+     "expr": "sqrt(x)",
+     "expr2": "sqrt(x+5)+2",
+     "domain": [
+      -6,
+      9
+     ],
+     "marks": [
+      {
+       "x": 0,
+       "y": 0,
+       "label": "(0, 0)"
+      },
+      {
+       "x": -5,
+       "y": 2,
+       "label": "(−5, 2)"
+      }
+     ]
+    },
+    "graphCaption": "y = √x slid left 5, up 2 — the start point carries the whole graph"
+   },
+   {
+    "type": "vocab",
+    "heading": "Today's words",
+    "vocab": [
+     {
+      "term": "Transformation",
+      "definition": "any change to a parent's graph"
+     },
+     {
+      "term": "Translation",
+      "definition": "a slide — shape and size unchanged"
+     }
+    ]
+   },
+   {
+    "type": "example",
+    "heading": "We do:  y = √(x − 2) + 3",
+    "example": "**1.** Inside: $x-2$ → RIGHT 2 (inside is opposite).\n**2.** Outside: $+3$ → UP 3 (outside is as written).\n**3.** Start point: $(0,0)\\to(2,3)$.\n**4.** Domain $x\\ge 2$; range $y\\ge 3$ — they slide with the graph.",
+    "graph": {
+     "kind": "sqrt",
+     "a": 1,
+     "h": 2,
+     "k": 3,
+     "domain": [
+      -1,
+      11
+     ],
+     "marks": [
+      {
+       "x": 2,
+       "y": 3,
+       "label": "(2, 3)"
+      }
+     ]
+    },
+    "graphCaption": "y = √(x−2) + 3"
+   },
+   {
+    "type": "mistake",
+    "heading": "The inside sign lies",
+    "mistake": "$y=(x-3)^{2}$ moves **RIGHT** 3 — not left.\nThe inside asks \"what $x$ makes this zero?\" $x=3$ does, so the vertex now lives at $x=3$.",
+    "note": "Read the inside as: the value that makes it zero is the new home."
+   },
+   {
+    "type": "youtry",
+    "heading": "Your turn",
+    "youTry": "(a) Describe every shift: $y=x^{3}+5$\n(b) Write the equation: $y=|x|$ shifted right 3",
+    "graph": {
+     "kind": "cubic",
+     "a": 1,
+     "b": 0,
+     "c": 0,
+     "d": 5,
+     "domain": [
+      -2.5,
+      2.5
+     ],
+     "marks": [
+      {
+       "x": 0,
+       "y": 5,
+       "label": "(0, 5)"
+      }
+     ]
+    },
+    "graphCaption": "(a) to check against"
+   },
+   {
+    "type": "roadmap",
+    "heading": "Where this week goes",
+    "bullets": [
+     "**Tue** — reflections and stretches (the $a$ out front).",
+     "**Wed** — combine moves + write equations from a graph.",
+     "**Thu** — graph any transformed parent from scratch.",
+     "**Fri** — mixed practice + quiz-style check."
+    ]
+   }
+  ]
+ },
+ "procedureExamples": [
+  {
+   "prompt": "Describe every shift of $y=|x+2|-5$.",
+   "steps": [
+    "Inside: $x+2$ → LEFT 2 (opposite of the sign).",
+    "Outside: $-5$ → DOWN 5 (as written).",
+    "Corner moves $(0,0)\\to(-2,-5)$."
+   ],
+   "answer": "Left 2, down 5; corner at $(-2,-5)$."
+  },
+  {
+   "prompt": "Write the equation: $y=\\dfrac{1}{x}$ shifted right 4 and down 3.",
+   "steps": [
+    "Right 4 → inside becomes $x-4$.",
+    "Down 3 → append $-3$ outside.",
+    "Equation: $y=\\dfrac{1}{x-4}-3$."
+   ],
+   "answer": "$y=\\dfrac{1}{x-4}-3$"
+  },
+  {
+   "prompt": "State the domain and range of $y=\\dfrac{1}{x-4}-3$.",
+   "steps": [
+    "The vertical asymptote moves to $x=4$: domain $x\\neq 4$.",
+    "The horizontal asymptote moves to $y=-3$: range $y\\neq -3$."
+   ],
+   "answer": "Domain $x\\neq 4$; range $y\\neq -3$."
+  }
+ ],
+ "worksheet": {
+  "title": "Shifting the Parent Functions",
+  "instructions": "Use the two shift rules: outside moves as written, inside moves opposite. Domains and ranges slide with the graph.",
+  "sections": [
+   {
+    "type": "Describe the shift",
+    "space": "s",
+    "workedExample": "**Example:** $y=(x-3)^{2}+2$ — inside $x-3$ moves RIGHT 3, outside $+2$ moves UP 2. The vertex lands at $(3,2)$.",
+    "directions": "Name the parent, then describe every shift.",
+    "diagram": {
+     "plots": [
+      {
+       "expr": "x^2"
+      },
+      {
+       "expr": "(x-3)^2+2"
+      }
+     ],
+     "xmin": -4,
+     "xmax": 7,
+     "ymin": -1,
+     "ymax": 9,
+     "points": [
+      [
+       0,
+       0,
+       "parent (0,0)"
+      ],
+      [
+       3,
+       2,
+       "new vertex (3, 2)"
+      ]
+     ],
+     "caption": "y = x² (indigo) vs y = (x−3)² + 2 (gold)"
+    },
+    "problems": [
+     "$y=x^{2}+3$",
+     "$y=\\sqrt{x-4}$",
+     "$y=|x+2|-5$",
+     "$y=\\dfrac{1}{x}+6$"
+    ]
+   },
+   {
+    "type": "Write the equation",
+    "space": "s",
+    "why": "Reverse the rules: the described move tells you exactly what to write inside (opposite) and outside (as written).",
+    "directions": "Write the equation for each described shift.",
+    "problems": [
+     "$y=x^{3}$ shifted down 7",
+     "$y=|x|$ shifted right 3",
+     "🌶 $y=\\dfrac{1}{x}$ shifted right 4 and down 3",
+     "$y=\\sqrt{x}$ shifted left 5 and up 2"
+    ]
+   },
+   {
+    "type": "Domain and range after the shift",
+    "space": "m",
+    "why": "The domain and range slide exactly as far as the graph does.",
+    "directions": "State the domain AND range of each shifted function.",
+    "problems": [
+     "$y=\\sqrt{x-4}$",
+     "🌶 $y=\\dfrac{1}{x-4}-3$",
+     "$y=|x+2|-5$"
+    ]
+   }
+  ],
+  "procedure": [
+   "Find the inside move (opposite of the sign) and the outside move (as written).",
+   "Track ONE key point — vertex, corner, or start point.",
+   "Slide the domain and range with the graph.",
+   "For reciprocal graphs, slide both asymptotes."
+  ],
+  "optionalExtra": [
+   "🌶 The point $(1,1)$ sits on $y=\\sqrt{x}$. Exactly where does it land on $y=\\sqrt{x+5}+2$? Explain both moves."
+  ]
+ },
+ "drawing": null,
+ "extension": {
+  "title": "Challenge",
+  "prompt": "Pick ANY parent function and write an equation that lands its key point (vertex, corner, or start) exactly at $(4,-1)$. Prove it by naming the two moves.",
+  "why": "applying both shift rules in reverse"
+ },
+ "exitTicket": [
+  "Describe every shift of $y=\\dfrac{1}{x+5}-2$, then give its domain and range."
+ ],
+ "answerKey": [
+  {
+   "section": "Describe the shift",
+   "answers": [
+    "Quadratic parent; up 3 (vertex $(0,3)$)",
+    "Square-root parent; right 4 (start $(4,0)$)",
+    "Absolute-value parent; left 2 and down 5 (corner $(-2,-5)$)",
+    "Reciprocal parent; up 6 (horizontal asymptote $y=6$)"
+   ]
+  },
+  {
+   "section": "Write the equation",
+   "answers": [
+    "$y=x^{3}-7$",
+    "$y=|x-3|$",
+    "$y=\\dfrac{1}{x-4}-3$",
+    "$y=\\sqrt{x+5}+2$"
+   ]
+  },
+  {
+   "section": "Domain and range after the shift",
+   "answers": [
+    "Domain $x\\ge 4$; range $y\\ge 0$",
+    "Domain $x\\neq 4$; range $y\\neq -3$",
+    "Domain: all real numbers; range $y\\ge -5$"
+   ]
+  },
+  {
+   "section": "Challenge",
+   "answers": [
+    "$(1,1)\\to(-4,3)$: inside $x+5$ slides left 5 ($1\\to-4$), outside $+2$ slides up 2 ($1\\to3$)"
+   ]
+  }
+ ],
+ "scannable": true,
+ "ck12": {
+  "section": "1.2",
+  "title": "Graphical Transformations",
+  "url": "https://flexbooks.ck12.org/cbook/ck-12-precalculus-concepts-2.0/section/1.2/"
+ },
+ "ck12Alts": [
+  {
+   "section": "1.4",
+   "title": "Domain and Range",
+   "url": "https://flexbooks.ck12.org/cbook/ck-12-precalculus-concepts-2.0/section/1.4/"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+1.1 Zero Product Property
+1.2 Graphing Polynomials
+1.3 Domain and Range of a Function
+1.4 Characteristics of Polynomial Graphs
+1.5 From Quadratics to Complex Numbers
+1.6 The Complex Plane
+1.7 The Fundamental Theorem of Algebra for Quadratics
+1.8 Multiplying Polynomials
+1.9 Sum and Difference of Cubes
+1.10 Pythagorean Triples
+1.11 Dividing Polynomials
+1.12 Remainder Theorem
+1.13 Fundamental Theorem of Algebra
+1.14 Polynomial Models
+2.1 Multiplying Rational Expressions
+2.2 Dividing Rational Expressions
+2.3 Adding and Subtracting Rational Expressions
+2.4 Solving Rational Equations
+2.5 Simple Rational Models
+2.6 Solving Radical Equations
+2.7 Simple Radical Models
+3.1 Revisiting Exponential Functions
+3.2 Revisiting Exponential Expressions and Equations
+3.3 Inverse Functions
+3.4 Graphs of Logs as the Inverse of Exponential Functions
+3.5 Using Logs to Solve Exponential Functions
+3.6 Transformations of Log Functions
+3.7 Properties of Logs
+3.8 Solving Logarithmic Equations
+3.9 The Transcendental Number e and Natural Log
+3.10 Modeling with Exponential Growth Functions
+3.11 Modeling with Exponential Decay and Log Functions
+4.1 Revisiting Right Triangle Trigonometry
+4.2 Right Triangle Trig Extended to Circles with a Model
+4.3 The Unit Circle
+4.4 Radians
+4.5 Graphing Sine and Cosine
+4.6 Transformations of Trigonometric Functions
+4.7 Modeling Periodic Behavior
+4.8 Pythagorean Identities
+5.1 Sample Spaces and Probability
+5.2 Probability
+5.3 Normal Distribution
+5.4 Standard Deviation
+5.5 Sampling Variability
+5.6 Observational Studies, Experiments, and Surveys
+5.7 Margin of Error
+5.8 Evaluating Reports
+6.1 The Null Hypothesis
+6.2 P-Values (UNVERIFIED — section 6.2, not fetched)
+6.3 Z-Scores
+6.4 Critical Values
+6.5 Confidence Intervals
+6.6 The T-Test
+6.7 Testing a Single-Mean Hypothesis
+6.8 Comparing Two Groups

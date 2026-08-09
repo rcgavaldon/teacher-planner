@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}\usepackage{amssymb}\usepackage{enumitem}\usepackage{xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newif\ifkey\keyfalse      % TEACHER KEY toggle
+\newif\iftwoup\twouptrue  % 2-UP toggle
+\iftwoup\usepackage{pgfpages}\pgfpagesuselayout{2 on 1}[letterpaper,landscape]\fi
+\newcommand{\bl}[2][2cm]{\ifkey\textcolor{blue!65!black}{\underline{#2}}\else\underline{\hspace{#1}}\fi}
+\newcommand{\N}{%
+\begin{center}{\large\textbf{Maximum \& Minimum}}\hfill\ifkey\textcolor{blue!65!black}{\textbf{TEACHER KEY}}\else Name: \rule{3.5cm}{0.4pt}\fi\end{center}
+{\small Pre-Calculus \textbar\ Guided notes --- we fill these in together}\vspace{2pt}\hrule\vspace{7pt}
+\textbf{Vocabulary}\\[5pt]
+\textbf{Max / min:} the \bl[2.6cm]{turning point} of a parabola (the vertex); opens up gives a \bl[2cm]{minimum}, opens down gives a \bl[2cm]{maximum}.\\[10pt]
+\textbf{Increasing / decreasing:} read left to right --- the graph goes \bl[1.2cm]{up} (increasing) or \bl[1.4cm]{down} (decreasing).\\[12pt]
+\textbf{We do together.}\quad For $y=(x-2)^{2}-3$, give the vertex, state max or min, and the intervals.\\[6pt]
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.1em,itemsep=9pt]
+  \item Vertex form $a(x-h)^{2}+k$ gives vertex \bl[1.8cm]{$(2,-3)$}.
+  \item Leading coefficient is $+1$ (opens up), so the vertex is a \bl[1.8cm]{minimum}.
+  \item It decreases for \bl[1.5cm]{$x<2$} and increases for \bl[1.5cm]{$x>2$}.
+\end{enumerate}\vspace{8pt}
+\textbf{See it:}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$y$,xmin=-2,xmax=6,ymin=-4,ymax=7,width=10cm,height=5.2cm,grid=both,samples=80]
+\addplot[very thick,blue,domain=-1:5]{(x-2)^2-3};
+\addplot[only marks,mark=*,red] coordinates {(2,-3)};
+\node[above right,red,font=\small] at (axis cs:2,-3) {min $(2,-3)$};
+\end{axis}\end{tikzpicture}\end{center}
+{\small\centering opens up $\Rightarrow$ minimum at $(2,-3)$.\par}
+\vspace{6pt}
+\textbf{You Try.}\ Solve each. Show every step, then name the answer.\\[6pt]
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=2.4em,itemsep=1.4cm]
+  \item Give the vertex and max/min of $y=-x^{2}+4$. \hfill \ifkey\textcolor{blue!65!black}{vertex $(0,4)$, maximum}\fi
+  \item Give the intervals of $y=x^{2}$. \hfill \ifkey\textcolor{blue!65!black}{decreasing $x<0$, increasing $x>0$}\fi
+\end{enumerate}
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Summary (fill in):} Opens \bl[1cm]{up} $\Rightarrow$ minimum; opens \bl[1.4cm]{down} $\Rightarrow$ maximum; the graph turns at the \bl[1.6cm]{vertex}.
+}
+\begin{document}
+\N
+\iftwoup\clearpage\N\fi
+\end{document}

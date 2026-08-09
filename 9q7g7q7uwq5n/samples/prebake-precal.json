@@ -1,0 +1,855 @@
+{
+  "days": {
+    "Mon": {
+      "type": "intro",
+      "hook": "Show a graph with no equation and ask: 'Without any numbers on it, can you tell me what family this belongs to?' — reveal it's $y=\\sqrt{x}$.",
+      "objective": "Students will identify the 6 parent functions from their equations and graphs, and state each one's domain and range.",
+      "bellRinger": "Plot 3 points for $y=x^2$: $(-2,4)$, $(0,0)$, $(2,4)$. What shape do you expect the graph to make?",
+      "agenda": [
+        "Bell ringer: plot points for $y=x^2$",
+        "Go over the bell ringer — name the shape",
+        "Notes: the 6 parent functions",
+        "Video: parent functions overview",
+        "Guided practice: identify family, domain, range",
+        "Independent worksheet",
+        "Exit ticket"
+      ],
+      "assessment": "Exit ticket: identify the parent function of $f(x)=\\dfrac{1}{x}$ and give its domain and range.",
+      "video": {
+        "short": {
+          "title": "Parent Functions in 5 Minutes (Mathispower4u)",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+parent+functions+overview",
+          "note": "~5 min"
+        },
+        "long": {
+          "title": "Parent Functions and Their Graphs — Full Lesson (Organic Chemistry Tutor)",
+          "url": "https://www.youtube.com/results?search_query=Organic+Chemistry+Tutor+parent+functions+domain+range",
+          "note": "~14 min, optional"
+        },
+        "questions": [
+          "Which parent functions are defined for ALL real numbers?",
+          "Which parent function(s) never touch the $x$-axis?",
+          "How can you tell $x^2$ and $x^3$ apart just from a quick sketch?",
+          "Why does $\\sqrt{x}$ only exist for $x\\ge 0$?"
+        ]
+      },
+      "videoPlacement": "Play the short video right after the notes, before guided practice, so students see all 6 shapes in motion before sorting equations themselves.",
+      "script": [
+        {"min": 5, "title": "Bell ringer", "do": "Students plot 3 points for $y=x^2$ and sketch the curve through them.", "options": ["Cold-call a student to describe the shape before revealing it's a parabola"], "say": "What do you notice about the y-values on either side of x=0?"},
+        {"min": 5, "title": "Go over bell ringer", "do": "Reveal the parabola shape; connect to the term 'parent function' as the simplest version of a family.", "say": "If this is the simplest quadratic, what would make one 'more complicated'?"},
+        {"min": 12, "title": "Notes: the 6 parent functions", "do": "Present guided notes on linear $x$, quadratic $x^2$, cubic $x^3$, absolute value $|x|$, square root $\\sqrt{x}$, and reciprocal $1/x$ — shape, domain, range for each.", "options": ["Use the diagram slides to sketch each graph live on the board instead of just showing it"], "say": "Which of these six shapes surprises you the most?"},
+        {"min": 6, "title": "Video", "do": "Play the short parent-functions video; students jot the family name under each shape shown.", "say": "Pause here — which family just appeared on screen?"},
+        {"min": 8, "title": "We-do examples", "do": "Work 2-3 procedureExamples as a class: identify family, domain, and range from an equation.", "options": ["Have students vote (thumbs) on the family before you reveal the answer"], "say": "What's the first clue you look for — the exponent, a root symbol, or absolute value bars?"},
+        {"min": 9, "title": "Independent worksheet", "do": "Students work the worksheet in pairs; circulate to support students struggling with domain restrictions.", "say": "Is this the WHOLE family, or has it been shifted from the parent?"},
+        {"min": 3, "title": "Exit ticket", "do": "Students answer the exit ticket individually and turn it in.", "say": "Last check — no talking, just show me what you know."}
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nA **parent function** is the simplest, unshifted form of a family of functions. There are 6 parent functions every Pre-Calculus student must recognize on sight: **linear** ($x$), **quadratic** ($x^2$), **cubic** ($x^3$), **absolute value** ($|x|$), **square root** ($\\sqrt{x}$), and **reciprocal** ($1/x$).\n\n## Key Terms\n- **Parent function** — the most basic function in a family, with no shifts, stretches, or reflections\n- **Domain** — the set of all allowed input ($x$) values\n- **Range** — the set of all resulting output ($y$) values\n\n## Worked Example\nStep 1: Look at the equation $f(x)=\\sqrt{x}$ and note the radical symbol.\nStep 2: Radicals (square roots) can't take a negative input, so restrict $x\\ge 0$.\nStep 3: The smallest output happens at $x=0$, giving $f(0)=0$; the graph only goes up from there.\nAnswer: parent = **square root**; domain $x\\ge 0$; range $y\\ge 0$.\n\n## You Try\nIdentify the parent function of $f(x)=\\dfrac{1}{x}$ and state its domain and range.",
+      "guidedNotes": {
+        "title": "The 6 Parent Functions",
+        "vocab": [
+          {"term": "Parent function", "def": "the {{simplest|2.2cm}} member of a family of functions --- no shifts, stretches, or reflections applied."},
+          {"term": "Domain", "def": "the set of all allowed {{input|1.8cm}} ($x$) values a function can use."},
+          {"term": "Range", "def": "the set of all {{output|2cm}} ($y$) values a function actually produces."}
+        ],
+        "worked": {
+          "prompt": "Identify the parent function of $f(x)=\\dfrac{1}{x}$ and give its domain and range.",
+          "steps": [
+            "The rule is a fraction with $x$ in the denominator, so this is the {{reciprocal|2.4cm}} parent function.",
+            "A denominator can never equal $0$, so $x$ cannot be $0$: domain is {{$x\\ne 0$|2cm}}.",
+            "Since $y=1/x$ never produces an output of exactly $0$ either, the range is {{$y\\ne 0$|2cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [{"expr": "1/x", "domain": [0.2, 6], "color": "blue"}, {"expr": "1/x", "domain": [-6, -0.2], "color": "blue"}],
+          "xmin": -6.5, "xmax": 6.5, "ymin": -5.5, "ymax": 5.5,
+          "caption": "$y=1/x$ --- two branches, never touching either axis (domain $x\\ne0$, range $y\\ne0$).",
+          "width": "8cm", "height": "5.5cm"
+        },
+        "youTry": [
+          {"prompt": "Identify the parent function of $f(x)=x^{3}$ and give its domain and range.", "answer": "cubic; domain all real numbers, range all real numbers"},
+          {"prompt": "Identify the parent function of $f(x)=|x|$ and give its range.", "answer": "absolute value; range $y\\ge 0$"}
+        ],
+        "summary": "To identify a parent function: match the {{equation|1.8cm}} to one of the 6 known shapes, then check for {{restrictions|2.6cm}} caused by a root or a denominator."
+      },
+      "notesExit": "Identify the parent function of $f(x)=x^{2}$ and state its domain and range.",
+      "vocab": [
+        {"term": "Parent function", "definition": "The simplest, unshifted equation that represents an entire family of functions (e.g., $x^2$ is the parent of all quadratics)."},
+        {"term": "Domain", "definition": "All the $x$-values for which a function is defined."},
+        {"term": "Range", "definition": "All the $y$-values a function actually outputs."}
+      ],
+      "presentation": {
+        "kind": "launch",
+        "title": "Meet the 6 Parent Functions",
+        "slides": [
+          {"heading": "Hook: Name That Graph", "bullets": ["A curve shows up on screen with NO equation attached.", "Your job all week: recognize a function's family on sight.", "By Friday you'll sort any of the 6 shapes in seconds."]},
+          {"heading": "The Big Picture", "bullets": ["Every function you'll study in Pre-Cal is a stretched, shifted, or flipped version of one of a handful of 'parents.'", "Learn the 6 parent shapes now, and transformations later become easy.", "This is the foundation for the entire first unit."]},
+          {"heading": "Key Vocabulary", "bullets": ["Parent function — the simplest form of a family", "Domain — allowed $x$-values", "Range — resulting $y$-values"]},
+          {"heading": "The 6 Parents", "bullets": ["Linear: $f(x)=x$", "Quadratic: $f(x)=x^{2}$", "Cubic: $f(x)=x^{3}$", "Absolute value: $f(x)=|x|$", "Square root: $f(x)=\\sqrt{x}$ — Reciprocal: $f(x)=1/x$"]},
+          {"heading": "Worked Example", "bullets": ["$f(x)=\\sqrt{x}$: radical symbol signals square root parent.", "Radicals can't take a negative input, so domain is $x\\ge 0$.", "Smallest output is $f(0)=0$, so range is $y\\ge 0$."], "example": "$f(x)=\\sqrt{x}\\Rightarrow$ domain $x\\ge 0$, range $y\\ge 0$"},
+          {"heading": "Video Cue", "bullets": ["Watch for all 6 shapes flashing by.", "Write down the family name as each one appears.", "We'll compare notes right after."]},
+          {"heading": "Let's Try One Together", "bullets": ["$f(x)=x^{3}$ — what family? What domain/range?", "$f(x)=|x|$ — what family? What domain/range?", "$f(x)=1/x$ — what family? What domain/range?"]},
+          {"heading": "Where We're Headed This Week", "bullets": ["Tue: increasing/decreasing intervals and max/min", "Wed: domain & range with restrictions", "Thu: symmetry (even, odd, neither)", "Fri: mixed practice + quiz-style check"], "meme": "Drake meme: rejecting 'memorizing random graphs' / approving 'recognizing all 6 parent shapes on sight'"}
+        ]
+      },
+      "procedureExamples": [
+        {"prompt": "Identify the parent function of $f(x)=x^{2}$ and give its domain and range.", "steps": ["The equation is $x$ raised to the 2nd power, matching the quadratic parent.", "There is no root and no denominator, so every real number is allowed: domain is all reals.", "Since squaring never gives a negative result, the smallest output is $0$."], "answer": "Quadratic; domain: all real numbers; range: $y\\ge 0$"},
+        {"prompt": "Identify the parent function of $f(x)=|x|$ and give its domain and range.", "steps": ["Absolute value bars around $x$ signal the absolute value parent.", "Any real number can go inside absolute value bars, so the domain is all reals.", "Absolute value output is never negative, so the range starts at $0$."], "answer": "Absolute value; domain: all real numbers; range: $y\\ge 0$"},
+        {"prompt": "Identify the parent function of $f(x)=\\sqrt{x}$ and give its domain and range.", "steps": ["A radical (square root) symbol signals the square root parent.", "The expression under the radical must be $\\ge 0$, so $x\\ge 0$.", "The graph starts at $(0,0)$ and only increases, so the range is $y\\ge 0$."], "answer": "Square root; domain: $x\\ge 0$; range: $y\\ge 0$"}
+      ],
+      "worksheet": {
+        "title": "Meet the Parent Functions",
+        "instructions": "For each equation, name the parent function family, then state its domain and range using inequality notation.",
+        "sections": [
+          {
+            "type": "Identify the family, domain, and range",
+            "space": "m",
+            "workedExample": "**Example:** $f(x)=\\dfrac{1}{x}$ is the **reciprocal** parent. A denominator can't be $0$, so the domain is $x\\ne 0$; the graph never touches $y=0$ either, so the range is $y\\ne 0$.",
+            "directions": "Directions: Name the parent family, then give the domain and range.",
+            "diagram": {
+              "plots": [{"expr": "x^2", "domain": [-3, 3], "color": "blue"}],
+              "xmin": -3.5, "xmax": 3.5, "ymin": -1.5, "ymax": 9.5,
+              "points": [[0, 0, "vertex $(0,0)$", "red"]],
+              "caption": "$y=x^{2}$ --- the quadratic parent function.",
+              "width": "8cm", "height": "5cm"
+            },
+            "problems": [
+              "$f(x)=x$",
+              "$f(x)=x^{2}$",
+              "$f(x)=x^{3}$",
+              "$f(x)=|x|$",
+              "$f(x)=\\sqrt{x}$",
+              "$f(x)=\\dfrac{1}{x}$"
+            ]
+          },
+          {
+            "type": "Match a shifted equation back to its parent family",
+            "space": "s",
+            "workedExample": "**Example:** $g(x)=\\sqrt{x}+4$ still has a radical, so its parent family is **square root** (the $+4$ just shifts it later).",
+            "directions": "Directions: Even though these are shifted, name the ORIGINAL parent family only.",
+            "problems": [
+              "$g(x)=(x-2)^{2}$",
+              "$g(x)=|x+1|-3$",
+              "$g(x)=\\dfrac{1}{x-5}$",
+              "🌶 $g(x)=(x+3)^{3}+1$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Look for a root symbol, absolute value bars, or an exponent to identify the family.",
+          "Ignore any added/subtracted numbers outside — they only shift the graph, not the family.",
+          "Check for a denominator or a radical: these create domain restrictions.",
+          "State domain first, then determine range from the graph's lowest or highest point."
+        ],
+        "optionalExtra": [
+          "Sketch all 6 parent functions from memory on one set of axes, labeling each with its equation."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Two of the six parent functions ($x$, $x^3$, and $1/x$) pass through the origin or are symmetric about it, while others are not. Sort all 6 parent functions into two groups based on whether they pass through the point $(0,0)$, and explain what the equation tells you before you even graph it.",
+        "why": "Extends identifying parent functions by pushing students to reason about a shared feature (the origin) across the whole family, previewing symmetry (Thursday's topic)."
+      },
+      "exitTicket": [
+        "Identify the parent function of $f(x)=\\dfrac{1}{x}$ and state its domain and range."
+      ],
+      "answerKey": [
+        {
+          "section": "Identify the family, domain, and range",
+          "answers": [
+            "Linear; domain: all real numbers; range: all real numbers",
+            "Quadratic; domain: all real numbers; range: $y\\ge 0$",
+            "Cubic; domain: all real numbers; range: all real numbers",
+            "Absolute value; domain: all real numbers; range: $y\\ge 0$",
+            "Square root; domain: $x\\ge 0$; range: $y\\ge 0$",
+            "Reciprocal; domain: $x\\ne 0$; range: $y\\ne 0$"
+          ]
+        },
+        {
+          "section": "Match a shifted equation back to its parent family",
+          "answers": [
+            "Quadratic (the $(x-2)^2$ is still squared, just shifted right)",
+            "Absolute value (the bars are still there, just shifted)",
+            "Reciprocal (still a fraction with $x$ in the denominator)",
+            "Cubic --- the exponent of 3 on $(x+3)$ shows this came from the cubic parent, just shifted left 3 and up 1"
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "Six correct sketches on one grid: $y=x$ (straight line through origin, slope 1); $y=x^{2}$ (U-shaped parabola, vertex $(0,0)$); $y=x^{3}$ (S-shaped curve through origin, rising left to right); $y=|x|$ (V-shape, vertex $(0,0)$, opening up); $y=\\sqrt{x}$ (half-parabola starting at $(0,0)$, in the first quadrant only); $y=\\dfrac{1}{x}$ (two hyperbola branches in quadrants I and III, never touching either axis). Each curve labeled with its equation; $\\sqrt{x}$ and $1/x$ should visibly show their restricted domains."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {"section": "1.1", "title": "Function Families"}
+    },
+    "Tue": {
+      "type": "worksheet",
+      "hook": "Ask: 'If you were hiking along this graph left to right, when would you be walking uphill, downhill, or standing still at the top?'",
+      "objective": "Students will determine the intervals where a function is increasing or decreasing, and identify any relative maximum or minimum values.",
+      "bellRinger": "Sketch $y=x^2$ again. Circle the part of the graph where it goes DOWN as you move left to right, then the part where it goes UP.",
+      "agenda": [
+        "Bell ringer: revisit $y=x^2$ direction",
+        "New term: increasing / decreasing intervals",
+        "New term: maximum / minimum",
+        "We-do example",
+        "Independent worksheet",
+        "Exit ticket"
+      ],
+      "assessment": "Exit ticket: state the increasing/decreasing intervals and the max or min of $y=-(x+1)^2+4$.",
+      "video": {
+        "short": {
+          "title": "Increasing, Decreasing, and Constant Intervals (Khan Academy)",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+increasing+decreasing+intervals+function",
+          "note": "~4 min"
+        },
+        "long": {
+          "title": "Relative Maximum and Minimum Explained (Mathispower4u)",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+relative+maximum+minimum+function",
+          "note": "~9 min, optional"
+        },
+        "questions": [
+          "How do you write an increasing interval using inequality notation?",
+          "Is a maximum always the highest point on the ENTIRE graph, or just nearby?",
+          "What happens at the exact x-value of a max or min — increasing, decreasing, or neither?"
+        ]
+      },
+      "videoPlacement": "Play the short video right after introducing the two new terms, before the we-do example, to reinforce reading a graph left to right.",
+      "script": [
+        {"min": 5, "title": "Bell ringer", "do": "Students shade the decreasing and increasing portions of $y=x^2$ in two different colors.", "say": "Which color did you use for the LEFT side of the parabola?"},
+        {"min": 6, "title": "New term: increasing/decreasing", "do": "Define increasing/decreasing intervals; emphasize reading left to right and writing answers in terms of $x$.", "options": ["Have a student physically trace the curve with a finger while narrating 'up... up... down...'"], "say": "Why do we describe these intervals using x-values, not y-values?"},
+        {"min": 5, "title": "New term: max/min", "do": "Define relative maximum and minimum as turning points; connect to vertex of a parabola.", "say": "Is the vertex of $y=x^2$ a maximum or a minimum? How do you know?"},
+        {"min": 5, "title": "Video", "do": "Play the short video on increasing/decreasing/constant intervals.", "say": "What example from the video looked most like our bell ringer?"},
+        {"min": 8, "title": "We-do example", "do": "Work through the guided notes worked example as a class: $y=(x-2)^2-3$, finding vertex, max/min, and intervals.", "say": "Once we know the vertex, how do we figure out which side is increasing?"},
+        {"min": 16, "title": "Independent worksheet", "do": "Students work the worksheet individually or in pairs; circulate to check interval notation.", "say": "Did you write your interval in terms of x, not y?"},
+        {"min": 3, "title": "Exit ticket", "do": "Students complete the exit ticket silently and turn it in.", "say": "Show me you can find both the turning point and the direction on each side."}
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nReading a graph from **left to right**, a function is **increasing** where it goes up, **decreasing** where it goes down, and reaches a **relative maximum** or **relative minimum** at a turning point.\n\n## Key Terms\n- **Increasing interval** — the $x$-values where the graph rises as $x$ increases\n- **Decreasing interval** — the $x$-values where the graph falls as $x$ increases\n- **Relative maximum / minimum** — a turning point that is higher/lower than the points immediately around it\n\n## Worked Example\nStep 1: For $y=(x-2)^2-3$, the vertex form $a(x-h)^2+k$ gives vertex $(2,-3)$.\nStep 2: The leading coefficient is $+1$ (positive), so the parabola opens up.\nStep 3: An upward parabola has a minimum at the vertex; it falls before the vertex and rises after.\nAnswer: minimum at $(2,-3)$; decreasing on $x<2$; increasing on $x>2$.\n\n## You Try\nFor $y=-x^2+4$, state whether the vertex is a max or min, and give the increasing/decreasing intervals.",
+      "guidedNotes": {
+        "title": "Increasing, Decreasing, Max & Min",
+        "vocab": [
+          {"term": "Increasing interval", "def": "the set of {{$x$|1cm}}-values where the graph goes {{up|1.4cm}} as you move left to right."},
+          {"term": "Decreasing interval", "def": "the set of $x$-values where the graph goes {{down|1.6cm}} as you move left to right."},
+          {"term": "Relative max/min", "def": "a {{turning point|2.6cm}} of the graph; an upward-opening parabola has a {{minimum|2cm}}, a downward-opening parabola has a {{maximum|2.2cm}}."}
+        ],
+        "worked": {
+          "prompt": "For $y=(x-2)^{2}-3$, find the vertex, state max or min, and give the increasing/decreasing intervals.",
+          "steps": [
+            "Vertex form $a(x-h)^2+k$ gives the vertex directly: {{$(2,-3)$|2cm}}.",
+            "The leading coefficient is $+1$, which is positive, so the parabola opens {{up|1.2cm}}, making the vertex a {{minimum|2cm}}.",
+            "The graph falls before the vertex and rises after: decreasing on {{$x<2$|2cm}}, increasing on {{$x>2$|2cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [{"expr": "(x-2)^2-3", "domain": [-1, 5], "color": "blue"}],
+          "xmin": -2, "xmax": 6, "ymin": -4, "ymax": 7,
+          "points": [[2, -3, "min $(2,-3)$", "red"]],
+          "caption": "opens up $\\Rightarrow$ minimum at $(2,-3)$; decreasing then increasing.",
+          "width": "8cm", "height": "5.5cm"
+        },
+        "youTry": [
+          {"prompt": "For $y=-x^{2}+4$, state whether the vertex is a max or min, and give the intervals.", "answer": "vertex $(0,4)$ is a maximum; increasing on $x<0$, decreasing on $x>0$"},
+          {"prompt": "For $y=(x+1)^{2}$, give the vertex and the increasing interval.", "answer": "vertex $(-1,0)$; increasing on $x>-1$"}
+        ],
+        "summary": "Opening {{up|1cm}} gives a minimum; opening {{down|1.4cm}} gives a maximum. The graph {{decreases|2.4cm}} before the turning point and {{increases|2.2cm}} after it (for an upward parabola)."
+      },
+      "notesExit": "For $y=-(x+1)^{2}+4$, state whether the vertex is a max or min, and give the increasing/decreasing intervals.",
+      "vocab": [
+        {"term": "Increasing interval", "definition": "The $x$-values over which a function's output values are getting larger."},
+        {"term": "Decreasing interval", "definition": "The $x$-values over which a function's output values are getting smaller."},
+        {"term": "Relative maximum/minimum", "definition": "A point where a function changes from increasing to decreasing (max) or decreasing to increasing (min)."}
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Increasing, Decreasing & Max/Min",
+        "slides": [
+          {"heading": "What's New Today", "bullets": ["Yesterday we named parent functions.", "Today we describe HOW a graph behaves — going up, going down, or turning."]},
+          {"heading": "Today's Terms", "bullets": ["Increasing interval — graph rises left to right", "Decreasing interval — graph falls left to right", "Relative max/min — the turning point"]},
+          {"heading": "Let's Try One", "bullets": ["$y=(x-2)^2-3$: vertex is $(2,-3)$", "Opens up $\\Rightarrow$ minimum", "Decreasing $x<2$, increasing $x>2$"], "example": "$y=(x-2)^2-3\\Rightarrow$ min at $(2,-3)$"}
+        ]
+      },
+      "procedureExamples": [
+        {"prompt": "For $y=x^{2}+2$, find the vertex, state max or min, and give the increasing/decreasing intervals.", "steps": ["Vertex form gives vertex $(0,2)$ (no horizontal shift, up 2).", "Leading coefficient is $+1$, positive, so it opens up and the vertex is a minimum.", "Decreasing before the vertex, increasing after."], "answer": "Vertex $(0,2)$, minimum; decreasing $x<0$, increasing $x>0$"}
+      ],
+      "worksheet": {
+        "title": "Increasing, Decreasing, Max & Min",
+        "instructions": "For each function, state whether the vertex is a maximum or minimum, give the vertex, and state the increasing and decreasing intervals.",
+        "sections": [
+          {
+            "type": "State max/min, vertex, and intervals",
+            "space": "l",
+            "workedExample": "**Example:** For $y=x^{2}-4$, vertex form gives vertex $(0,-4)$. Leading coefficient $+1$ is positive, so it's a **minimum**. It decreases for $x<0$ and increases for $x>0$.",
+            "directions": "Directions: State max or min, give the vertex, and give both intervals using inequality notation.",
+            "diagram": {
+              "plots": [{"expr": "-(x-1)^2+3", "domain": [-1, 3], "color": "blue"}],
+              "xmin": -1.5, "xmax": 3.5, "ymin": -2, "ymax": 5,
+              "points": [[1, 3, "max $(1,3)$", "red"]],
+              "caption": "$y=-(x-1)^2+3$ --- opens down, so the vertex is a maximum.",
+              "width": "8cm", "height": "5cm"
+            },
+            "problems": [
+              "$y=x^{2}+5$",
+              "$y=-x^{2}+1$",
+              "$y=(x-3)^{2}$",
+              "$y=-(x+2)^{2}-1$",
+              "$y=(x+4)^{2}-6$",
+              "$y=-(x-1)^{2}+3$",
+              "$y=x^{2}-8x$",
+              "🌶 $y=2(x-3)^{2}+1$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Write the equation in vertex form $a(x-h)^2+k$ if it isn't already.",
+          "The vertex is $(h,k)$.",
+          "If $a>0$ the parabola opens up (minimum); if $a<0$ it opens down (maximum).",
+          "The graph decreases before the vertex and increases after it (for a minimum) — reversed for a maximum."
+        ],
+        "optionalExtra": [
+          "🌶 For $y=-2(x+3)^{2}+7$, find the vertex, state max or min, give both intervals, AND explain what would change about your answer if the leading coefficient became positive instead."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "The graph of $y=x^{3}$ has no maximum or minimum anywhere, yet it is increasing over its entire domain. Explain, using the shape of the cubic parent function, why a function can be increasing everywhere and still never have a turning point.",
+        "why": "Extends the increasing/decreasing concept beyond parabolas to a function with no relative extrema at all, deepening understanding of what a 'turning point' actually requires."
+      },
+      "exitTicket": [
+        "For $y=-(x+1)^{2}+4$, state whether the vertex is a max or min, and give the increasing/decreasing intervals."
+      ],
+      "answerKey": [
+        {
+          "section": "State max/min, vertex, and intervals",
+          "answers": [
+            "Opens up, minimum; vertex $(0,5)$; decreasing $x<0$, increasing $x>0$",
+            "Opens down, maximum; vertex $(0,1)$; increasing $x<0$, decreasing $x>0$",
+            "Opens up, minimum; vertex $(3,0)$; decreasing $x<3$, increasing $x>3$",
+            "Opens down, maximum; vertex $(-2,-1)$; increasing $x<-2$, decreasing $x>-2$",
+            "Opens up, minimum; vertex $(-4,-6)$; decreasing $x<-4$, increasing $x>-4$",
+            "Opens down, maximum; vertex $(1,3)$; increasing $x<1$, decreasing $x>1$",
+            "Complete the square: $x^2-8x=(x-4)^2-16$; minimum; vertex $(4,-16)$; decreasing $x<4$, increasing $x>4$",
+            "$a=2>0$ opens up, minimum; vertex $(3,1)$; decreasing $x<3$, increasing $x>3$"
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "Vertex form $a(x-h)^2+k$ gives vertex $(-3,7)$. Since $a=-2<0$ the parabola opens down, so $(-3,7)$ is a maximum. It increases on $x<-3$ and decreases on $x>-3$. If the leading coefficient became positive (e.g. $+2$), the parabola would open up instead: the vertex $(-3,7)$ would become a minimum, and the intervals would flip --- decreasing on $x<-3$ and increasing on $x>-3$."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {"section": "1.7", "title": "Increasing and Decreasing"}
+    },
+    "Wed": {
+      "type": "worksheet",
+      "hook": "Ask: 'Can you plug $x=-4$ into $f(x)=\\sqrt{x}$ and get a real answer? What about $x=2$ into $f(x)=1/(x-2)$?'",
+      "objective": "Students will determine the domain and range of a function algebraically, including functions with square-root and reciprocal restrictions.",
+      "bellRinger": "For $f(x)=\\dfrac{1}{x-3}$, what value of $x$ would make the denominator equal to $0$? Why is that value NOT allowed?",
+      "agenda": [
+        "Bell ringer: spot the forbidden x-value",
+        "New term: domain restrictions (roots & denominators)",
+        "We-do example",
+        "Independent worksheet",
+        "Exit ticket"
+      ],
+      "assessment": "Exit ticket: state the domain of $f(x)=\\sqrt{x+5}$.",
+      "video": {
+        "short": {
+          "title": "Domain and Range with Restrictions (Khan Academy)",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+domain+and+range+restrictions",
+          "note": "~5 min"
+        },
+        "long": {
+          "title": "Finding Domain of Rational and Radical Functions (Mathispower4u)",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+domain+rational+radical+functions",
+          "note": "~10 min, optional"
+        },
+        "questions": [
+          "Why can't a denominator ever equal zero?",
+          "Why must the expression under a square root be non-negative?",
+          "What happens to the domain when BOTH a root and a denominator appear in the same function?"
+        ]
+      },
+      "videoPlacement": "Play the short video right after the bell ringer discussion, before formally introducing the two restriction rules, so students see both traps in action first.",
+      "script": [
+        {"min": 5, "title": "Bell ringer", "do": "Students identify the excluded x-value for $f(x)=1/(x-3)$ and explain why in their own words.", "say": "What happens if we actually try to divide by zero on a calculator?"},
+        {"min": 5, "title": "Video", "do": "Play the short video showing both restriction types (root and denominator).", "say": "Which restriction type looked more familiar from yesterday?"},
+        {"min": 8, "title": "New term: domain restrictions", "do": "Formalize the two rules: denominator $\\ne 0$, radicand $\\ge 0$; connect back to reciprocal and square-root parent functions from Monday.", "options": ["Have students test a 'trap' value on their calculator to see the ERROR message"], "say": "Which of our 6 parent functions from Monday actually HAS a restriction?"},
+        {"min": 8, "title": "We-do example", "do": "Work the guided-notes worked example: $f(x)=\\sqrt{x-2}$, finding domain then range.", "say": "Once we know the domain starts at x=2, what's the smallest output the function can give?"},
+        {"min": 17, "title": "Independent worksheet", "do": "Students work the worksheet; circulate especially on problems combining a root and a denominator.", "say": "Did you check for BOTH kinds of restriction on this one?"},
+        {"min": 5, "title": "Exit ticket", "do": "Students complete the exit ticket individually.", "say": "One restriction type only on this one — which is it?"}
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nTwo situations restrict the **domain** of a function: a **denominator** can never equal $0$, and the expression under an **even root** (like a square root) can never be negative. Finding the **range** often means analyzing the graph's lowest or highest output.\n\n## Key Terms\n- **Domain restriction** — a value of $x$ that must be excluded for the function to stay defined\n- **Radicand** — the expression underneath a radical (root) symbol\n\n## Worked Example\nStep 1: For $f(x)=\\sqrt{x-2}$, the radicand is $x-2$.\nStep 2: A square root needs its radicand $\\ge 0$, so solve $x-2\\ge 0$, giving $x\\ge 2$.\nStep 3: At $x=2$, $f(2)=0$; the function only increases from there.\nAnswer: domain $x\\ge 2$; range $y\\ge 0$.\n\n## You Try\nFind the domain of $f(x)=\\dfrac{1}{x+6}$.",
+      "guidedNotes": {
+        "title": "Domain & Range with Restrictions",
+        "vocab": [
+          {"term": "Domain restriction", "def": "an $x$-value that must be {{excluded|2.4cm}} so the function stays defined."},
+          {"term": "Radicand", "def": "the expression {{underneath|2.6cm}} a radical (root) symbol; for a square root it must be {{$\\ge 0$|1.8cm}}."}
+        ],
+        "worked": {
+          "prompt": "Find the domain and range of $f(x)=\\sqrt{x-2}$.",
+          "steps": [
+            "The radicand is $x-2$; a square root needs a non-negative radicand, so set up {{$x-2\\ge 0$|2.4cm}}.",
+            "Solving gives the domain: {{$x\\ge 2$|1.8cm}}.",
+            "At the smallest allowed input $x=2$, $f(2)=$ {{$0$|1cm}}, and the graph only rises after that, so the range is {{$y\\ge 0$|1.8cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [{"expr": "sqrt(x-2)", "domain": [2, 11], "color": "blue"}],
+          "xmin": -1, "xmax": 11, "ymin": -1, "ymax": 4,
+          "points": [[2, 0, "start $(2,0)$", "red"]],
+          "caption": "$y=\\sqrt{x-2}$ --- domain $x\\ge 2$, range $y\\ge 0$.",
+          "width": "8cm", "height": "5cm"
+        },
+        "youTry": [
+          {"prompt": "Find the domain of $f(x)=\\dfrac{1}{x+6}$.", "answer": "$x\\ne -6$ (all reals except $-6$)"},
+          {"prompt": "Find the domain of $f(x)=\\sqrt{10-x}$.", "answer": "$x\\le 10$"}
+        ],
+        "summary": "Two traps restrict the domain: a {{denominator|2.6cm}} can never equal $0$, and a {{radicand|2.4cm}} (under an even root) can never be negative."
+      },
+      "notesExit": "Find the domain of $f(x)=\\sqrt{x+5}$.",
+      "vocab": [
+        {"term": "Domain restriction", "definition": "An input value that must be excluded from the domain, usually caused by a zero denominator or a negative radicand."},
+        {"term": "Radicand", "definition": "The expression that appears underneath a radical symbol, such as the $x$ in $\\sqrt{x}$."}
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Domain & Range: Restrictions",
+        "slides": [
+          {"heading": "What's New Today", "bullets": ["Monday we found domain/range for the basic 6 parents.", "Today we handle restrictions caused by shifts and combinations — denominators AND radicals together."]},
+          {"heading": "Today's Terms", "bullets": ["Domain restriction — a value that must be excluded", "Radicand — what's under the root symbol, must be $\\ge 0$"]},
+          {"heading": "Let's Try One", "bullets": ["$f(x)=\\sqrt{x-2}$: radicand is $x-2$", "Need $x-2\\ge 0 \\Rightarrow x\\ge 2$", "Domain: $x\\ge 2$; range: $y\\ge 0$"], "example": "$f(x)=\\sqrt{x-2}\\Rightarrow$ domain $x\\ge 2$"}
+        ]
+      },
+      "procedureExamples": [
+        {"prompt": "Find the domain of $f(x)=\\dfrac{1}{x-5}$.", "steps": ["Set the denominator not equal to zero: $x-5\\ne 0$.", "Solve: $x\\ne 5$."], "answer": "Domain: $x\\ne 5$ (all reals except $5$)"}
+      ],
+      "worksheet": {
+        "title": "Domain & Range with Restrictions",
+        "instructions": "State the domain for each function. For the last two problems in Section 1, also state the range.",
+        "sections": [
+          {
+            "type": "State the domain (denominator restrictions)",
+            "space": "s",
+            "workedExample": "**Example:** $f(x)=\\dfrac{1}{x+3}$: set $x+3\\ne 0$, so $x\\ne -3$. Domain: all reals except $-3$.",
+            "directions": "Directions: Set the denominator not equal to zero and solve.",
+            "problems": [
+              "$f(x)=\\dfrac{1}{x-4}$",
+              "$f(x)=\\dfrac{1}{x+7}$",
+              "$f(x)=\\dfrac{x}{x^{2}-9}$",
+              "$f(x)=\\dfrac{2}{x^{2}-16}$"
+            ]
+          },
+          {
+            "type": "State the domain (radical restrictions)",
+            "space": "s",
+            "workedExample": "**Example:** $f(x)=\\sqrt{x+6}$: set the radicand $\\ge 0$: $x+6\\ge 0$, so $x\\ge -6$.",
+            "directions": "Directions: Set the radicand $\\ge 0$ and solve.",
+            "problems": [
+              "$f(x)=\\sqrt{x-1}$",
+              "$f(x)=\\sqrt{2x-8}$",
+              "$f(x)=\\sqrt{10-x}$"
+            ]
+          },
+          {
+            "type": "State domain AND range",
+            "space": "m",
+            "workedExample": "**Example:** $f(x)=x^{2}-5$ has no root or denominator, so the domain is all reals; the lowest output is $-5$, so the range is $y\\ge -5$.",
+            "directions": "Directions: State the domain, then find the range by identifying the highest or lowest output.",
+            "problems": [
+              "$f(x)=x^{2}+7$",
+              "🌶 $f(x)=\\dfrac{\\sqrt{x-1}}{x-4}$ --- give the domain only (two restrictions apply at once)"
+            ]
+          }
+        ],
+        "procedure": [
+          "Denominator restrictions: set the denominator $\\ne 0$ and solve for the excluded $x$-value(s).",
+          "Radical restrictions: set the radicand $\\ge 0$ and solve the resulting inequality.",
+          "If a function has both a root and a denominator, apply BOTH restrictions and combine them.",
+          "For range, find the highest or lowest output the graph reaches."
+        ],
+        "optionalExtra": [
+          "🌶 Find the domain of $f(x)=\\dfrac{\\sqrt{x+3}}{x-1}$, showing both restrictions and how they combine."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Design your own rational function that has EXACTLY two excluded $x$-values in its domain, and a square-root function that has a domain of exactly $x\\ge -4$. Show the algebra that proves your functions meet those requirements.",
+        "why": "Extends domain-restriction skills by requiring students to work backward from a target domain to an equation, deepening algebraic fluency with both restriction types."
+      },
+      "exitTicket": [
+        "State the domain of $f(x)=\\sqrt{x+5}$."
+      ],
+      "answerKey": [
+        {
+          "section": "State the domain (denominator restrictions)",
+          "answers": [
+            "$x\\ne 4$",
+            "$x\\ne -7$",
+            "$x\\ne \\pm 3$ (since $x^2-9=0$ at $x=3$ and $x=-3$)",
+            "$x\\ne \\pm 4$ (since $x^2-16=0$ at $x=4$ and $x=-4$)"
+          ]
+        },
+        {
+          "section": "State the domain (radical restrictions)",
+          "answers": [
+            "$x\\ge 1$",
+            "$x\\ge 4$ (solve $2x-8\\ge 0$)",
+            "$x\\le 10$ (solve $10-x\\ge 0$)"
+          ]
+        },
+        {
+          "section": "State domain AND range",
+          "answers": [
+            "Domain: all real numbers; range: $y\\ge 7$",
+            "Domain: $x\\ge 1$ and $x\\ne 4$ (the root requires $x\\ge 1$; the denominator excludes $x=4$)"
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "Two restrictions apply. Radical: the radicand must be $\\ge 0$, so $x+3\\ge 0$, giving $x\\ge -3$. Denominator: it cannot be $0$, so $x-1\\ne 0$, giving $x\\ne 1$. Combine them: start with $x\\ge -3$, then remove $x=1$. Domain: $x\\ge -3$ and $x\\ne 1$ (i.e., $[-3,1)\\cup(1,\\infty)$)."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {"section": "1.4", "title": "Domain and Range"}
+    },
+    "Thu": {
+      "type": "worksheet",
+      "hook": "Fold a graph of $y=x^2$ in half along the $y$-axis — the two sides match perfectly. Ask: 'What does that tell us about the equation?'",
+      "objective": "Students will determine algebraically whether a function is even, odd, or neither, and connect each classification to a symmetry pattern on the graph.",
+      "bellRinger": "For $f(x)=x^{2}-3$, compute $f(-2)$ and $f(2)$. What do you notice?",
+      "agenda": [
+        "Bell ringer: compare $f(-2)$ and $f(2)$",
+        "New term: even and odd functions",
+        "We-do example",
+        "Independent worksheet",
+        "Exit ticket"
+      ],
+      "assessment": "Exit ticket: determine whether $f(x)=x^{3}+2$ is even, odd, or neither.",
+      "video": {
+        "short": {
+          "title": "Even, Odd, or Neither Functions (Khan Academy)",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+even+odd+or+neither+functions",
+          "note": "~5 min"
+        },
+        "long": {
+          "title": "Determining Even and Odd Functions Algebraically (Mathispower4u)",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+even+odd+functions+algebraically",
+          "note": "~8 min, optional"
+        },
+        "questions": [
+          "What does it mean graphically for a function to be symmetric about the $y$-axis?",
+          "What does it mean graphically for a function to be symmetric about the origin?",
+          "If $f(-x)$ doesn't equal $f(x)$ OR $-f(x)$, what do we call the function?"
+        ]
+      },
+      "videoPlacement": "Play the short video right after the bell ringer discussion, before the formal definitions, so students see the pattern before naming it.",
+      "script": [
+        {"min": 5, "title": "Bell ringer", "do": "Students compute $f(-2)$ and $f(2)$ for $f(x)=x^2-3$ and notice they're equal.", "say": "Will that pattern hold for ANY value of x, or just x=2?"},
+        {"min": 5, "title": "Video", "do": "Play the short even/odd video.", "say": "Which example in the video matched our bell ringer pattern?"},
+        {"min": 8, "title": "New term: even and odd", "do": "Define even ($f(-x)=f(x)$, y-axis symmetry) and odd ($f(-x)=-f(x)$, origin symmetry) functions.", "options": ["Physically fold a printed graph in half to show y-axis symmetry for the even example"], "say": "If neither pattern holds, what should we conclude about the function?"},
+        {"min": 8, "title": "We-do example", "do": "Work the guided-notes worked example: test $f(x)=x^2-3$ by substituting $-x$.", "say": "After we simplify f(-x), what do we compare it to?"},
+        {"min": 17, "title": "Independent worksheet", "do": "Students work the worksheet, showing the substitution step for every problem.", "say": "Did you show the substitution work, not just the final label?"},
+        {"min": 5, "title": "Exit ticket", "do": "Students complete the exit ticket individually and turn it in.", "say": "Show your substitution work for full credit."}
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nA function is **even** if $f(-x)=f(x)$ (its graph is symmetric about the $y$-axis). A function is **odd** if $f(-x)=-f(x)$ (its graph is symmetric about the origin). If neither is true, the function is **neither**.\n\n## Key Terms\n- **Even function** — $f(-x)=f(x)$; graph mirrors across the $y$-axis\n- **Odd function** — $f(-x)=-f(x)$; graph is symmetric about the origin (180° rotation)\n\n## Worked Example\nStep 1: For $f(x)=x^{2}-3$, substitute $-x$ for every $x$: $f(-x)=(-x)^2-3$.\nStep 2: Simplify: $(-x)^2=x^2$, so $f(-x)=x^2-3$.\nStep 3: Compare to the original: $f(-x)=x^2-3=f(x)$ — they match exactly.\nAnswer: $f(x)=x^2-3$ is **even**.\n\n## You Try\nDetermine whether $f(x)=x^{3}$ is even, odd, or neither.",
+      "guidedNotes": {
+        "title": "Symmetry: Even, Odd, or Neither",
+        "vocab": [
+          {"term": "Even function", "def": "a function symmetric about the {{$y$-axis|2cm}}; algebraically, $f(-x)=$ {{$f(x)$|1.8cm}} for every $x$."},
+          {"term": "Odd function", "def": "a function symmetric about the {{origin|2.2cm}}; algebraically, $f(-x)=$ {{$-f(x)$|2cm}} for every $x$."}
+        ],
+        "worked": {
+          "prompt": "Determine whether $f(x)=x^{2}-3$ is even, odd, or neither.",
+          "steps": [
+            "Substitute $-x$ for $x$: $f(-x)=(-x)^{2}-3=$ {{$x^{2}-3$|2.4cm}}.",
+            "Compare this result to the original $f(x)=x^2-3$: they are {{equal|1.8cm}}.",
+            "Since $f(-x)=f(x)$, the function is {{even|1.4cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [{"expr": "x^2-3", "domain": [-3, 3], "color": "blue"}],
+          "xmin": -3.5, "xmax": 3.5, "ymin": -4, "ymax": 7,
+          "caption": "$y=x^{2}-3$ --- the $y$-axis is a mirror line, confirming it's even.",
+          "width": "8cm", "height": "5.5cm"
+        },
+        "youTry": [
+          {"prompt": "Determine whether $f(x)=x^{3}$ is even, odd, or neither.", "answer": "odd: $f(-x)=(-x)^3=-x^3=-f(x)$"},
+          {"prompt": "Determine whether $f(x)=x^{2}+x$ is even, odd, or neither.", "answer": "neither: $f(-x)=x^2-x$, which is not equal to $f(x)$ or $-f(x)$"}
+        ],
+        "summary": "Substitute {{$-x$|1.4cm}} into the function: if you get back the ORIGINAL function, it's {{even|1.2cm}}; if you get back the {{negative|2cm}} of the original, it's odd; otherwise, neither."
+      },
+      "notesExit": "Determine whether $f(x)=x^{3}+2$ is even, odd, or neither.",
+      "vocab": [
+        {"term": "Even function", "definition": "A function where $f(-x)=f(x)$ for all $x$ in the domain; its graph is symmetric about the $y$-axis."},
+        {"term": "Odd function", "definition": "A function where $f(-x)=-f(x)$ for all $x$ in the domain; its graph is symmetric about the origin."}
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Even, Odd, or Neither",
+        "slides": [
+          {"heading": "What's New Today", "bullets": ["This week we've named parents, described direction, and found domain/range.", "Today we test for a hidden symmetry pattern algebraically."]},
+          {"heading": "Today's Terms", "bullets": ["Even: $f(-x)=f(x)$ — mirrors over the $y$-axis", "Odd: $f(-x)=-f(x)$ — symmetric about the origin"]},
+          {"heading": "Let's Try One", "bullets": ["$f(x)=x^2-3$: substitute $-x$", "$f(-x)=(-x)^2-3=x^2-3=f(x)$", "Since $f(-x)=f(x)$, it's even"], "example": "$f(x)=x^2-3\\Rightarrow$ even"}
+        ]
+      },
+      "procedureExamples": [
+        {"prompt": "Determine whether $f(x)=2x$ is even, odd, or neither.", "steps": ["Substitute $-x$: $f(-x)=2(-x)=-2x$.", "Compare to $-f(x)=-2x$: they match."], "answer": "Odd: $f(-x)=-2x=-f(x)$"}
+      ],
+      "worksheet": {
+        "title": "Even, Odd, or Neither",
+        "instructions": "For each function, compute $f(-x)$, simplify, then classify the function as even, odd, or neither. Show the substitution.",
+        "sections": [
+          {
+            "type": "Determine even, odd, or neither",
+            "space": "m",
+            "workedExample": "**Example:** $f(x)=x^{4}-x^{2}$: $f(-x)=(-x)^4-(-x)^2=x^4-x^2=f(x)$, so it is **even**.",
+            "directions": "Directions: Compute $f(-x)$ and simplify, then classify as even, odd, or neither.",
+            "problems": [
+              "$f(x)=x^{2}+1$",
+              "$f(x)=x^{3}-x$",
+              "$f(x)=x^{3}+2$",
+              "$f(x)=|x|$",
+              "$f(x)=2x$",
+              "$f(x)=x^{4}-3x^{2}$",
+              "$f(x)=x^{5}$",
+              "$f(x)=x^{2}+x$",
+              "$f(x)=\\dfrac{1}{x}$",
+              "🌶 $f(x)=x^{3}+x^{2}$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Replace every $x$ in the function with $-x$.",
+          "Simplify the result completely.",
+          "If $f(-x)=f(x)$, the function is even.",
+          "If $f(-x)=-f(x)$, the function is odd.",
+          "If neither matches, the function is neither."
+        ],
+        "optionalExtra": [
+          "🌶 Explain why any function made ONLY of even-power terms (like $x^4-3x^2+5$) must always be even, using the substitution rule."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Write your own function that is neither even nor odd, then modify it by adding or removing exactly one term so that the new function becomes odd. Show the substitution work proving both classifications.",
+        "why": "Extends the even/odd test by requiring students to reason about which terms preserve or break symmetry, deepening their algebraic understanding of the substitution rule."
+      },
+      "exitTicket": [
+        "Determine whether $f(x)=x^{3}+2$ is even, odd, or neither."
+      ],
+      "answerKey": [
+        {
+          "section": "Determine even, odd, or neither",
+          "answers": [
+            "$f(-x)=x^{2}+1=f(x)$: even",
+            "$f(-x)=-x^{3}+x=-(x^{3}-x)=-f(x)$: odd",
+            "$f(-x)=-x^{3}+2$, which is neither $f(x)$ nor $-f(x)$: neither",
+            "$f(-x)=|-x|=|x|=f(x)$: even",
+            "$f(-x)=-2x=-f(x)$: odd",
+            "$f(-x)=x^{4}-3x^{2}=f(x)$: even (all even-power terms)",
+            "$f(-x)=-x^{5}=-f(x)$: odd",
+            "$f(-x)=x^{2}-x$, which is neither $f(x)$ nor $-f(x)$: neither",
+            "$f(-x)=\\dfrac{1}{-x}=-\\dfrac{1}{x}=-f(x)$: odd",
+            "$f(-x)=-x^{3}+x^{2}$: neither --- the even $x^2$ term stays positive while the odd $x^3$ term flips sign, so it can't equal $f(x)$ or $-f(x)$"
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "When you substitute $-x$ into any even-power term, the negative disappears: $(-x)^2=x^2$, $(-x)^4=x^4$, and in general $(-x)^{2n}=x^{2n}$ because a negative base raised to an even power is positive. A constant term (like $+5$) is also unchanged. So if EVERY term has an even power (or is a constant), then $f(-x)$ equals the original $f(x)$ term-for-term. For example, $f(x)=x^4-3x^2+5$ gives $f(-x)=(-x)^4-3(-x)^2+5=x^4-3x^2+5=f(x)$. Since $f(-x)=f(x)$, the function must be even."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {"section": "1.6", "title": "Symmetry"}
+    },
+    "Fri": {
+      "type": "worksheet",
+      "hook": "Announce: 'Today you're the teacher — every problem could show up disguised as one of the 4 skills we built this week. Can you spot which one it's testing?'",
+      "objective": "Students will apply parent-function identification, increasing/decreasing and max/min analysis, domain and range restrictions, and even/odd symmetry testing to mixed review problems, demonstrating mastery on a short quiz-style check.",
+      "bellRinger": "Without graphing, list the 4 skills we practiced this week (Mon–Thu) in one phrase each.",
+      "agenda": [
+        "Bell ringer: name the week's 4 skills",
+        "Mixed review stations (rotate through Mon-Thu skill types)",
+        "Whole-class trouble-spot review",
+        "Quiz-style check (individual, quiet)",
+        "Self-check against answer key",
+        "Exit ticket"
+      ],
+      "assessment": "Quiz-style check: 8 mixed problems covering parent functions, increasing/decreasing & max/min, domain & range, and even/odd symmetry.",
+      "video": {
+        "short": {
+          "title": "Analyzing Functions Review — Parent Functions, Domain, Symmetry (Organic Chemistry Tutor)",
+          "url": "https://www.youtube.com/results?search_query=Organic+Chemistry+Tutor+analyzing+functions+review+domain+symmetry",
+          "note": "~6 min"
+        },
+        "long": {
+          "title": "Full Unit Review: Functions and Their Properties (Mathispower4u)",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+functions+unit+review+domain+range+symmetry",
+          "note": "~15 min, optional"
+        },
+        "questions": [
+          "Which of the 4 skills from this week appeared FIRST in the review video?",
+          "What's one 'trap' to watch for when finding domain?",
+          "What's the quickest way to check if a function is even without graphing it?"
+        ]
+      },
+      "videoPlacement": "Play the short review video at the start of class, right after the bell ringer, as a fast-paced refresher before students rotate through review stations.",
+      "script": [
+        {"min": 4, "title": "Bell ringer", "do": "Students list the 4 skills from the week from memory.", "say": "Which skill do you feel LEAST confident about? Be honest."},
+        {"min": 6, "title": "Review video", "do": "Play the short mixed-review video covering all 4 skills.", "say": "Which reminder from the video do you need most today?"},
+        {"min": 20, "title": "Mixed review stations", "do": "Students rotate through 4 short stations, one per skill (parent ID, max/min & intervals, domain/range, even/odd), each with 2-3 problems.", "options": ["Run this as a whole-class relay instead of physical stations if space is limited"], "say": "At each station, name the skill out loud before you start solving."},
+        {"min": 6, "title": "Trouble-spot review", "do": "Quickly re-teach the 1-2 stations where most groups struggled, using a student's actual work as an example.", "say": "What almost tricked you on this one?"},
+        {"min": 10, "title": "Quiz-style check", "do": "Students complete the 8-problem quiz-style worksheet individually and silently.", "say": "This is independent — show me what YOU know."},
+        {"min": 2, "title": "Exit ticket", "do": "Students turn in the quiz and answer one final reflection question.", "say": "Which of the 4 skills do you want more practice on next week?"}
+      ],
+      "doubleOption": true,
+      "notes": "## Key Idea\nThis week you built 4 tools for **analyzing functions**: naming the **parent function**, describing where it's **increasing/decreasing** and its **max/min**, finding its **domain and range**, and testing its **symmetry** (even, odd, neither). Today mixes all 4 together.\n\n## Key Terms\n- **Parent function** — the simplest form of a family\n- **Increasing/decreasing & max/min** — direction and turning points of a graph\n- **Domain & range** — allowed inputs and resulting outputs\n- **Even/odd symmetry** — $f(-x)=f(x)$ (even) or $f(-x)=-f(x)$ (odd)\n\n## Worked Example\nStep 1: Given $f(x)=-(x-1)^2+4$, first identify the family: quadratic (parent $x^2$, shifted).\nStep 2: Vertex is $(1,4)$; opens down, so it's a maximum; increasing $x<1$, decreasing $x>1$.\nStep 3: Domain is all reals (no root/denominator); range is $y\\le 4$.\nStep 4: Test symmetry: $f(-x)=-(-x-1)^2+4=-(x+1)^2+4\\ne f(x)$ and $\\ne -f(x)$, so neither.\nAnswer: quadratic family; max $(1,4)$; domain all reals, range $y\\le 4$; neither even nor odd.\n\n## You Try\nFor $f(x)=\\sqrt{x-3}$, identify the parent family and state the domain and range.",
+      "guidedNotes": {
+        "title": "Mixed Review: Analyzing Functions",
+        "vocab": [
+          {"term": "Analyzing a function", "def": "combining all 4 skills from this week: {{family|1.8cm}}, {{direction/extrema|3cm}}, {{domain/range|2.8cm}}, and symmetry."},
+          {"term": "Symmetry check", "def": "substitute {{$-x$|1.4cm}} into the function and compare the result to $f(x)$ and $-f(x)$."}
+        ],
+        "worked": {
+          "prompt": "For $f(x)=-(x-1)^{2}+4$, find the parent family, max/min with intervals, domain/range, and symmetry.",
+          "steps": [
+            "This is a shifted quadratic, so the parent family is {{quadratic|2.2cm}}.",
+            "Vertex form gives vertex $(1,4)$; the leading coefficient is negative, so it opens down and the vertex is a {{maximum|2.2cm}}; increasing $x<1$, decreasing {{$x>1$|1.8cm}}.",
+            "There's no root or denominator, so the domain is all reals; the highest output is $4$, so the range is {{$y\\le 4$|2cm}}.",
+            "Testing symmetry: $f(-x)=-(-x-1)^2+4=-(x+1)^2+4$, which matches neither $f(x)$ nor $-f(x)$, so it is {{neither|1.8cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [{"expr": "-(x-1)^2+4", "domain": [-1, 3], "color": "blue"}],
+          "xmin": -1.5, "xmax": 3.5, "ymin": -1, "ymax": 5.5,
+          "points": [[1, 4, "max $(1,4)$", "red"]],
+          "caption": "$y=-(x-1)^2+4$ --- quadratic family, maximum at $(1,4)$, domain all reals, range $y\\le 4$.",
+          "width": "8cm", "height": "5.5cm"
+        },
+        "youTry": [
+          {"prompt": "For $f(x)=\\sqrt{x-3}$, identify the parent family and state the domain and range.", "answer": "square root family; domain $x\\ge 3$; range $y\\ge 0$"},
+          {"prompt": "Is $f(x)=x^{2}+5$ even, odd, or neither?", "answer": "even: $f(-x)=x^2+5=f(x)$"}
+        ],
+        "summary": "When analyzing any function, work through all 4 checks in order: {{family|1.6cm}}, {{max/min & intervals|3.4cm}}, {{domain/range|2.8cm}}, then {{symmetry|2.2cm}}."
+      },
+      "notesExit": "For $f(x)=x^{2}-9$, state the parent family, the domain and range, and whether it is even, odd, or neither.",
+      "vocab": [
+        {"term": "Mixed analysis", "definition": "Applying parent-family identification, max/min & interval analysis, domain/range, and symmetry testing together on one function."}
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Mixed Practice + Quiz Check",
+        "slides": [
+          {"heading": "What's New Today", "bullets": ["No new skill today — we combine all 4 tools from this week into one process.", "Today is about SPEED and accuracy under a quiz-style check."]},
+          {"heading": "The 4-Step Checklist", "bullets": ["1. Name the parent family", "2. Find max/min and increasing/decreasing intervals", "3. State domain and range", "4. Test even/odd/neither symmetry"]},
+          {"heading": "Let's Try One", "bullets": ["$f(x)=-(x-1)^2+4$: quadratic family, max at $(1,4)$", "Domain all reals, range $y\\le 4$", "$f(-x)\\ne f(x)$ and $\\ne -f(x)$: neither"], "example": "Apply all 4 checks to $f(x)=-(x-1)^2+4$"}
+        ]
+      },
+      "procedureExamples": [
+        {"prompt": "For $f(x)=\\sqrt{x-3}$, apply all 4 checks: parent family, max/min & intervals (if any), domain/range, and symmetry.", "steps": ["Parent family: square root (shifted right 3).", "Square root has no max/min or turning point — it only increases across its whole domain.", "Domain: radicand $x-3\\ge 0\\Rightarrow x\\ge 3$; range: $y\\ge 0$.", "Symmetry: domain isn't symmetric about the origin ($x\\ge3$ only), so it's automatically neither even nor odd."], "answer": "Square root family; always increasing on $x\\ge 3$ (no max/min); domain $x\\ge 3$, range $y\\ge 0$; neither"}
+      ],
+      "worksheet": {
+        "title": "Quiz-Style Check: Analyzing Functions",
+        "instructions": "For each function, answer what is asked. This is a quiz-style check — work independently and show all steps.",
+        "sections": [
+          {
+            "type": "Identify the parent family and state domain/range",
+            "space": "s",
+            "workedExample": "**Example:** $f(x)=|x|-2$: parent family is **absolute value**; domain is all reals; range is $y\\ge -2$.",
+            "directions": "Directions: Name the parent family, then give the domain and range.",
+            "problems": [
+              "$f(x)=x^{3}-1$",
+              "$f(x)=\\sqrt{x+4}$",
+              "$f(x)=\\dfrac{1}{x-2}$"
+            ]
+          },
+          {
+            "type": "State max/min, vertex, and intervals",
+            "space": "m",
+            "workedExample": "**Example:** $y=(x+2)^2-5$: vertex $(-2,-5)$; opens up, minimum; decreasing $x<-2$, increasing $x>-2$.",
+            "directions": "Directions: State max or min, the vertex, and both intervals.",
+            "problems": [
+              "$y=-(x-3)^{2}+2$",
+              "$y=(x+1)^{2}-4$"
+            ]
+          },
+          {
+            "type": "Determine even, odd, or neither",
+            "space": "s",
+            "workedExample": "**Example:** $f(x)=x^{4}$: $f(-x)=(-x)^4=x^4=f(x)$, so it's **even**.",
+            "directions": "Directions: Substitute $-x$, simplify, and classify.",
+            "problems": [
+              "$f(x)=x^{3}-x$",
+              "$f(x)=x^{2}+3$",
+              "🌶 $f(x)=x^{3}+4$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Step 1 — Name the parent family from the equation's shape.",
+          "Step 2 — For quadratics, find the vertex and determine max/min and intervals.",
+          "Step 3 — Check for domain restrictions (denominators, radicals) and determine the range.",
+          "Step 4 — Substitute $-x$ to test even, odd, or neither."
+        ],
+        "optionalExtra": [
+          "🌶 Write a function of your own that is a shifted square-root function, then find its domain, range, and classify its symmetry."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Create a single function that combines TWO parent families in one rule (for example, an absolute value of a quadratic, like $f(x)=|x^{2}-4|$). Analyze it completely: name what it's built from, find its domain and range, and test whether it is even, odd, or neither.",
+        "why": "Extends the week's 4-skill analysis process to a composite function, requiring students to apply every tool learned this week to something more complex than a single parent function."
+      },
+      "exitTicket": [
+        "For $f(x)=x^{2}-9$, state the parent family, the domain and range, and whether it is even, odd, or neither."
+      ],
+      "answerKey": [
+        {
+          "section": "Identify the parent family and state domain/range",
+          "answers": [
+            "Cubic family; domain all real numbers; range all real numbers",
+            "Square root family; domain $x\\ge -4$; range $y\\ge 0$",
+            "Reciprocal family; domain $x\\ne 2$; range $y\\ne 0$"
+          ]
+        },
+        {
+          "section": "State max/min, vertex, and intervals",
+          "answers": [
+            "Opens down, maximum; vertex $(3,2)$; increasing $x<3$, decreasing $x>3$",
+            "Opens up, minimum; vertex $(-1,-4)$; decreasing $x<-1$, increasing $x>-1$"
+          ]
+        },
+        {
+          "section": "Determine even, odd, or neither",
+          "answers": [
+            "$f(-x)=-x^3+x=-(x^3-x)=-f(x)$: odd",
+            "$f(-x)=x^2+3=f(x)$: even",
+            "$f(-x)=-x^3+4$, matching neither $f(x)$ nor $-f(x)$: neither"
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "Answers vary; a sample valid response is $f(x)=\\sqrt{x-2}+3$. Domain: the radicand must be $\\ge 0$, so $x-2\\ge 0$, giving $x\\ge 2$. Range: the smallest output is at $x=2$, where $f(2)=\\sqrt{0}+3=3$, and the graph only rises from there, so $y\\ge 3$. Symmetry: the domain $x\\ge 2$ is not symmetric about the origin (e.g., $x=2$ is allowed but $x=-2$ is not), so the function is neither even nor odd. Any correctly analyzed shifted square-root function earns full credit."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {"section": "1.5", "title": "Maximums and Minimums"}
+    }
+  }
+}

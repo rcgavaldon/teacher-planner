@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}\usepackage{amssymb}\usepackage{enumitem}\usepackage{xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newif\ifkey\keytrue      % TEACHER KEY toggle
+\newif\iftwoup\twoupfalse  % 2-UP toggle
+\iftwoup\usepackage{pgfpages}\pgfpagesuselayout{2 on 1}[letterpaper,landscape]\fi
+\newcommand{\bl}[2][2cm]{\ifkey\textcolor{blue!65!black}{\underline{#2}}\else\underline{\hspace{#1}}\fi}
+\newcommand{\N}{%
+\begin{center}{\large\textbf{Domain \& Range with Restrictions}}\hfill\ifkey\textcolor{blue!65!black}{\textbf{TEACHER KEY}}\else Name: \rule{3.5cm}{0.4pt}\fi\end{center}
+{\small Pre-Calculus \textbar\ Guided notes --- we fill these in together}\vspace{2pt}\hrule\vspace{7pt}
+\textbf{Vocabulary}\\[5pt]
+\textbf{Domain restriction:} an $x$-value that must be \bl[2.4cm]{excluded} so the function stays defined.\\[10pt]
+\textbf{Radicand:} the expression \bl[2.6cm]{underneath} a radical (root) symbol; for a square root it must be \bl[1.8cm]{$\ge 0$}.\\[12pt]
+\textbf{We do together.}\quad Find the domain and range of $f(x)=\sqrt{x-2}$.\\[6pt]
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.1em,itemsep=9pt]
+  \item The radicand is $x-2$; a square root needs a non-negative radicand, so set up \bl[2.4cm]{$x-2\ge 0$}.
+  \item Solving gives the domain: \bl[1.8cm]{$x\ge 2$}.
+  \item At the smallest allowed input $x=2$, $f(2)=$ \bl[1cm]{$0$}, and the graph only rises after that, so the range is \bl[1.8cm]{$y\ge 0$}.
+\end{enumerate}\vspace{8pt}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$y$,xmin=-1,xmax=11,ymin=-1,ymax=4,width=8cm,height=5cm,grid=both,samples=80]
+\addplot[very thick,blue,domain=2:11]{sqrt(x-2)};
+\addplot[only marks,mark=*,red] coordinates {(2,0)};
+\node[above right,red,font=\small] at (axis cs:2,0) {start $(2,0)$};
+\end{axis}\end{tikzpicture}\end{center}
+{\small\centering $y=\sqrt{x-2}$ --- domain $x\ge 2$, range $y\ge 0$.\par}
+\vspace{6pt}
+\textbf{You Try.}\ Solve each. Show every step, then name the answer.\\[6pt]
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=2.4em,itemsep=1.4cm]
+  \item Find the domain of $f(x)=\dfrac{1}{x+6}$. \hfill \ifkey\textcolor{blue!65!black}{$x\ne -6$ (all reals except $-6$)}\fi
+  \item Find the domain of $f(x)=\sqrt{10-x}$. \hfill \ifkey\textcolor{blue!65!black}{$x\le 10$}\fi
+\end{enumerate}
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Summary (fill in):} Two traps restrict the domain: a \bl[2.6cm]{denominator} can never equal $0$, and a \bl[2.4cm]{radicand} (under an even root) can never be negative.
+}
+\begin{document}
+\N
+\iftwoup\clearpage\N\fi
+\end{document}

@@ -1,0 +1,1857 @@
+{
+  "days": {
+    "Mon": {
+      "type": "intro",
+      "hook": "A basketball leaves a player's hand and rises, curves, then falls through the hoop. A suspension bridge cable dips in a smooth U. A satellite dish curves to focus signals at one point. All of these are parabolas -- and today we get the tool that describes every single one of them with just three numbers.",
+      "objective": "Students will identify the value of $a$ and the vertex $(h,k)$ from a quadratic function written in vertex form $y=a(x-h)^2+k$, and will state whether the parabola opens up or down.",
+      "bellRinger": "Graph $y=x^2$ on the grid provided using the table $x=-2,-1,0,1,2$. Then answer: what shape is the graph, and at what point does it turn?",
+      "agenda": [
+        "Bell ringer: graph $y=x^2$ (5 min)",
+        "Hook + real-world parabolas (5 min)",
+        "Direct instruction: vertex form $y=a(x-h)^2+k$ (12 min)",
+        "Video: Khan Academy vertex form (6 min)",
+        "We-do examples: identify $a$, $(h,k)$, opens up/down (10 min)",
+        "Guided notes + you-try (6 min)",
+        "Exit ticket (4 min)"
+      ],
+      "assessment": "Exit ticket requires students to read $a$, $h$, $k$ from a vertex-form equation and state the vertex and direction of opening; graded informally as ready/not-ready to move into graphing tomorrow.",
+      "video": {
+        "short": {
+          "title": "Khan Academy: Vertex form of quadratic functions",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+vertex+form+of+a+quadratic+function",
+          "note": "3-5 min overview of vertex form and what $a$, $h$, $k$ control."
+        },
+        "long": {
+          "title": "Mathispower4u: Graphing Quadratic Functions in Vertex Form",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+graphing+quadratic+functions+in+vertex+form",
+          "note": "Longer walkthrough with multiple worked examples of identifying the vertex and direction of opening."
+        },
+        "questions": [
+          "In vertex form $y=a(x-h)^2+k$, which letter tells you whether the parabola opens up or down?",
+          "What is the vertex of a parabola written as $y=a(x-h)^2+k$?",
+          "If $a$ is a fraction between $0$ and $1$, what does that do to the graph compared to $y=x^2$?",
+          "Why is the sign inside the parentheses opposite of the $h$-value in the vertex?"
+        ]
+      },
+      "videoPlacement": "after direct instruction, before we-do examples",
+      "script": [
+        {
+          "min": 5,
+          "title": "Bell Ringer",
+          "do": "Students graph $y=x^2$ using the table of values on their warm-up sheet while you take attendance.",
+          "options": [
+            "Cold-call one student to share their table values"
+          ],
+          "say": "Plot these five points and connect them smoothly. What shape do you get? Where does it change direction?"
+        },
+        {
+          "min": 5,
+          "title": "Hook",
+          "do": "Show 2-3 quick images/examples: basketball arc, bridge cable, satellite dish (describe verbally if no projector).",
+          "options": [
+            "Ask students to name other U-shaped things they've seen"
+          ],
+          "say": "Every one of these curves is called a parabola, and every parabola can be written with the same simple formula. By the end of the week you'll be able to sketch any of these instantly."
+        },
+        {
+          "min": 12,
+          "title": "Direct Instruction: Vertex Form",
+          "do": "Write $y=a(x-h)^2+k$ on the board. Label each part: $a$ controls steepness/direction, $(h,k)$ is the vertex (the turning point).",
+          "options": [
+            "Use a physical gesture (hands forming a U) to reinforce vertex as the turning point",
+            "Have students copy the labeled formula into their notes before moving on"
+          ],
+          "say": "This is called vertex form because the vertex -- the highest or lowest point -- is sitting right there in the equation. If $a$ is positive, the parabola opens up like a smile. If $a$ is negative, it opens down like a frown. The vertex is $(h,k)$ -- but watch out, the sign in front of $h$ inside the parentheses is the OPPOSITE of what you see."
+        },
+        {
+          "min": 6,
+          "title": "Video",
+          "do": "Play the Khan Academy short video on vertex form.",
+          "options": [
+            "Pause after the first example to check understanding with a thumbs up/down"
+          ],
+          "say": "Watch for how she identifies the vertex directly from the equation -- that's exactly what we're about to practice."
+        },
+        {
+          "min": 10,
+          "title": "We-Do Examples",
+          "do": "Work through 2-3 examples as a class: $y=2(x-3)^2+1$, $y=-(x+2)^2-4$, $y=\\frac{1}{2}x^2+5$ (treat as $h=0$).",
+          "options": [
+            "Cold-call students for each value ($a$, $h$, $k$) before revealing",
+            "Have students hold up whiteboards with their answer for $(h,k)$"
+          ],
+          "say": "For $y=2(x-3)^2+1$: $a=2$ so it opens up and is narrower than $y=x^2$. The vertex? Careful -- it's $(3,1)$, not $(-3,1)$, because the formula has $x-h$ and here we have $x-3$."
+        },
+        {
+          "min": 6,
+          "title": "Guided Notes + You Try",
+          "do": "Students fill in guided notes cloze blanks, then complete the You Try problems independently.",
+          "options": [
+            "Partner check answers before you reveal them"
+          ],
+          "say": "Fill in the blanks as we go, then try the two problems on your own. Raise your hand if you get stuck on the sign of $h$."
+        },
+        {
+          "min": 4,
+          "title": "Exit Ticket",
+          "do": "Students complete the exit ticket and turn it in on their way out.",
+          "options": [
+            "Collect at the door for a quick ready/not-ready check"
+          ],
+          "say": "Identify $a$, the vertex, and whether it opens up or down. This tells me if you're ready for graphing tomorrow."
+        }
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nEvery quadratic function can be written in **vertex form**: $y=a(x-h)^2+k$. This form directly reveals the **vertex** $(h,k)$ -- the highest or lowest point of the parabola -- and the value of $a$, which tells you whether the parabola opens up or down and how narrow or wide it is.\n\n## Key Terms\n- **Parabola**: the U-shaped graph of a quadratic function.\n- **Vertex**: the turning point of a parabola, written $(h,k)$.\n- **Vertex form**: $y=a(x-h)^2+k$.\n- **Opens up / opens down**: determined by the sign of $a$ ($a>0$ opens up, $a<0$ opens down).\n\n## Worked Example\nIdentify $a$, the vertex, and the direction of opening for $y=-3(x+2)^2+5$.\n- Step 1: Match to $y=a(x-h)^2+k$. Rewrite $(x+2)$ as $(x-(-2))$ so $h=-2$ -> $a=-3$, $h=-2$, $k=5$.\n- Step 2: The vertex is $(h,k)=(-2,5)$.\n- Step 3: Since $a=-3<0$, the parabola opens down.\n- Answer: vertex $(-2,5)$, opens down, narrower than $y=x^2$ since $|a|=3>1$.\n\n## You Try\nIdentify $a$, the vertex, and the direction of opening for $y=\\frac{1}{4}(x-1)^2-6$.",
+      "guidedNotes": {
+        "title": "Guided Notes: Vertex Form of a Quadratic Function",
+        "vocab": [
+          {
+            "term": "Parabola",
+            "def": "The {{U-shaped|2cm}} graph produced by a quadratic function."
+          },
+          {
+            "term": "Vertex",
+            "def": "The turning point of a parabola, written as the ordered pair {{$(h,k)$|2.5cm}}."
+          },
+          {
+            "term": "Vertex Form",
+            "def": "A quadratic equation written as {{$y=a(x-h)^2+k$|3.5cm}}, where $(h,k)$ is the vertex."
+          }
+        ],
+        "worked": {
+          "prompt": "Identify $a$, the vertex, and the direction of opening for $y=2(x-3)^2+1$.",
+          "steps": [
+            "Match the equation to $y=a(x-h)^2+k$: here $a=$ {{$2$|1cm}}.",
+            "Since the equation has $(x-3)$, we know $h=$ {{$3$|1cm}}.",
+            "The constant added at the end gives $k=$ {{$1$|1cm}}.",
+            "So the vertex $(h,k)=$ {{$(3,1)$|2cm}}.",
+            "Since $a=2$ is {{positive|2cm}}, the parabola opens {{up|1.5cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [
+            {
+              "expr": "2*(x-3)^2+1",
+              "domain": [
+                1.3,
+                4.7
+              ],
+              "color": "blue"
+            }
+          ],
+          "xmin": -1,
+          "xmax": 6,
+          "ymin": -1,
+          "ymax": 9,
+          "points": [
+            [
+              3,
+              1,
+              "vertex $(3,1)$",
+              "red"
+            ]
+          ],
+          "caption": "$y=2(x-3)^2+1$ opens up with vertex at $(3,1)$.",
+          "width": "8cm",
+          "height": "6cm"
+        },
+        "youTry": [
+          {
+            "prompt": "Identify $a$, the vertex, and direction of opening for $y=-(x+4)^2+2$.",
+            "answer": "$a=-1$, vertex $(-4,2)$, opens down."
+          },
+          {
+            "prompt": "Identify $a$, the vertex, and direction of opening for $y=\\frac{1}{2}(x-5)^2-3$.",
+            "answer": "$a=\\frac{1}{2}$, vertex $(5,-3)$, opens up (wider than $y=x^2$)."
+          }
+        ],
+        "summary": "In vertex form $y=a(x-h)^2+k$, the vertex is always {{$(h,k)$|2.5cm}}, remembering that the sign of $h$ inside the equation is the {{opposite|2cm}} of the value you write in the ordered pair. The sign of $a$ tells direction: positive means opens {{up|1.5cm}}, negative means opens {{down|2cm}}."
+      },
+      "notesExit": "Identify $a$, $h$, $k$, the vertex, and the direction of opening for $y=-2(x-1)^2+4$.",
+      "vocab": [
+        {
+          "term": "Parabola",
+          "definition": "The U-shaped graph produced by any quadratic function."
+        },
+        {
+          "term": "Vertex",
+          "definition": "The maximum or minimum point of a parabola, written $(h,k)$."
+        },
+        {
+          "term": "Vertex Form",
+          "definition": "The form $y=a(x-h)^2+k$, which directly shows the vertex $(h,k)$ and the value $a$."
+        },
+        {
+          "term": "Opens Up / Opens Down",
+          "definition": "Whether the parabola has a minimum (opens up, $a>0$) or a maximum (opens down, $a<0$)."
+        }
+      ],
+      "presentation": {
+        "kind": "launch",
+        "title": "Vertex Form of a Quadratic Function",
+        "slides": [
+          {
+            "heading": "Hook: Parabolas Are Everywhere",
+            "bullets": [
+              "A basketball's flight path",
+              "A suspension bridge cable",
+              "A satellite dish's curved surface",
+              "All of these are parabolas"
+            ],
+            "example": "What do a thrown ball and a bridge cable have in common? They're both parabolas."
+          },
+          {
+            "heading": "The Big Picture",
+            "bullets": [
+              "Every parabola has one highest or lowest point: the vertex",
+              "Vertex form $y=a(x-h)^2+k$ shows the vertex directly",
+              "This week: identify it, graph it, transform it, and use it to solve real problems"
+            ],
+            "example": "By Friday you'll sketch any parabola in under a minute."
+          },
+          {
+            "heading": "Key Vocabulary",
+            "bullets": [
+              "Parabola -- the U-shaped graph",
+              "Vertex -- the turning point $(h,k)$",
+              "Vertex form -- $y=a(x-h)^2+k$",
+              "$a$ controls direction and width"
+            ],
+            "example": "$y=a(x-h)^2+k$"
+          },
+          {
+            "heading": "Worked Example",
+            "bullets": [
+              "$y=2(x-3)^2+1$",
+              "$a=2$, so opens up and narrower than $y=x^2$",
+              "Vertex: $(3,1)$ -- watch the sign flip on $h$"
+            ],
+            "example": "$y=2(x-3)^2+1 \\Rightarrow$ vertex $(3,1)$, opens up"
+          },
+          {
+            "heading": "Video Cue",
+            "bullets": [
+              "Watch how the vertex is read straight from the equation",
+              "Pay attention to the sign flip inside the parentheses"
+            ],
+            "example": "Khan Academy: Vertex form of quadratics"
+          },
+          {
+            "heading": "We Do: Example 1",
+            "bullets": [
+              "$y=-(x+2)^2-4$",
+              "$a=-1$: opens down",
+              "Vertex: $(-2,-4)$"
+            ],
+            "example": "$(x+2) = (x-(-2))$ so $h=-2$"
+          },
+          {
+            "heading": "We Do: Example 2",
+            "bullets": [
+              "$y=\\frac{1}{2}x^2+5$ (no visible $h$, so $h=0$)",
+              "$a=\\frac{1}{2}$: opens up, wider than $y=x^2$",
+              "Vertex: $(0,5)$"
+            ],
+            "example": "$y=\\frac{1}{2}(x-0)^2+5$"
+          },
+          {
+            "heading": "Roadmap for the Week",
+            "bullets": [
+              "Tuesday: graph using vertex, axis of symmetry, y-intercept",
+              "Wednesday: shifts, reflections, and stretches",
+              "Thursday: max/min values in real-world problems",
+              "Friday: mixed practice and quiz-style check"
+            ],
+            "example": "Today's foundation supports everything else this week."
+          }
+        ]
+      },
+      "procedureExamples": [
+        {
+          "prompt": "Identify $a$, the vertex, and direction of opening for $y=3(x-2)^2+4$.",
+          "steps": [
+            "Match to $y=a(x-h)^2+k$: $a=3$.",
+            "$(x-2)$ gives $h=2$.",
+            "Constant term gives $k=4$.",
+            "Vertex is $(2,4)$; since $a=3>0$, opens up."
+          ],
+          "answer": "$a=3$, vertex $(2,4)$, opens up."
+        },
+        {
+          "prompt": "Identify $a$, the vertex, and direction of opening for $y=-\\frac{1}{3}(x+1)^2+7$.",
+          "steps": [
+            "Match to $y=a(x-h)^2+k$: $a=-\\frac{1}{3}$.",
+            "$(x+1)=(x-(-1))$ gives $h=-1$.",
+            "Constant term gives $k=7$.",
+            "Vertex is $(-1,7)$; since $a<0$, opens down."
+          ],
+          "answer": "$a=-\\frac{1}{3}$, vertex $(-1,7)$, opens down (wider than $y=x^2$)."
+        },
+        {
+          "prompt": "Identify $a$, the vertex, and direction of opening for $y=(x-6)^2$.",
+          "steps": [
+            "Match to $y=a(x-h)^2+k$: since no number is written in front, $a=1$.",
+            "$(x-6)$ gives $h=6$.",
+            "No constant is added, so $k=0$.",
+            "Vertex is $(6,0)$; since $a=1>0$, opens up."
+          ],
+          "answer": "$a=1$, vertex $(6,0)$, opens up."
+        },
+        {
+          "prompt": "Identify $a$, the vertex, and direction of opening for $y=-5(x+3)^2-2$.",
+          "steps": [
+            "Match to $y=a(x-h)^2+k$: $a=-5$.",
+            "$(x+3)=(x-(-3))$ gives $h=-3$.",
+            "Constant term gives $k=-2$.",
+            "Vertex is $(-3,-2)$; since $a<0$, opens down."
+          ],
+          "answer": "$a=-5$, vertex $(-3,-2)$, opens down (narrower than $y=x^2$)."
+        }
+      ],
+      "worksheet": {
+        "title": "Vertex Form of a Quadratic Function",
+        "instructions": "For each equation, identify $a$, the vertex $(h,k)$, and whether the parabola opens up or down. Show your reasoning for $h$ (remember the sign flip).",
+        "sections": [
+          {
+            "type": "Warm-Up: Identify $a$",
+            "space": "s",
+            "workedExample": "**Example:** For $y=4(x-1)^2+2$, $a=4$.",
+            "directions": "State the value of $a$ for each equation and whether the parabola opens up or down.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=3(x-1)^2+2$",
+              "$y=-2(x+5)^2+1$",
+              "$y=\\frac{1}{4}(x-2)^2-3$",
+              "$y=-x^2+6$"
+            ]
+          },
+          {
+            "type": "Identify the Vertex",
+            "space": "m",
+            "workedExample": "**Example:** For $y=-2(x+4)^2+7$, rewrite $(x+4)$ as $(x-(-4))$, so the vertex is $(-4,7)$.",
+            "directions": "Identify the vertex $(h,k)$ for each equation. Show the rewritten form when needed.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=(x-5)^2+3$",
+              "$y=2(x+2)^2-6$",
+              "$y=-\\frac{1}{2}(x-0)^2+8$",
+              "$y=5(x+7)^2$",
+              "$y=-4(x-9)^2-1$"
+            ]
+          },
+          {
+            "type": "Full Identification",
+            "space": "l",
+            "workedExample": "**Example:** For $y=-3(x-2)^2+5$: $a=-3$ (opens down, narrower), vertex $(2,5)$.",
+            "directions": "For each equation, state $a$, the vertex, and the direction of opening.",
+            "figure": null,
+            "diagram": {
+              "plots": [
+                {
+                  "expr": "-1*(x-1)^2+4",
+                  "domain": [
+                    -1,
+                    3
+                  ],
+                  "color": "blue"
+                }
+              ],
+              "xmin": -3,
+              "xmax": 5,
+              "ymin": -2,
+              "ymax": 6,
+              "points": [
+                [
+                  1,
+                  4,
+                  "vertex $(1,4)$",
+                  "red"
+                ]
+              ],
+              "caption": "The graph of $y=-(x-1)^2+4$.",
+              "width": "8cm",
+              "height": "6cm"
+            },
+            "problems": [
+              "$y=-(x-1)^2+4$ (use the graph above to confirm your answer)",
+              "$y=2(x+3)^2-5$",
+              "$y=-\\frac{1}{3}(x-6)^2+1$",
+              "$y=6(x+1)^2+2$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Compare the equation to the pattern $y=a(x-h)^2+k$.",
+          "Read off $a$ -- the number multiplied on the squared term.",
+          "Rewrite $(x\\pm h)$ as $(x-h)$ if needed to correctly identify the sign of $h$.",
+          "Read off $k$ -- the constant added or subtracted at the end.",
+          "Write the vertex as the ordered pair $(h,k)$.",
+          "State the direction of opening: up if $a>0$, down if $a<0$."
+        ],
+        "optionalExtra": [
+          "Write a vertex-form equation whose parabola opens down with vertex $(-3,5)$ and is narrower than $y=x^2$.",
+          "Two parabolas both have vertex $(2,-1)$, but one has $a=4$ and the other has $a=\\frac{1}{4}$. Explain how their graphs would differ."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Without graphing, explain how you know that $y=-6(x-2)^2+3$ and $y=-\\frac{1}{6}(x-2)^2+3$ have the same vertex and direction of opening but look different when graphed. Describe the difference in words.",
+        "why": "This pushes students to reason about how $|a|$ affects width independent of vertex location, deepening conceptual understanding beyond mechanical identification."
+      },
+      "exitTicket": [
+        "Identify $a$, the vertex, and the direction of opening for $y=-2(x-1)^2+4$.",
+        "Write a vertex-form equation with vertex $(0,-3)$ that opens up."
+      ],
+      "answerKey": [
+        {
+          "section": "Warm-Up: Identify $a$",
+          "answers": [
+            "$a=3$, opens up.",
+            "$a=-2$, opens down.",
+            "$a=\\frac{1}{4}$, opens up.",
+            "$a=-1$, opens down."
+          ]
+        },
+        {
+          "section": "Identify the Vertex",
+          "answers": [
+            "Vertex $(5,3)$.",
+            "Vertex $(-2,-6)$.",
+            "Vertex $(0,8)$.",
+            "Vertex $(-7,0)$.",
+            "Vertex $(9,-1)$."
+          ]
+        },
+        {
+          "section": "Full Identification",
+          "answers": [
+            "$a=-1$, vertex $(1,4)$, opens down -- matches the graph shown.",
+            "$a=2$, vertex $(-3,-5)$, opens up.",
+            "$a=-\\frac{1}{3}$, vertex $(6,1)$, opens down.",
+            "$a=6$, vertex $(-1,2)$, opens up."
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "Vertex $(-3,5)$ means $h=-3$, $k=5$; opens down means $a<0$; narrower than $y=x^2$ means $|a|>1$. One valid answer: $y=-2(x+3)^2+5$ (any coefficient with $a<-1$ works, e.g. $y=-3(x+3)^2+5$).",
+            "Both share vertex $(2,-1)$ and open up, but $a=4$ makes the first parabola narrower (a vertical stretch, steeper), while $a=\\frac{1}{4}$ makes the second wider (a vertical compression, flatter). At the same horizontal distance from the axis, the $a=4$ graph rises 16 times higher than the $a=\\frac{1}{4}$ graph."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {
+        "section": "1.5",
+        "title": "From Quadratics to Complex Numbers"
+      }
+    },
+    "Tue": {
+      "type": "worksheet",
+      "hook": "Yesterday you could read the vertex straight out of an equation. Today you turn that number into an actual picture -- fast, without plotting a dozen points.",
+      "objective": "Students will graph a quadratic function in vertex form by plotting the vertex, drawing the axis of symmetry, finding the y-intercept, and using symmetry to plot a mirror point.",
+      "bellRinger": "For $y=2(x-1)^2-3$, identify $a$, the vertex, and whether the parabola opens up or down (review from yesterday).",
+      "agenda": [
+        "Bell ringer review (5 min)",
+        "Mini-lesson: axis of symmetry + y-intercept (10 min)",
+        "Video: Mathispower4u graphing walkthrough (5 min)",
+        "We-do: graph one function together (8 min)",
+        "Worksheet: graph practice (16 min)",
+        "Exit ticket (4 min)"
+      ],
+      "assessment": "Worksheet graphs and exit ticket check whether students can locate vertex, axis of symmetry, and y-intercept, and use them to produce an accurate sketch.",
+      "video": {
+        "short": {
+          "title": "Mathispower4u: Graphing a Quadratic Function Using the Vertex and Axis of Symmetry",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+graphing+quadratic+function+vertex+axis+of+symmetry",
+          "note": "Quick demonstration of plotting the vertex, drawing the axis of symmetry, and mirroring points."
+        },
+        "long": {
+          "title": "Khan Academy: Graphing Quadratics in Vertex Form",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+graphing+quadratics+in+vertex+form",
+          "note": "Extended practice with multiple graphs and the y-intercept."
+        },
+        "questions": [
+          "What is the equation of the axis of symmetry for a parabola with vertex $(h,k)$?",
+          "How do you find the y-intercept of a quadratic function?",
+          "Why can you use the axis of symmetry to plot a second point for free?",
+          "If the y-intercept is 3 units to the right of the vertex, where is its mirror point?"
+        ]
+      },
+      "videoPlacement": "after mini-lesson, before we-do example",
+      "script": [
+        {
+          "min": 5,
+          "title": "Bell Ringer",
+          "do": "Students identify $a$, vertex, and direction of opening for $y=2(x-1)^2-3$.",
+          "options": [
+            "Quick whip-around: each student states one part of the answer"
+          ],
+          "say": "This is exactly what we practiced yesterday -- now let's turn it into a graph."
+        },
+        {
+          "min": 10,
+          "title": "Mini-Lesson",
+          "do": "Introduce axis of symmetry as the vertical line $x=h$ through the vertex, and show how to find the y-intercept by substituting $x=0$.",
+          "options": [
+            "Draw the axis of symmetry as a dashed vertical line on a sample graph",
+            "Show that any point on one side has a mirror point the same distance on the other side"
+          ],
+          "say": "The axis of symmetry is a vertical line straight through the vertex: $x=h$. Every point on the left has a twin on the right, the same distance from that line. To find the y-intercept, just plug in $x=0$ and solve for $y$."
+        },
+        {
+          "min": 5,
+          "title": "Video",
+          "do": "Play the Mathispower4u short video on graphing with vertex and axis of symmetry.",
+          "options": [
+            "Pause to ask what the y-intercept was in the example"
+          ],
+          "say": "Watch how few points she actually needs -- vertex, y-intercept, and its mirror point are usually enough."
+        },
+        {
+          "min": 8,
+          "title": "We-Do Example",
+          "do": "Graph $y=(x-2)^2-1$ together: plot vertex $(2,-1)$, draw axis $x=2$, find y-intercept, mirror it, sketch the curve.",
+          "options": [
+            "Have students plot each point on their own mini-grid as you go"
+          ],
+          "say": "Vertex first: $(2,-1)$. Draw the dashed axis of symmetry at $x=2$. Now the y-intercept: plug in $x=0$, giving $y=(0-2)^2-1=3$, so $(0,3)$. Its mirror point is the same height on the other side of the axis: $(4,3)$. Connect the dots with a smooth curve."
+        },
+        {
+          "min": 16,
+          "title": "Worksheet",
+          "do": "Students complete the graphing worksheet independently or in pairs.",
+          "options": [
+            "Pair struggling students with a partner for the first two problems",
+            "Circulate and check axis of symmetry placement"
+          ],
+          "say": "Work through each graph the same way: vertex, axis, y-intercept, mirror point, sketch."
+        },
+        {
+          "min": 4,
+          "title": "Exit Ticket",
+          "do": "Students complete the exit ticket.",
+          "options": [
+            "Collect at the door"
+          ],
+          "say": "Show me you can find all three key features for one new function."
+        }
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nTo graph a quadratic in vertex form, plot the **vertex**, draw the **axis of symmetry** through it, find the **y-intercept**, and reflect that point across the axis to get a matching point on the other side.\n\n## Key Terms\n- **Axis of symmetry**: the vertical line $x=h$ that passes through the vertex; the parabola is a mirror image across this line.\n- **y-intercept**: the point where the graph crosses the y-axis, found by substituting $x=0$.\n\n## Worked Example\nGraph $y=(x-2)^2-1$.\n- Step 1: Vertex is $(2,-1)$.\n- Step 2: Axis of symmetry is $x=2$.\n- Step 3: y-intercept: $y=(0-2)^2-1=4-1=3$, so $(0,3)$.\n- Step 4: Mirror point across $x=2$: $(4,3)$.\n- Answer: plot $(2,-1)$, $(0,3)$, $(4,3)$ and connect with a smooth U-shaped curve.\n\n## You Try\nGraph $y=(x+1)^2-4$ by finding the vertex, axis of symmetry, y-intercept, and its mirror point.",
+      "guidedNotes": {
+        "title": "Guided Notes: Graphing Quadratics",
+        "vocab": [
+          {
+            "term": "Axis of Symmetry",
+            "def": "The vertical line {{$x=h$|2cm}} passing through the vertex of a parabola."
+          },
+          {
+            "term": "y-intercept",
+            "def": "The point where a graph crosses the y-axis, found by substituting {{$x=0$|2cm}} into the equation."
+          }
+        ],
+        "worked": {
+          "prompt": "Graph $y=(x-3)^2-2$ using vertex, axis of symmetry, and y-intercept.",
+          "steps": [
+            "Vertex: $(h,k)=$ {{$(3,-2)$|2.5cm}}.",
+            "Axis of symmetry: $x=$ {{$3$|1cm}}.",
+            "y-intercept: substitute $x=0$: $y=(0-3)^2-2=9-2=$ {{$7$|1.5cm}}, giving point $(0,7)$.",
+            "Mirror point across $x=3$: since $(0,7)$ is 3 units left of the axis, the mirror point is 3 units right: {{$(6,7)$|2.5cm}}.",
+            "Plot $(3,-2)$, $(0,7)$, and $(6,7)$, then sketch the {{U-shaped|2.5cm}} curve."
+          ]
+        },
+        "diagram": {
+          "plots": [
+            {
+              "expr": "(x-3)^2-2",
+              "domain": [
+                -0.5,
+                6.5
+              ],
+              "color": "blue"
+            }
+          ],
+          "xmin": -2,
+          "xmax": 8,
+          "ymin": -4,
+          "ymax": 9,
+          "points": [
+            [
+              3,
+              -2,
+              "vertex $(3,-2)$",
+              "red"
+            ],
+            [
+              0,
+              7,
+              "$(0,7)$",
+              "purple"
+            ],
+            [
+              6,
+              7,
+              "$(6,7)$",
+              "purple"
+            ]
+          ],
+          "caption": "$y=(x-3)^2-2$ with vertex, y-intercept, and mirror point.",
+          "width": "8cm",
+          "height": "6cm"
+        },
+        "youTry": [
+          {
+            "prompt": "Find the vertex, axis of symmetry, and y-intercept for $y=(x+2)^2-5$.",
+            "answer": "Vertex $(-2,-5)$; axis of symmetry $x=-2$; y-intercept: $y=(0+2)^2-5=-1$, point $(0,-1)$."
+          }
+        ],
+        "summary": "To graph a quadratic in vertex form, first plot the vertex $(h,k)$, then draw the axis of symmetry {{$x=h$|2cm}}. Find the y-intercept by substituting {{$x=0$|2cm}}, then reflect that point across the axis of symmetry to get a matching point, and connect all the points with a smooth curve."
+      },
+      "notesExit": "Find the vertex, axis of symmetry, and y-intercept for $y=(x-4)^2+1$, then describe the mirror point of the y-intercept.",
+      "vocab": [
+        {
+          "term": "Axis of Symmetry",
+          "definition": "The vertical line $x=h$ through the vertex of a parabola; the graph is symmetric across it."
+        },
+        {
+          "term": "y-intercept",
+          "definition": "The point where the graph crosses the y-axis, found by evaluating the function at $x=0$."
+        },
+        {
+          "term": "Mirror Point",
+          "definition": "A point that is the same distance from the axis of symmetry as a known point, but on the opposite side."
+        }
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Graphing Quadratics: Vertex, Axis of Symmetry, y-intercept",
+        "slides": [
+          {
+            "heading": "What's New Today",
+            "bullets": [
+              "Yesterday: read $a$, vertex, direction from the equation",
+              "Today: turn those numbers into an actual graph",
+              "Key tools: axis of symmetry and y-intercept"
+            ],
+            "example": "Vertex $(h,k) \\rightarrow$ a full sketch in 4 steps"
+          },
+          {
+            "heading": "Today's Terms",
+            "bullets": [
+              "Axis of symmetry: the vertical line $x=h$",
+              "y-intercept: plug in $x=0$",
+              "Mirror point: same distance, opposite side of the axis"
+            ],
+            "example": "$x=h$ is the mirror line for the whole parabola"
+          },
+          {
+            "heading": "We Do: Graph $y=(x-2)^2-1$",
+            "bullets": [
+              "Vertex: $(2,-1)$",
+              "Axis of symmetry: $x=2$",
+              "y-intercept: $(0,3)$, mirror point $(4,3)$"
+            ],
+            "example": "Plot 3 points, connect with a smooth curve"
+          }
+        ]
+      },
+      "procedureExamples": [
+        {
+          "prompt": "Graph $y=(x+3)^2-4$ by identifying vertex, axis of symmetry, and y-intercept.",
+          "steps": [
+            "Vertex: $(-3,-4)$.",
+            "Axis of symmetry: $x=-3$.",
+            "y-intercept: $y=(0+3)^2-4=5$, point $(0,5)$.",
+            "Mirror point: $(-6,5)$."
+          ],
+          "answer": "Plot $(-3,-4)$, $(0,5)$, $(-6,5)$ and sketch a smooth upward curve."
+        }
+      ],
+      "worksheet": {
+        "title": "Graphing Quadratic Functions",
+        "instructions": "For each function, find the vertex, axis of symmetry, and y-intercept (and its mirror point), then sketch the graph on the grid provided.",
+        "sections": [
+          {
+            "type": "Warm-Up: Vertex and Axis of Symmetry",
+            "space": "s",
+            "workedExample": "**Example:** For $y=(x-4)^2+2$, vertex is $(4,2)$ and axis of symmetry is $x=4$.",
+            "directions": "State the vertex and axis of symmetry for each function.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=(x-1)^2+3$",
+              "$y=(x+2)^2-5$",
+              "$y=2(x-3)^2+1$",
+              "$y=-(x+4)^2+6$"
+            ]
+          },
+          {
+            "type": "Find the y-intercept",
+            "space": "m",
+            "workedExample": "**Example:** For $y=(x-2)^2+3$, substitute $x=0$: $y=(0-2)^2+3=7$, so the y-intercept is $(0,7)$.",
+            "directions": "Find the y-intercept for each function by substituting $x=0$.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=(x-3)^2-1$",
+              "$y=(x+1)^2+4$",
+              "$y=2(x-1)^2-2$",
+              "$y=-(x+3)^2+5$"
+            ]
+          },
+          {
+            "type": "Full Graphs",
+            "space": "l",
+            "workedExample": "**Example:** For $y=(x-1)^2-3$: vertex $(1,-3)$, axis $x=1$, y-intercept $(0,-2)$, mirror point $(2,-2)$. Plot and connect smoothly.",
+            "directions": "For each function, find the vertex, axis of symmetry, y-intercept, and its mirror point, then sketch the graph on the grid.",
+            "figure": null,
+            "diagram": {
+              "plots": [
+                {
+                  "expr": "(x-2)^2-4",
+                  "domain": [
+                    -0.5,
+                    4.5
+                  ],
+                  "color": "blue"
+                }
+              ],
+              "xmin": -2,
+              "xmax": 6,
+              "ymin": -5,
+              "ymax": 6,
+              "points": [
+                [
+                  2,
+                  -4,
+                  "vertex $(2,-4)$",
+                  "red"
+                ],
+                [
+                  0,
+                  0,
+                  "$(0,0)$",
+                  "purple"
+                ],
+                [
+                  4,
+                  0,
+                  "$(4,0)$",
+                  "purple"
+                ]
+              ],
+              "caption": "Reference graph of $y=(x-2)^2-4$ showing the mirror-point technique.",
+              "width": "8cm",
+              "height": "6cm"
+            },
+            "problems": [
+              "$y=(x-2)^2-4$ (use the reference graph above to check your own sketch)",
+              "$y=(x+2)^2-3$",
+              "$y=2(x-1)^2+1$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Identify the vertex $(h,k)$ from the equation.",
+          "Draw the axis of symmetry as a dashed vertical line at $x=h$.",
+          "Find the y-intercept by substituting $x=0$ and solving for $y$.",
+          "Reflect the y-intercept across the axis of symmetry to get a mirror point.",
+          "Plot the vertex, y-intercept, and mirror point.",
+          "Connect the points with a smooth, U-shaped curve."
+        ],
+        "optionalExtra": [
+          "Graph $y=-2(x-1)^2+3$ and label all key features (vertex, axis of symmetry, y-intercept, mirror point)."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "A parabola has y-intercept $(0,8)$ and axis of symmetry $x=3$. Without being told $a$ or $k$, find the mirror point of the y-intercept. Explain your reasoning using symmetry alone.",
+        "why": "This isolates the symmetry concept from the full equation, forcing students to reason about reflection independent of algebraic substitution."
+      },
+      "exitTicket": [
+        "Find the vertex, axis of symmetry, and y-intercept for $y=(x-4)^2+1$.",
+        "State the mirror point of the y-intercept you found."
+      ],
+      "answerKey": [
+        {
+          "section": "Warm-Up: Vertex and Axis of Symmetry",
+          "answers": [
+            "Vertex $(1,3)$; axis of symmetry $x=1$.",
+            "Vertex $(-2,-5)$; axis of symmetry $x=-2$.",
+            "Vertex $(3,1)$; axis of symmetry $x=3$.",
+            "Vertex $(-4,6)$; axis of symmetry $x=-4$."
+          ]
+        },
+        {
+          "section": "Find the y-intercept",
+          "answers": [
+            "$y=(0-3)^2-1=8$, so $(0,8)$.",
+            "$y=(0+1)^2+4=5$, so $(0,5)$.",
+            "$y=2(0-1)^2-2=0$, so $(0,0)$.",
+            "$y=-(0+3)^2+5=-4$, so $(0,-4)$."
+          ]
+        },
+        {
+          "section": "Full Graphs",
+          "answers": [
+            "Vertex $(2,-4)$, axis $x=2$, y-intercept $(0,0)$, mirror point $(4,0)$ -- matches the reference graph.",
+            "Vertex $(-2,-3)$, axis $x=-2$, y-intercept: $y=(0+2)^2-3=1$, point $(0,1)$, mirror point $(-4,1)$.",
+            "Vertex $(1,1)$, axis $x=1$, y-intercept: $y=2(0-1)^2+1=3$, point $(0,3)$, mirror point $(2,3)$."
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "$y=-2(x-1)^2+3$: vertex $(1,3)$, axis of symmetry $x=1$, opens down (since $a=-2<0$). y-intercept: $y=-2(0-1)^2+3=-2+3=1$, point $(0,1)$; mirror point across $x=1$ is $(2,1)$. Plot $(1,3)$, $(0,1)$, $(2,1)$ and connect with a downward smooth curve."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {
+        "section": "1.2",
+        "title": "Graphing Polynomials"
+      }
+    },
+    "Wed": {
+      "type": "worksheet",
+      "hook": "You already know how to graph one parabola from scratch. What if I told you that once you can graph $y=x^2$, you can graph ANY parabola just by sliding, flipping, or stretching it -- no new points needed?",
+      "objective": "Students will describe and apply transformations of quadratic functions -- vertical/horizontal shifts, reflections, and vertical stretches/compressions -- starting from the parent function $y=x^2$.",
+      "bellRinger": "Starting from $y=x^2$, predict what happens to the graph of $y=x^2+5$. Where does the vertex move?",
+      "agenda": [
+        "Bell ringer prediction (5 min)",
+        "Mini-lesson: shifts, reflections, stretches from $y=x^2$ (12 min)",
+        "Video: Organic Chemistry Tutor transformations (6 min)",
+        "We-do: transform $y=x^2$ step by step (8 min)",
+        "Worksheet: transformation practice (13 min)",
+        "Exit ticket (4 min)"
+      ],
+      "assessment": "Worksheet and exit ticket check whether students can connect each parameter change ($h$, $k$, sign of $a$, size of $a$) to the correct visual transformation from the parent graph.",
+      "video": {
+        "short": {
+          "title": "Mathispower4u: Transformations of Quadratic Functions",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+transformations+of+quadratic+functions",
+          "note": "Short overview connecting $h$, $k$, and $a$ to shifts, reflections, and stretches."
+        },
+        "long": {
+          "title": "The Organic Chemistry Tutor: Transformations of Quadratic Functions",
+          "url": "https://www.youtube.com/results?search_query=Organic+Chemistry+Tutor+transformations+of+quadratic+functions",
+          "note": "Extended practice covering shifts, reflections, and vertical stretch/compression together."
+        },
+        "questions": [
+          "What transformation happens to $y=x^2$ when you graph $y=x^2-4$?",
+          "What transformation happens to $y=x^2$ when you graph $y=(x-4)^2$?",
+          "What does a negative sign in front of the squared term do to the graph?",
+          "How does making $|a|$ larger than 1 change the shape of the parabola?"
+        ]
+      },
+      "videoPlacement": "after mini-lesson, before we-do example",
+      "script": [
+        {
+          "min": 5,
+          "title": "Bell Ringer",
+          "do": "Students predict the shift for $y=x^2+5$ compared to $y=x^2$.",
+          "options": [
+            "Have a student sketch their prediction on the board"
+          ],
+          "say": "What moved, and which direction? Let's confirm as we go through today's lesson."
+        },
+        {
+          "min": 12,
+          "title": "Mini-Lesson",
+          "do": "Starting from $y=x^2$, show each transformation one at a time: $k$ shifts vertically, $h$ shifts horizontally, negative $a$ reflects over the x-axis, $|a|>1$ stretches (narrower), $0<|a|<1$ compresses (wider).",
+          "options": [
+            "Use a transparency or overlay analogy: sliding the same shape around the plane",
+            "Have students say 'up/down/left/right/flip/skinny/wide' as you show each case"
+          ],
+          "say": "Think of $y=x^2$ as the original shape. Adding $k$ slides it up or down. Changing $x$ to $(x-h)$ slides it left or right -- and remember the sign flips. A negative out front flips it upside down. And if $|a|$ is bigger than 1, the parabola gets skinnier; if it's a fraction between 0 and 1, it gets wider."
+        },
+        {
+          "min": 6,
+          "title": "Video",
+          "do": "Play the Organic Chemistry Tutor video on transformations.",
+          "options": [
+            "Pause to predict the next transformation before it's shown"
+          ],
+          "say": "Watch for how each individual piece of the equation maps to one specific move on the graph."
+        },
+        {
+          "min": 8,
+          "title": "We-Do Example",
+          "do": "Starting from $y=x^2$, build up to $y=-2(x+1)^2+3$ one transformation at a time.",
+          "options": [
+            "Ask students to narrate each step before you draw it"
+          ],
+          "say": "Start with $y=x^2$. Shift left 1: $y=(x+1)^2$. Stretch by 2 and flip: $y=-2(x+1)^2$. Shift up 3: $y=-2(x+1)^2+3$. Final vertex: $(-1,3)$, opens down, narrower than $y=x^2$."
+        },
+        {
+          "min": 13,
+          "title": "Worksheet",
+          "do": "Students complete the transformation worksheet independently or in pairs.",
+          "options": [
+            "Provide sentence starters: 'The graph shifts ___ because ___'"
+          ],
+          "say": "Describe each transformation in words, then match it to the correct vertex and shape."
+        },
+        {
+          "min": 4,
+          "title": "Exit Ticket",
+          "do": "Students complete the exit ticket.",
+          "options": [
+            "Collect at the door"
+          ],
+          "say": "Describe all the transformations applied to $y=x^2$ to get today's exit ticket function."
+        }
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nEvery quadratic function is a **transformation** of the parent function $y=x^2$: $k$ shifts the graph vertically, $h$ shifts it horizontally, a negative $a$ reflects it over the x-axis, and the size of $|a|$ stretches (narrows) or compresses (widens) it.\n\n## Key Terms\n- **Parent function**: the simplest form of a function family, here $y=x^2$.\n- **Reflection**: flipping the graph over an axis; a negative $a$ flips $y=x^2$ over the x-axis.\n- **Vertical stretch/compression**: $|a|>1$ makes the parabola narrower; $0<|a|<1$ makes it wider.\n\n## Worked Example\nDescribe the transformations that turn $y=x^2$ into $y=-2(x+1)^2+3$.\n- Step 1: $(x+1)$ shifts the graph left 1 unit ($h=-1$).\n- Step 2: The $-2$ reflects it over the x-axis and stretches it (narrower).\n- Step 3: The $+3$ shifts the graph up 3 units.\n- Answer: shift left 1, reflect over the x-axis, stretch narrower by a factor of 2, shift up 3; final vertex $(-1,3)$.\n\n## You Try\nDescribe the transformations that turn $y=x^2$ into $y=\\frac{1}{3}(x-4)^2-2$.",
+      "guidedNotes": {
+        "title": "Guided Notes: Transformations of Quadratic Functions",
+        "vocab": [
+          {
+            "term": "Parent Function",
+            "def": "The simplest function in a family; for quadratics this is {{$y=x^2$|2.5cm}}."
+          },
+          {
+            "term": "Reflection",
+            "def": "A flip of the graph over an axis; a {{negative|2cm}} value of $a$ reflects $y=x^2$ over the x-axis."
+          },
+          {
+            "term": "Vertical Stretch/Compression",
+            "def": "When $|a|>1$ the graph becomes {{narrower|2.5cm}}; when $0<|a|<1$ the graph becomes {{wider|2cm}}."
+          }
+        ],
+        "worked": {
+          "prompt": "Describe the transformations from $y=x^2$ to $y=-2(x+1)^2+3$.",
+          "steps": [
+            "The term $(x+1)$ shifts the graph {{left|1.5cm}} by {{$1$|1cm}} unit.",
+            "The negative sign in front of the 2 causes a {{reflection|2.5cm}} over the x-axis.",
+            "Since $|a|=2>1$, the graph becomes {{narrower|2.5cm}} than $y=x^2$.",
+            "The $+3$ shifts the graph {{up|1.5cm}} by {{$3$|1cm}} units.",
+            "Final vertex: {{$(-1,3)$|2.5cm}}."
+          ]
+        },
+        "diagram": {
+          "plots": [
+            {
+              "expr": "x^2",
+              "domain": [
+                -3,
+                3
+              ],
+              "color": "gray"
+            },
+            {
+              "expr": "-2*(x+1)^2+3",
+              "domain": [
+                -2.2,
+                0.2
+              ],
+              "color": "blue"
+            }
+          ],
+          "xmin": -4,
+          "xmax": 4,
+          "ymin": -6,
+          "ymax": 10,
+          "points": [
+            [
+              -1,
+              3,
+              "vertex $(-1,3)$",
+              "red"
+            ],
+            [
+              0,
+              0,
+              "vertex of $y=x^2$",
+              "gray"
+            ]
+          ],
+          "caption": "$y=x^2$ (gray) transformed into $y=-2(x+1)^2+3$ (blue).",
+          "width": "8cm",
+          "height": "6cm"
+        },
+        "youTry": [
+          {
+            "prompt": "Describe the transformations from $y=x^2$ to $y=(x-2)^2-5$.",
+            "answer": "Shift right 2, shift down 5; no reflection or stretch since $a=1$; vertex $(2,-5)$."
+          }
+        ],
+        "summary": "Starting from the parent function {{$y=x^2$|2.5cm}}, the value $h$ shifts the graph left or right, $k$ shifts it up or down, a negative $a$ causes a {{reflection|2.5cm}} over the x-axis, and $|a|>1$ makes the graph {{narrower|2.5cm}} while $0<|a|<1$ makes it {{wider|2cm}}."
+      },
+      "notesExit": "Describe all transformations applied to $y=x^2$ to produce $y=3(x-2)^2-4$, and state the final vertex.",
+      "vocab": [
+        {
+          "term": "Parent Function",
+          "definition": "The most basic function in a family of functions; $y=x^2$ for quadratics."
+        },
+        {
+          "term": "Reflection",
+          "definition": "Flipping a graph over an axis; caused by a negative leading coefficient."
+        },
+        {
+          "term": "Vertical Stretch",
+          "definition": "Making a graph narrower, caused by $|a|>1$."
+        },
+        {
+          "term": "Vertical Compression",
+          "definition": "Making a graph wider, caused by $0<|a|<1$."
+        }
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Transformations of Quadratic Functions",
+        "slides": [
+          {
+            "heading": "What's New Today",
+            "bullets": [
+              "Every parabola is a transformation of $y=x^2$",
+              "Shifts, reflections, stretches -- all from one parent shape",
+              "No new graphing from scratch needed"
+            ],
+            "example": "$y=x^2 \\rightarrow y=-2(x+1)^2+3$ in three moves"
+          },
+          {
+            "heading": "Today's Terms",
+            "bullets": [
+              "Parent function: $y=x^2$",
+              "Reflection: negative $a$ flips over the x-axis",
+              "Stretch ($|a|>1$, narrower) vs. compression ($0<|a|<1$, wider)"
+            ],
+            "example": "$-2(x+1)^2+3$: reflect and stretch by 2"
+          },
+          {
+            "heading": "We Do: Build $y=-2(x+1)^2+3$",
+            "bullets": [
+              "Start: $y=x^2$",
+              "Shift left 1, reflect + stretch by 2, shift up 3",
+              "Final vertex: $(-1,3)$"
+            ],
+            "example": "Left 1 -> flip + narrow -> up 3"
+          }
+        ]
+      },
+      "procedureExamples": [
+        {
+          "prompt": "Describe the transformations from $y=x^2$ to $y=\\frac{1}{2}(x-3)^2+2$.",
+          "steps": [
+            "$(x-3)$ shifts right 3.",
+            "$\\frac{1}{2}$ compresses (wider), no reflection since $a>0$.",
+            "$+2$ shifts up 2.",
+            "Vertex: $(3,2)$."
+          ],
+          "answer": "Shift right 3, compress wider by $\\frac{1}{2}$, shift up 2; vertex $(3,2)$."
+        }
+      ],
+      "worksheet": {
+        "title": "Transformations of Quadratic Functions",
+        "instructions": "For each function, describe the transformations applied to the parent function $y=x^2$ (shift, reflection, stretch/compression) and state the final vertex.",
+        "sections": [
+          {
+            "type": "Warm-Up: Shifts",
+            "space": "s",
+            "workedExample": "**Example:** $y=x^2-6$ shifts $y=x^2$ down 6 units; vertex $(0,-6)$.",
+            "directions": "Describe the shift and state the vertex for each function.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=x^2+4$",
+              "$y=(x-3)^2$",
+              "$y=(x+5)^2$",
+              "$y=x^2-2$"
+            ]
+          },
+          {
+            "type": "Reflections and Stretches",
+            "space": "m",
+            "workedExample": "**Example:** $y=-3x^2$ reflects $y=x^2$ over the x-axis and stretches it (narrower) by a factor of 3.",
+            "directions": "Describe the reflection and/or stretch/compression for each function.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=-x^2$",
+              "$y=4x^2$",
+              "$y=\\frac{1}{4}x^2$",
+              "$y=-\\frac{1}{2}x^2$"
+            ]
+          },
+          {
+            "type": "Combined Transformations",
+            "space": "l",
+            "workedExample": "**Example:** $y=-2(x-1)^2+4$: shift right 1, reflect over x-axis, stretch narrower by 2, shift up 4; vertex $(1,4)$.",
+            "directions": "Describe all transformations (shift, reflection, stretch/compression) and state the final vertex.",
+            "figure": null,
+            "diagram": {
+              "plots": [
+                {
+                  "expr": "x^2",
+                  "domain": [
+                    -2.5,
+                    2.5
+                  ],
+                  "color": "gray"
+                },
+                {
+                  "expr": "0.5*(x+2)^2-3",
+                  "domain": [
+                    -4.5,
+                    0.5
+                  ],
+                  "color": "blue"
+                }
+              ],
+              "xmin": -5,
+              "xmax": 4,
+              "ymin": -5,
+              "ymax": 8,
+              "points": [
+                [
+                  -2,
+                  -3,
+                  "vertex $(-2,-3)$",
+                  "red"
+                ]
+              ],
+              "caption": "$y=x^2$ (gray) transformed into $y=\\frac{1}{2}(x+2)^2-3$ (blue).",
+              "width": "8cm",
+              "height": "6cm"
+            },
+            "problems": [
+              "$y=\\frac{1}{2}(x+2)^2-3$ (use the graph above to confirm your description)",
+              "$y=3(x-4)^2-1$",
+              "$y=-\\frac{1}{3}(x+2)^2+5$"
+            ]
+          }
+        ],
+        "procedure": [
+          "Start from the parent function $y=x^2$.",
+          "Identify $h$: shift left if the equation has $(x+h)$, right if $(x-h)$.",
+          "Identify $k$: shift up if positive, down if negative.",
+          "Check the sign of $a$: negative means reflect over the x-axis.",
+          "Check the size of $|a|$: greater than 1 means narrower (stretch), between 0 and 1 means wider (compression).",
+          "Combine all transformations to state the final vertex and shape."
+        ],
+        "optionalExtra": [
+          "Describe the transformations, in order, that turn $y=x^2$ into $y=-4(x+3)^2-7$."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "Two functions, $y=5(x-2)^2+1$ and $y=\\frac{1}{5}(x-2)^2+1$, share the same vertex. Without graphing, explain in words how their steepness compares, and describe what the graphs would look like side by side.",
+        "why": "This isolates the effect of $|a|$ from shifts, requiring students to reason about width/steepness independent of location -- a common misconception area."
+      },
+      "exitTicket": [
+        "Describe all transformations applied to $y=x^2$ to produce $y=3(x-2)^2-4$.",
+        "State the final vertex of $y=3(x-2)^2-4$."
+      ],
+      "answerKey": [
+        {
+          "section": "Warm-Up: Shifts",
+          "answers": [
+            "Shifts up 4; vertex $(0,4)$.",
+            "Shifts right 3; vertex $(3,0)$.",
+            "Shifts left 5; vertex $(-5,0)$.",
+            "Shifts down 2; vertex $(0,-2)$."
+          ]
+        },
+        {
+          "section": "Reflections and Stretches",
+          "answers": [
+            "Reflects over the x-axis; no stretch (a=-1).",
+            "Stretches narrower by a factor of 4; no reflection.",
+            "Compresses wider by a factor of $\\frac{1}{4}$; no reflection.",
+            "Reflects over the x-axis and compresses wider by a factor of $\\frac{1}{2}$."
+          ]
+        },
+        {
+          "section": "Combined Transformations",
+          "answers": [
+            "Shift left 2, compress wider by $\\frac{1}{2}$ (no reflection), shift down 3; vertex $(-2,-3)$ -- matches the graph shown.",
+            "Shift right 4, stretch narrower by 3 (no reflection), shift down 1; vertex $(4,-1)$.",
+            "Shift left 2, reflect over the x-axis and compress wider by $\\frac{1}{3}$, shift up 5; vertex $(-2,5)$."
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "In order from the parent $y=x^2$: (1) $(x+3)$ shifts the graph left 3 units; (2) the negative sign reflects it over the x-axis; (3) $|a|=4>1$ stretches it narrower by a factor of 4; (4) the $-7$ shifts it down 7 units. Final vertex: $(-3,-7)$, opening down."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {
+        "section": "1.4",
+        "title": "Characteristics of Polynomial Graphs"
+      }
+    },
+    "Thu": {
+      "type": "worksheet",
+      "hook": "A vendor's profit, a rocket's height, the area of a fenced garden -- all of them are modeled by quadratics, and every one of those real problems has the same question at its heart: what's the best (or worst) it can possibly get?",
+      "objective": "Students will find the maximum or minimum value of a quadratic function from its vertex and use it to solve real-world optimization problems.",
+      "bellRinger": "For $y=-(x-3)^2+9$, does the function have a maximum or minimum value? What is that value, and at what $x$ does it occur?",
+      "agenda": [
+        "Bell ringer (5 min)",
+        "Mini-lesson: max/min value = $k$, occurs at $x=h$ (8 min)",
+        "Video: Khan Academy real-world max/min problems (6 min)",
+        "We-do: solve a real-world optimization problem (10 min)",
+        "Worksheet: applied max/min problems (15 min)",
+        "Exit ticket (4 min)"
+      ],
+      "assessment": "Worksheet and exit ticket require students to translate a word problem into a quadratic model, find its vertex, and correctly interpret the max/min value in context (units and meaning).",
+      "video": {
+        "short": {
+          "title": "Khan Academy: Maximum and Minimum Values of Quadratic Functions",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+maximum+minimum+value+quadratic+function",
+          "note": "Short explanation of reading max/min value directly from the vertex."
+        },
+        "long": {
+          "title": "The Organic Chemistry Tutor: Quadratic Word Problems (Max/Min Applications)",
+          "url": "https://www.youtube.com/results?search_query=Organic+Chemistry+Tutor+quadratic+word+problems+maximum+minimum",
+          "note": "Extended set of real-world optimization problems (projectile motion, area, revenue)."
+        },
+        "questions": [
+          "How do you know whether a quadratic function has a maximum or a minimum value?",
+          "What part of the vertex $(h,k)$ tells you the max/min value itself?",
+          "In a real-world problem, why does the sign of $a$ matter before you even find the vertex?",
+          "Why is it important to include units when stating a max/min answer in context?"
+        ]
+      },
+      "videoPlacement": "after mini-lesson, before we-do example",
+      "script": [
+        {
+          "min": 5,
+          "title": "Bell Ringer",
+          "do": "Students determine max/min and value for $y=-(x-3)^2+9$.",
+          "options": [
+            "Cold-call for the value and one for the location"
+          ],
+          "say": "Since $a<0$, this opens down, so it has a maximum. That maximum value is $k=9$, occurring at $x=3$."
+        },
+        {
+          "min": 8,
+          "title": "Mini-Lesson",
+          "do": "Establish that the max/min VALUE is $k$ (the y-coordinate of the vertex), occurring at $x=h$; sign of $a$ tells you which one it is.",
+          "options": [
+            "Have students state 'max' or 'min' before revealing the sign of $a$ each time"
+          ],
+          "say": "The vertex isn't just a point on the graph -- $k$ IS the maximum or minimum value the function can produce. If $a>0$, that's the smallest value (minimum). If $a<0$, that's the largest value (maximum). And it happens exactly at $x=h$."
+        },
+        {
+          "min": 6,
+          "title": "Video",
+          "do": "Play the Khan Academy short video on max/min values.",
+          "options": [
+            "Pause to predict whether the example is a max or min problem before it's revealed"
+          ],
+          "say": "Watch how the vertex answers the real-world question directly, once you know what $x$ and $y$ represent in that context."
+        },
+        {
+          "min": 10,
+          "title": "We-Do Example",
+          "do": "Solve: 'A farmer has 40 ft of fencing for a rectangular pen against a barn wall (no fence needed on that side). Width $=x$, and area $A=x(40-2x)$. Find the maximum area.' Expand to vertex form or use $x=-b/2a$, then interpret.",
+          "options": [
+            "Ask students to predict whether area increases or decreases as width grows very large, before solving"
+          ],
+          "say": "Expand: $A=40x-2x^2=-2x^2+40x$. This opens down, so it has a maximum. The vertex occurs at $x=-\\frac{40}{2(-2)}=10$. Plug back in: $A=-2(10)^2+40(10)=200$. So the maximum area is 200 square feet, when the width is 10 feet."
+        },
+        {
+          "min": 15,
+          "title": "Worksheet",
+          "do": "Students complete applied max/min problems independently or in pairs.",
+          "options": [
+            "Provide a sentence frame: 'The maximum/minimum ___ is ___, occurring when ___'"
+          ],
+          "say": "For each problem, set up the quadratic model first, find the vertex, then answer the real-world question in a full sentence with units."
+        },
+        {
+          "min": 4,
+          "title": "Exit Ticket",
+          "do": "Students complete the exit ticket.",
+          "options": [
+            "Collect at the door"
+          ],
+          "say": "State whether it's a max or min, find the value, and interpret it in context."
+        }
+      ],
+      "doubleOption": false,
+      "notes": "## Key Idea\nThe **maximum or minimum value** of a quadratic function is the y-coordinate of the vertex, $k$, occurring at $x=h$. If $a>0$ the function has a minimum; if $a<0$ it has a maximum. This lets us solve real-world optimization problems -- greatest area, highest point, maximum profit -- directly from the vertex.\n\n## Key Terms\n- **Maximum value**: the largest output value of a function, occurring at the vertex when $a<0$.\n- **Minimum value**: the smallest output value of a function, occurring at the vertex when $a>0$.\n- **Optimization**: finding the best (largest or smallest) possible outcome of a real-world quadratic model.\n\n## Worked Example\nA rectangular garden against a house uses 40 ft of fencing on the other three sides. If $x$ is the width, the area is $A(x)=-2x^2+40x$. Find the maximum area.\n- Step 1: Since $a=-2<0$, the function has a maximum.\n- Step 2: Vertex x-coordinate: $x=-\\dfrac{b}{2a}=-\\dfrac{40}{2(-2)}=10$.\n- Step 3: Maximum value: $A(10)=-2(10)^2+40(10)=-200+400=200$.\n- Answer: The maximum area is 200 square feet, occurring when the width is 10 feet.\n\n## You Try\nA ball's height in feet is modeled by $h(t)=-16t^2+64t+5$, where $t$ is time in seconds. Find the maximum height and the time it occurs.",
+      "guidedNotes": {
+        "title": "Guided Notes: Maximum/Minimum Value and Applications",
+        "vocab": [
+          {
+            "term": "Maximum Value",
+            "def": "The greatest output of a function; occurs at the vertex when $a$ is {{negative|2.5cm}}."
+          },
+          {
+            "term": "Minimum Value",
+            "def": "The least output of a function; occurs at the vertex when $a$ is {{positive|2.5cm}}."
+          },
+          {
+            "term": "Optimization",
+            "def": "Using a quadratic model to find the best possible ({{largest|2cm}} or smallest) outcome of a real situation."
+          }
+        ],
+        "worked": {
+          "prompt": "A ball's height is modeled by $h(t)=-16t^2+64t+5$. Find the maximum height and when it occurs.",
+          "steps": [
+            "Since $a=-16$ is {{negative|2cm}}, the function has a {{maximum|2cm}}.",
+            "Find the time: $t=-\\dfrac{b}{2a}=-\\dfrac{64}{2(-16)}=$ {{$2$|1cm}}.",
+            "Substitute $t=2$: $h(2)=-16(2)^2+64(2)+5=-64+128+5=$ {{$69$|1.5cm}}.",
+            "The maximum height is {{$69$|1.5cm}} feet, occurring at $t=$ {{$2$|1cm}} seconds."
+          ]
+        },
+        "diagram": {
+          "plots": [
+            {
+              "expr": "-16*(x-2)^2+69",
+              "domain": [
+                1.4,
+                2.6
+              ],
+              "color": "blue"
+            }
+          ],
+          "xmin": 0,
+          "xmax": 4.5,
+          "ymin": 0,
+          "ymax": 80,
+          "points": [
+            [
+              2,
+              69,
+              "max $(2,69)$",
+              "red"
+            ]
+          ],
+          "caption": "Height model $h(t)=-16t^2+64t+5$ reaching a maximum of 69 ft at $t=2$ s.",
+          "width": "8cm",
+          "height": "6cm"
+        },
+        "youTry": [
+          {
+            "prompt": "A company's profit is modeled by $P(x)=-3x^2+24x-20$, where $x$ is the number of items (in hundreds) sold. Find the maximum profit and the number of items that produce it.",
+            "answer": "$x=-\\frac{24}{2(-3)}=4$; $P(4)=-3(16)+96-20=28$. Maximum profit is $28$ (hundred dollars) when $400$ items are sold."
+          }
+        ],
+        "summary": "The maximum or minimum value of a quadratic function is the y-coordinate of the vertex, {{$k$|1cm}}, which occurs at $x=$ {{$h$|1cm}}. If $a$ is negative the function has a {{maximum|2.5cm}}; if $a$ is positive it has a {{minimum|2.5cm}}. In real-world problems, always interpret the answer with correct units."
+      },
+      "notesExit": "A quadratic model for revenue is $R(x)=-2x^2+80x$, where $x$ is price increase in dollars. Find the maximum revenue and the price increase that produces it.",
+      "vocab": [
+        {
+          "term": "Maximum Value",
+          "definition": "The greatest possible output of a function; occurs at the vertex when the parabola opens down."
+        },
+        {
+          "term": "Minimum Value",
+          "definition": "The least possible output of a function; occurs at the vertex when the parabola opens up."
+        },
+        {
+          "term": "Optimization Problem",
+          "definition": "A real-world problem solved by finding the maximum or minimum value of a mathematical model."
+        }
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Max/Min Value and Real-World Applications",
+        "slides": [
+          {
+            "heading": "What's New Today",
+            "bullets": [
+              "The vertex isn't just a point -- $k$ is the actual max or min value",
+              "It happens exactly at $x=h$",
+              "This solves real problems: area, height, profit"
+            ],
+            "example": "Vertex $(h,k) \\rightarrow$ best possible outcome $=k$"
+          },
+          {
+            "heading": "Today's Terms",
+            "bullets": [
+              "Maximum value: largest output, when $a<0$",
+              "Minimum value: smallest output, when $a>0$",
+              "Optimization: using the vertex to answer a real question"
+            ],
+            "example": "$a<0 \\rightarrow$ max; $a>0 \\rightarrow$ min"
+          },
+          {
+            "heading": "We Do: Fencing Problem",
+            "bullets": [
+              "$A(x)=-2x^2+40x$",
+              "Vertex at $x=10$: $A(10)=200$",
+              "Maximum area is 200 sq ft when width is 10 ft"
+            ],
+            "example": "$x=-\\frac{b}{2a}=-\\frac{40}{-4}=10$"
+          }
+        ]
+      },
+      "procedureExamples": [
+        {
+          "prompt": "A ball is thrown so its height is modeled by $h(t)=-16t^2+48t+6$. Find the maximum height and when it occurs.",
+          "steps": [
+            "$a=-16<0$, so this is a maximum.",
+            "$t=-\\frac{48}{2(-16)}=1.5$.",
+            "$h(1.5)=-16(1.5)^2+48(1.5)+6=42$."
+          ],
+          "answer": "Maximum height is 42 feet, occurring at $t=1.5$ seconds."
+        }
+      ],
+      "worksheet": {
+        "title": "Maximum/Minimum Value and Real-World Applications",
+        "instructions": "For each problem, determine whether the function has a maximum or minimum value, find that value using the vertex, and interpret your answer in context with correct units.",
+        "sections": [
+          {
+            "type": "Warm-Up: Max or Min?",
+            "space": "s",
+            "workedExample": "**Example:** For $y=4(x-2)^2+7$, since $a=4>0$, the function has a minimum value of $7$.",
+            "directions": "State whether each function has a maximum or minimum, and give that value.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=-2(x+1)^2+10$",
+              "$y=5(x-3)^2-6$",
+              "$y=-(x-4)^2+1$",
+              "$y=\\frac{1}{2}(x+2)^2-8$"
+            ]
+          },
+          {
+            "type": "Find the Vertex from Standard Form",
+            "space": "m",
+            "workedExample": "**Example:** For $y=-3x^2+12x+2$, find $x=-\\dfrac{b}{2a}=-\\dfrac{12}{2(-3)}=2$, then $y=-3(2)^2+12(2)+2=14$. Maximum value is 14.",
+            "directions": "Find the x-coordinate of the vertex, then the max/min value for each function.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=-x^2+6x-3$",
+              "$y=2x^2-8x+5$",
+              "$y=-4x^2+16x+1$"
+            ]
+          },
+          {
+            "type": "Real-World Applications",
+            "space": "l",
+            "workedExample": "**Example:** A vendor's profit is $P(x)=-x^2+30x-50$, where $x$ is the price in dollars. The vertex occurs at $x=-\\dfrac{30}{-2}=15$, giving $P(15)=175$. The maximum profit is $175 dollars at a price of $15.",
+            "directions": "Set up the vertex for each model, find the max/min value, and interpret the result in a full sentence with units.",
+            "figure": null,
+            "diagram": {
+              "plots": [
+                {
+                  "expr": "-1*(x-15)^2+175",
+                  "domain": [
+                    7,
+                    23
+                  ],
+                  "color": "blue"
+                }
+              ],
+              "xmin": 0,
+              "xmax": 30,
+              "ymin": 0,
+              "ymax": 200,
+              "points": [
+                [
+                  15,
+                  175,
+                  "max profit $(15,175)$",
+                  "red"
+                ]
+              ],
+              "caption": "Profit model $P(x)=-x^2+30x-50$ reaching a maximum of \\$175 at $x=15$.",
+              "width": "8cm",
+              "height": "6cm"
+            },
+            "problems": [
+              "A rocket's height is $h(t)=-16t^2+96t+10$ (feet, $t$ in seconds). Find the maximum height and when it occurs.",
+              "A rectangular pen against a barn uses 60 ft of fencing on 3 sides: $A(x)=-2x^2+60x$. Find the maximum area and the width that produces it."
+            ]
+          }
+        ],
+        "procedure": [
+          "Determine whether the function opens up (minimum) or down (maximum) from the sign of $a$.",
+          "Find the x-coordinate of the vertex using $x=h$ (vertex form) or $x=-\\dfrac{b}{2a}$ (standard form).",
+          "Substitute that x-value back into the function to find the max/min value, $k$.",
+          "Interpret the result in the context of the problem, including correct units.",
+          "State your final answer as a full sentence: the maximum/minimum [quantity] is [value], occurring at [x-value]."
+        ],
+        "optionalExtra": [
+          "A company's cost to produce $x$ items is $C(x)=2x^2-40x+300$. Find the minimum cost and the number of items that produce it."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "A farmer has 100 ft of fencing to build a rectangular pen with NO wall to lean on this time (fencing needed on all 4 sides). Set up the area function in terms of one side length, find the maximum area, and compare your process to the barn-wall version from class today.",
+        "why": "Removing the free wall forces students to re-derive the model from scratch rather than pattern-match, deepening their understanding of how constraints shape the quadratic model."
+      },
+      "exitTicket": [
+        "A quadratic model for revenue is $R(x)=-2x^2+80x$. Find the maximum revenue and the price increase that produces it.",
+        "State whether this problem involves a maximum or a minimum, and explain how you know before solving."
+      ],
+      "answerKey": [
+        {
+          "section": "Warm-Up: Max or Min?",
+          "answers": [
+            "Maximum value of $10$ (since $a=-2<0$).",
+            "Minimum value of $-6$ (since $a=5>0$).",
+            "Maximum value of $1$ (since $a=-1<0$).",
+            "Minimum value of $-8$ (since $a=\\frac{1}{2}>0$)."
+          ]
+        },
+        {
+          "section": "Find the Vertex from Standard Form",
+          "answers": [
+            "$x=-\\frac{6}{-2}=3$; $y=-9+18-3=6$. Maximum value is $6$.",
+            "$x=-\\frac{-8}{4}=2$; $y=8-16+5=-3$. Minimum value is $-3$.",
+            "$x=-\\frac{16}{-8}=2$; $y=-16+32+1=17$. Maximum value is $17$."
+          ]
+        },
+        {
+          "section": "Real-World Applications",
+          "answers": [
+            "$t=-\\frac{96}{-32}=3$; $h(3)=-144+288+10=154$. The maximum height is 154 feet, occurring at 3 seconds.",
+            "$x=-\\frac{60}{-4}=15$; $A(15)=-450+900=450$. The maximum area is 450 square feet, occurring when the width is 15 feet."
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "$C(x)=2x^2-40x+300$ has $a=2>0$, so it opens up and has a minimum. Vertex x-coordinate: $x=-\\frac{-40}{2(2)}=\\frac{40}{4}=10$. Minimum cost: $C(10)=2(10)^2-40(10)+300=200-400+300=100$. The minimum cost is $100, achieved when 10 items are produced."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {
+        "section": "1.14",
+        "title": "Polynomial Models"
+      }
+    },
+    "Fri": {
+      "type": "worksheet",
+      "hook": "This week you learned to read a parabola's DNA from its equation, draw it, transform it, and use it to solve real problems. Today's about proving you can do all four -- fast and without notes.",
+      "objective": "Students will demonstrate mastery of vertex form, graphing, transformations, and max/min applications from this week through mixed practice and a short quiz-style check.",
+      "bellRinger": "Without using your notes, state the vertex and direction of opening for $y=-3(x-2)^2+5$.",
+      "agenda": [
+        "Bell ringer (5 min)",
+        "Quick review: 4 stations, one per day's skill (16 min)",
+        "Video: Khan Academy quadratics mixed review (5 min)",
+        "Mixed practice worksheet (14 min)",
+        "Quiz-style check (8 min)"
+      ],
+      "assessment": "Quiz-style check (5 short problems, one per skill from the week) is graded for mastery; worksheet performance informs who needs reteaching next week.",
+      "video": {
+        "short": {
+          "title": "Khan Academy: Quadratic Functions Mixed Review",
+          "url": "https://www.youtube.com/results?search_query=Khan+Academy+quadratic+functions+mixed+review",
+          "note": "Fast-paced review touching vertex form, graphing, and max/min in one video."
+        },
+        "long": {
+          "title": "Mathispower4u: Quadratic Functions Review Playlist",
+          "url": "https://www.youtube.com/results?search_query=Mathispower4u+quadratic+functions+review",
+          "note": "Longer review set for students who need a deeper refresher before the quiz-style check."
+        },
+        "questions": [
+          "Which skill from this week do you feel least confident about?",
+          "What's one strategy that helped you remember the sign flip for $h$?",
+          "How do you decide whether a real-world problem is asking for a max or a min?",
+          "What's the first thing you should identify when given any quadratic equation?"
+        ]
+      },
+      "videoPlacement": "after station review, before mixed practice",
+      "script": [
+        {
+          "min": 5,
+          "title": "Bell Ringer",
+          "do": "Students state vertex and direction of opening for $y=-3(x-2)^2+5$ with no notes.",
+          "options": [
+            "Quick thumbs up/down self-check against the revealed answer"
+          ],
+          "say": "No notes today -- let's see where we stand before we review."
+        },
+        {
+          "min": 16,
+          "title": "Station Review",
+          "do": "Run 4 quick stations (4 min each), one per day this week: (1) vertex form ID, (2) graphing, (3) transformations, (4) max/min word problem.",
+          "options": [
+            "Have students rotate in pre-assigned small groups",
+            "Post one representative problem per station on index cards"
+          ],
+          "say": "Each station is a 4-minute reminder of one skill from this week. Move when I call time -- the goal is to jog your memory, not solve everything perfectly."
+        },
+        {
+          "min": 5,
+          "title": "Video",
+          "do": "Play the Khan Academy mixed review video.",
+          "options": [
+            "Let students choose to instead watch the longer Mathispower4u playlist independently if they need more depth"
+          ],
+          "say": "This ties all four skills together in one quick pass. Watch for anything that still feels shaky."
+        },
+        {
+          "min": 14,
+          "title": "Mixed Practice",
+          "do": "Students complete the mixed practice worksheet covering all four skills.",
+          "options": [
+            "Allow partner work for the first half, independent for the second half"
+          ],
+          "say": "Work through all four problem types. Flag any question you want to ask about before the quiz-style check."
+        },
+        {
+          "min": 8,
+          "title": "Quiz-Style Check",
+          "do": "Students complete a short, independent quiz-style check (5 problems, one per skill) with no talking.",
+          "options": [
+            "Offer a retake next class for students who show a gap in one specific skill"
+          ],
+          "say": "This is just you and the problem -- no partners, no notes. Show your work for full credit."
+        }
+      ],
+      "doubleOption": true,
+      "notes": "## Key Idea\nThis week's quadratic skills build on each other: **identify** the vertex and direction from an equation, **graph** it using vertex/axis/y-intercept, **transform** it from the parent function $y=x^2$, and **apply** the vertex to find a maximum or minimum in a real-world problem.\n\n## Key Terms\n- **Vertex form**: $y=a(x-h)^2+k$.\n- **Axis of symmetry**: $x=h$.\n- **Transformation**: shift, reflection, stretch/compression from $y=x^2$.\n- **Max/min value**: the y-coordinate of the vertex, $k$.\n\n## Worked Example\nFor $y=-2(x+3)^2+6$: identify all four skills at once.\n- Step 1 (vertex form): $a=-2$, vertex $(-3,6)$, opens down.\n- Step 2 (graph): axis of symmetry $x=-3$; y-intercept $y=-2(3)^2+6=-12$, point $(0,-12)$, mirror point $(-6,-12)$.\n- Step 3 (transform): shift left 3, reflect over x-axis, stretch narrower by 2, shift up 6.\n- Step 4 (max/min): maximum value is $6$, occurring at $x=-3$.\n- Answer: all four descriptions agree -- vertex $(-3,6)$ is the anchor for every skill.\n\n## You Try\nFor $y=(x-1)^2-4$, identify the vertex/direction, the y-intercept and its mirror point, the transformations from $y=x^2$, and the max/min value.",
+      "guidedNotes": {
+        "title": "Guided Notes: Week 1 Mixed Review -- Quadratic Functions",
+        "vocab": [
+          {
+            "term": "Vertex Form",
+            "def": "{{$y=a(x-h)^2+k$|3.5cm}}, showing the vertex $(h,k)$ directly."
+          },
+          {
+            "term": "Axis of Symmetry",
+            "def": "The vertical line {{$x=h$|2cm}} through the vertex."
+          },
+          {
+            "term": "Max/Min Value",
+            "def": "The y-coordinate of the vertex, {{$k$|1cm}}, occurring at $x=h$."
+          }
+        ],
+        "worked": {
+          "prompt": "For $y=-2(x+3)^2+6$, find the vertex, y-intercept, transformations, and max/min value.",
+          "steps": [
+            "Vertex: $a=-2$, $h=-3$, $k=6$, so vertex $=$ {{$(-3,6)$|2.5cm}}.",
+            "y-intercept: $y=-2(0+3)^2+6=-2(9)+6=$ {{$-12$|2cm}}, point $(0,-12)$.",
+            "Transformations from $y=x^2$: shift left 3, reflect over x-axis, {{stretch|2cm}} narrower by 2, shift up 6.",
+            "Since $a=-2<0$, this is a {{maximum|2.5cm}} value of {{$6$|1cm}}, occurring at $x=-3$."
+          ]
+        },
+        "diagram": {
+          "plots": [
+            {
+              "expr": "-2*(x+3)^2+6",
+              "domain": [
+                -4.2,
+                -1.8
+              ],
+              "color": "blue"
+            }
+          ],
+          "xmin": -6,
+          "xmax": 1,
+          "ymin": -14,
+          "ymax": 8,
+          "points": [
+            [
+              -3,
+              6,
+              "vertex $(-3,6)$",
+              "red"
+            ],
+            [
+              0,
+              -12,
+              "$(0,-12)$",
+              "purple"
+            ]
+          ],
+          "caption": "$y=-2(x+3)^2+6$ showing vertex and y-intercept together.",
+          "width": "8cm",
+          "height": "6cm"
+        },
+        "youTry": [
+          {
+            "prompt": "For $y=(x-1)^2-4$, find the vertex, y-intercept, and max/min value.",
+            "answer": "Vertex $(1,-4)$, opens up; y-intercept: $y=(0-1)^2-4=-3$, point $(0,-3)$, mirror point $(2,-3)$; minimum value $-4$ at $x=1$."
+          }
+        ],
+        "summary": "This week's four skills all connect back to one idea: the vertex $(h,k)$ of {{$y=a(x-h)^2+k$|3.5cm}}. From it you can graph the parabola, describe its transformations from $y=x^2$, and identify its {{maximum or minimum|3.5cm}} value."
+      },
+      "notesExit": "For $y=2(x+1)^2-3$, state the vertex, direction of opening, and the max/min value with its location.",
+      "vocab": [
+        {
+          "term": "Vertex Form",
+          "definition": "$y=a(x-h)^2+k$, showing the vertex $(h,k)$ directly in the equation."
+        },
+        {
+          "term": "Axis of Symmetry",
+          "definition": "The vertical line $x=h$ through the vertex of a parabola."
+        },
+        {
+          "term": "Transformation",
+          "definition": "A shift, reflection, or stretch/compression applied to the parent function $y=x^2$."
+        },
+        {
+          "term": "Max/Min Value",
+          "definition": "The y-coordinate of the vertex, representing the greatest or least output of the function."
+        }
+      ],
+      "presentation": {
+        "kind": "build",
+        "title": "Week 1 Mixed Review: Quadratic Functions",
+        "slides": [
+          {
+            "heading": "What's New Today",
+            "bullets": [
+              "No new content -- today is mixed review + quiz-style check",
+              "All four skills connect to one anchor: the vertex",
+              "Station review, then independent check"
+            ],
+            "example": "Vertex form -> graph -> transform -> max/min, all from one vertex"
+          },
+          {
+            "heading": "Today's Focus",
+            "bullets": [
+              "Vertex form identification",
+              "Graphing with vertex/axis/y-intercept",
+              "Transformations from $y=x^2$",
+              "Max/min applications"
+            ],
+            "example": "$y=-2(x+3)^2+6 \\rightarrow$ vertex $(-3,6)$ ties it all together"
+          },
+          {
+            "heading": "We Do: Full Review Example",
+            "bullets": [
+              "$y=-2(x+3)^2+6$",
+              "Vertex $(-3,6)$, opens down, max value 6",
+              "y-intercept $(0,-12)$; shift left 3, reflect, stretch, shift up 6"
+            ],
+            "example": "One equation, four skills, one vertex"
+          }
+        ]
+      },
+      "procedureExamples": [
+        {
+          "prompt": "For $y=3(x-2)^2-1$, identify vertex, transformations from $y=x^2$, and max/min value.",
+          "steps": [
+            "Vertex: $(2,-1)$, opens up.",
+            "Transformations: shift right 2, stretch narrower by 3, shift down 1.",
+            "Since $a=3>0$, minimum value is $-1$ at $x=2$."
+          ],
+          "answer": "Vertex $(2,-1)$; shift right 2, stretch by 3, shift down 1; minimum value $-1$."
+        }
+      ],
+      "worksheet": {
+        "title": "Mixed Practice + Quiz-Style Check: Quadratic Functions",
+        "instructions": "Complete the mixed practice problems below, drawing on all four skills from this week. Then complete the quiz-style check independently.",
+        "sections": [
+          {
+            "type": "Mixed Practice: Vertex Form and Graphing",
+            "space": "m",
+            "workedExample": "**Example:** For $y=2(x-1)^2-3$: vertex $(1,-3)$, opens up; y-intercept $y=2(0-1)^2-3=-1$, point $(0,-1)$, mirror point $(2,-1)$.",
+            "directions": "For each function, find the vertex, direction of opening, y-intercept, and its mirror point.",
+            "figure": null,
+            "diagram": null,
+            "problems": [
+              "$y=(x+2)^2-1$",
+              "$y=-3(x-1)^2+4$",
+              "$y=\\frac{1}{2}(x-4)^2+2$",
+              "$y=-(x+3)^2+2$"
+            ]
+          },
+          {
+            "type": "Mixed Practice: Transformations and Max/Min",
+            "space": "l",
+            "workedExample": "**Example:** For $y=-(x+4)^2+7$: transformations are shift left 4, reflect over x-axis, shift up 7; since $a=-1<0$, maximum value is $7$ at $x=-4$.",
+            "directions": "Describe the transformations from $y=x^2$ and state the max/min value for each function.",
+            "figure": null,
+            "diagram": {
+              "plots": [
+                {
+                  "expr": "1.5*(x-2)^2-2",
+                  "domain": [
+                    0.7,
+                    3.3
+                  ],
+                  "color": "blue"
+                }
+              ],
+              "xmin": -1,
+              "xmax": 5,
+              "ymin": -4,
+              "ymax": 8,
+              "points": [
+                [
+                  2,
+                  -2,
+                  "vertex $(2,-2)$",
+                  "red"
+                ]
+              ],
+              "caption": "Reference graph of $y=1.5(x-2)^2-2$.",
+              "width": "8cm",
+              "height": "6cm"
+            },
+            "problems": [
+              "$y=1.5(x-2)^2-2$ (use the graph above to confirm the vertex)",
+              "$y=-2(x+1)^2+5$",
+              "$y=3(x-2)^2-1$",
+              "A ball's height is $h(t)=-16t^2+32t+4$. Find the maximum height and when it occurs."
+            ]
+          }
+        ],
+        "procedure": [
+          "Identify $a$, $h$, and $k$ from the equation.",
+          "State the vertex, direction of opening, and axis of symmetry.",
+          "Find the y-intercept by substituting $x=0$, and its mirror point across the axis of symmetry.",
+          "Describe the transformations from $y=x^2$: shifts, reflection, stretch/compression.",
+          "State the max/min value ($k$) and where it occurs ($x=h$), interpreting units for word problems."
+        ],
+        "optionalExtra": [
+          "Create your own vertex-form equation with a maximum value of $10$ at $x=-2$, and describe all its transformations from $y=x^2$."
+        ]
+      },
+      "drawing": null,
+      "extension": {
+        "title": "Challenge",
+        "prompt": "A quadratic function has axis of symmetry $x=4$, opens down, and passes through $(1,0)$. Using only symmetry (no expanding equations), find another point the graph must pass through, and explain how you know the function has a maximum rather than a minimum.",
+        "why": "This end-of-week challenge requires synthesizing symmetry reasoning and direction-of-opening reasoning together without a full equation, testing conceptual transfer rather than rote substitution."
+      },
+      "exitTicket": [
+        "For $y=2(x+1)^2-3$, state the vertex and direction of opening.",
+        "State the max/min value of $y=2(x+1)^2-3$ and where it occurs."
+      ],
+      "answerKey": [
+        {
+          "section": "Mixed Practice: Vertex Form and Graphing",
+          "answers": [
+            "Vertex $(-2,-1)$, opens up; y-intercept $y=(0+2)^2-1=3$, point $(0,3)$, mirror point $(-4,3)$.",
+            "Vertex $(1,4)$, opens down; y-intercept $y=-3(0-1)^2+4=1$, point $(0,1)$, mirror point $(2,1)$.",
+            "Vertex $(4,2)$, opens up; y-intercept $y=\\frac{1}{2}(0-4)^2+2=10$, point $(0,10)$, mirror point $(8,10)$.",
+            "Vertex $(-3,2)$, opens down; y-intercept $y=-(0+3)^2+2=-7$, point $(0,-7)$, mirror point $(-6,-7)$."
+          ]
+        },
+        {
+          "section": "Mixed Practice: Transformations and Max/Min",
+          "answers": [
+            "Shift right 2, stretch narrower by 1.5, shift down 2; vertex $(2,-2)$, minimum value $-2$ -- matches the graph shown.",
+            "Shift left 1, reflect over x-axis, stretch narrower by 2, shift up 5; maximum value $5$ at $x=-1$.",
+            "Shift right 2, stretch narrower by 3, shift down 1; vertex $(2,-1)$, minimum value $-1$.",
+            "$t=-\\frac{32}{-32}=1$; $h(1)=-16+32+4=20$. Maximum height is 20 feet, occurring at 1 second."
+          ]
+        },
+        {
+          "section": "Challenge",
+          "answers": [
+            "A maximum value of $10$ at $x=-2$ means the vertex is $(-2,10)$ with $a<0$, so $h=-2$, $k=10$. One valid answer: $y=-(x+2)^2+10$. Transformations from $y=x^2$: shift left 2, reflect over the x-axis, shift up 10 (any $a<0$ works, e.g. $y=-3(x+2)^2+10$ would also add a narrowing stretch by 3)."
+          ]
+        }
+      ],
+      "scannable": true,
+      "ck12": {
+        "section": "1.7",
+        "title": "The Fundamental Theorem of Algebra for Quadratics"
+      }
+    }
+  }
+}

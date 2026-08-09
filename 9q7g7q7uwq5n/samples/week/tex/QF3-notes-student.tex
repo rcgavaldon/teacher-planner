@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}\usepackage{amssymb}\usepackage{enumitem}\usepackage{xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newif\ifkey\keyfalse      % TEACHER KEY toggle
+\newif\iftwoup\twoupfalse  % 2-UP toggle
+\iftwoup\usepackage{pgfpages}\pgfpagesuselayout{2 on 1}[letterpaper,landscape]\fi
+\newcommand{\bl}[2][2cm]{\ifkey\textcolor{blue!65!black}{\underline{#2}}\else\underline{\hspace{#1}}\fi}
+\newcommand{\N}{%
+\begin{center}{\large\textbf{Guided Notes: The Quadratic Formula}}\hfill\ifkey\textcolor{blue!65!black}{\textbf{TEACHER KEY}}\else Name: \rule{3.5cm}{0.4pt}\fi\end{center}
+{\small Algebra I \textbar\ Guided notes --- we fill these in together}\vspace{2pt}\hrule\vspace{7pt}
+\textbf{Vocabulary}\\[5pt]
+\textbf{Standard Form:} A quadratic equation written as \bl[3.5cm]{$ax^2+bx+c=0$}, where $a\neq 0$.\\[10pt]
+\textbf{Quadratic Formula:} $x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$, a formula that solves any equation written in \bl[2.5cm]{standard} form.\\[10pt]
+\textbf{Discriminant:} The expression \bl[2.5cm]{$b^2-4ac$}, found under the radical, which tells how many real solutions an equation has.\\[12pt]
+\textbf{We do together.}\quad Solve $2x^2+7x-4=0$ using the quadratic formula.\\[6pt]
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.1em,itemsep=9pt]
+  \item Identify the coefficients: $a=$\bl[1cm]{$2$}, $b=$\bl[1cm]{$7$}, $c=$\bl[1cm]{$-4$}.
+  \item Compute the discriminant: $b^2-4ac=7^2-4(2)(-4)=49+32=$\bl[1.5cm]{$81$}.
+  \item Take the square root: $\sqrt{81}=$\bl[1cm]{$9$}.
+  \item Substitute into the formula: $x=\dfrac{-7\pm 9}{2(2)}=\dfrac{-7\pm 9}{4}$.
+  \item Simplify both solutions: $x=$\bl[1.5cm]{$0.5$} or $x=$\bl[1cm]{$-4$}.
+\end{enumerate}\vspace{8pt}
+\textbf{You Try.}\ Solve each. Show every step, then name the answer.\\[6pt]
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=2.4em,itemsep=1.4cm]
+  \item Solve $x^2+8x+15=0$ using the quadratic formula. \hfill \ifkey\textcolor{blue!65!black}{$a=1,b=8,c=15$; discriminant $=64-60=4>0$ (two real roots); $x=\dfrac{-8\pm 2}{2}$ so $x=-3$ or $x=-5$.}\fi
+  \item Solve $x^2-9x+20=0$ using the quadratic formula. \hfill \ifkey\textcolor{blue!65!black}{$a=1,b=-9,c=20$; discriminant $=81-80=1>0$ (two real roots); $x=\dfrac{9\pm 1}{2}$ so $x=5$ or $x=4$.}\fi
+\end{enumerate}
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Summary (fill in):} To solve a quadratic equation, first write it in standard form $ax^2+bx+c=0$, then substitute $a$, $b$, and $c$ into $x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$. The discriminant $b^2-4ac$ predicts the outcome: if it is \bl[2.5cm]{positive} there are two real solutions, if it is \bl[2cm]{zero} there is exactly one real solution, and if it is \bl[2.5cm]{negative} there are no real solutions.
+}
+\begin{document}
+\N
+\iftwoup\clearpage\N\fi
+\end{document}

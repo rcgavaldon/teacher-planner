@@ -1,0 +1,15 @@
+{
+"title":"Quiz — Body Organization & Homeostasis",
+"instructions":"Multiple choice. Bubble your answer on the sheet. Every question comes from your notes.",
+"items":[
+ {"n":1,"type":"MC","question":"Anatomy is the study of ____, while physiology is the study of ____.","choices":["function; structure","structure; function","cells; organs","disease; health"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":2,"type":"MC","question":"Which lists the levels of organization from SMALLEST to LARGEST?","choices":["cell → chemical → tissue → organ → organism → organ system","chemical → cell → tissue → organ → organ system → organism","organism → organ system → organ → tissue → cell → chemical","cell → tissue → chemical → organ → organ system → organism"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":3,"type":"MC","question":"A group of SIMILAR cells working together on one job is a(n):","choices":["organ","organ system","tissue","organism"],"answer":"C","teks":"Bio.10","points":1},
+ {"n":4,"type":"MC","question":"Why is the heart classified as an ORGAN?","choices":["It is a single type of cell repeated many times","It is made of two or more tissues working together","It is the smallest unit of life","It is a group of organs sharing a function"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":5,"type":"MC","question":"Homeostasis is best defined as:","choices":["the body growing larger over time","keeping the internal environment stable","the study of body structure","cells dividing to make new cells"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":6,"type":"MC","question":"In a negative feedback loop, the response always:","choices":["amplifies the original change","reverses the original change","stops all body activity","creates a new stimulus that grows"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":7,"type":"MC","question":"You get too hot and start to sweat, cooling back down. Put the loop in order:","choices":["effector → receptor → stimulus → control center","stimulus → receptor → control center → effector","receptor → stimulus → effector → control center","control center → effector → receptor → stimulus"],"answer":"B","teks":"Bio.10","points":1},
+ {"n":8,"type":"MC","question":"Which is an example of NEGATIVE feedback?","choices":["Shivering to warm up when body temperature drops","Contractions getting stronger and stronger during childbirth","A cut triggering more and more clotting until sealed","A rumor spreading faster the more people hear it"],"answer":"A","teks":"Bio.10","points":1}
+],
+"answers":["B","B","C","B","B","B","B","A"]
+}

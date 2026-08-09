@@ -1,0 +1,59 @@
+{
+ "type": "worksheet",
+ "objective": "Students will identify at least two problems created by industrialization in the Gilded Age and accurately match each to a specific Progressive reform (a law, constitutional amendment, or reform movement) that responded to it, and will analyze a short primary-source description to name the problem it reveals and a reform that could address it.",
+ "hook": "In 1906 a single book about a filthy Chicago slaughterhouse so disgusted readers — including the president — that Congress passed a national food-safety law within months.",
+ "agenda": "Bell ringer (5) · Mini-lesson: problems to reforms (12) · Document analysis model (8) · Practice (17) · Exit (3)",
+ "assessment": "The exit ticket checks whether each student can correctly pair one Gilded Age problem with a specific Progressive reform that responded to it — the day's core cause-and-effect objective.",
+ "script": [
+  {"min":5,"title":"Bell ringer","do":"Project the question and have students write a quick response, then share one or two aloud.","options":["Do a 30-second think-pair-share instead of individual writing"],"say":"Bell ringer: Factories made goods cheaper but working conditions dangerous. Name one problem you think that rapid growth created."},
+  {"min":12,"title":"Mini-lesson: problems to reforms","do":"Teach the slides: first name the Gilded Age problems, then pair each problem with the reform that answered it, emphasizing accurate dates and amendments.","options":["Build a two-column 'Problem | Reform' chart on the board as you go"],"say":"Industrialization created real problems — unsafe factories, child labor, monopolies, corruption, crowded cities — and Progressives used government to fix them."},
+  {"min":8,"title":"Document analysis model","do":"Model the who/what/why/so-what routine on a short source using the example slide, thinking aloud so students hear the reasoning.","options":["Cold-call students to supply each step (who, what, why, so-what)"],"say":"Watch how I read a source: who wrote it, what they describe, why they wrote it, and so what reform it points toward."},
+  {"min":17,"title":"Practice","do":"Students complete the worksheet independently, then compare answers with a partner; circulate to check the problem-to-reform pairings.","options":["Have students do Section 1 solo and Section 2 (document) with a partner"],"say":"Now you try it — match problems to reforms in complete sentences, then read the excerpt and analyze it."},
+  {"min":3,"title":"Exit ticket","do":"Collect the exit ticket to check that each student can pair a problem with a correct reform.","options":["Have students say their pair aloud as a verbal ticket-out-the-door"],"say":"On your exit ticket, name one Gilded Age problem and one Progressive reform that responded to it."}
+ ],
+ "presentation": {
+  "kind": "launch",
+  "title": "The Progressive Era: Problems and Reforms (c. 1890-1920)",
+  "slides": [
+   {"type":"hook","heading":"Would you eat this?","bullets":["In 1906, Upton Sinclair's book 'The Jungle' exposed filthy meatpacking plants","Readers were so disgusted that public outrage forced Congress to act within months","Today's question: how did everyday industrial problems become national laws?"]},
+   {"type":"define","heading":"Problems of the Gilded Age","bullets":["Unsafe factories and long hours — the 1911 Triangle Shirtwaist Factory fire killed 146 workers, many trapped behind locked doors","Child labor in mills, mines, and factories","Powerful monopolies and trusts (like Standard Oil) crushed competition and raised prices","Political corruption by party 'machines' and overcrowded, unsanitary city tenements"]},
+   {"type":"define","heading":"Progressive reforms (paired to the problems)","bullets":["Unsafe food/products → muckrakers exposed them, leading to the Pure Food and Drug Act and the Meat Inspection Act (both 1906)","Monopolies → the Sherman Antitrust Act (1890) and Clayton Antitrust Act (1914); 'trust-busting' by President Theodore Roosevelt","Corruption → the 17th Amendment (1913) let voters directly elect U.S. senators","Amendments of the era: 16th (1913) income tax · 18th (1919) prohibition of alcohol · 19th (1920) women's right to vote"]},
+   {"type":"example","heading":"Reading a document (who / what / why / so-what)","bullets":["WHO wrote it, and WHAT do they describe?","WHY did they write it — what was their purpose?","SO WHAT — which reform could answer this problem?"],"example":"Source: Jacob Riis's 'How the Other Half Lives' (1890) shows dark, overcrowded tenements. WHO: a reporter/photographer. WHAT: filthy, packed slum housing. WHY: to shock middle-class readers into caring. SO WHAT: it pushed cities toward housing codes and urban reform."},
+   {"type":"youtry","heading":"You try (cause to effect)","bullets":["Upton Sinclair's 'The Jungle' (1906) exposed filthy, unsafe conditions in meatpacking plants. What effect did this exposé have — what law followed, and why did the public demand it?"]}
+  ]
+ },
+ "notes": "## The Progressive Era\n**Big idea:** industrialization created serious problems; Progressive reformers used government to fix them (c. 1890-1920).\n\n**Problems → Reforms:**\n- Unsafe factories / long hours (Triangle Shirtwaist fire, 1911) → state fire-safety codes and labor laws\n- Child labor → Keating-Owen Act (1916) tried to limit it\n- Monopolies / trusts (Standard Oil) → Sherman Antitrust Act (1890), Clayton Antitrust Act (1914), Theodore Roosevelt's trust-busting\n- Unsafe food and medicine → Pure Food and Drug Act (1906), Meat Inspection Act (1906)\n- Political corruption → 17th Amendment (1913), secret ballot, direct primaries\n\n**Key people/laws (accurate):**\n- Muckrakers = investigative journalists: Upton Sinclair ('The Jungle'), Ida Tarbell (exposed the Standard Oil monopoly), Jacob Riis ('How the Other Half Lives')\n- Amendments: 16th (1913) = income tax · 17th (1913) = direct election of senators · 18th (1919) = prohibition of alcohol · 19th (1920) = women's suffrage\n- Progressive presidents: Theodore Roosevelt (Square Deal, trust-busting) and Woodrow Wilson (New Freedom)",
+ "worksheet": {
+  "title": "The Progressive Era: Problems and Reforms",
+  "instructions": "Use what you learned. Answer in complete sentences. For the document question, read the short excerpt below.\n\nExcerpt (paraphrased summary — read carefully): A journalist describes what he saw inside a Chicago meatpacking plant around 1906. He reports that spoiled meat was mixed in with fresh, that rats and filth ended up in the products, and that exhausted workers labored long hours in dangerous, unsanitary rooms. He argues that ordinary shoppers have no way of knowing what really goes into the food they buy.",
+  "scannable": false,
+  "sections": [
+   {"type":"Cause & effect","directions":"Answer in complete sentences.","space":"m","problems":[
+     "Name ONE problem of the Gilded Age and identify ONE Progressive reform (a law, amendment, or movement) that responded to it. Explain how the reform addressed the problem.",
+     "Name a SECOND, different Gilded Age problem and a different reform that addressed it. Explain the connection.",
+     "Explain the significance of ONE of these amendments — the 16th, 17th, 18th, or 19th. State what it did and why reformers wanted it.",
+     "Why did muckrakers matter? Explain how investigative journalists helped bring about reform."
+   ]},
+   {"type":"Document analysis","directions":"Use the excerpt above.","space":"l","problems":[
+     "What problem does the source describe?",
+     "What reform might respond to it, and why?"
+   ]}
+  ]
+ },
+ "answerKey": [
+  {"section":"Cause & effect","answers":[
+   "Sample: Problem — dangerous, unsafe factories, shown by the 1911 Triangle Shirtwaist Factory fire that killed 146 workers trapped behind locked doors. Reform — new state workplace-safety and fire codes (required exits, inspections, shorter hours). The disaster created public pressure that forced states like New York to protect workers. (Accept any accurate problem-to-reform pair.)",
+   "Sample: Problem — powerful monopolies and trusts such as Standard Oil that crushed competition and raised prices. Reform — antitrust laws, the Sherman Antitrust Act (1890) and Clayton Antitrust Act (1914), enforced by 'trust-busting' President Theodore Roosevelt, which let the government break up or regulate companies that killed competition. (Accept any accurate, different pair, e.g., child labor → Keating-Owen Act, 1916.)",
+   "Sample (19th Amendment, 1920): It gave women the right to vote nationwide. Suffragists wanted it because women had long been denied a political voice; it roughly doubled the electorate and was a major democratic victory. (Accept accurate answers on the 16th = income tax, 17th = direct election of senators, or 18th = prohibition of alcohol.)",
+   "Muckrakers were investigative journalists — such as Upton Sinclair, Ida Tarbell, and Jacob Riis — who exposed corruption, unsafe products, and poor living and working conditions. They mattered because their reporting informed and outraged the public, creating the pressure that pushed lawmakers to pass reforms like the Pure Food and Drug Act (1906)."
+  ]},
+  {"section":"Document analysis","answers":[
+   "The source describes unsafe, unsanitary conditions in the meatpacking industry — spoiled meat mixed with fresh, rats and filth in the food, and dangerous conditions for overworked employees — and the fact that consumers cannot tell what is really in the food they buy.",
+   "A food-safety reform would respond to it: the Pure Food and Drug Act and the Meat Inspection Act, both passed in 1906. They fit because they require government inspection and honest labeling of food and drugs, protecting consumers from exactly the filthy, mislabeled products the source describes."
+  ]}
+ ],
+ "exitTicket": [
+  "Name one Gilded Age problem and one Progressive reform that responded to it.",
+  "In one sentence, explain how a muckraker's writing could lead to a new law."
+ ]
+}

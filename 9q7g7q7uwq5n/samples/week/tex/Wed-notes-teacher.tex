@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}\usepackage{amssymb}\usepackage{enumitem}\usepackage{xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newif\ifkey\keytrue      % TEACHER KEY toggle
+\newif\iftwoup\twoupfalse  % 2-UP toggle
+\iftwoup\usepackage{pgfpages}\pgfpagesuselayout{2 on 1}[letterpaper,landscape]\fi
+\newcommand{\bl}[2][2cm]{\ifkey\textcolor{blue!65!black}{\underline{#2}}\else\underline{\hspace{#1}}\fi}
+\newcommand{\N}{%
+\begin{center}{\large\textbf{Domain \& Range}}\hfill\ifkey\textcolor{blue!65!black}{\textbf{TEACHER KEY}}\else Name: \rule{3.5cm}{0.4pt}\fi\end{center}
+{\small Pre-Calculus \textbar\ Guided notes --- we fill these in together}\vspace{2pt}\hrule\vspace{7pt}
+\textbf{Vocabulary}\\[5pt]
+\textbf{Domain:} all the \bl[1.6cm]{input} values ($x$) a function is allowed to use.\\[10pt]
+\textbf{Range:} all the \bl[1.8cm]{output} values ($y$) the function actually produces.\\[12pt]
+\textbf{We do together.}\quad Find the domain and range of $f(x)=\sqrt{x-2}$.\\[6pt]
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.1em,itemsep=9pt]
+  \item A square root can't hold a negative: set $x-2\ge 0$, so the domain is \bl[1.8cm]{$x\ge 2$}.
+  \item The smallest output is at $x=2$, where $f(2)=$ \bl[1cm]{$0$}, then it grows.
+  \item So the range is \bl[1.8cm]{$y\ge 0$}.
+\end{enumerate}\vspace{8pt}
+\textbf{See it:}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[axis lines=middle,xlabel=$x$,ylabel=$y$,xmin=-1,xmax=11,ymin=-1,ymax=4,width=10cm,height=5.2cm,grid=both,samples=80]
+\addplot[very thick,blue,domain=2:11]{sqrt(x-2)};
+\addplot[only marks,mark=*,red] coordinates {(2,0)};
+\node[above right,red,font=\small] at (axis cs:2,0) {start $(2,0)$};
+\end{axis}\end{tikzpicture}\end{center}
+{\small\centering $y=\sqrt{x-2}$ --- domain $x\ge2$, range $y\ge0$.\par}
+\vspace{6pt}
+\textbf{You Try.}\ Solve each. Show every step, then name the answer.\\[6pt]
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=2.4em,itemsep=1.4cm]
+  \item Give the domain of $f(x)=\dfrac{1}{x-5}$. \hfill \ifkey\textcolor{blue!65!black}{$x\ne 5$ (all reals except 5)}\fi
+  \item Give the range of $f(x)=x^{2}+1$. \hfill \ifkey\textcolor{blue!65!black}{$y\ge 1$}\fi
+\end{enumerate}
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Summary (fill in):} Watch two traps: a \bl[2.6cm]{denominator} can't be $0$, and a \bl[2.4cm]{square root} can't hold a negative.
+}
+\begin{document}
+\N
+\iftwoup\clearpage\N\fi
+\end{document}

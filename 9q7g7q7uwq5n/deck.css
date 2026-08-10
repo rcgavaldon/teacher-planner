@@ -85,3 +85,6 @@
 .deckbtn{font-family:var(--dk-sans);font-size:14px;font-weight:600;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#E7EAF7;padding:8px 16px;cursor:pointer}
 .deckbtn.primary{background:var(--dk-indigo);border-color:var(--dk-indigo)}
 .deckbtn:hover{border-color:var(--dk-peri)}
+
+.dbody.dfull{padding:0 0 0 6px}
+.dfullimg{display:block;width:100%;height:auto;background:#F4F5FA}

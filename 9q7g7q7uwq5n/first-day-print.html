@@ -1,0 +1,127 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>First Day — Print List · Mr. Gavaldon</title>
+<style>
+:root{--paper:#EBEEF6;--card:#fff;--ink:#0E1330;--ink2:#1B2350;--muted:#5A6382;--line:#E4E9F5;--indigo:#383CC1;--indigo-soft:#EAEBFB;--peri:#A9B0FF;--gold:#E7B449;--amber:#8A5300;--amber-bg:#FBF1DF;--amber-line:#EAD4A6;--pine:#0B6E4F;--pine-bg:#E6F4EE;--pine-line:#BCE2D2;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,'SF Mono',Consolas,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;padding:14px 12px calc(28px + env(safe-area-inset-bottom));}
+.wrap{max-width:600px;margin:0 auto}
+a{color:var(--indigo)}
+.hero{border-radius:18px;color:#EDEFFA;padding:20px 20px 18px;background:radial-gradient(130% 150% at 90% -20%,#262d66 0%,var(--ink) 60%);box-shadow:0 16px 34px -22px rgba(14,19,48,.6)}
+.hero .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--peri);font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1.05;margin:6px 0 6px}
+.hero p{margin:0;font-size:13.5px;color:#C6CCEA}
+.hero .id{margin-top:10px;font-family:var(--mono);font-size:12px;color:#AEB6E0}.hero .id b{color:#fff}.hero .id .g{color:var(--gold)}
+.stats{display:flex;gap:9px;margin:14px 0 6px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 8px;text-align:center}
+.stat .n{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--indigo);line-height:1}
+.stat .l{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+h2{font-family:var(--serif);font-size:19px;margin:22px 4px 10px;display:flex;align-items:center;gap:9px}
+h2 .n{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--indigo);background:var(--indigo-soft);border-radius:5px;padding:3px 7px}
+h2 .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.pcard{display:flex;align-items:stretch;gap:0;background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;margin-bottom:11px;text-decoration:none;color:inherit;box-shadow:0 8px 20px -18px rgba(14,19,48,.5);transition:transform .08s ease}
+.pcard:active{transform:scale(.985)}
+.pcard .qty{flex:none;width:92px;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px}
+.pcard .qty .num{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--gold);line-height:1}
+.pcard .qty .cop{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#AEB6E0;margin-top:4px}
+.pcard .body{flex:1;padding:12px 14px;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.pcard .body h3{margin:0 0 6px;font-size:15.5px;font-weight:650;line-height:1.2}
+.pcard .meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:10px;font-weight:600;border-radius:999px;padding:3px 9px;border:1px solid var(--line);background:#F7F8FD;color:var(--ink2)}
+.chip.hs{background:var(--indigo-soft);border-color:#D5D9F5;color:var(--indigo)}
+.chip.one{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber)}
+.chip.full{background:var(--pine-bg);border-color:var(--pine-line);color:var(--pine)}
+.pcard .open{flex:none;display:flex;align-items:center;padding:0 14px 0 4px;color:var(--indigo);font-size:22px}
+.note{font-size:11.5px;color:var(--muted);margin:2px 6px 0;font-family:var(--mono)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px 16px}
+.box.amber{background:var(--amber-bg);border-color:var(--amber-line)}
+.box.pine{background:var(--pine-bg);border-color:var(--pine-line)}
+.box h3{font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin:0 0 9px;font-weight:800}
+.box.amber h3{color:var(--amber)}.box.pine h3{color:var(--pine)}
+.box ol,.box ul{margin:0;padding-left:19px}
+.box li{font-size:14px;line-height:1.5;margin-bottom:7px}.box li:last-child{margin-bottom:0}.box li b{font-weight:650}
+.klist{list-style:none;padding:0;margin:0}
+.klist li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.klist li:last-child{border-bottom:none}
+.klist .who{font-weight:600}.klist .cnt{font-family:var(--mono);font-size:13px;color:var(--indigo);font-weight:700;white-space:nowrap}
+.total{margin-top:14px;display:flex;align-items:center;gap:15px;background:var(--ink);color:#E7EAF7;border-radius:15px;padding:15px 18px}
+.total .num{font-family:var(--serif);font-size:31px;color:var(--gold);font-weight:700;line-height:1}
+.total .l{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8E96C4}
+.total .d{font-size:12.5px;color:#C6CCEA;line-height:1.45;margin-top:3px}
+.actions{margin-top:16px;display:flex;flex-direction:column;gap:9px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:650;font-size:14.5px;border-radius:12px;padding:13px 14px;border:1px solid var(--line)}
+.btn.pri{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.btn.sec{background:var(--card);color:var(--ink)}
+.foot{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:18px;line-height:1.6}
+@media(min-width:600px){.hero h1{font-size:31px}}
+</style></head>
+<body><div class="wrap">
+
+<div class="hero">
+  <div class="eyebrow">First Day · Print &amp; Go · Aug 10, 2026</div>
+  <h1>First-Day Print List</h1>
+  <p>Syllabi are <b>single-sided half-sheets</b> students glue into their notebooks. Tap a card to open the PDF, print the copies shown, cut, and drop each stack in its class tray.</p>
+  <div class="id"><b>Mr. Gavaldon</b> · Da Vinci School · Engineering<br><span class="g">robertgavaldon@burnhamwood.org</span></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">240</div><div class="l">Half-sheets</div></div>
+  <div class="stat"><div class="n">1-sided</div><div class="l">Paste-in</div></div>
+  <div class="stat"><div class="n">~130</div><div class="l">Sheets</div></div>
+</div>
+
+<h2><span class="n">PRINT</span> What to print <span class="rule"></span></h2>
+
+<a class="pcard" href="first-day/manufacturing-syllabus.pdf" target="_blank" rel="noopener" download="Manufacturing — Syllabus (half-sheet) — PRINT 160.pdf">
+  <div class="qty"><div class="num">160</div><div class="cop">copies</div></div>
+  <div class="body"><h3>Manufacturing — Syllabus</h3><div class="meta"><span class="chip hs">half-sheet</span><span class="chip one">1-sided</span></div></div>
+  <div class="open">›</div></a>
+
+<a class="pcard" href="first-day/inspiress-syllabus.pdf" target="_blank" rel="noopener" download="InSPIRESS (Design & Problem Solving) — Syllabus (half-sheet) — PRINT 40.pdf">
+  <div class="qty"><div class="num">40</div><div class="cop">copies</div></div>
+  <div class="body"><h3>InSPIRESS — Syllabus</h3><div class="meta"><span class="chip hs">half-sheet</span><span class="chip one">1-sided</span></div></div>
+  <div class="open">›</div></a>
+
+<a class="pcard" href="first-day/principles-syllabus.pdf" target="_blank" rel="noopener" download="Principles of Applied Engineering — Syllabus (half-sheet) — PRINT 40.pdf">
+  <div class="qty"><div class="num">40</div><div class="cop">copies</div></div>
+  <div class="body"><h3>Principles of Applied Eng. — Syllabus</h3><div class="meta"><span class="chip hs">half-sheet</span><span class="chip one">1-sided</span></div></div>
+  <div class="open">›</div></a>
+
+<a class="pcard" href="first-day/restroom-log.pdf" target="_blank" rel="noopener" download="Restroom-Hall Pass Log — PRINT 10.pdf">
+  <div class="qty"><div class="num">10</div><div class="cop">copies</div></div>
+  <div class="body"><h3>Restroom / Hall-Pass Log</h3><div class="meta"><span class="chip full">full page</span><span class="chip one">1-sided</span></div></div>
+  <div class="open">›</div></a>
+
+<p class="note">Tap = open the PDF · long-press / download icon = save it · each file name already carries its quantity.</p>
+
+<div class="total">
+  <div class="num">~130</div>
+  <div><div class="l">Estimated total paper</div><div class="d"><b>~130 letter sheets</b> if you print the half-sheets 2-up and cut (120 syllabi + 10 restroom) · <b>~250</b> if one per page.</div></div>
+</div>
+
+<h2><span class="n">CLASS</span> Which class gets what <span class="rule"></span></h2>
+<div class="box"><ul class="klist">
+  <li><span class="who">Manufacturing <span style="color:var(--muted);font-weight:400">· 5 sections</span></span><span class="cnt">160</span></li>
+  <li><span class="who">InSPIRESS <span style="color:var(--muted);font-weight:400">· senior</span></span><span class="cnt">40</span></li>
+  <li><span class="who">Principles of Applied Eng. <span style="color:var(--muted);font-weight:400">· 6th pd</span></span><span class="cnt">40</span></li>
+  <li><span class="who">Restroom logs <span style="color:var(--muted);font-weight:400">· by the door</span></span><span class="cnt">10</span></li>
+</ul></div>
+
+<h2><span class="n">HOW</span> How to print <span class="rule"></span></h2>
+<div class="box amber"><ol>
+  <li>Syllabi are <b>single-sided half-sheets</b> — kids glue them into their notebooks.</li>
+  <li>Open each PDF, set <b>Copies</b> to the number on its card (160 / 40 / 40).</li>
+  <li>To save paper: print <b>2 per sheet</b>, then <b>cut down the middle</b>.</li>
+  <li>Restroom log: <b>full page, 1-sided</b>. Keep each class's stack together.</li>
+</ol></div>
+
+<div class="actions">
+  <a class="btn pri" href="first-day/print-list-cover.pdf" target="_blank" rel="noopener">🖨 Open the printable cover sheet</a>
+  <a class="btn sec" href="engineering-hub.html">← Back to the Command Center</a>
+</div>
+
+<div class="foot">Prepared for the first day · 2026–2027<br>Mr. Gavaldon · Engineering · Da Vinci School</div>
+
+</div></body></html>

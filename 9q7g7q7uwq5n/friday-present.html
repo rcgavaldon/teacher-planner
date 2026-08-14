@@ -1,0 +1,290 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Friday — Present Your Product · Mr. Gavaldon</title>
+<style>/* deck.css — design-standard presentation deck (inline preview + fullscreen projector).
+   Scoped under .deck / .deckshow so it never collides with the app's clay theme. */
+.deck,.deckshow{--dk-card:#fff;--dk-ink:#0E1330;--dk-ink2:#1B2350;--dk-muted:#5A6382;--dk-line:#E4E9F5;
+  --dk-indigo:#383CC1;--dk-indigo-soft:#EAEBFB;--dk-indigo-line:#D5D9F5;--dk-peri:#A9B0FF;--dk-gold:#E7B449;
+  --dk-amber:#8A5300;--dk-amber-bg:#FBF1DF;--dk-amber-line:#EAD4A6;
+  --dk-pine:#0B6E4F;--dk-pine-bg:#E6F4EE;--dk-pine-line:#BCE2D2;
+  --dk-rose:#AF1235;--dk-rose-bg:#FBE8ED;--dk-rose-line:#F0C1CD;
+  --dk-serif:Georgia,'Times New Roman',serif;--dk-sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--dk-mono:ui-monospace,'SF Mono','Cascadia Code',Consolas,monospace}
+
+/* ---------- one slide (shared by inline + fullscreen) ---------- */
+.dslide{position:relative;background:var(--dk-card);border:1px solid var(--dk-line);border-radius:16px;overflow:hidden;color:var(--dk-ink);font-family:var(--dk-sans)}
+.dslide::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--dk-indigo)}
+.dslide[data-t="hook"]::before,.dslide[data-t="recap"]::before{background:var(--dk-gold)}
+.dslide[data-t="mistake"]::before{background:var(--dk-rose)}
+.dslide[data-t="youtry"]::before,.dslide[data-t="wedo"]::before{background:var(--dk-pine)}
+.dslide[data-t="vocab"]::before,.dslide[data-t="roadmap"]::before{background:linear-gradient(180deg,var(--dk-indigo),var(--dk-gold))}
+.dbody{padding:20px 24px 22px 30px}
+.dtop{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.deyebrow{font-family:var(--dk-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--dk-indigo)}
+.dslide[data-t="mistake"] .deyebrow{color:var(--dk-rose)}
+.dslide[data-t="youtry"] .deyebrow,.dslide[data-t="wedo"] .deyebrow{color:var(--dk-pine)}
+.dslide[data-t="hook"] .deyebrow,.dslide[data-t="recap"] .deyebrow{color:var(--dk-amber)}
+.dnum{margin-left:auto;font-family:var(--dk-mono);font-size:11px;color:var(--dk-muted)}
+.dh{font-family:var(--dk-serif);font-weight:700;font-size:24px;line-height:1.08;letter-spacing:-.01em;color:var(--dk-ink);margin:0 0 12px;text-wrap:balance}
+.dcols{display:flex;gap:20px;align-items:flex-start}
+.dmain{flex:1;min-width:0}
+.dgraphwrap{flex:none;width:300px}
+.dbul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.dbul li{position:relative;padding-left:20px;font-size:15.5px;line-height:1.5;color:var(--dk-ink2)}
+.dbul li::before{content:'';position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:2px;background:var(--dk-indigo);transform:rotate(45deg)}
+.dpanel{margin-top:14px;border-radius:12px;padding:13px 16px;border:1px solid var(--dk-line)}
+.dpanel:first-child{margin-top:0}
+.dpanel .plab{font-family:var(--dk-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.dpanel .pbody{font-size:15px;line-height:1.5;color:var(--dk-ink)}
+.dpanel.ex{background:var(--dk-indigo-soft);border-color:var(--dk-indigo-line)}.dpanel.ex .plab{color:var(--dk-indigo)}
+.dpanel.mis{background:var(--dk-rose-bg);border-color:var(--dk-rose-line)}.dpanel.mis .plab{color:var(--dk-rose)}
+.dpanel.you{background:var(--dk-pine-bg);border-color:var(--dk-pine-line)}.dpanel.you .plab{color:var(--dk-pine)}
+.dpanel.note{background:var(--dk-amber-bg);border-color:var(--dk-amber-line)}.dpanel.note .plab{color:var(--dk-amber)}
+.dvocab{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.dchip{background:#fff;border:1px solid var(--dk-line);border-left:3px solid var(--dk-indigo);border-radius:9px;padding:9px 13px;font-size:14px;line-height:1.35;color:var(--dk-ink2)}
+.dchip b{color:var(--dk-indigo);font-family:var(--dk-serif);font-size:15px}
+.dgraph{background:#fff;border:1px solid var(--dk-line);border-radius:12px;padding:8px}
+.dgraph svg{display:block;width:100%;height:auto}
+.dgcap{font-family:var(--dk-mono);font-size:10px;color:var(--dk-muted);text-align:center;margin-top:5px;letter-spacing:.02em}
+.dvideo{margin-top:14px;display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600}
+.dvideo .vic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--dk-indigo);color:#fff;font-size:11px}
+.dvideo a{color:var(--dk-indigo)}
+.dmeme{margin-top:16px;font-size:13.5px;color:var(--dk-muted);border-top:1px dashed var(--dk-line);padding-top:11px}
+.dmeme b{color:var(--dk-ink)}
+.dslide .katex{font-size:1.02em}
+
+/* ---------- inline preview (in the day view) ---------- */
+.deck{display:flex;flex-direction:column;gap:14px;margin:12px 0}
+.deck .dslide{box-shadow:0 14px 34px -26px rgba(14,19,48,.55)}
+
+/* ---------- fullscreen projector ---------- */
+.deckshow{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;
+  background:radial-gradient(120% 130% at 82% -12%,#232a63 0%,#0E1330 58%)}
+.deckbar{height:4px;background:rgba(255,255,255,.14);flex:none}
+.deckbar .f{height:100%;background:linear-gradient(90deg,var(--dk-indigo),var(--dk-gold));transition:width .25s}
+.deckstage{flex:1;display:flex;align-items:center;justify-content:center;padding:26px;min-height:0}
+.deckshow .dslide{width:min(1140px,94vw);max-height:86vh;overflow:auto;border:none;box-shadow:0 34px 90px -34px rgba(0,0,0,.75)}
+.deckshow .dbody{padding:40px 52px 44px 60px}
+.deckshow .dslide::before{width:9px}
+.deckshow .deyebrow{font-size:13px}
+.deckshow .dnum{font-size:13px}
+.deckshow .dh{font-size:42px;margin-bottom:22px}
+.deckshow .dbul{gap:15px}
+.deckshow .dbul li{font-size:24px;padding-left:30px;line-height:1.42}
+.deckshow .dbul li::before{top:12px;width:10px;height:10px}
+.deckshow .dcols{gap:34px}
+.deckshow .dgraphwrap{width:420px}
+.deckshow .dpanel{padding:20px 24px;margin-top:22px;border-radius:14px}
+.deckshow .dpanel .plab{font-size:13px;margin-bottom:7px}
+.deckshow .dpanel .pbody{font-size:22px;line-height:1.45}
+.deckshow .dchip{font-size:19px;padding:12px 17px}.deckshow .dchip b{font-size:21px}
+.deckshow .dvocab{gap:12px}
+.deckshow .dvideo{font-size:21px}.deckshow .dvideo .vic{width:34px;height:34px;font-size:14px}
+.deckshow .dmeme{font-size:17px;margin-top:22px;padding-top:15px}
+.deckshow .dgcap{font-size:12px}
+.deckfoot{flex:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 26px;color:#AEB6E0;font-family:var(--dk-mono);font-size:13px}
+.deckfoot .dtitle{color:#E7EAF7}
+.deckfoot .btn{font-family:var(--dk-sans)}
+.decknav{display:flex;gap:10px;align-items:center}
+.deckbtn{font-family:var(--dk-sans);font-size:14px;font-weight:600;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#E7EAF7;padding:8px 16px;cursor:pointer}
+.deckbtn.primary{background:var(--dk-indigo);border-color:var(--dk-indigo)}
+.deckbtn:hover{border-color:var(--dk-peri)}
+
+.dbody.dfull{padding:0 0 0 6px}
+.dfullimg{display:block;width:100%;height:auto;background:#F4F5FA}
+
+body{margin:0;background:#EBEEF6}
+.deckshow{position:fixed;inset:0;background:#0b1020;display:flex;flex-direction:column;z-index:999}
+.pstage{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 26px 8px;overflow:auto}
+.pstage .dslide{width:min(1180px,95vw);max-height:88vh;overflow:auto}
+.dbody.dfull{padding:0}.dfullimg{display:block;width:100%;height:auto;background:#F4F5FA}
+.pbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;color:#AEB6E0;font-family:system-ui}
+.pbar button{border:1px solid #4a4f9e;background:#20265c;color:#dfe3ff;font-weight:700;font-size:15px;padding:9px 18px;border-radius:10px;cursor:pointer}
+.pbar button.primary{background:#5A5FE0;border-color:#5A5FE0;color:#fff}
+.pbar .cnt{font-family:ui-monospace,monospace;min-width:74px;text-align:center}
+.startwrap{max-width:900px;margin:0 auto;padding:40px 20px 80px;font-family:system-ui,'Segoe UI',Arial,sans-serif;color:#0E1330}
+.starthero{border-radius:18px;color:#EDEFFA;padding:26px 30px;background:radial-gradient(130% 150% at 90% -20%,#262d66 0%,#0E1330 58%)}
+.starthero .eyebrow{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A9B0FF;font-weight:700}
+.starthero h1{font-family:Georgia,serif;font-size:34px;margin:8px 0 6px}
+.starthero p{margin:0;opacity:.9;font-size:15px}
+.bigpresent{display:inline-flex;align-items:center;gap:10px;margin:22px 0;background:#E7B449;color:#26307a;border:none;border-radius:14px;padding:16px 30px;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 12px 28px -10px rgba(231,180,73,.6)}
+.hint{font-family:ui-monospace,monospace;font-size:12.5px;color:#5A6382;margin:6px 0 20px}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:14px}.thumbs .dslide{cursor:pointer}</style></head><body>
+<div class="startwrap">
+  <div class="starthero"><div class="eyebrow">Friday · All engineering classes</div>
+  <h1>Present Your Product</h1><p>Bell-work (write your script) → the four sentences to say → filled example → what to show → be a great audience. Press Present, then arrow keys / Space.</p></div>
+  <button class="bigpresent" onclick="present(0)">▶ Present (fullscreen)</button>
+  <div class="hint">Space / → next · ← back · F fullscreen · Esc exit</div>
+  <div class="thumbs" id="thumbs"></div>
+</div>
+<script>/* ============================================================================
+   deck-plot.js — drawn SVG graphs + slide renderer for the design-standard deck.
+   Reused by the app (window.md / window.esc take over) and the standalone demo.
+   ========================================================================== */
+(function(g){
+  const esc = g.esc || (s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"));
+  function mdLite(s){
+    s=String(s==null?"":s); const keep=[];
+    s=s.replace(/\$[^$]*\$/g,x=>{keep.push(x);return "\x00"+(keep.length-1)+"\x00";});
+    s=s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    s=s.replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/(^|[^*])\*([^*]+)\*/g,"$1<i>$2</i>").replace(/`([^`]+)`/g,"<code>$1</code>");
+    s=s.replace(/\x00(\d+)\x00/g,(_,i)=>String(keep[+i]).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"));
+    return s;
+  }
+  const MD = ()=> (g.md || mdLite);
+
+  /* ---- safe expression -> function ---- */
+  function compileExpr(expr){
+    try{
+      let s=String(expr==null?"":expr).toLowerCase().trim(); if(!s) return null;
+      s=s.replace(/\^/g,"**");
+      s=s.replace(/\b(asin|acos|atan|sin|cos|tan|sqrt|abs|exp|log10|log2|log|ln|cbrt|sign|floor|ceil|round|min|max|pow)\b/g,
+        m=> m==="ln"?"Math.log": m==="log"?"Math.log10": m==="log2"?"Math.log2": "Math."+m);
+      s=s.replace(/\bpi\b/g,"Math.PI").replace(/(^|[^a-z.])e($|[^a-z.])/g,"$1Math.E$2");
+      s=s.replace(/(\d)\s*([x(])/g,"$1*$2").replace(/\)\s*(\()/g,")*$1").replace(/x\s*(\()/g,"x*$1").replace(/\)\s*x/g,")*x");
+      const check=s.replace(/Math\.\w+/g,"").replace(/\bMath\b/g,"").replace(/\bx\b/g,"");
+      if(/[a-z]/i.test(check)) return null;
+      const f=new Function("x","return ("+s+");");
+      f(0.31); // smoke
+      return x=>{try{const y=f(x);return (typeof y==="number"&&isFinite(y))?y:NaN;}catch(e){return NaN;}};
+    }catch(e){return null;}
+  }
+
+  const IND="#383CC1", GOLD="#C48A1A", AX="#5A6382", GRID="#E1E6F3", DOT="#383CC1", INK="#1B2350", MUT="#8A90B0";
+  const num=(v,d)=>{v=+v;return isFinite(v)?v:d;};
+  const niceStep=r=>{ if(!(r>0))return 1; const raw=r/8, p=Math.pow(10,Math.floor(Math.log10(raw))), n=raw/p; return (n<1.5?1:n<3.5?2:n<7.5?5:10)*p; };
+
+  /* ---- plotSvg(spec) -> <svg> string. spec: {kind,...params} | "expr" | raw <svg> ---- */
+  function plotSvg(spec){
+    if(!spec) return "";
+    if(typeof spec==="string"){ if(/^\s*<svg/i.test(spec)) return spec; spec={kind:"curve",expr:spec}; }
+    const W=340,H=248,pad=24;
+    let dom=spec.domain||spec.xrange||[-5,5]; let xmin=num(dom[0],-5), xmax=num(dom[1],5);
+    if(xmax<=xmin){xmin=-5;xmax=5;}
+    (spec.marks||[]).forEach(mk=>{const mx=+mk.x;if(isFinite(mx)){ if(mx<xmin)xmin=mx-(xmax-xmin)*0.06; if(mx>xmax)xmax=mx+(xmax-xmin)*0.06; }});
+    const k=(spec.kind||"curve").toLowerCase();
+    const series=[]; let circle=null, pts=null;
+    const push=(f,color)=>series.push({f,color:color||IND});
+    if(k==="line"){ push(x=>num(spec.m,1)*x+num(spec.b,0)); }
+    else if(k==="parabola"||k==="quadratic"){ const a=num(spec.a,1),b=num(spec.b,0),c=num(spec.c,0); push(x=>a*x*x+b*x+c); }
+    else if(k==="cubic"){ const a=num(spec.a,1),b=num(spec.b,0),c=num(spec.c,0),d=num(spec.d,0); push(x=>a*x*x*x+b*x*x+c*x+d); }
+    else if(k==="abs"){ const a=num(spec.a,1),h=num(spec.h,0),kk=num(spec.k,0); push(x=>a*Math.abs(x-h)+kk); }
+    else if(k==="sqrt"){ const a=num(spec.a,1),h=num(spec.h,0),kk=num(spec.k,0); push(x=> (x-h)>=0? a*Math.sqrt(x-h)+kk : NaN); }
+    else if(k==="exp"){ const a=num(spec.a,1),b=num(spec.b,2),kk=num(spec.k,0); push(x=>a*Math.pow(b,x)+kk); }
+    else if(k==="log"){ const b=num(spec.b,Math.E),h=num(spec.h,0),kk=num(spec.k,0); push(x=> (x-h)>0? Math.log(x-h)/Math.log(b)+kk : NaN); }
+    else if(k==="sin"){ const a=num(spec.a,1),b=num(spec.b,1),c=num(spec.c,0),d=num(spec.d,0); push(x=>a*Math.sin(b*x+c)+d); }
+    else if(k==="cos"){ const a=num(spec.a,1),b=num(spec.b,1),c=num(spec.c,0),d=num(spec.d,0); push(x=>a*Math.cos(b*x+c)+d); }
+    else if(k==="tan"){ const a=num(spec.a,1),b=num(spec.b,1); push(x=>a*Math.tan(b*x)); }
+    else if(k==="circle"){ circle={h:num(spec.h,0),k:num(spec.k,0),r:Math.abs(num(spec.r,3))}; }
+    else if(k==="points"||k==="scatter"){ pts=(spec.pts||spec.points||[]).map(p=>[+p[0],+p[1]]).filter(p=>isFinite(p[0])&&isFinite(p[1])); }
+    else { const f=compileExpr(spec.expr); if(f) push(f); }
+    if(spec.expr2){ const f2=compileExpr(spec.expr2); if(f2) push(f2,GOLD); }
+
+    const steps=200, xs=[]; for(let i=0;i<=steps;i++) xs.push(xmin+(xmax-xmin)*i/steps);
+    const data=series.map(se=>({color:se.color, pts:xs.map(x=>[x,se.f(x)])}));
+
+    let ymin, ymax;
+    if(spec.yrange){ ymin=num(spec.yrange[0],-5); ymax=num(spec.yrange[1],5); }
+    else{
+      ymin=Infinity; ymax=-Infinity;
+      data.forEach(se=>se.pts.forEach(p=>{ if(isFinite(p[1])){ if(p[1]<ymin)ymin=p[1]; if(p[1]>ymax)ymax=p[1]; } }));
+      if(circle){ ymin=Math.min(ymin,circle.k-circle.r); ymax=Math.max(ymax,circle.k+circle.r); xmin=Math.min(xmin,circle.h-circle.r); xmax=Math.max(xmax,circle.h+circle.r); }
+      if(pts&&pts.length){ pts.forEach(p=>{ if(p[1]<ymin)ymin=p[1]; if(p[1]>ymax)ymax=p[1]; }); }
+      if(!isFinite(ymin)||!isFinite(ymax)){ ymin=-5; ymax=5; }
+      if(ymax-ymin>44){ ymax=Math.min(ymax,22); ymin=Math.max(ymin,-22); }
+      const p=(ymax-ymin)*0.14||1; ymin-=p; ymax+=p;
+      if(ymin>0) ymin=Math.min(ymin,-0.6); if(ymax<0) ymax=Math.max(ymax,0.6);
+    }
+    // a labeled point (vertex / start / intercept) must never render off the chart — expand to include every mark
+    (spec.marks||[]).forEach(mk=>{const my=+mk.y;if(isFinite(my)){ const sp=(ymax-ymin)*0.10||1; if(my<ymin)ymin=my-sp; if(my>ymax)ymax=my+sp; }});
+    if(ymax<=ymin){ymin-=1;ymax+=1;}
+
+    const X=x=>pad+(x-xmin)/(xmax-xmin)*(W-2*pad);
+    const Y=y=>H-pad-(y-ymin)/(ymax-ymin)*(H-2*pad);
+    const sx=niceStep(xmax-xmin), sy=niceStep(ymax-ymin);
+    let out='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,Consolas,monospace">';
+    out+='<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="#fff"/>';
+    let grid="";
+    for(let gx=Math.ceil(xmin/sx)*sx; gx<=xmax+1e-9; gx+=sx){ const px=X(gx); grid+='<line x1="'+px.toFixed(1)+'" y1="'+pad+'" x2="'+px.toFixed(1)+'" y2="'+(H-pad)+'" stroke="'+GRID+'" stroke-width="1"/>'; }
+    for(let gy=Math.ceil(ymin/sy)*sy; gy<=ymax+1e-9; gy+=sy){ const py=Y(gy); grid+='<line x1="'+pad+'" y1="'+py.toFixed(1)+'" x2="'+(W-pad)+'" y2="'+py.toFixed(1)+'" stroke="'+GRID+'" stroke-width="1"/>'; }
+    out+=grid;
+    const y0inside=(0>=ymin&&0<=ymax), x0inside=(0>=xmin&&0<=xmax);
+    const axY=y0inside?Y(0):(0<ymin?H-pad:pad), axX=x0inside?X(0):(0<xmin?pad:W-pad);
+    out+='<line x1="'+pad+'" y1="'+axY.toFixed(1)+'" x2="'+(W-pad)+'" y2="'+axY.toFixed(1)+'" stroke="'+AX+'" stroke-width="1.6"/>';
+    out+='<line x1="'+axX.toFixed(1)+'" y1="'+pad+'" x2="'+axX.toFixed(1)+'" y2="'+(H-pad)+'" stroke="'+AX+'" stroke-width="1.6"/>';
+    let labels="";
+    for(let gx=Math.ceil(xmin/sx)*sx; gx<=xmax+1e-9; gx+=sx){ if(Math.abs(gx)<1e-9)continue; const px=X(gx); labels+='<text x="'+px.toFixed(1)+'" y="'+(axY+12).toFixed(1)+'" fill="'+MUT+'" font-size="9" text-anchor="middle">'+(Math.round(gx*100)/100)+'</text>'; }
+    for(let gy=Math.ceil(ymin/sy)*sy; gy<=ymax+1e-9; gy+=sy){ if(Math.abs(gy)<1e-9)continue; const py=Y(gy); labels+='<text x="'+(axX-5).toFixed(1)+'" y="'+(py+3).toFixed(1)+'" fill="'+MUT+'" font-size="9" text-anchor="end">'+(Math.round(gy*100)/100)+'</text>'; }
+    out+=labels;
+    data.forEach(se=>{
+      let d="", pen=false, prevY=null;
+      se.pts.forEach(p=>{
+        const x=p[0], y=p[1];
+        if(!isFinite(y)){ pen=false; prevY=null; return; }
+        const py=Y(y);
+        if(pen && prevY!=null && Math.abs(py-prevY)>H*0.9){ pen=false; }
+        d += (pen?" L":" M")+X(x).toFixed(1)+" "+Math.max(-40,Math.min(H+40,py)).toFixed(1);
+        pen=true; prevY=py;
+      });
+      if(d) out+='<path d="'+d.trim()+'" fill="none" stroke="'+se.color+'" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>';
+    });
+    if(circle){ out+='<ellipse cx="'+X(circle.h).toFixed(1)+'" cy="'+Y(circle.k).toFixed(1)+'" rx="'+(Math.abs(X(circle.h+circle.r)-X(circle.h))).toFixed(1)+'" ry="'+(Math.abs(Y(circle.k+circle.r)-Y(circle.k))).toFixed(1)+'" fill="none" stroke="'+IND+'" stroke-width="2.6"/>'; }
+    if(pts){ pts.forEach(p=>{ out+='<circle cx="'+X(p[0]).toFixed(1)+'" cy="'+Y(p[1]).toFixed(1)+'" r="3.6" fill="'+DOT+'"/>'; }); }
+    (spec.marks||[]).forEach(mk=>{ let mx=num(mk.x,0),my=num(mk.y,0);
+      if(series.length){ let best=null; series.forEach(se=>{const yv=se.f(mx); if(isFinite(yv)&&(best===null||Math.abs(yv-my)<Math.abs(best-my)))best=yv;}); if(best!==null&&Math.abs(best-my)>0.02) my=best; } // snap the dot onto the real curve — never draw a labeled point off its graph
+      out+='<circle cx="'+X(mx).toFixed(1)+'" cy="'+Y(my).toFixed(1)+'" r="4" fill="#fff" stroke="'+GOLD+'" stroke-width="2.4"/>'; if(mk.label) out+='<text x="'+(X(mx)+7).toFixed(1)+'" y="'+(Y(my)-7).toFixed(1)+'" fill="'+INK+'" font-size="10.5" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="3.4" stroke-linejoin="round">'+esc(mk.label)+'</text>'; });
+    out+='</svg>';
+    return out;
+  }
+
+  /* ---- one slide's inner HTML ---- */
+  const EYE={hook:"Hook",define:"New concept",example:"Worked example",mistake:"Watch out",youtry:"You try",vocab:"Vocabulary",wedo:"We do — together",roadmap:"Where we're headed",recap:"Recap",video:"Watch"};
+  function slideBody(s,i,n){
+    s=s||{}; const md=MD(); const t=(s.type||"").toLowerCase(); if(s.imgFull){ var _ff=(g.DECK_IMAGES&&g.DECK_IMAGES[s.imgFull])||(/^data:/.test(s.imgFull)?s.imgFull:''); if(_ff) return '<div class="dbody dfull"><img class="dfullimg" src="'+_ff+'" alt=""/></div>'; }
+    const mdL=x=>String(x==null?"":x).split(/\n/).map(l=>md(l)).join("<br>");
+    const eyebrow=esc(s.eyebrow||EYE[t]||"Slide");
+    const main=[];
+    if((s.bullets||[]).length) main.push('<ul class="dbul">'+s.bullets.map(b=>'<li><span class="dbt">'+md(b)+'</span></li>').join("")+'</ul>');
+    if(s.example) main.push('<div class="dpanel ex"><div class="plab">Worked example</div><div class="pbody">'+mdL(s.example)+'</div></div>');
+    if(s.mistake) main.push('<div class="dpanel mis"><div class="plab">Common mistake</div><div class="pbody">'+mdL(s.mistake)+'</div></div>');
+    const yt=s.youTry||s.youtry; if(yt) main.push('<div class="dpanel you"><div class="plab">You try</div><div class="pbody">'+mdL(yt)+'</div></div>');
+    if(s.note) main.push('<div class="dpanel note"><div class="plab">Keep in mind</div><div class="pbody">'+mdL(s.note)+'</div></div>');
+    if((s.vocab||[]).length) main.push('<div class="dvocab">'+s.vocab.map(x=>'<span class="dchip"><b>'+esc(x.term||"")+'</b>'+(x.definition?' — '+esc(x.definition):'')+'</span>').join("")+'</div>');
+    const vurl=(s.video&&s.video.url)||""; if(/youtube\.com\/watch|youtu\.be\/|vimeo\.com\/\d|\/embed\//i.test(vurl)) main.push('<div class="dvideo"><span class="vic">&#9654;</span><span class="dvtext"><a href="'+esc(vurl)+'" target="_blank" rel="noopener">'+esc((s.video&&s.video.title)||"Watch this")+'</a><span class="dvidurl">'+esc(vurl)+'</span></span></div>');
+    let aside=s.graph?('<div class="dgraphwrap"><div class="dgraph">'+plotSvg(s.graph)+'</div>'+(s.graphCaption?'<div class="dgcap">'+esc(s.graphCaption)+'</div>':'')+'</div>'):'';
+    if(!aside && s.vids && s.vids.length){ aside='<div class="dimgwrap"><div class="dvids">'+s.vids.map(function(v){return '<video class="dvid" src="'+esc(v)+'" controls playsinline preload="metadata"></video>';}).join('')+'</div></div>'; }
+    if(!aside && s.vid){ aside='<div class="dimgwrap"><video class="dvid" src="'+esc(s.vid)+'" controls playsinline preload="metadata"></video></div>'; }
+    if(!aside && s.img){ var _im=(g.DECK_IMAGES&&g.DECK_IMAGES[s.img])||(/^data:/.test(s.img)?s.img:""); if(_im) aside='<div class="dimgwrap"><img class="dimg" style="object-fit:'+(s.imgFit||'cover')+'" src="'+_im+'" alt=""/>'+(s.imgCredit?'<div class="dgcap">'+esc(s.imgCredit)+'</div>':'')+'</div>'; }
+    const body=aside?('<div class="dcols"><div class="dmain">'+main.join("")+'</div>'+aside+'</div>'):main.join("");
+    const dnum=n?'<span class="dnum">'+(i+1)+' / '+n+'</span>':'';
+    return '<div class="dbody"><div class="dtop"><span class="deyebrow">'+eyebrow+'</span>'+dnum+'</div><h2 class="dh">'+esc(s.heading||"")+'</h2>'+body+'</div>';
+  }
+  function slideEl(s,i,n){ return '<div class="dslide" data-t="'+esc((s.type||"").toLowerCase())+'">'+slideBody(s,i,n)+'</div>'; }
+
+  g.DECK_CSS="/* deck.css — design-standard presentation deck (inline preview + fullscreen projector).\n   Scoped under .deck / .deckshow so it never collides with the app's clay theme. */\n:root,.deck,.deckshow{--dk-card:#fff;--dk-ink:#0E1330;--dk-ink2:#1B2350;--dk-muted:#5A6382;--dk-line:#E4E9F5;\n  --dk-indigo:#383CC1;--dk-indigo-soft:#EAEBFB;--dk-indigo-line:#D5D9F5;--dk-peri:#A9B0FF;--dk-gold:#E7B449;\n  --dk-amber:#8A5300;--dk-amber-bg:#FBF1DF;--dk-amber-line:#EAD4A6;\n  --dk-pine:#0B6E4F;--dk-pine-bg:#E6F4EE;--dk-pine-line:#BCE2D2;\n  --dk-rose:#AF1235;--dk-rose-bg:#FBE8ED;--dk-rose-line:#F0C1CD;\n  --dk-serif:Georgia,'Times New Roman',serif;--dk-sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--dk-mono:ui-monospace,'SF Mono','Cascadia Code',Consolas,monospace}\n\n/* ---------- one slide (shared by inline + fullscreen) ---------- */\n.dslide{position:relative;background:var(--dk-card);border:1px solid var(--dk-line);border-radius:16px;overflow:hidden;color:var(--dk-ink);font-family:var(--dk-sans)}\n.dslide::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--dk-indigo)}\n.dslide[data-t=\"hook\"]::before,.dslide[data-t=\"recap\"]::before{background:var(--dk-gold)}\n.dslide[data-t=\"mistake\"]::before{background:var(--dk-rose)}\n.dslide[data-t=\"youtry\"]::before,.dslide[data-t=\"wedo\"]::before{background:var(--dk-pine)}\n.dslide[data-t=\"vocab\"]::before,.dslide[data-t=\"roadmap\"]::before{background:linear-gradient(180deg,var(--dk-indigo),var(--dk-gold))}\n.dbody{padding:20px 24px 22px 30px}\n.dtop{display:flex;align-items:center;gap:10px;margin-bottom:5px}\n.deyebrow{font-family:var(--dk-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--dk-indigo)}\n.dslide[data-t=\"mistake\"] .deyebrow{color:var(--dk-rose)}\n.dslide[data-t=\"youtry\"] .deyebrow,.dslide[data-t=\"wedo\"] .deyebrow{color:var(--dk-pine)}\n.dslide[data-t=\"hook\"] .deyebrow,.dslide[data-t=\"recap\"] .deyebrow{color:var(--dk-amber)}\n.dnum{margin-left:auto;font-family:var(--dk-mono);font-size:11px;color:var(--dk-muted)}\n.dh{font-family:var(--dk-serif);font-weight:700;font-size:24px;line-height:1.08;letter-spacing:-.01em;color:var(--dk-ink);margin:0 0 12px;text-wrap:balance}\n.dcols{display:flex;gap:20px;align-items:flex-start}\n.dmain{flex:1;min-width:0}\n.dgraphwrap{flex:none;width:300px}\n.dimgwrap{flex:none;width:340px}\n.dimg{width:100%;height:auto;max-height:430px;object-fit:cover;background:#eef0f6;border-radius:12px;border:1px solid var(--dk-line);display:block}\n.dvid{width:100%;max-height:430px;object-fit:contain;background:#000;border-radius:12px;border:1px solid var(--dk-line);display:block}\n.dvids{display:flex;gap:10px}\n.dvids .dvid{flex:1;min-width:0}\n.dvideo{align-items:flex-start}\n.dvtext{display:flex;flex-direction:column;min-width:0}\n.dvidurl{font-family:var(--dk-mono);font-size:12px;color:var(--dk-muted);word-break:break-all;margin-top:1px}\n.dbul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}\n.dbul li{display:flex;align-items:baseline;gap:12px;font-size:15.5px;line-height:1.5;color:var(--dk-ink2)}\n.dbul li::before{content:'';flex:none;width:7px;height:7px;border-radius:2px;background:var(--dk-indigo);transform:rotate(45deg)}\n.dbt{flex:1;min-width:0}\n.dpanel{margin-top:14px;border-radius:12px;padding:13px 16px;border:1px solid var(--dk-line)}\n.dpanel:first-child{margin-top:0}\n.dpanel .plab{font-family:var(--dk-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;margin-bottom:5px}\n.dpanel .pbody{font-size:15px;line-height:1.5;color:var(--dk-ink)}\n.dpanel.ex{background:var(--dk-indigo-soft);border-color:var(--dk-indigo-line)}.dpanel.ex .plab{color:var(--dk-indigo)}\n.dpanel.mis{background:var(--dk-rose-bg);border-color:var(--dk-rose-line)}.dpanel.mis .plab{color:var(--dk-rose)}\n.dpanel.you{background:var(--dk-pine-bg);border-color:var(--dk-pine-line)}.dpanel.you .plab{color:var(--dk-pine)}\n.dpanel.note{background:var(--dk-amber-bg);border-color:var(--dk-amber-line)}.dpanel.note .plab{color:var(--dk-amber)}\n.dvocab{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}\n.dchip{background:#fff;border:1px solid var(--dk-line);border-left:3px solid var(--dk-indigo);border-radius:9px;padding:9px 13px;font-size:14px;line-height:1.35;color:var(--dk-ink2)}\n.dchip b{color:var(--dk-indigo);font-family:var(--dk-serif);font-size:15px}\n.dgraph{background:#fff;border:1px solid var(--dk-line);border-radius:12px;padding:8px}\n.dgraph svg{display:block;width:100%;height:auto}\n.dgcap{font-family:var(--dk-mono);font-size:10px;color:var(--dk-muted);text-align:center;margin-top:5px;letter-spacing:.02em}\n.dvideo{margin-top:14px;display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600}\n.dvideo .vic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--dk-indigo);color:#fff;font-size:11px}\n.dvideo a{color:var(--dk-indigo)}\n.dmeme{margin-top:16px;font-size:13.5px;color:var(--dk-muted);border-top:1px dashed var(--dk-line);padding-top:11px}\n.dmeme b{color:var(--dk-ink)}\n.dslide .katex{font-size:1.02em}\n\n/* ---------- inline preview (in the day view) ---------- */\n.deck{display:flex;flex-direction:column;gap:14px;margin:12px 0}\n.deck .dslide{box-shadow:0 14px 34px -26px rgba(14,19,48,.55)}\n\n/* ---------- fullscreen projector ---------- */\n.deckshow{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;\n  background:radial-gradient(120% 130% at 82% -12%,#232a63 0%,#0E1330 58%)}\n.deckbar{height:4px;background:rgba(255,255,255,.14);flex:none}\n.deckbar .f{height:100%;background:linear-gradient(90deg,var(--dk-indigo),var(--dk-gold));transition:width .25s}\n.deckstage{flex:1;display:flex;align-items:center;justify-content:center;padding:26px;min-height:0}\n.deckshow .dslide{width:min(1140px,94vw);max-height:86vh;overflow:auto;border:none;box-shadow:0 34px 90px -34px rgba(0,0,0,.75)}\n.deckshow .dbody{padding:40px 52px 44px 60px}\n.deckshow .dslide::before{width:9px}\n.deckshow .deyebrow{font-size:13px}\n.deckshow .dnum{font-size:13px}\n.deckshow .dh{font-size:42px;margin-bottom:22px}\n.deckshow .dbul{gap:15px}\n.deckshow .dbul li{font-size:24px;line-height:1.42;gap:14px}\n.deckshow .dbul li::before{width:10px;height:10px}\n.deckshow .dcols{gap:34px}\n.deckshow .dgraphwrap{width:420px}\n.deckshow .dimgwrap{width:460px}\n.deckshow .dimg{max-height:64vh}\n.deckshow .dvid{max-height:64vh}\n.deckshow .dpanel{padding:20px 24px;margin-top:22px;border-radius:14px}\n.deckshow .dpanel .plab{font-size:13px;margin-bottom:7px}\n.deckshow .dpanel .pbody{font-size:22px;line-height:1.45}\n.deckshow .dchip{font-size:19px;padding:12px 17px}.deckshow .dchip b{font-size:21px}\n.deckshow .dvocab{gap:12px}\n.deckshow .dvideo{font-size:21px}.deckshow .dvideo .vic{width:34px;height:34px;font-size:14px}\n.deckshow .dmeme{font-size:17px;margin-top:22px;padding-top:15px}\n.deckshow .dgcap{font-size:12px}\n.deckfoot{flex:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 26px;color:#AEB6E0;font-family:var(--dk-mono);font-size:13px}\n.deckfoot .dtitle{color:#E7EAF7}\n.deckfoot .btn{font-family:var(--dk-sans)}\n.decknav{display:flex;gap:10px;align-items:center}\n.deckbtn{font-family:var(--dk-sans);font-size:14px;font-weight:600;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#E7EAF7;padding:8px 16px;cursor:pointer}\n.deckbtn.primary{background:var(--dk-indigo);border-color:var(--dk-indigo)}\n.deckbtn:hover{border-color:var(--dk-peri)}";
+  if(typeof document!=="undefined"&&!document.getElementById("deckcss")){var _st=document.createElement("style");_st.id="deckcss";_st.textContent=g.DECK_CSS;document.head.appendChild(_st);}
+  g.compileExpr=compileExpr; g.plotSvg=plotSvg; g.slideBody=slideBody; g.slideEl=slideEl; 
+})(typeof window!=="undefined"?window:globalThis);
+</script>
+<script>
+window.DECK_IMAGES={"cuecard": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5NjAgNTQwJyBmb250LWZhbWlseT0nR2VvcmdpYSxzZXJpZic+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsbD0nI0Y0RjVGQScvPjx0ZXh0IHg9JzQ4MC4wJyB5PSc1MCcgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC1zaXplPScyOScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nIzBFMTMzMCc+U0FZIFRIRVNFIEZPVVIgVEhJTkdTPC90ZXh0Pjx0ZXh0IHg9JzQ4MC4wJyB5PSc3NicgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC1zaXplPScxNCcgZm9udC1mYW1pbHk9J3VpLW1vbm9zcGFjZSxtb25vc3BhY2UnIGZpbGw9JyM1QjY0NzInPmNvcHkgaW50byB5b3VyIG5vdGVib29rIMK3IGZpbGwgZXZlcnkgYmxhbmsgYmVmb3JlIHlvdSBwcmVzZW50PC90ZXh0PjxyZWN0IHg9JzE1NicgeT0nMTA0JyB3aWR0aD0nNjYwJyBoZWlnaHQ9JzM2MCcgcng9JzE2JyBmaWxsPScjMDAwJyBvcGFjaXR5PScuMDYnLz48cmVjdCB4PScxNTAnIHk9Jzk2JyB3aWR0aD0nNjYwJyBoZWlnaHQ9JzM2MCcgcng9JzE2JyBmaWxsPScjZmZmJyBzdHJva2U9JyMwRTEzMzAnIHN0cm9rZS13aWR0aD0nMi41Jy8+PGxpbmUgeDE9JzE3NicgeTE9Jzk2JyB4Mj0nMTc2JyB5Mj0nNDU2JyBzdHJva2U9JyNFN0I0NDknIHN0cm9rZS13aWR0aD0nNCcvPjxjaXJjbGUgY3g9JzIxNicgY3k9JzE1NCcgcj0nMTgnIGZpbGw9JyMzODNDQzEnLz48dGV4dCB4PScyMTYnIHk9JzE2MCcgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC1zaXplPScxOScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nI2ZmZicgZm9udC1mYW1pbHk9J3VpLW1vbm9zcGFjZSxtb25vc3BhY2UnPjE8L3RleHQ+PHRleHQgeD0nMjUwJyB5PScxNjInIGZvbnQtc2l6ZT0nMjInIGZpbGw9JyMwRTEzMzAnPk15IG5hbWUgaXMgX19fX19fX19fX19fX19fX19fLjwvdGV4dD48Y2lyY2xlIGN4PScyMTYnIGN5PScyMTYnIHI9JzE4JyBmaWxsPScjMzgzQ0MxJy8+PHRleHQgeD0nMjE2JyB5PScyMjInIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtc2l6ZT0nMTknIGZvbnQtd2VpZ2h0PSc3MDAnIGZpbGw9JyNmZmYnIGZvbnQtZmFtaWx5PSd1aS1tb25vc3BhY2UsbW9ub3NwYWNlJz4yPC90ZXh0Pjx0ZXh0IHg9JzI1MCcgeT0nMjI0JyBmb250LXNpemU9JzIyJyBmaWxsPScjMEUxMzMwJz5NeSBwcm9kdWN0IGlzIHRoZSBfX19fX19fX19fX19fX19fX18uPC90ZXh0PjxjaXJjbGUgY3g9JzIxNicgY3k9JzI3OCcgcj0nMTgnIGZpbGw9JyMzODNDQzEnLz48dGV4dCB4PScyMTYnIHk9JzI4NCcgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC1zaXplPScxOScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nI2ZmZicgZm9udC1mYW1pbHk9J3VpLW1vbm9zcGFjZSxtb25vc3BhY2UnPjM8L3RleHQ+PHRleHQgeD0nMjUwJyB5PScyODYnIGZvbnQtc2l6ZT0nMjInIGZpbGw9JyMwRTEzMzAnPkl0IHNvbHZlcyB0aGlzIHByb2JsZW06IF9fX19fX19fX19fX19fX19fXy48L3RleHQ+PGNpcmNsZSBjeD0nMjE2JyBjeT0nMzQwJyByPScxOCcgZmlsbD0nIzM4M0NDMScvPjx0ZXh0IHg9JzIxNicgeT0nMzQ2JyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmb250LXNpemU9JzE5JyBmb250LXdlaWdodD0nNzAwJyBmaWxsPScjZmZmJyBmb250LWZhbWlseT0ndWktbW9ub3NwYWNlLG1vbm9zcGFjZSc+NDwvdGV4dD48dGV4dCB4PScyNTAnIHk9JzM0OCcgZm9udC1zaXplPScyMicgZmlsbD0nIzBFMTMzMCc+VGhpcyBpcyBob3cgaXQgd29ya3M6IF9fX19fX19fX19fX19fX19fXy48L3RleHQ+PHJlY3QgeD0nMTkyJyB5PSczOTgnIHdpZHRoPSc1NzYnIGhlaWdodD0nNDInIHJ4PSc5JyBmaWxsPScjRkJGMURGJyBzdHJva2U9JyNFN0I0NDknIHN0cm9rZS13aWR0aD0nMS41Jy8+PHRleHQgeD0nMjEwJyB5PSc0MjUnIGZvbnQtc2l6ZT0nMTcnIGZpbGw9JyM4QTUzMDAnPuKYhSBJZiBJIGhhZCBtb3JlIHRpbWUsIEkgd291bGQgaW1wcm92ZSBfX19fX19fX19fX19fX19fX18uPC90ZXh0Pjwvc3ZnPg==", "audience": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5NjAgNTQwJyBmb250LWZhbWlseT0nR2VvcmdpYSxzZXJpZic+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsbD0nI0Y0RjVGQScvPjx0ZXh0IHg9JzQ4MC4wJyB5PSc1MicgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC1zaXplPScyOScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nIzBFMTMzMCc+QkUgQSBHUkVBVCBBVURJRU5DRTwvdGV4dD48dGV4dCB4PSc0ODAuMCcgeT0nNzgnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtc2l6ZT0nMTQnIGZvbnQtZmFtaWx5PSd1aS1tb25vc3BhY2UsbW9ub3NwYWNlJyBmaWxsPScjNUI2NDcyJz53aGVuIGl0IGlzIG5vdCB5b3VyIHR1cm48L3RleHQ+PHJlY3QgeD0nNjAuMCcgeT0nMTA4JyB3aWR0aD0nMjcwJyBoZWlnaHQ9JzE1MCcgcng9JzE0JyBmaWxsPScjZmZmJyBzdHJva2U9JyNDOUNFRTAnIHN0cm9rZS13aWR0aD0nMS41Jy8+PGNpcmNsZSBjeD0nOTQuMCcgY3k9JzE0Micgcj0nMTUnIGZpbGw9JyMwQjZFNEYnLz48cGF0aCBkPSdNODcuMCAxNDIgbDUgNiBsMTAgLTEyJyBzdHJva2U9JyNmZmYnIHN0cm9rZS13aWR0aD0nMycgZmlsbD0nbm9uZScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PHRleHQgeD0nMTIwLjAnIHk9JzE0OCcgZm9udC1zaXplPScyMScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nIzBFMTMzMCc+RXllcyB1cDwvdGV4dD48dGV4dCB4PSc4Mi4wJyB5PScxOTAnIGZvbnQtc2l6ZT0nMTUnIGZpbGw9JyM1QjY0NzInPkxvb2sgYXQgdGhlIHByZXNlbnRlciDigJQgbm90IHlvdXIgcGhvbmUuPC90ZXh0PjxyZWN0IHg9JzM0NS4wJyB5PScxMDgnIHdpZHRoPScyNzAnIGhlaWdodD0nMTUwJyByeD0nMTQnIGZpbGw9JyNmZmYnIHN0cm9rZT0nI0M5Q0VFMCcgc3Ryb2tlLXdpZHRoPScxLjUnLz48Y2lyY2xlIGN4PSczNzkuMCcgY3k9JzE0Micgcj0nMTUnIGZpbGw9JyMwQjZFNEYnLz48cGF0aCBkPSdNMzcyLjAgMTQyIGw1IDYgbDEwIC0xMicgc3Ryb2tlPScjZmZmJyBzdHJva2Utd2lkdGg9JzMnIGZpbGw9J25vbmUnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcvPjx0ZXh0IHg9JzQwNS4wJyB5PScxNDgnIGZvbnQtc2l6ZT0nMjEnIGZvbnQtd2VpZ2h0PSc3MDAnIGZpbGw9JyMwRTEzMzAnPkxpc3RlbjwvdGV4dD48dGV4dCB4PSczNjcuMCcgeT0nMTkwJyBmb250LXNpemU9JzE1JyBmaWxsPScjNUI2NDcyJz5DYXRjaCB0aGVpciBwcm9ibGVtIGFuZCB0aGVpciBzb2x1dGlvbi48L3RleHQ+PHJlY3QgeD0nNjMwLjAnIHk9JzEwOCcgd2lkdGg9JzI3MCcgaGVpZ2h0PScxNTAnIHJ4PScxNCcgZmlsbD0nI2ZmZicgc3Ryb2tlPScjQzlDRUUwJyBzdHJva2Utd2lkdGg9JzEuNScvPjxjaXJjbGUgY3g9JzY2NC4wJyBjeT0nMTQyJyByPScxNScgZmlsbD0nIzBCNkU0RicvPjxwYXRoIGQ9J002NTcuMCAxNDIgbDUgNiBsMTAgLTEyJyBzdHJva2U9JyNmZmYnIHN0cm9rZS13aWR0aD0nMycgZmlsbD0nbm9uZScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PHRleHQgeD0nNjkwLjAnIHk9JzE0OCcgZm9udC1zaXplPScyMScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nIzBFMTMzMCc+Q2xhcDwvdGV4dD48dGV4dCB4PSc2NTIuMCcgeT0nMTkwJyBmb250LXNpemU9JzE1JyBmaWxsPScjNUI2NDcyJz5FdmVyeSBkZXNpZ25lciBnZXRzIGFwcGxhdXNlLjwvdGV4dD48dGV4dCB4PSc0ODAuMCcgeT0nMjg4JyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmb250LXNpemU9JzE2JyBmb250LWZhbWlseT0ndWktbW9ub3NwYWNlLG1vbm9zcGFjZScgZm9udC13ZWlnaHQ9JzcwMCcgZmlsbD0nIzBFMTMzMCcgbGV0dGVyLXNwYWNpbmc9Jy41Jz5XSEVOIFRIRVkgRklOSVNILCBCRSBSRUFEWSBUTyBTQVkgT05FOjwvdGV4dD48cmVjdCB4PSc4OC4wJyB5PSczMTAnIHdpZHRoPSczODAnIGhlaWdodD0nNjYnIHJ4PScxMicgZmlsbD0nI0VBRUJGQicgc3Ryb2tlPScjMzgzQ0MxJyBzdHJva2Utd2lkdGg9JzEuNicvPjx0ZXh0IHg9JzI3OC4wJyB5PSczNTEnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtc2l6ZT0nMTknIGZpbGw9JyMwRTEzMzAnPuKAnE9uZSB0aGluZyBJIGxpa2VkIGlzIF9fX19fX19fX18u4oCdPC90ZXh0PjxyZWN0IHg9JzQ5Mi4wJyB5PSczMTAnIHdpZHRoPSczODAnIGhlaWdodD0nNjYnIHJ4PScxMicgZmlsbD0nI0ZCRjFERicgc3Ryb2tlPScjOEE1MzAwJyBzdHJva2Utd2lkdGg9JzEuNicvPjx0ZXh0IHg9JzY4Mi4wJyB5PSczNTEnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtc2l6ZT0nMTknIGZpbGw9JyMwRTEzMzAnPuKAnE9uZSBxdWVzdGlvbiBJIGhhdmUgaXMgX19fX19fX19fXy7igJ08L3RleHQ+PC9zdmc+"};
+var SLIDES=[{"type": "cover", "eyebrow": "Friday · All engineering classes", "heading": "Present your product", "bullets": ["Today you show the class what you **designed, improved, and built**.", "Your problem → your final design → your AI product image."]}, {"type": "wedo", "eyebrow": "Bell-work · write in your notebook", "heading": "Write your script before you present", "bullets": ["Copy the **four sentences** on the next slide into your notebook.", "**Fill in every blank** with your own product — this is exactly what you'll say.", "Nervous is normal. Having it written means you'll never be stuck for words."]}, {"type": "concept", "eyebrow": "Your script · model this", "heading": "Say these four things", "bullets": ["Every presenter says the **same four sentences** — just fill them with your product.", "Add the **bonus** line to show you think like an engineer (you're never done improving)."], "imgFull": "cuecard"}, {"type": "example", "eyebrow": "What it sounds like", "heading": "Here's a filled-in example", "bullets": ["Read it out loud in your head — this is the level we're going for:"], "example": "My name is Andres.\nMy product is the ShoulderSaver.\nIt solves this problem: heavy backpacks dig into your shoulders and hurt.\nThis is how it works: a wide memory-foam strap spreads the weight so it stops digging in.\n★ If I had more time, I would add a clip so it doesn't slide off."}, {"type": "wedo", "eyebrow": "When it's your turn", "heading": "What to show us", "bullets": ["**Pull up your AI product image** — it's in Google Classroom.", "**Hold up your notebook page** so we can see your final sketch.", "Then **say your four sentences.** That's it — about **one minute.**"]}, {"type": "define", "eyebrow": "How we'll run it", "heading": "Quick, clear, everyone goes", "bullets": ["Come up when I call you, show your image, say your sentences, take **one** question.", "**Speak up and face the class** — not the screen.", "It's a room full of people who **just did the same thing.** You've got this."]}, {"type": "concept", "eyebrow": "Your job as the audience", "heading": "Be a great audience", "bullets": ["When it's not your turn, your job is to **watch, listen, and support.**", "Have **one compliment or one question** ready for each presenter."], "imgFull": "audience"}, {"type": "recap", "eyebrow": "What makes it great", "heading": "A strong presentation has all four", "bullets": ["✓ The **problem** is clear — we understand who it helps.", "✓ You show your **final design + AI image.**", "✓ You can explain **how it works.**", "✓ You **speak clearly** and look at us."]}, {"type": "close", "heading": "You designed it. You improved it. Now show it off.", "bullets": ["This is the whole **engineering design process** in one week — Ask, Imagine, Plan, Create, Improve.", "**Exit ticket:** in your notebook, write one thing you'd design next."]}];
+document.getElementById('thumbs').innerHTML=SLIDES.map(function(s,i){return '<div onclick="present('+i+')">'+window.slideEl(s,i,SLIDES.length)+'</div>';}).join('');
+function present(idx){
+  var i=idx||0;
+  var ov=document.createElement('div'); ov.className='deckshow';
+  function draw(){ ov.innerHTML='<div class="pstage">'+window.slideEl(SLIDES[i],i,SLIDES.length)+'</div>'+
+    '<div class="pbar"><button id="pp">← Back</button><span class="cnt">'+(i+1)+' / '+SLIDES.length+'</span><button id="pn" class="primary">Next →</button><button id="pf">⛶</button><button id="pc">Close ✕</button></div>';
+    ov.querySelector('#pp').onclick=function(){if(i>0){i--;draw();}};
+    ov.querySelector('#pn').onclick=function(){if(i<SLIDES.length-1){i++;draw();}};
+    ov.querySelector('#pf').onclick=function(){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}catch(e){}};
+    ov.querySelector('#pc').onclick=close;
+  }
+  function key(e){ if(e.key===' '||e.key==='ArrowRight'){e.preventDefault(); if(i<SLIDES.length-1){i++;draw();}}
+    else if(e.key==='ArrowLeft'){if(i>0){i--;draw();}}
+    else if(e.key==='f'||e.key==='F'){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}catch(e2){}}
+    else if(e.key==='Escape'){close();} }
+  function close(){ document.removeEventListener('keydown',key); ov.remove(); try{if(document.fullscreenElement)document.exitFullscreen();}catch(e){} }
+  document.addEventListener('keydown',key); document.body.appendChild(ov);
+  try{document.documentElement.requestFullscreen();}catch(e){}
+  draw();
+}
+</script></body></html>

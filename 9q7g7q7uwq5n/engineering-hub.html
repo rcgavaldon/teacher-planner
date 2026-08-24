@@ -1779,23 +1779,57 @@ function wk(btn,id){var pane=document.getElementById(id);if(!pane)return;var pan
 (function(){var h=(location.hash||'').replace('#','');if(h&&document.getElementById(h))tab(h,null);})();
 window.addEventListener('hashchange',function(){var h=(location.hash||'').replace('#','');if(h&&document.getElementById(h))tab(h,null);});
 function present(idx){
-  const slides=DECKS[idx]; if(!slides)return; let i=0;
+  const slides=DECKS[idx]; if(!slides)return; let i=0, zoom=1;
   const styles=[].slice.call(document.querySelectorAll('style')).map(function(s){return s.outerHTML;}).join('');
   const w=window.open('','engpresent','width=1280,height=800');
   if(!w){alert('Please allow pop-ups so the presentation opens in its own window you can drag onto the projector screen.');return;}
   const d=w.document; d.open();
-  d.write('<!doctype html><html><head><meta charset="utf-8"><title>Present — Mr. Gavaldon</title><base href="'+location.href+'">'+styles+'<style>html,body{margin:0;height:100%;background:#0b1020;overflow:hidden}.deckshow{position:fixed;inset:0}</style></head><body></body></html>');
+  d.write('<!doctype html><html><head><meta charset="utf-8"><title>Present — Mr. Gavaldon</title><base href="'+location.href+'">'+styles+
+    '<style>html,body{margin:0;height:100%;background:#0b1020;overflow:hidden}'+
+    '.deckshow{position:fixed;inset:0}'+
+    '.pstage{position:absolute;inset:0 0 62px 0;display:flex;align-items:center;justify-content:center;overflow:hidden}'+
+    '.pstage .dslide{width:1140px!important;max-height:none!important;overflow:visible!important;'+
+      'transform-origin:center center;will-change:transform}'+
+    '.pbar{position:absolute;left:0;right:0;bottom:0;height:62px}'+
+    '.zlab{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#AEB6E0;min-width:48px;text-align:center}'+
+    '</style></head><body></body></html>');
   d.close();
+  function fit(){
+    const card=d.querySelector('.pstage .dslide'); if(!card)return;
+    card.style.transform='none';
+    const availW=w.innerWidth-40, availH=w.innerHeight-62-40;
+    const natW=card.offsetWidth||1140, natH=card.offsetHeight||700;
+    let s=Math.min(availW/natW, availH/natH)*zoom;
+    s=Math.max(.25,Math.min(s,4));
+    card.style.transform='scale('+s+')';
+    const z=d.getElementById('zl'); if(z)z.textContent=Math.round(s*100)+'%';
+  }
   function draw(){
     d.body.innerHTML='<div class="deckshow"><div class="pstage">'+window.slideEl(slides[i],i,slides.length)+'</div>'+
-      '<div class="pbar"><button id="pp">← Back</button><span>'+(i+1)+' / '+slides.length+'</span><button id="pn" class="primary">Next →</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button></div></div>';
+      '<div class="pbar"><button id="pp">← Back</button><span>'+(i+1)+' / '+slides.length+'</span>'+
+      '<button id="pn" class="primary">Next →</button>'+
+      '<button id="zo">−</button><span class="zlab" id="zl">100%</span><button id="zi">+</button>'+
+      '<button id="zr">Fit</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button></div></div>';
     d.getElementById('pp').onclick=function(){if(i>0){i--;draw();}};
     d.getElementById('pn').onclick=function(){if(i<slides.length-1){i++;draw();}};
     d.getElementById('pc').onclick=function(){w.close();};
+    d.getElementById('zi').onclick=function(){zoom=Math.min(zoom*1.15,4);fit();};
+    d.getElementById('zo').onclick=function(){zoom=Math.max(zoom/1.15,.3);fit();};
+    d.getElementById('zr').onclick=function(){zoom=1;fit();};
     d.getElementById('pf').onclick=function(){try{d.fullscreenElement?d.exitFullscreen():d.documentElement.requestFullscreen();}catch(e){}};
+    requestAnimationFrame(fit);
   }
-  function key(e){if(e.key===' '||e.key==='ArrowRight'){e.preventDefault();if(i<slides.length-1){i++;draw();}}else if(e.key==='ArrowLeft'){if(i>0){i--;draw();}}}
+  function key(e){
+    if(e.key===' '||e.key==='ArrowRight'){e.preventDefault();if(i<slides.length-1){i++;draw();}}
+    else if(e.key==='ArrowLeft'){if(i>0){i--;draw();}}
+    else if(e.key==='+'||e.key==='='){e.preventDefault();zoom=Math.min(zoom*1.15,4);fit();}
+    else if(e.key==='-'||e.key==='_'){e.preventDefault();zoom=Math.max(zoom/1.15,.3);fit();}
+    else if(e.key==='0'){e.preventDefault();zoom=1;fit();}
+    else if(e.key==='f'||e.key==='F'){try{d.fullscreenElement?d.exitFullscreen():d.documentElement.requestFullscreen();}catch(e2){}}
+  }
   d.addEventListener('keydown',key);
+  w.addEventListener('resize',fit);
+  d.addEventListener('fullscreenchange',function(){setTimeout(fit,60);});
   try{w.focus();}catch(e){} draw();
 }
 function printDay(id){const src=document.getElementById(id);if(!src)return;const pz=document.getElementById('printzone');pz.innerHTML='';pz.appendChild(src.cloneNode(true));document.body.classList.add('printing');window.print();}

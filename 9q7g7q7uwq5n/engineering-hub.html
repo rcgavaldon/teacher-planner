@@ -1779,7 +1779,8 @@ function wk(btn,id){var pane=document.getElementById(id);if(!pane)return;var pan
 (function(){var h=(location.hash||'').replace('#','');if(h&&document.getElementById(h))tab(h,null);})();
 window.addEventListener('hashchange',function(){var h=(location.hash||'').replace('#','');if(h&&document.getElementById(h))tab(h,null);});
 function present(idx){
-  const slides=DECKS[idx]; if(!slides)return; let i=0, zoom=1;
+  const slides=DECKS[idx]; if(!slides)return;
+  let i=0, zoom=1, px=0, py=0, baseS=1;
   const styles=[].slice.call(document.querySelectorAll('style')).map(function(s){return s.outerHTML;}).join('');
   const w=window.open('','engpresent','width=1280,height=800');
   if(!w){alert('Please allow pop-ups so the presentation opens in its own window you can drag onto the projector screen.');return;}
@@ -1787,44 +1788,77 @@ function present(idx){
   d.write('<!doctype html><html><head><meta charset="utf-8"><title>Present — Mr. Gavaldon</title><base href="'+location.href+'">'+styles+
     '<style>html,body{margin:0;height:100%;background:#0b1020;overflow:hidden}'+
     '.deckshow{position:fixed;inset:0}'+
-    '.pstage{position:absolute;inset:0 0 62px 0;display:flex;align-items:center;justify-content:center;overflow:hidden}'+
+    '.pstage{position:absolute;inset:0 0 62px 0;display:flex;align-items:center;justify-content:center;'+
+      'overflow:hidden;cursor:grab;touch-action:none}'+
+    '.pstage.drag{cursor:grabbing}'+
     '.pstage .dslide{width:1140px!important;max-height:none!important;overflow:visible!important;'+
       'transform-origin:center center;will-change:transform}'+
     '.pbar{position:absolute;left:0;right:0;bottom:0;height:62px}'+
-    '.zlab{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#AEB6E0;min-width:48px;text-align:center}'+
+    '.zlab{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#AEB6E0;min-width:52px;text-align:center}'+
+    '.zhint{font-family:ui-monospace,Consolas,monospace;font-size:10.5px;color:#6B74A8;margin-left:6px}'+
     '</style></head><body></body></html>');
   d.close();
+  function card(){return d.querySelector('.pstage .dslide');}
+  function apply(){
+    const c=card(); if(!c)return;
+    c.style.transform='translate('+px+'px,'+py+'px) scale('+(baseS*zoom)+')';
+    const z=d.getElementById('zl'); if(z)z.textContent=Math.round(baseS*zoom*100)+'%';
+  }
   function fit(){
-    const card=d.querySelector('.pstage .dslide'); if(!card)return;
-    card.style.transform='none';
+    const c=card(); if(!c)return;
+    c.style.transform='none';
     const availW=w.innerWidth-40, availH=w.innerHeight-62-40;
-    const natW=card.offsetWidth||1140, natH=card.offsetHeight||700;
-    let s=Math.min(availW/natW, availH/natH)*zoom;
-    s=Math.max(.25,Math.min(s,4));
-    card.style.transform='scale('+s+')';
-    const z=d.getElementById('zl'); if(z)z.textContent=Math.round(s*100)+'%';
+    const natW=c.offsetWidth||1140, natH=c.offsetHeight||700;
+    baseS=Math.max(.25,Math.min(Math.min(availW/natW,availH/natH),4));
+    apply();
+  }
+  function reset(){zoom=1;px=0;py=0;fit();}
+  function zoomAt(factor,cx,cy){
+    const st=d.querySelector('.pstage'); if(!st)return;
+    const r=st.getBoundingClientRect();
+    const ox=r.left+r.width/2, oy=r.top+r.height/2;
+    const nz=Math.max(.3,Math.min(zoom*factor,8));
+    const k=nz/zoom; if(k===1)return;
+    if(cx!=null){ px-=(cx-ox-px)*(k-1); py-=(cy-oy-py)*(k-1); }
+    zoom=nz; apply();
   }
   function draw(){
     d.body.innerHTML='<div class="deckshow"><div class="pstage">'+window.slideEl(slides[i],i,slides.length)+'</div>'+
       '<div class="pbar"><button id="pp">← Back</button><span>'+(i+1)+' / '+slides.length+'</span>'+
       '<button id="pn" class="primary">Next →</button>'+
       '<button id="zo">−</button><span class="zlab" id="zl">100%</span><button id="zi">+</button>'+
-      '<button id="zr">Fit</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button></div></div>';
+      '<button id="zr">Fit</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button>'+
+      '<span class="zhint">wheel = zoom · drag = pan · double-click = fit</span></div></div>';
     d.getElementById('pp').onclick=function(){if(i>0){i--;draw();}};
     d.getElementById('pn').onclick=function(){if(i<slides.length-1){i++;draw();}};
     d.getElementById('pc').onclick=function(){w.close();};
-    d.getElementById('zi').onclick=function(){zoom=Math.min(zoom*1.15,4);fit();};
-    d.getElementById('zo').onclick=function(){zoom=Math.max(zoom/1.15,.3);fit();};
-    d.getElementById('zr').onclick=function(){zoom=1;fit();};
+    d.getElementById('zi').onclick=function(){zoomAt(1.2,null,null);};
+    d.getElementById('zo').onclick=function(){zoomAt(1/1.2,null,null);};
+    d.getElementById('zr').onclick=reset;
     d.getElementById('pf').onclick=function(){try{d.fullscreenElement?d.exitFullscreen():d.documentElement.requestFullscreen();}catch(e){}};
-    requestAnimationFrame(fit);
+    const st=d.querySelector('.pstage');
+    st.addEventListener('wheel',function(e){
+      e.preventDefault();
+      zoomAt(e.deltaY<0?1.12:1/1.12, e.clientX, e.clientY);
+    },{passive:false});
+    let dragging=false,sx=0,sy=0;
+    st.addEventListener('mousedown',function(e){
+      if(e.button!==0)return; dragging=true; sx=e.clientX-px; sy=e.clientY-py;
+      st.classList.add('drag'); e.preventDefault();
+    });
+    d.addEventListener('mousemove',function(e){
+      if(!dragging)return; px=e.clientX-sx; py=e.clientY-sy; apply();
+    });
+    d.addEventListener('mouseup',function(){dragging=false; st.classList.remove('drag');});
+    st.addEventListener('dblclick',reset);
+    requestAnimationFrame(function(){zoom=1;px=0;py=0;fit();});
   }
   function key(e){
     if(e.key===' '||e.key==='ArrowRight'){e.preventDefault();if(i<slides.length-1){i++;draw();}}
     else if(e.key==='ArrowLeft'){if(i>0){i--;draw();}}
-    else if(e.key==='+'||e.key==='='){e.preventDefault();zoom=Math.min(zoom*1.15,4);fit();}
-    else if(e.key==='-'||e.key==='_'){e.preventDefault();zoom=Math.max(zoom/1.15,.3);fit();}
-    else if(e.key==='0'){e.preventDefault();zoom=1;fit();}
+    else if(e.key==='+'||e.key==='='){e.preventDefault();zoomAt(1.2,null,null);}
+    else if(e.key==='-'||e.key==='_'){e.preventDefault();zoomAt(1/1.2,null,null);}
+    else if(e.key==='0'){e.preventDefault();reset();}
     else if(e.key==='f'||e.key==='F'){try{d.fullscreenElement?d.exitFullscreen():d.documentElement.requestFullscreen();}catch(e2){}}
   }
   d.addEventListener('keydown',key);

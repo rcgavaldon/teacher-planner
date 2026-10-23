@@ -3487,6 +3487,7 @@ function present(idx){
       '<span class="zhint">wheel = zoom · drag = pan · double-click = fit</span></div></div>';
     try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
     try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
+    try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
     d.getElementById('pp').onclick=function(){if(i>0){i--;draw();}};
     d.getElementById('pn').onclick=function(){if(i<slides.length-1){i++;draw();}};
     d.getElementById('pc').onclick=function(){w.close();};
@@ -3622,31 +3623,45 @@ document.addEventListener('DOMContentLoaded',function(){
 
 (function(){
   var DEF=600;
-  var BWT={left:DEF, timer:null, outs:[]};
-  function paint(){
-    var m=Math.floor(Math.abs(BWT.left)/60), s=Math.abs(BWT.left)%60;
-    var txt=(BWT.left<0?'-':'')+m+':'+(s<10?'0':'')+s;
-    BWT.outs=BWT.outs.filter(function(o){ return o.el && o.el.isConnected; });
-    BWT.outs.forEach(function(o){
-      o.out.textContent=txt;
-      o.el.classList.toggle('done', BWT.left<=0);
-      o.el.classList.toggle('run', !!BWT.timer);
-      o.go.innerHTML=BWT.timer?'&#10073;&#10073;':'&#9654;';
-    });
+  // State is a DEADLINE, not a counter. Browsers throttle timers in background tabs, which froze
+  // the old version while Robert was presenting. Now every paint recomputes from Date.now(), and
+  // each window (hub + Present) paints on its own interval, so neither can stall the other.
+  var BWT={endAt:null, paused:DEF, outs:[], beeped:false};
+  function left(){
+    return BWT.endAt===null ? BWT.paused : Math.round((BWT.endAt-Date.now())/1000);
+  }
+  function fmt(v){
+    var m=Math.floor(Math.abs(v)/60), s=Math.abs(v)%60;
+    return (v<0?'-':'')+m+':'+(s<10?'0':'')+s;
   }
   function beep(){
     try{var a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();
       o.connect(g);g.connect(a.destination);o.frequency.value=660;g.gain.value=.09;o.start();
       setTimeout(function(){o.stop();a.close();},450);}catch(e){}
   }
-  BWT.start=function(){ if(BWT.timer) return; BWT.timer=setInterval(function(){ BWT.left--; paint(); if(BWT.left===0) beep(); },1000); paint(); };
-  BWT.pause=function(){ clearInterval(BWT.timer); BWT.timer=null; paint(); };
-  BWT.toggle=function(){ BWT.timer?BWT.pause():BWT.start(); };
-  BWT.reset=function(){ BWT.pause(); BWT.left=DEF; paint(); };
-  BWT.add=function(n){ BWT.left=Math.max(0,BWT.left+n); paint(); };
+  function paint(){
+    var v=left(), txt=fmt(v), running=BWT.endAt!==null;
+    BWT.outs=BWT.outs.filter(function(o){ return o.el && o.el.isConnected; });
+    BWT.outs.forEach(function(o){
+      if(o.out.textContent!==txt) o.out.textContent=txt;
+      o.el.classList.toggle('done', v<=0);
+      o.el.classList.toggle('run', running);
+      o.go.innerHTML=running?'&#10073;&#10073;':'&#9654;';
+    });
+    if(running && v<=0 && !BWT.beeped){ BWT.beeped=true; beep(); }
+    if(v>0) BWT.beeped=false;
+  }
+  BWT.start=function(){ if(BWT.endAt!==null) return; BWT.endAt=Date.now()+BWT.paused*1000; paint(); };
+  BWT.pause=function(){ if(BWT.endAt===null) return; BWT.paused=left(); BWT.endAt=null; paint(); };
+  BWT.toggle=function(){ BWT.endAt===null?BWT.start():BWT.pause(); };
+  BWT.reset=function(){ BWT.endAt=null; BWT.paused=DEF; BWT.beeped=false; paint(); };
+  BWT.add=function(n){
+    if(BWT.endAt===null) BWT.paused=Math.max(0,BWT.paused+n);
+    else BWT.endAt=Math.max(Date.now(), BWT.endAt+n*1000);
+    paint();
+  };
+  BWT.paint=paint;
 
-  // build the chip inside ANY document and keep it in sync (the Present window rebuilds its
-  // body on every slide, so present() calls attach() again after each draw)
   BWT.attach=function(doc){
     if(!doc || !doc.body) return;
     var old=doc.getElementById('bwtimer'); if(old) old.remove();
@@ -3659,7 +3674,7 @@ document.addEventListener('DOMContentLoaded',function(){
       '<button class="bwt-minus" title="Minus one minute">&minus;</button>'+
       '<button class="bwt-plus" title="Plus one minute">+</button>'+
       '<button class="bwt-reset" title="Reset to ten minutes">&#8635;</button>';
-    if(doc!==document){ d.style.bottom='74px'; d.classList.add('proj'); }  // big + above the Back/Next bar
+    if(doc!==document){ d.style.bottom='74px'; d.classList.add('proj'); }
     doc.body.appendChild(d);
     var go=d.querySelector('.bwt-go');
     go.onclick=function(e){ e.stopPropagation(); BWT.toggle(); };
@@ -3667,20 +3682,30 @@ document.addEventListener('DOMContentLoaded',function(){
     d.querySelector('.bwt-plus').onclick=function(e){ e.stopPropagation(); BWT.add(60); };
     d.querySelector('.bwt-minus').onclick=function(e){ e.stopPropagation(); BWT.add(-60); };
     var dx=0,dy=0,drag=false;
+    function endDrag(){ drag=false; d.classList.remove('drag'); }
     d.addEventListener('pointerdown',function(e){
       if(e.target.tagName==='BUTTON') return;
-      drag=true; d.classList.add('drag'); d.setPointerCapture(e.pointerId);
+      drag=true; d.classList.add('drag');
+      try{ d.setPointerCapture(e.pointerId); }catch(err){}
       var r=d.getBoundingClientRect(); dx=e.clientX-r.left; dy=e.clientY-r.top;
     });
     d.addEventListener('pointermove',function(e){
       if(!drag) return;
       d.style.left=(e.clientX-dx)+'px'; d.style.top=(e.clientY-dy)+'px'; d.style.right='auto'; d.style.bottom='auto';
     });
-    d.addEventListener('pointerup',function(){ drag=false; d.classList.remove('drag'); });
+    d.addEventListener('pointerup',endDrag);
+    d.addEventListener('pointercancel',endDrag);
+    d.addEventListener('lostpointercapture',endDrag);
     doc.addEventListener('keydown',function(e){
       if(e.target.matches && e.target.matches('input,textarea')) return;
       if(e.key==='t'||e.key==='T') BWT.toggle();
     });
+    // this window paints itself, so a throttled hub tab cannot freeze the projected clock
+    var win=doc.defaultView||window;
+    if(doc.__bwtPainter) win.clearInterval(doc.__bwtPainter);
+    doc.__bwtPainter=win.setInterval(paint,250);
+    doc.addEventListener('visibilitychange',paint);
+    win.addEventListener('focus',paint);
     BWT.outs.push({el:d,out:d.querySelector('.bwt-time'),go:go});
     paint();
   };

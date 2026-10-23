@@ -128,18 +128,25 @@ td.edpk{background:#F7F8FD;font-weight:700;color:#383CC1;font-size:12.5px;white-
 .ph{font-family:Georgia,serif;font-size:22px;margin:14px 2px 6px}/*TOOLS*/
 #bwtimer{position:fixed;right:14px;bottom:14px;z-index:99999;display:flex;align-items:center;gap:7px;
   background:rgba(14,19,48,.93);color:#fff;border:1px solid rgba(169,176,255,.35);border-radius:11px;
-  padding:7px 9px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 6px 20px rgba(0,0,0,.28);
+  padding:10px 14px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 8px 26px rgba(0,0,0,.33);
   cursor:grab;user-select:none;transition:opacity .25s}
 #bwtimer.run{opacity:.35}
 #bwtimer.run:hover{opacity:1}
 #bwtimer.drag{cursor:grabbing;opacity:1}
 #bwtimer.done{background:#7a1228;border-color:#ff9db1;animation:bwflash 1s steps(2) infinite}
 @keyframes bwflash{50%{background:#0E1330}}
-#bwtimer .bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}
-#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:12px;padding:2px 5px;border-radius:6px}
+#bwtimer .bwt-time{font-size:34px;font-weight:700;letter-spacing:.01em;min-width:104px;text-align:center;line-height:1.05}
+#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:17px;padding:4px 9px;border-radius:7px}
 #bwtimer button:hover{background:rgba(169,176,255,.18);color:#fff}
-#bwtimer .bwt-go{font-size:14px!important;color:#E7B449!important}
-#bwt-lab{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8C93C4}
+#bwtimer .bwt-go{font-size:21px!important;color:#E7B449!important}
+#bwt-lab{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8C93C4}
+/* projector copy - readable from the back of the room */
+#bwtimer.proj{padding:14px 20px;gap:12px;border-radius:16px;border-width:2px}
+#bwtimer.proj .bwt-time{font-size:68px;min-width:196px}
+#bwtimer.proj #bwt-lab{font-size:14px}
+#bwtimer.proj button{font-size:26px;padding:6px 12px}
+#bwtimer.proj .bwt-go{font-size:32px!important}
+#bwtimer.proj.run{opacity:.5}
 
 #t-cow .cowbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
 #t-cow .cowbar button,#t-cow .cowbar label.fake{all:unset;cursor:pointer;background:#383CC1;color:#fff;
@@ -3479,6 +3486,7 @@ function present(idx){
       '<button id="zr">Fit</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button>'+
       '<span class="zhint">wheel = zoom · drag = pan · double-click = fit</span></div></div>';
     try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
+    try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
     d.getElementById('pp').onclick=function(){if(i>0){i--;draw();}};
     d.getElementById('pn').onclick=function(){if(i<slides.length-1){i++;draw();}};
     d.getElementById('pc').onclick=function(){w.close();};
@@ -3522,18 +3530,25 @@ function copyPost(b){var el=b.closest('.cp-card').querySelector('.cp-body');navi
 </script><!--TOOLS--><script type="text/css" id="bwt-css-src">
 #bwtimer{position:fixed;right:14px;bottom:14px;z-index:99999;display:flex;align-items:center;gap:7px;
   background:rgba(14,19,48,.93);color:#fff;border:1px solid rgba(169,176,255,.35);border-radius:11px;
-  padding:7px 9px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 6px 20px rgba(0,0,0,.28);
+  padding:10px 14px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 8px 26px rgba(0,0,0,.33);
   cursor:grab;user-select:none;transition:opacity .25s}
 #bwtimer.run{opacity:.35}
 #bwtimer.run:hover{opacity:1}
 #bwtimer.drag{cursor:grabbing;opacity:1}
 #bwtimer.done{background:#7a1228;border-color:#ff9db1;animation:bwflash 1s steps(2) infinite}
 @keyframes bwflash{50%{background:#0E1330}}
-#bwtimer .bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}
-#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:12px;padding:2px 5px;border-radius:6px}
+#bwtimer .bwt-time{font-size:34px;font-weight:700;letter-spacing:.01em;min-width:104px;text-align:center;line-height:1.05}
+#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:17px;padding:4px 9px;border-radius:7px}
 #bwtimer button:hover{background:rgba(169,176,255,.18);color:#fff}
-#bwtimer .bwt-go{font-size:14px!important;color:#E7B449!important}
-#bwt-lab{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8C93C4}
+#bwtimer .bwt-go{font-size:21px!important;color:#E7B449!important}
+#bwt-lab{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8C93C4}
+/* projector copy - readable from the back of the room */
+#bwtimer.proj{padding:14px 20px;gap:12px;border-radius:16px;border-width:2px}
+#bwtimer.proj .bwt-time{font-size:68px;min-width:196px}
+#bwtimer.proj #bwt-lab{font-size:14px}
+#bwtimer.proj button{font-size:26px;padding:6px 12px}
+#bwtimer.proj .bwt-go{font-size:32px!important}
+#bwtimer.proj.run{opacity:.5}
 </script><script>
 var COW={data:null,per:null};
 function cowSave(){ try{localStorage.setItem('cowdata',JSON.stringify(COW.data));}catch(e){} }
@@ -3644,7 +3659,7 @@ document.addEventListener('DOMContentLoaded',function(){
       '<button class="bwt-minus" title="Minus one minute">&minus;</button>'+
       '<button class="bwt-plus" title="Plus one minute">+</button>'+
       '<button class="bwt-reset" title="Reset to ten minutes">&#8635;</button>';
-    if(doc!==document){ d.style.bottom='74px'; }   // clear the Back/Next bar in the Present window
+    if(doc!==document){ d.style.bottom='74px'; d.classList.add('proj'); }  // big + above the Back/Next bar
     doc.body.appendChild(d);
     var go=d.querySelector('.bwt-go');
     go.onclick=function(e){ e.stopPropagation(); BWT.toggle(); };

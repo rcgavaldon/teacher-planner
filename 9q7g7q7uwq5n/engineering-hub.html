@@ -135,10 +135,10 @@ td.edpk{background:#F7F8FD;font-weight:700;color:#383CC1;font-size:12.5px;white-
 #bwtimer.drag{cursor:grabbing;opacity:1}
 #bwtimer.done{background:#7a1228;border-color:#ff9db1;animation:bwflash 1s steps(2) infinite}
 @keyframes bwflash{50%{background:#0E1330}}
-#bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}
+#bwtimer .bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}
 #bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:12px;padding:2px 5px;border-radius:6px}
 #bwtimer button:hover{background:rgba(169,176,255,.18);color:#fff}
-#bwt-go{font-size:14px!important;color:#E7B449!important}
+#bwtimer .bwt-go{font-size:14px!important;color:#E7B449!important}
 #bwt-lab{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8C93C4}
 
 #t-cow .cowbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
@@ -3445,7 +3445,7 @@ function present(idx){
     '.pbar{position:absolute;left:0;right:0;bottom:0;height:62px}'+
     '.zlab{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#AEB6E0;min-width:52px;text-align:center}'+
     '.zhint{font-family:ui-monospace,Consolas,monospace;font-size:10.5px;color:#6B74A8;margin-left:6px}'+
-    '<style>#bwtimer{position:fixed;right:14px;bottom:14px;z-index:99999;display:flex;align-items:center;gap:7px;  background:rgba(14,19,48,.93);color:#fff;border:1px solid rgba(169,176,255,.35);border-radius:11px;  padding:7px 9px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 6px 20px rgba(0,0,0,.28);  cursor:grab;user-select:none;transition:opacity .25s}#bwtimer.run{opacity:.35}#bwtimer.run:hover{opacity:1}#bwtimer.drag{cursor:grabbing;opacity:1}#bwtimer.done{background:#7a1228;border-color:#ff9db1;animation:bwflash 1s steps(2) infinite}@keyframes bwflash{50%{background:#0E1330}}#bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:12px;padding:2px 5px;border-radius:6px}#bwtimer button:hover{background:rgba(169,176,255,.18);color:#fff}#bwt-go{font-size:14px!important;color:#E7B449!important}#bwt-lab{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8C93C4}</style></head><body><div id="bwtimer" title="Bell work timer - drag me anywhere"><div><div id="bwt-lab">Bell work</div><div id="bwt-time">10:00</div></div><button id="bwt-go" title="Start / pause">&#9654;</button><button id="bwt-minus" title="Minus one minute">&minus;</button><button id="bwt-plus" title="Plus one minute">+</button><button id="bwt-reset" title="Reset to ten minutes">&#8635;</button></div><script> (function(){   var DEF=600, left=DEF, t=null, el=document.getElementById(\'bwtimer\');   if(!el) return;   var out=document.getElementById(\'bwt-time\'), go=document.getElementById(\'bwt-go\');   function paint(){     var m=Math.floor(Math.abs(left)/60), s=Math.abs(left)%60;     out.textContent=(left<0?\'-\':\'\')+m+\':\'+(s<10?\'0\':\'\')+s;     el.classList.toggle(\'done\', left<=0);   }   function beep(){     try{var a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();       o.connect(g);g.connect(a.destination);o.frequency.value=660;g.gain.value=.09;o.start();       setTimeout(function(){o.stop();a.close();},450);}catch(e){}   }   function tick(){ left--; paint(); if(left===0) beep(); }   function start(){ if(t) return; t=setInterval(tick,1000); go.innerHTML=\'&#10073;&#10073;\'; el.classList.add(\'run\'); }   function pause(){ clearInterval(t); t=null; go.innerHTML=\'&#9654;\'; el.classList.remove(\'run\'); }   go.onclick=function(e){ e.stopPropagation(); t?pause():start(); };   document.getElementById(\'bwt-reset\').onclick=function(e){ e.stopPropagation(); pause(); left=DEF; paint(); };   document.getElementById(\'bwt-plus\').onclick=function(e){ e.stopPropagation(); left+=60; paint(); };   document.getElementById(\'bwt-minus\').onclick=function(e){ e.stopPropagation(); left=Math.max(0,left-60); paint(); };   // drag anywhere   var dx=0,dy=0,dragging=false;   el.addEventListener(\'pointerdown\',function(e){     if(e.target.tagName===\'BUTTON\') return;     dragging=true; el.classList.add(\'drag\'); el.setPointerCapture(e.pointerId);     var r=el.getBoundingClientRect(); dx=e.clientX-r.left; dy=e.clientY-r.top;   });   el.addEventListener(\'pointermove\',function(e){     if(!dragging) return;     el.style.left=(e.clientX-dx)+\'px\'; el.style.top=(e.clientY-dy)+\'px\';     el.style.right=\'auto\'; el.style.bottom=\'auto\';   });   el.addEventListener(\'pointerup\',function(){ dragging=false; el.classList.remove(\'drag\'); });   paint();   document.addEventListener(\'keydown\',function(e){     if(e.target.matches(\'input,textarea\')) return;     if(e.key===\'t\'||e.key===\'T\'){ t?pause():start(); }   }); })(); <\/script></body></html>');<!--TOOLS--><!--TOOLS-->
+    '</style></head><body></body></html>');
   d.close();
   function card(){return d.querySelector('.pstage .dslide');}
   function apply(){
@@ -3478,6 +3478,7 @@ function present(idx){
       '<button id="zo">−</button><span class="zlab" id="zl">100%</span><button id="zi">+</button>'+
       '<button id="zr">Fit</button><button id="pf">⛶ Fullscreen</button><button id="pc">Close ✕</button>'+
       '<span class="zhint">wheel = zoom · drag = pan · double-click = fit</span></div></div>';
+    try{ window.BWT && window.BWT.attach(d); }catch(e){}  /*TOOLS-timer*/
     d.getElementById('pp').onclick=function(){if(i>0){i--;draw();}};
     d.getElementById('pn').onclick=function(){if(i<slides.length-1){i++;draw();}};
     d.getElementById('pc').onclick=function(){w.close();};
@@ -3518,7 +3519,22 @@ function present(idx){
 function printDay(id){const src=document.getElementById(id);if(!src)return;const pz=document.getElementById('printzone');pz.innerHTML='';pz.appendChild(src.cloneNode(true));document.body.classList.add('printing');window.print();}
 window.onafterprint=()=>{document.body.classList.remove('printing');document.getElementById('printzone').innerHTML='';};
 function copyPost(b){var el=b.closest('.cp-card').querySelector('.cp-body');navigator.clipboard.writeText(el.textContent).then(function(){var o=b.textContent;b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy';},1500);});}
-</script><!--TOOLS--><div id="bwtimer" title="Bell work timer - drag me anywhere"><div><div id="bwt-lab">Bell work</div><div id="bwt-time">10:00</div></div><button id="bwt-go" title="Start / pause">&#9654;</button><button id="bwt-minus" title="Minus one minute">&minus;</button><button id="bwt-plus" title="Plus one minute">+</button><button id="bwt-reset" title="Reset to ten minutes">&#8635;</button></div><script>
+</script><!--TOOLS--><script type="text/css" id="bwt-css-src">
+#bwtimer{position:fixed;right:14px;bottom:14px;z-index:99999;display:flex;align-items:center;gap:7px;
+  background:rgba(14,19,48,.93);color:#fff;border:1px solid rgba(169,176,255,.35);border-radius:11px;
+  padding:7px 9px;font-family:ui-monospace,Consolas,monospace;box-shadow:0 6px 20px rgba(0,0,0,.28);
+  cursor:grab;user-select:none;transition:opacity .25s}
+#bwtimer.run{opacity:.35}
+#bwtimer.run:hover{opacity:1}
+#bwtimer.drag{cursor:grabbing;opacity:1}
+#bwtimer.done{background:#7a1228;border-color:#ff9db1;animation:bwflash 1s steps(2) infinite}
+@keyframes bwflash{50%{background:#0E1330}}
+#bwtimer .bwt-time{font-size:19px;font-weight:700;letter-spacing:.02em;min-width:62px;text-align:center}
+#bwtimer button{all:unset;cursor:pointer;color:#A9B0FF;font-size:12px;padding:2px 5px;border-radius:6px}
+#bwtimer button:hover{background:rgba(169,176,255,.18);color:#fff}
+#bwtimer .bwt-go{font-size:14px!important;color:#E7B449!important}
+#bwt-lab{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8C93C4}
+</script><script>
 var COW={data:null,per:null};
 function cowSave(){ try{localStorage.setItem('cowdata',JSON.stringify(COW.data));}catch(e){} }
 function cowLoad(){
@@ -3590,43 +3606,71 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 (function(){
-  var DEF=600, left=DEF, t=null, el=document.getElementById('bwtimer');
-  if(!el) return;
-  var out=document.getElementById('bwt-time'), go=document.getElementById('bwt-go');
+  var DEF=600;
+  var BWT={left:DEF, timer:null, outs:[]};
   function paint(){
-    var m=Math.floor(Math.abs(left)/60), s=Math.abs(left)%60;
-    out.textContent=(left<0?'-':'')+m+':'+(s<10?'0':'')+s;
-    el.classList.toggle('done', left<=0);
+    var m=Math.floor(Math.abs(BWT.left)/60), s=Math.abs(BWT.left)%60;
+    var txt=(BWT.left<0?'-':'')+m+':'+(s<10?'0':'')+s;
+    BWT.outs=BWT.outs.filter(function(o){ return o.el && o.el.isConnected; });
+    BWT.outs.forEach(function(o){
+      o.out.textContent=txt;
+      o.el.classList.toggle('done', BWT.left<=0);
+      o.el.classList.toggle('run', !!BWT.timer);
+      o.go.innerHTML=BWT.timer?'&#10073;&#10073;':'&#9654;';
+    });
   }
   function beep(){
     try{var a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();
       o.connect(g);g.connect(a.destination);o.frequency.value=660;g.gain.value=.09;o.start();
       setTimeout(function(){o.stop();a.close();},450);}catch(e){}
   }
-  function tick(){ left--; paint(); if(left===0) beep(); }
-  function start(){ if(t) return; t=setInterval(tick,1000); go.innerHTML='&#10073;&#10073;'; el.classList.add('run'); }
-  function pause(){ clearInterval(t); t=null; go.innerHTML='&#9654;'; el.classList.remove('run'); }
-  go.onclick=function(e){ e.stopPropagation(); t?pause():start(); };
-  document.getElementById('bwt-reset').onclick=function(e){ e.stopPropagation(); pause(); left=DEF; paint(); };
-  document.getElementById('bwt-plus').onclick=function(e){ e.stopPropagation(); left+=60; paint(); };
-  document.getElementById('bwt-minus').onclick=function(e){ e.stopPropagation(); left=Math.max(0,left-60); paint(); };
-  // drag anywhere
-  var dx=0,dy=0,dragging=false;
-  el.addEventListener('pointerdown',function(e){
-    if(e.target.tagName==='BUTTON') return;
-    dragging=true; el.classList.add('drag'); el.setPointerCapture(e.pointerId);
-    var r=el.getBoundingClientRect(); dx=e.clientX-r.left; dy=e.clientY-r.top;
-  });
-  el.addEventListener('pointermove',function(e){
-    if(!dragging) return;
-    el.style.left=(e.clientX-dx)+'px'; el.style.top=(e.clientY-dy)+'px';
-    el.style.right='auto'; el.style.bottom='auto';
-  });
-  el.addEventListener('pointerup',function(){ dragging=false; el.classList.remove('drag'); });
-  paint();
-  document.addEventListener('keydown',function(e){
-    if(e.target.matches('input,textarea')) return;
-    if(e.key==='t'||e.key==='T'){ t?pause():start(); }
-  });
+  BWT.start=function(){ if(BWT.timer) return; BWT.timer=setInterval(function(){ BWT.left--; paint(); if(BWT.left===0) beep(); },1000); paint(); };
+  BWT.pause=function(){ clearInterval(BWT.timer); BWT.timer=null; paint(); };
+  BWT.toggle=function(){ BWT.timer?BWT.pause():BWT.start(); };
+  BWT.reset=function(){ BWT.pause(); BWT.left=DEF; paint(); };
+  BWT.add=function(n){ BWT.left=Math.max(0,BWT.left+n); paint(); };
+
+  // build the chip inside ANY document and keep it in sync (the Present window rebuilds its
+  // body on every slide, so present() calls attach() again after each draw)
+  BWT.attach=function(doc){
+    if(!doc || !doc.body) return;
+    var old=doc.getElementById('bwtimer'); if(old) old.remove();
+    if(!doc.getElementById('bwt-style')){
+      var st=doc.createElement('style'); st.id='bwt-style'; st.textContent=BWT.css; doc.head.appendChild(st);
+    }
+    var d=doc.createElement('div'); d.id='bwtimer'; d.title='Bell work timer - drag me anywhere';
+    d.innerHTML='<div><div id="bwt-lab">Bell work</div><div class="bwt-time">10:00</div></div>'+
+      '<button class="bwt-go" title="Start / pause">&#9654;</button>'+
+      '<button class="bwt-minus" title="Minus one minute">&minus;</button>'+
+      '<button class="bwt-plus" title="Plus one minute">+</button>'+
+      '<button class="bwt-reset" title="Reset to ten minutes">&#8635;</button>';
+    if(doc!==document){ d.style.bottom='74px'; }   // clear the Back/Next bar in the Present window
+    doc.body.appendChild(d);
+    var go=d.querySelector('.bwt-go');
+    go.onclick=function(e){ e.stopPropagation(); BWT.toggle(); };
+    d.querySelector('.bwt-reset').onclick=function(e){ e.stopPropagation(); BWT.reset(); };
+    d.querySelector('.bwt-plus').onclick=function(e){ e.stopPropagation(); BWT.add(60); };
+    d.querySelector('.bwt-minus').onclick=function(e){ e.stopPropagation(); BWT.add(-60); };
+    var dx=0,dy=0,drag=false;
+    d.addEventListener('pointerdown',function(e){
+      if(e.target.tagName==='BUTTON') return;
+      drag=true; d.classList.add('drag'); d.setPointerCapture(e.pointerId);
+      var r=d.getBoundingClientRect(); dx=e.clientX-r.left; dy=e.clientY-r.top;
+    });
+    d.addEventListener('pointermove',function(e){
+      if(!drag) return;
+      d.style.left=(e.clientX-dx)+'px'; d.style.top=(e.clientY-dy)+'px'; d.style.right='auto'; d.style.bottom='auto';
+    });
+    d.addEventListener('pointerup',function(){ drag=false; d.classList.remove('drag'); });
+    doc.addEventListener('keydown',function(e){
+      if(e.target.matches && e.target.matches('input,textarea')) return;
+      if(e.key==='t'||e.key==='T') BWT.toggle();
+    });
+    BWT.outs.push({el:d,out:d.querySelector('.bwt-time'),go:go});
+    paint();
+  };
+  window.BWT=BWT;
+  BWT.css=document.getElementById('bwt-css-src').textContent;
+  BWT.attach(document);
 })();
 </script><!--TOOLS--></body></html>
